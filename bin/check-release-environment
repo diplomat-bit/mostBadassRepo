@@ -1,0 +1,107 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/bin/check-release-environment
+================================================================================
+
+#!/usr/bin/env bash
+
+errors=()
+
+if [ -z "${PYPI_TOKEN}" ]; then
+  errors+=("The PYPI_TOKEN secret has not been set. Please set it in either this repository's secrets or your organization secrets.")
+fi
+
+lenErrors=${#errors[@]}
+
+if [[ lenErrors -gt 0 ]]; then
+  echo -e "Found the following errors in the release environment:\n"
+
+  for error in "${errors[@]}"; do
+    echo -e "- $error\n"
+  done
+
+  exit 1
+fi
+
+echo "The environment is ready to push releases!"
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/bin/check-release-environment
+================================================================================
+
+#!/usr/bin/env bash
+
+errors=()
+
+if [ -z "${NPM_TOKEN}" ]; then
+  errors+=("The NPM_TOKEN secret has not been set. Please set it in either this repository's secrets or your organization secrets")
+fi
+
+lenErrors=${#errors[@]}
+
+if [[ lenErrors -gt 0 ]]; then
+  echo -e "Found the following errors in the release environment:\n"
+
+  for error in "${errors[@]}"; do
+    echo -e "- $error\n"
+  done
+
+  exit 1
+fi
+
+echo "The environment is ready to push releases!"
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/bin/check-release-environment
+================================================================================
+
+#!/usr/bin/env bash
+
+errors=()
+
+if [ -z "${PYPI_TOKEN}" ]; then
+  errors+=("The PYPI_TOKEN secret has not been set. Please set it in either this repository's secrets or your organization secrets.")
+fi
+
+lenErrors=${#errors[@]}
+
+if [[ lenErrors -gt 0 ]]; then
+  echo -e "Found the following errors in the release environment:\n"
+
+  for error in "${errors[@]}"; do
+    echo -e "- $error\n"
+  done
+
+  exit 1
+fi
+
+echo "The environment is ready to push releases!"
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/bin/check-release-environment
+================================================================================
+
+#!/usr/bin/env bash
+
+errors=()
+
+if [ -z "${NPM_TOKEN}" ]; then
+  errors+=("The NPM_TOKEN secret has not been set. Please set it in either this repository's secrets or your organization secrets")
+fi
+
+lenErrors=${#errors[@]}
+
+if [[ lenErrors -gt 0 ]]; then
+  echo -e "Found the following errors in the release environment:\n"
+
+  for error in "${errors[@]}"; do
+    echo -e "- $error\n"
+  done
+
+  exit 1
+fi
+
+echo "The environment is ready to push releases!"
+

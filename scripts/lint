@@ -1,0 +1,141 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+if [ "$1" = "--fix" ]; then
+  echo "==> Running ruff with --fix"
+  uv run ruff check . --fix
+else
+  echo "==> Running ruff"
+  uv run ruff check .
+fi
+
+echo "==> Running pyright"
+uv run pyright
+
+echo "==> Running mypy"
+uv run mypy .
+
+echo "==> Making sure it imports"
+uv run python -c 'import aibanking'
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint"
+./node_modules/.bin/eslint .
+
+echo "==> Building"
+./scripts/build
+
+echo "==> Checking types"
+./node_modules/typescript/bin/tsc
+
+echo "==> Running Are The Types Wrong?"
+./node_modules/.bin/attw --pack dist -f json >.attw.json || true
+node scripts/utils/attw-report.cjs
+
+echo "==> Running publint"
+./node_modules/.bin/publint dist
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-go | ORIGINAL PATH: diplomat-bit-jocall3-go-7054919/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running Go build"
+go build ./...
+
+echo "==> Checking tests compile"
+go test -run=^$ ./...
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint"
+ESLINT_USE_FLAT_CONFIG="false" ./node_modules/.bin/eslint --ext ts,js .
+
+echo "==> Running tsc"
+./node_modules/.bin/tsc --noEmit
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+if [ "$1" = "--fix" ]; then
+  echo "==> Running ruff with --fix"
+  uv run ruff check . --fix
+else
+  echo "==> Running ruff"
+  uv run ruff check .
+fi
+
+echo "==> Running pyright"
+uv run pyright
+
+echo "==> Running mypy"
+uv run mypy .
+
+echo "==> Making sure it imports"
+uv run python -c 'import jocall3'
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/scripts/lint
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint"
+./node_modules/.bin/eslint .
+
+echo "==> Building"
+./scripts/build
+
+echo "==> Checking types"
+./node_modules/typescript/bin/tsc
+
+echo "==> Running Are The Types Wrong?"
+./node_modules/.bin/attw --pack dist -f json >.attw.json || true
+node scripts/utils/attw-report.cjs
+
+echo "==> Running publint"
+./node_modules/.bin/publint dist

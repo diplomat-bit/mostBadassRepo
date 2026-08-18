@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/jocall3-node | PATH: diplomat-bit-jocall3-node-fae6abf/packages/mcp-server/manifest.json
+================================================================================
+
+{
+  "dxt_version": "0.2",
+  "name": "jocall3-node-mcp",
+  "version": "0.0.1",
+  "description": "The official MCP Server for the Jocall3 API",
+  "author": {
+    "name": "Jocall3",
+    "email": "diplomat@citibankdemobusiness.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stainless-sdks/jocall3-node.git"
+  },
+  "homepage": "https://github.com/stainless-sdks/jocall3-node/tree/main/packages/mcp-server#readme",
+  "documentation": "https://github.com/diplomat-bit/aibank",
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/index.js"
+      ],
+      "env": {
+        "JOCALL3_API_KEY": "${user_config.JOCALL3_API_KEY}",
+        "GEMINI_API_KEY": "${user_config.GEMINI_API_KEY}"
+      }
+    }
+  },
+  "user_config": {
+    "JOCALL3_API_KEY": {
+      "title": "api_key",
+      "description": "",
+      "required": true,
+      "type": "string"
+    },
+    "GEMINI_API_KEY": {
+      "title": "gemini_api_key",
+      "description": "",
+      "required": true,
+      "type": "string"
+    }
+  },
+  "tools": [],
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": [
+    "api"
+  ]
+}

@@ -1,0 +1,223 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/inventions/math_models/027_atmospheric_carbon_nanofiber_capture.tex
+================================================================================
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Innovation Expansion Package - Mathematical Models}
+\fancyhead[R]{Atmospheric Carbon Nanofiber Capture System}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14.5pt}
+
+\title{\textbf{Conceptual Mathematical Models for the Atmospheric Carbon Nanofiber Capture System}}
+\author{\textit{AI Research & Development Division}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+The following conceptual mathematical models delineate the core operational principles and performance dynamics of the Atmospheric Carbon Nanofiber Capture System. These formulations are presented as high-level engineering approximations, designed to guide initial feasibility assessments, parameter optimization, and resource allocation for this ambitious endeavor. While not exhaustive in their microscopic detail, these models establish a robust framework for understanding the system's projected efficacy, scalability, and long-term impact on global atmospheric carbon dioxide concentrations. We're talking about quantifying the impossible, which is, frankly, just good engineering with a sense of urgency.
+
+\section*{Conceptual Mathematical Models}
+
+\subsection*{Model 1: Carbon Dioxide Capture Rate (\(\dot{C}_{\text{capture}}\))}
+This model quantifies the instantaneous rate at which carbon dioxide is removed from the atmosphere by the nanofiber array, a critical parameter for system throughput. It accounts for the volumetric flow rate of air, the initial and final CO\(_2\) concentrations, and the system's intrinsic capture efficiency.
+
+\begin{equation}
+\dot{C}_{\text{capture}} = Q_{\text{air}} \times \left( [CO_2]_{\text{in}} - [CO_2]_{\text{out}} \right) \times \eta_{\text{capture}}
+\label{eq:capture_rate}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(\dot{C}_{\text{capture}}\) is the mass of CO\(_2\) captured per unit time (kg/s).
+    \item \(Q_{\text{air}}\) is the volumetric airflow rate through the nanofiber array (m\textsuperscript{3}/s). This isn't just a fan setting; it's a precisely optimized aerodynamic parameter.
+    \item \([CO_2]_{\text{in}}\) is the mass concentration of CO\(_2\) in ambient air entering the system (kg/m\textsuperscript{3}). Our starting point.
+    \item \([CO_2]_{\text{out}}\) is the mass concentration of CO\(_2\) in the air exiting the system (kg/m\textsuperscript{3}). The goal is to make this number ridiculously small.
+    \item \(\eta_{\text{capture}}\) is the intrinsic capture efficiency of the nanofiber material (dimensionless, \(0 \le \eta_{\text{capture}} \le 1\)), reflecting the actual binding effectiveness. We're engineering for an \(\eta_{\text{capture}}\) that approaches unity, because why would we settle for less?
+\end{itemize}
+
+\textbf{Reasoned Derivation:} The fundamental principle here is a mass balance across the capture system. The total mass of CO\(_2\) flowing into the system per unit time is \(Q_{\text{air}} \times [CO_2]_{\text{in}}\). The mass flowing out is \(Q_{\text{air}} \times [CO_2]_{\text{out}}\). The difference, \((Q_{\text{air}} \times [CO_2]_{\text{in}}) - (Q_{\text{air}} \times [CO_2]_{\text{out}})\), represents the amount of CO\(_2\) removed from the airflow. Multiplying by \(\eta_{\text{capture}}\) accounts for any practical inefficiencies in the binding process, ensuring we are grounded in the harsh reality of thermodynamics, even as we bend it to our will.
+
+\subsection*{Model 2: Energy Consumption per Unit Carbon Captured (\(E_{\text{specific}}\))}
+This model quantifies the energy expenditure required to capture a unit mass of CO\(_2\), encompassing both the pneumatic power for air movement and the electrochemical or thermal energy for nanofiber regeneration. Minimizing this parameter is key to making large-scale carbon capture economically viable (and not just an academic exercise).
+
+\begin{equation}
+E_{\text{specific}} = \frac{P_{\text{pneumatic}} + P_{\text{regeneration}}}{\dot{C}_{\text{capture}}} + E_{\text{auxiliary}}
+\label{eq:energy_specific}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(E_{\text{specific}}\) is the total energy consumed per unit mass of CO\(_2\) captured (J/kg or kWh/ton).
+    \item \(P_{\text{pneumatic}}\) is the power required to move air through the nanofiber array, overcoming pressure drop (W). Think of it as the system's "breathing" energy.
+    \item \(P_{\text{regeneration}}\) is the power required for desorbing CO\(_2\) from the nanofibers and regenerating their capture capacity (W). This is where the real materials science magic happens.
+    \item \(\dot{C}_{\text{capture}}\) is the carbon capture rate (kg/s), as defined in Equation \ref{eq:capture_rate}.
+    \item \(E_{\text{auxiliary}}\) represents auxiliary energy consumption per unit carbon captured (J/kg), accounting for control systems, lighting, maintenance, and other parasitic loads. Because nothing is ever free.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This equation directly calculates the energy intensity of the capture process. The numerator sums the primary power requirements: \(P_{\text{pneumatic}} = \Delta P \times Q_{\text{air}}\) (where \(\Delta P\) is the pressure drop across the array), and \(P_{\text{regeneration}}\) which is an empirically derived value based on the regeneration mechanism (e.g., thermal desorption energy, electrochemical potential). Dividing this total power by the capture rate \(\dot{C}_{\text{capture}}\) yields the energy per unit mass. The \(E_{\text{auxiliary}}\) term is added to ensure a comprehensive full-system energy budget, acknowledging that even our hyper-efficient AI-optimized operations still consume a few watts here and there.
+
+\subsection*{Model 3: Nanofiber Lifetime and Degradation Rate (\(\tau_{\text{nanofiber}}\))}
+The operational longevity and degradation characteristics of the nanofiber material are critical for system maintenance and overall cost-effectiveness. This model describes the effective lifetime of the capture capacity under continuous operation.
+
+\begin{equation}
+\frac{d\eta_{\text{capture}}}{dt} = - k_{\text{degradation}} \times \eta_{\text{capture}}^n - k_{\text{fouling}} \times \left(1 - \frac{\eta_{\text{capture}}}{\eta_{\text{max}}}\right)^m
+\label{eq:degradation_rate}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(\eta_{\text{capture}}\) is the current intrinsic capture efficiency (dimensionless).
+    \item \(t\) is time (s).
+    \item \(k_{\text{degradation}}\) is the rate constant for intrinsic material degradation (s\textsuperscript{-1}), representing irreversible chemical or structural changes.
+    \item \(n\) is the order of the degradation reaction (dimensionless). This isn't just fancy math; it tells us how robust our nanofibers actually are.
+    \item \(k_{\text{fouling}}\) is the rate constant for fouling/poisoning by atmospheric contaminants (s\textsuperscript{-1}). The real world is messy, and our nanofibers need to handle it.
+    \item \(\eta_{\text{max}}\) is the initial maximum capture efficiency (dimensionless).
+    \item \(m\) is the order of the fouling process (dimensionless).
+\item The effective nanofiber lifetime, \(\tau_{\text{nanofiber}}\), can be defined as the time until \(\eta_{\text{capture}}\) drops below a critical threshold \(\eta_{\text{critical}}\).
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This is a differential equation representing the dynamic decay of capture efficiency. The first term, \(- k_{\text{degradation}} \times \eta_{\text{capture}}^n\), models intrinsic material fatigue or irreversible chemical changes. The second term, \(- k_{\text{fouling}} \times \left(1 - \frac{\eta_{\text{capture}}}{\eta_{\text{max}}}\right)^m\), accounts for the accumulation of atmospheric pollutants (e.g., dust, sulfates) that block active sites, where the rate of fouling might increase as more sites become available or decrease as active sites are occupied. This empirical model allows for characterization and prediction of when maintenance or replacement becomes economically advantageous. Or, when we need to roll out the next generation of super-nanofibers.
+
+\subsection*{Model 4: System-Scale Carbon Stock Reduction (\(\Delta C_{\text{atm}}\))}
+This model projects the cumulative impact of a deployed network of capture systems on the global atmospheric CO\(_2\) mass over time, taking into account the natural carbon cycle and anthropogenic emissions. This is the big picture, the true "solve the problem" equation.
+
+\begin{equation}
+\frac{dC_{\text{atm}}}{dt} = E_{\text{anthropogenic}}(t) - \dot{C}_{\text{natural\_sink}}(C_{\text{atm}}) - N_{\text{systems}} \times \dot{C}_{\text{capture\_avg}}(t)
+\label{eq:global_impact}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(C_{\text{atm}}\) is the total mass of CO\(_2\) in the atmosphere (kg). The ultimate target variable.
+    \item \(t\) is time (s).
+    \item \(E_{\text{anthropogenic}}(t)\) is the rate of anthropogenic CO\(_2\) emissions (kg/s), a function of global economic activity and decarbonization efforts. Hopefully, this term eventually approaches zero.
+    \item \(\dot{C}_{\text{natural\_sink}}(C_{\text{atm}})\) is the rate of natural CO\(_2\) absorption by oceans, forests, etc., which typically increases with higher atmospheric concentrations (kg/s). Nature's doing its best, but it needs a little help.
+    \item \(N_{\text{systems}}\) is the total number of deployed Atmospheric Carbon Nanofiber Capture Systems. Scaling, people, scaling.
+    \item \(\dot{C}_{\text{capture\_avg}}(t)\) is the average capture rate per individual system over time (kg/s), accounting for system degradation or maintenance cycles.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This is a global mass balance equation for atmospheric CO\(_2\). The change in atmospheric CO\(_2\) over time is a sum of three primary fluxes: emissions from human activity (positive), natural sinks (negative), and the contribution from our deployed capture systems (negative). The \(\dot{C}_{\text{capture\_avg}}(t)\) term would integrate the \(\dot{C}_{\text{capture}}\) (from Equation \ref{eq:capture_rate}) over the system's operational lifecycle, considering the degradation model in Equation \ref{eq:degradation_rate}. Solving this differential equation allows us to project the timeline for achieving specific atmospheric CO\(_2\) targets, like 350 ppm, which is, frankly, inevitable with enough ambition and engineering.
+
+\subsection*{Model 5: Nanofiber Mass Scaling for Capture Capacity (\(M_{\text{nanofiber}}\))}
+This model relates the total mass of active nanofiber material required to achieve a desired CO\(_2\) capture capacity, highlighting the material intensity of the system.
+
+\begin{equation}
+M_{\text{nanofiber}} = \frac{\dot{C}_{\text{target\_capacity}}}{\text{SA}_{\text{specific}} \times k_{\text{adsorption}} \times \left( [CO_2]_{\text{in}} - [CO_2]_{\text{out}} \right)}
+\label{eq:mass_scaling}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(M_{\text{nanofiber}}\) is the total active nanofiber mass (kg).
+    \item \(\dot{C}_{\text{target\_capacity}}\) is the desired total CO\(_2\) capture rate for the system (kg/s).
+    \item \(\text{SA}_{\text{specific}}\) is the specific surface area of the nanofiber material (m\textsuperscript{2}/kg), a key metric for nanofiber performance. The higher, the better, obviously.
+    \item \(k_{\text{adsorption}}\) is the rate constant for CO\(_2\) adsorption onto the nanofiber surface (m/s). This is about how quickly CO\(_2\) molecules can actually find and stick to our nanofibers.
+    \item \([CO_2]_{\text{in}}\) and \([CO_2]_{\text{out}}\) are the inlet and outlet CO\(_2\) mass concentrations, respectively (kg/m\textsuperscript{3}).
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This equation is derived from the principles of adsorption kinetics and surface chemistry. The numerator represents the total CO\(_2\) mass to be captured. The denominator represents the capture efficiency per unit mass of nanofiber. Specifically, \(\text{SA}_{\text{specific}}\) provides the available surface area for adsorption per unit mass of nanofiber. \(k_{\text{adsorption}}\) quantifies how effectively this surface area is utilized for binding CO\(_2\), influenced by factors like gas diffusion and surface reaction rates. The concentration difference \(([CO_2]_{\text{in}} - [CO_2]_{\text{out}})\) serves as a driving force for adsorption. This model helps optimize the material design and predict the sheer amount of nanofiber we'll need to deploy to actually make a dent in atmospheric CO\(_2\). It’s not just a science project; it's a global materials challenge, and we're ready.
+
+\subsection*{Model 6: Nanofiber Production Rate for System Expansion (\(\dot{M}_{\text{production}}\))}
+To scale the capture system to a globally impactful level, the rate of nanofiber production must match the demand for new systems and replace degraded material. This model determines the required continuous production capacity.
+
+\begin{equation}
+\dot{M}_{\text{production}} = \frac{N_{\text{systems}} \times M_{\text{nanofiber\_unit}}}{\tau_{\text{nanofiber}}} + \dot{N}_{\text{new\_systems}} \times M_{\text{nanofiber\_unit}}
+\label{eq:production_rate}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(\dot{M}_{\text{production}}\) is the required nanofiber production rate (kg/s). This is the metric that tells us if we can actually build this thing at scale.
+    \item \(N_{\text{systems}}\) is the total number of currently operational capture systems.
+    \item \(M_{\text{nanofiber\_unit}}\) is the mass of active nanofiber material in a single capture system (kg), as derived from Equation \ref{eq:mass_scaling}.
+    \item \(\tau_{\text{nanofiber}}\) is the effective lifetime of the nanofibers before replacement or major regeneration (s), derived from solving Equation \ref{eq:degradation_rate}.
+    \item \(\dot{N}_{\text{new\_systems}}\) is the rate at which new capture systems are deployed (systems/s), representing the expansion target.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This equation is a simple mass balance for the nanofiber material. The first term, \(\frac{N_{\text{systems}} \times M_{\text{nanofiber\_unit}}}{\tau_{\text{nanofiber}}}\), accounts for the replacement rate of degraded nanofibers across the entire fleet of deployed systems. It assumes a continuous replacement or refurbishment cycle. The second term, \(\dot{N}_{\text{new\_systems}} \times M_{\text{nanofiber\_unit}}\), accounts for the initial nanofiber load required for newly deployed systems to achieve the desired expansion rate. This model underscores that the material science challenge extends beyond just making effective nanofibers; it's about making them by the megaton. Fast.
+
+\subsection*{Model 7: Economic Viability - Cost per Tonne of CO\(_2\) Captured (\(C_{\text{tonne}}\))}
+This model provides a first-order approximation of the total cost associated with capturing one tonne of CO\(_2\), integrating capital, operational, and maintenance expenses. This is where the rubber meets the road, or rather, where the nanofibers meet the balance sheet.
+
+\begin{equation}
+C_{\text{tonne}} = \frac{C_{\text{CAPEX}} \times \text{AmortizationFactor} + C_{\text{OPEX\_energy}} + C_{\text{OPEX\_maintenance}} + C_{\text{OPEX\_nanofiber}}}{\dot{C}_{\text{annual\_capture}}}
+\label{eq:cost_per_tonne}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(C_{\text{tonne}}\) is the total cost per tonne of CO\(_2\) captured (\$/tonne). The holy grail number that makes governments and investors say "yes."
+    \item \(C_{\text{CAPEX}}\) is the total Capital Expenditure for a single system (including construction, initial nanofiber load, installation) (\$).
+    \item \(\text{AmortizationFactor}\) is an annual factor representing the capital recovery over the system's economic life (e.g., \(r / (1 - (1+r)^{-N})\) for loan payments, where \(r\) is interest rate and \(N\) is years). We're making this thing last.
+    \item \(C_{\text{OPEX\_energy}}\) is the annual operational cost for energy (e.g., \(E_{\text{specific}} \times \dot{C}_{\text{annual\_capture}} \times \text{CostOfEnergy}\)) (\$/year).
+    \item \(C_{\text{OPEX\_maintenance}}\) is the annual operational cost for routine maintenance and labor (\$/year).
+    \item \(C_{\text{OPEX\_nanofiber}}\) is the annual cost for nanofiber replacement or regeneration materials (\$/year), derived from \(\dot{M}_{\text{production}}\).
+    \item \(\dot{C}_{\text{annual\_capture}}\) is the total annual CO\(_2\) capture (tonne/year) from a single system, integrating Equation \ref{eq:capture_rate} over a year and accounting for uptime and degradation.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This model breaks down the total annualized cost into capital and operational components and then normalizes by the system's annual capture yield. It directly incorporates the energy efficiency (\(E_{\text{specific}}\)) and nanofiber lifetime (\(\tau_{\text{nanofiber}}\)) as these significantly influence operational costs. The amortization factor converts the initial CAPEX into an equivalent annual cost. This economic model serves as a brutal reality check, pushing us to innovate not just for capture efficiency, but for ruthless cost-effectiveness. Because if it's not scalable, it's not a solution.
+
+\subsection*{Model 8: Airflow Resistance and Pumping Power (\(P_{\text{pneumatic}}\))}
+Efficient air movement through the dense nanofiber array is critical to minimize energy consumption. This model quantifies the pressure drop and associated pumping power. We don't want to power a hurricane; we want precise, laminar flow.
+
+\begin{equation}
+P_{\text{pneumatic}} = \frac{Q_{\text{air}} \times \Delta P_{\text{array}}}{\eta_{\text{fan}}} = \frac{Q_{\text{air}} \times \left( f \frac{L}{D_h} \frac{\rho_{\text{air}} V^2}{2} + K_{\text{minor}} \frac{\rho_{\text{air}} V^2}{2} \right)}{\eta_{\text{fan}}}
+\label{eq:pumping_power}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(P_{\text{pneumatic}}\) is the power required to move air through the system (W).
+    \item \(Q_{\text{air}}\) is the volumetric airflow rate (m\textsuperscript{3}/s).
+    \item \(\Delta P_{\text{array}}\) is the total pressure drop across the nanofiber array (Pa). This is the enemy we must overcome.
+    \item \(\eta_{\text{fan}}\) is the overall efficiency of the air moving system (e.g., fan, ducts) (dimensionless, \(0 \le \eta_{\text{fan}} \le 1\)). We're engineering for fans that barely whisper.
+    \item \(f\) is the Darcy friction factor for flow through the nanofiber matrix (dimensionless).
+    \item \(L\) is the effective flow path length through the array (m).
+    \item \(D_h\) is the hydraulic diameter of the flow channels within the nanofiber matrix (m). This is where the nanostructure geometry gets macro impact.
+    \item \(\rho_{\text{air}}\) is the density of air (kg/m\textsuperscript{3}).
+    \item \(V\) is the average velocity of air through the array (m/s).
+    \item \(K_{\text{minor}}\) represents minor loss coefficients for inlets, outlets, and bends (dimensionless).
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This equation combines fundamental fluid dynamics principles. The pressure drop (\(\Delta P_{\text{array}}\)) is calculated using the Darcy-Weisbach equation for major losses (friction in the nanofiber matrix itself) and adding minor losses from geometric features. The friction factor \(f\) would be specific to flow through porous media (e.g., Ergun equation for packed beds, or specialized models for nanofiber mats). Pumping power is then simply \(Q_{\text{air}} \times \Delta P_{\text{array}}\) divided by the fan efficiency. This model pushes us to design nanofiber architectures that maximize surface area while minimizing aerodynamic drag. It’s a delicate dance between capture and consumption.
+
+\subsection*{Model 9: Nanofiber Active Site Utilization (\(\theta_{\text{CO}_2}\))}
+This model describes the fractional coverage of active sites on the nanofiber surface by CO\(_2\) molecules, a key determinant of the instantaneous capture efficiency. We need to make every atom count.
+
+\begin{equation}
+\theta_{\text{CO}_2} = \frac{K_{ads} \times P_{\text{CO}_2}}{1 + K_{ads} \times P_{\text{CO}_2}}
+\label{eq:langmuir}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(\theta_{\text{CO}_2}\) is the fractional coverage of active sites by CO\(_2\) (dimensionless, \(0 \le \theta_{\text{CO}_2} \le 1\)). The closer to 1, the better.
+    \item \(K_{ads}\) is the adsorption equilibrium constant (Pa\textsuperscript{-1} or atm\textsuperscript{-1}), reflecting the strength of CO\(_2\) binding to the nanofiber active sites. This is a battle-hardened constant we'll engineer.
+    \item \(P_{\text{CO}_2}\) is the partial pressure of CO\(_2\) in the air (Pa or atm). This is literally the target.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This is a simplified form of the Langmuir adsorption isotherm, a classic model in surface chemistry. It assumes a fixed number of identical active sites on the nanofiber surface, with each site capable of binding one CO\(_2\) molecule, and no interaction between adsorbed molecules. The fractional coverage \(\theta_{\text{CO}_2}\) increases with higher CO\(_2\) partial pressure until saturation is reached. While a more complex model (e.g., Freundlich or BET isotherms) might be necessary for detailed material characterization, the Langmuir provides a robust initial conceptual framework for understanding the binding capacity and how our materials engineering can shift that \(K_{ads}\) to ridiculously high values. We're talking molecular-level kung fu.
+
+\subsection*{Model 10: System Footprint Efficiency (\(\text{FPE}\))}
+This model quantifies the system's efficiency in terms of captured carbon per unit of land area occupied, a critical factor for large-scale deployment and societal acceptance. We want to capture gigatons, not just occupy square miles.
+
+\begin{equation}
+\text{FPE} = \frac{\dot{C}_{\text{capture\_total}}}{\text{Area}_{\text{footprint}}} = \frac{N_{\text{systems}} \times \dot{C}_{\text{capture\_unit}}}{\text{Area}_{\text{site}} + N_{\text{systems}} \times \text{Area}_{\text{system\_unit}}}
+\label{eq:footprint_efficiency}
+\end{equation}
+where:
+\begin{itemize}
+    \item \(\text{FPE}\) is the Footprint Efficiency (kg CO\(_2\) / (s \(\cdot\) m\textsuperscript{2})). High FPE means more capture for less land.
+    \item \(\dot{C}_{\text{capture\_total}}\) is the total carbon capture rate from all deployed systems (kg/s).
+    \item \(\text{Area}_{\text{footprint}}\) is the total land area utilized by the deployment (m\textsuperscript{2}). This includes processing facilities, access roads, everything.
+    \item \(N_{\text{systems}}\) is the number of deployed capture systems.
+    \item \(\dot{C}_{\text{capture\_unit}}\) is the capture rate of a single system (kg/s).
+    \item \(\text{Area}_{\text{site}}\) is the fixed area for shared infrastructure (e.g., central processing, power generation) (m\textsuperscript{2}).
+    \item \(\text{Area}_{\text{system\_unit}}\) is the footprint of a single capture system module (m\textsuperscript{2}). We're aiming for vertically integrated, densely packed capture units, because horizontal sprawl is for amateurs.
+\end{itemize}
+
+\textbf{Reasoned Derivation:} This model normalizes the total carbon capture capacity by the total land area required for deployment. The numerator sums the capture rates of all individual units. The denominator comprises a fixed overhead area for common infrastructure and a variable area proportional to the number of deployed units. Optimizing FPE means engineering systems that are not only highly efficient in capturing carbon but also in their spatial density, potentially leveraging vertical arrays or integrated designs to minimize ground footprint. Because the future of atmospheric carbon removal isn't just about chemistry; it's about intelligent planetary-scale infrastructure design.
+
+\end{document}

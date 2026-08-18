@@ -1,0 +1,52 @@
+// REPOSITORY SOURCE: diplomat-bit/garbage-typescript | PATH: diplomat-bit-garbage-typescript-95791a2/tsc-multi.json
+================================================================================
+
+{
+  "targets": [
+    {
+      "extname": ".js",
+      "module": "commonjs",
+      "shareHelpers": "internal/tslib.js"
+    },
+    {
+      "extname": ".mjs",
+      "module": "esnext",
+      "shareHelpers": "internal/tslib.mjs"
+    }
+  ],
+  "projects": ["tsconfig.build.json"]
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/tsc-multi.json
+================================================================================
+
+{
+  "targets": [
+    { "extname": ".js", "module": "commonjs" },
+    { "extname": ".mjs", "module": "esnext" }
+  ],
+  "projects": ["tsconfig.build.json"]
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/tsc-multi.json
+================================================================================
+
+{
+  "targets": [
+    {
+      "extname": ".js",
+      "module": "commonjs",
+      "shareHelpers": "internal/tslib.js"
+    },
+    {
+      "extname": ".mjs",
+      "module": "esnext",
+      "shareHelpers": "internal/tslib.mjs"
+    }
+  ],
+  "projects": ["tsconfig.build.json"]
+}

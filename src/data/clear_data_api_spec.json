@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/clear_data_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Foundations_DataEncryption_ClearDataRetrieval_Digital_Domain_OpenAPI",
+    "description": "This API is used to retrieve the clear account number.",
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts/clearData/retrieve"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Foundations_Utilities_Data Encryption"
+        ],
+        "summary": "Retrieve Clear Account Number",
+        "operationId": "RetrieveUnmaskedAccountData"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/clear_data_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Foundations_DataEncryption_ClearDataRetrieval_Digital_Domain_OpenAPI",
+    "description": "This API is used to retrieve the clear account number.",
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts/clearData/retrieve"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Foundations_Utilities_Data Encryption"
+        ],
+        "summary": "Retrieve Clear Account Number",
+        "operationId": "RetrieveUnmaskedAccountData"
+      }
+    }
+  }
+}

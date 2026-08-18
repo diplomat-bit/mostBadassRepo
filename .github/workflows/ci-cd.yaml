@@ -1,0 +1,270 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/.github/workflows/ci-cd.yaml
+================================================================================
+
+# .github/workflows/ci-cd.yaml
+#
+# This GitHub Actions workflow defines a comprehensive CI/CD pipeline for a microservice.
+# It includes stages for linting, testing, security scanning, building a Docker image,
+# scanning the image for vulnerabilities, and deploying to staging and production
+# Kubernetes environments with a manual approval gate.
+#
+# This pipeline is designed to be robust, secure, and extensible, aligning with the
+# project's goal of creating a high-value, feature-rich platform.
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual triggering
+
+# Concurrency control ensures that only the latest commit for a branch/PR is processed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Assumes a Go project. Change if using another language.
+  GO_VERSION: '1.21'
+  # Docker image settings. Using GitHub Container Registry (GHCR).
+  IMAGE_NAME: ${{ github.repository }}
+  # Kubernetes deployment details. Assumes Kustomize structure.
+  K8S_DEPLOYMENT_NAME: my-microservice # The name of the deployment in your kustomize base.
+
+jobs:
+  #########################################
+  # 1. LINT & TEST                      #
+  #########################################
+  lint-and-test:
+    name: Lint & Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Run linter (golangci-lint)
+        uses: golangci/golangci-lint-action@v4
+        with:
+          version: v1.56
+          args: --timeout=3m
+
+      - name: Run unit tests with coverage
+        run: go test -v -race -coverprofile=coverage.out ./...
+
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.out
+          fail_ci_if_error: true
+
+  #########################################
+  # 2. SECURITY SCANNING                #
+  #########################################
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: go # Change based on your project's language
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+      - name: Scan for hardcoded secrets (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          # Fails the build if secrets are found
+          fail: true
+
+  #########################################
+  # 3. BUILD, SCAN & PUSH DOCKER IMAGE  #
+  #########################################
+  build-and-push:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+    needs: [lint-and-test, security-scan]
+    # Only run this job on pushes to main, not on PRs
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: read
+      packages: write # Required to push to GHCR
+    outputs:
+      image_digest: ${{ steps.build_and_push.outputs.digest }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=,format=long
+
+      - name: Build and push Docker image
+        id: build_and_push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Scan pushed image for vulnerabilities (Trivy)
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: 'ghcr.io/${{ env.IMAGE_NAME }}@${{ steps.build_and_push.outputs.digest }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1' # Fail the build on critical/high vulnerabilities
+          ignore-unfixed: true
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  #########################################
+  # 4. DEPLOY TO STAGING                #
+  #########################################
+  deploy-to-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    environment:
+      name: staging
+      url: https://staging.yourapi.com # Replace with your staging URL
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC authentication with GCP
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER_STAGING }} # e.g., projects/123/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+          service_account: ${{ secrets.GCP_SA_EMAIL_STAGING }} # e.g., k8s-deployer@your-project.iam.gserviceaccount.com
+
+      - name: Get GKE cluster credentials
+        uses: 'google-github-actions/get-gke-credentials@v2'
+        with:
+          cluster_name: ${{ secrets.GKE_CLUSTER_STAGING }} # e.g., staging-cluster
+          location: ${{ secrets.GKE_LOCATION_STAGING }} # e.g., us-central1
+
+      - name: Set image in Kustomize for Staging
+        run: |
+          cd k8s/overlays/staging
+          kustomize edit set image ${{ env.K8S_DEPLOYMENT_NAME }}=ghcr.io/${{ env.IMAGE_NAME }}@${{ needs.build-and-push.outputs.image_digest }}
+          echo "--- Staging kustomization.yaml after update ---"
+          cat kustomization.yaml
+
+      - name: Deploy to Staging GKE cluster
+        run: |
+          kustomize build k8s/overlays/staging | kubectl apply -f -
+          kubectl rollout status deployment/${{ env.K8S_DEPLOYMENT_NAME }} -n staging --timeout=5m
+
+      - name: Verify deployment
+        run: |
+          echo "Verifying deployment in staging namespace..."
+          kubectl get pods -n staging
+          kubectl get services -n staging
+
+  #########################################
+  # 5. MANUAL APPROVAL FOR PRODUCTION   #
+  #########################################
+  approval:
+    name: Awaiting Production Approval
+    runs-on: ubuntu-latest
+    needs: deploy-to-staging
+    environment:
+      name: production
+    steps:
+      - name: Manual approval step
+        run: echo "Staging deployment successful. Please review and approve the 'deploy-to-production' job to proceed."
+
+  #########################################
+  # 6. DEPLOY TO PRODUCTION             #
+  #########################################
+  deploy-to-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: approval
+    environment:
+      name: production
+      url: https://api.yourapi.com # Replace with your production URL
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC authentication with GCP
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER_PROD }}
+          service_account: ${{ secrets.GCP_SA_EMAIL_PROD }}
+
+      - name: Get GKE cluster credentials
+        uses: 'google-github-actions/get-gke-credentials@v2'
+        with:
+          cluster_name: ${{ secrets.GKE_CLUSTER_PROD }}
+          location: ${{ secrets.GKE_LOCATION_PROD }}
+
+      - name: Set image in Kustomize for Production
+        run: |
+          cd k8s/overlays/production
+          kustomize edit set image ${{ env.K8S_DEPLOYMENT_NAME }}=ghcr.io/${{ env.IMAGE_NAME }}@${{ needs.build-and-push.outputs.image_digest }}
+          echo "--- Production kustomization.yaml after update ---"
+          cat kustomization.yaml
+
+      - name: Deploy to Production GKE cluster
+        run: |
+          kustomize build k8s/overlays/production | kubectl apply -f -
+          kubectl rollout status deployment/${{ env.K8S_DEPLOYMENT_NAME }} -n production --timeout=5m
+
+      - name: Verify deployment
+        run: |
+          echo "Verifying deployment in production namespace..."
+          kubectl get pods -n production

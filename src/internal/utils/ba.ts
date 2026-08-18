@@ -1,0 +1,89 @@
+// REPOSITORY SOURCE: diplomat-bit/garbage-typescript | PATH: diplomat-bit-garbage-typescript-95791a2/src/internal/utils/base64.ts
+================================================================================
+
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { GarbageError } from '../../core/error';
+import { encodeUTF8 } from './bytes';
+
+export const toBase64 = (data: string | Uint8Array | null | undefined): string => {
+  if (!data) return '';
+
+  if (typeof (globalThis as any).Buffer !== 'undefined') {
+    return (globalThis as any).Buffer.from(data).toString('base64');
+  }
+
+  if (typeof data === 'string') {
+    data = encodeUTF8(data);
+  }
+
+  if (typeof btoa !== 'undefined') {
+    return btoa(String.fromCharCode.apply(null, data as any));
+  }
+
+  throw new GarbageError('Cannot generate base64 string; Expected `Buffer` or `btoa` to be defined');
+};
+
+export const fromBase64 = (str: string): Uint8Array => {
+  if (typeof (globalThis as any).Buffer !== 'undefined') {
+    const buf = (globalThis as any).Buffer.from(str, 'base64');
+    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+  }
+
+  if (typeof atob !== 'undefined') {
+    const bstr = atob(str);
+    const buf = new Uint8Array(bstr.length);
+    for (let i = 0; i < bstr.length; i++) {
+      buf[i] = bstr.charCodeAt(i);
+    }
+    return buf;
+  }
+
+  throw new GarbageError('Cannot decode base64 string; Expected `Buffer` or `atob` to be defined');
+};
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/src/internal/utils/base64.ts
+================================================================================
+
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { Jocall3Error } from '../../core/error';
+import { encodeUTF8 } from './bytes';
+
+export const toBase64 = (data: string | Uint8Array | null | undefined): string => {
+  if (!data) return '';
+
+  if (typeof (globalThis as any).Buffer !== 'undefined') {
+    return (globalThis as any).Buffer.from(data).toString('base64');
+  }
+
+  if (typeof data === 'string') {
+    data = encodeUTF8(data);
+  }
+
+  if (typeof btoa !== 'undefined') {
+    return btoa(String.fromCharCode.apply(null, data as any));
+  }
+
+  throw new Jocall3Error('Cannot generate base64 string; Expected `Buffer` or `btoa` to be defined');
+};
+
+export const fromBase64 = (str: string): Uint8Array => {
+  if (typeof (globalThis as any).Buffer !== 'undefined') {
+    const buf = (globalThis as any).Buffer.from(str, 'base64');
+    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+  }
+
+  if (typeof atob !== 'undefined') {
+    const bstr = atob(str);
+    const buf = new Uint8Array(bstr.length);
+    for (let i = 0; i < bstr.length; i++) {
+      buf[i] = bstr.charCodeAt(i);
+    }
+    return buf;
+  }
+
+  throw new Jocall3Error('Cannot decode base64 string; Expected `Buffer` or `atob` to be defined');
+};

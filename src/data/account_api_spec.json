@@ -1,0 +1,75 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/account_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AccountListingAndDetails_OpenAPI",
+    "description": "This API is to return the accounts listing and details of all accounts held by customer.",
+    "version": "1.39.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Details"
+        ],
+        "summary": "Retrieve Summary of All Accounts",
+        "operationId": "AccountSummary"
+      }
+    },
+    "/{accountId}": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Details"
+        ],
+        "summary": "Retrieve Account Details",
+        "operationId": "AccountDetails"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/account_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AccountListingAndDetails_OpenAPI",
+    "description": "This API is to return the accounts listing and details of all accounts held by customer.",
+    "version": "1.39.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Details"
+        ],
+        "summary": "Retrieve Summary of All Accounts",
+        "operationId": "AccountSummary"
+      }
+    },
+    "/{accountId}": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Details"
+        ],
+        "summary": "Retrieve Account Details",
+        "operationId": "AccountDetails"
+      }
+    }
+  }
+}

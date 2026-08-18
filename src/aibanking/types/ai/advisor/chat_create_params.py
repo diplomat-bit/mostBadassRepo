@@ -1,0 +1,23 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/src/aibanking/types/ai/advisor/chat_create_params.py
+================================================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing_extensions import Required, Annotated, TypedDict
+
+from ...._types import SequenceNotStr
+from ...._utils import PropertyInfo
+
+__all__ = ["ChatCreateParams"]
+
+
+class ChatCreateParams(TypedDict, total=False):
+    message: Required[str]
+
+    context_account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="contextAccountIds")]
+
+    mode: str
+
+    stream: bool

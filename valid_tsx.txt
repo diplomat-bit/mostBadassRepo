@@ -1,0 +1,10 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/valid_tsx.txt
+================================================================================
+
+./components/FinancialGoalsView.tsx
+./components/APIIntegrationView.tsx
+./components/AIAdStudioView.tsx
+./components/PrivateEquityLounge.tsx
+./components/AlgoTradingLab.tsx
+./components/AIAdvisorView.tsx
+./components/OpenBankingView.tsx

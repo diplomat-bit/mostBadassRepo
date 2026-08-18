@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/repeating_payments_terminate_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_RepeatingPayments_Digital_Domain_OpenAPI",
+    "description": "This API lets the customer remove Standing instructions for a specific transfer type/ payee type",
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/{accountId}/repeatingPayments"
+    }
+  ],
+  "paths": {
+    "/{transactionReferenceId}": {
+      "delete": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Delete the Standing Instruction for a Specific Transfer Type",
+        "operationId": "TerminatePaymentInitiationTransactionRepeatingPayments"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/repeating_payments_terminate_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_RepeatingPayments_Digital_Domain_OpenAPI",
+    "description": "This API lets the customer remove Standing instructions for a specific transfer type/ payee type",
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/{accountId}/repeatingPayments"
+    }
+  ],
+  "paths": {
+    "/{transactionReferenceId}": {
+      "delete": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Delete the Standing Instruction for a Specific Transfer Type",
+        "operationId": "TerminatePaymentInitiationTransactionRepeatingPayments"
+      }
+    }
+  }
+}

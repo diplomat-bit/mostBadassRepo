@@ -1,0 +1,14 @@
+// REPOSITORY SOURCE: diplomat-bit/jocall3-node | PATH: diplomat-bit-jocall3-node-fae6abf/packages/mcp-server/tsconfig.dist-src.json
+================================================================================
+
+{
+  // this config is included in the published src directory to prevent TS errors
+  // from appearing when users go to source, and VSCode opens the source .ts file
+  // via declaration maps
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["DOM"],
+    "moduleResolution": "node"
+  }
+}

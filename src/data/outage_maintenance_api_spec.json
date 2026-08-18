@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/outage_maintenance_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Foundations_OutageMaintenance_Discovery_Digital_Regulatory_OPENAPI",
+    "description": "This service is created for PSD2. This contains the functions to retrieve scheduled Outage information.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/foundations/outageMaintenance/discovery/retrieval/v1"
+    }
+  ],
+  "paths": {
+    "/scheduled": {
+      "get": {
+        "tags": [
+          "Foundations_Utilities_Outage Maintenance"
+        ],
+        "summary": "Obtain a list of scheduled outages for the implementation.",
+        "operationId": "RetrieveScheduledOutages"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/outage_maintenance_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Foundations_OutageMaintenance_Discovery_Digital_Regulatory_OPENAPI",
+    "description": "This service is created for PSD2. This contains the functions to retrieve scheduled Outage information.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/foundations/outageMaintenance/discovery/retrieval/v1"
+    }
+  ],
+  "paths": {
+    "/scheduled": {
+      "get": {
+        "tags": [
+          "Foundations_Utilities_Outage Maintenance"
+        ],
+        "summary": "Obtain a list of scheduled outages for the implementation.",
+        "operationId": "RetrieveScheduledOutages"
+      }
+    }
+  }
+}

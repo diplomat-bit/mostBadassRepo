@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/sepa_transfer_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_SEPA_Digital_Domain_OpenAPI",
+    "description": "This API confirms the SEPA transaction.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/moneyMovement/sepaTransfers"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Confirms SEPA Transfer.",
+        "operationId": "ConfirmSepaTransfer"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/sepa_transfer_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_SEPA_Digital_Domain_OpenAPI",
+    "description": "This API confirms the SEPA transaction.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/moneyMovement/sepaTransfers"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Confirms SEPA Transfer.",
+        "operationId": "ConfirmSepaTransfer"
+      }
+    }
+  }
+}

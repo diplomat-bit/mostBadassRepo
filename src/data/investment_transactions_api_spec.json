@@ -1,0 +1,75 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/investment_transactions_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountTransactions_Investment_Digital_Domain_OpenAPI",
+    "description": "This service is used to perform operations across multiple products.",
+    "version": "1.60.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/partner/accounts/{accountId}/transactions"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_AccountFinancial_AccountTransactions"
+        ],
+        "summary": "Retrieve Transactions for Specific Account.",
+        "operationId": "PartnerTransactionDetails"
+      }
+    },
+    "/limited/dayRange": {
+      "get": {
+        "tags": [
+          "Accounts_AccountFinancial_AccountTransactions"
+        ],
+        "summary": "Retrieves up to 90-day Transactions Details & History.",
+        "operationId": "PartnerTransactionDetailsWithLimitedDayRange"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/investment_transactions_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountTransactions_Investment_Digital_Domain_OpenAPI",
+    "description": "This service is used to perform operations across multiple products.",
+    "version": "1.60.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/partner/accounts/{accountId}/transactions"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_AccountFinancial_AccountTransactions"
+        ],
+        "summary": "Retrieve Transactions for Specific Account.",
+        "operationId": "PartnerTransactionDetails"
+      }
+    },
+    "/limited/dayRange": {
+      "get": {
+        "tags": [
+          "Accounts_AccountFinancial_AccountTransactions"
+        ],
+        "summary": "Retrieves up to 90-day Transactions Details & History.",
+        "operationId": "PartnerTransactionDetailsWithLimitedDayRange"
+      }
+    }
+  }
+}

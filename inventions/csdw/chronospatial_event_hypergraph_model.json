@@ -1,0 +1,489 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/csdw/chronospatial_event_hypergraph_model.json
+================================================================================
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Chronospatial Event Hypergraph Model",
+  "description": "Specifies the JSON schema for representing spatiotemporal events, their attributes, and causal hyperedges within the Chronospatial Data Weave (CSDW). This schema defines the foundational data structures for an immutable and verifiable record of observable reality, designed to resist manipulation and provide deep provenance.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Version of the Chronospatial Event Hypergraph Schema. Indicates the structural and semantic version of the data model itself.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "1.1.0"]
+    },
+    "networkId": {
+      "type": "string",
+      "description": "Unique identifier for this specific Chronospatial Data Weave instance or a segment thereof (e.g., 'Earth_CSDW_Global', 'Mars_Colony_CSDW'). This ID anchors the scope of contained events and hyperedges."
+    },
+    "networkType": {
+      "type": "string",
+      "description": "The operational type of the CSDW network (e.g., 'PublicDistributedLedger', 'PrivateConsortiumChain', 'LocalStandaloneObservatory'). This informs how consensus and trust are managed.",
+      "enum": ["PublicDistributedLedger", "PrivateConsortiumChain", "LocalStandaloneObservatory", "FederatedTrustNetwork", "ZeroKnowledgeProofSystem"]
+    },
+    "semanticVocabularies": {
+      "type": "array",
+      "description": "An array of URIs referencing external semantic vocabularies, ontologies, or controlled terminologies used within this CSDW instance (e.g., for event types, causal types, agent roles). Essential for interoperability and semantic alignment.",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
+    "events": {
+      "type": "array",
+      "description": "A collection of immutable spatiotemporal events, serving as the nodes of the hypergraph. Each event captures a specific occurrence in space and time, rigorously documented for provenance and verifiability.",
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "uniqueItems": true
+    },
+    "hyperedges": {
+      "type": "array",
+      "description": "A collection of causal hyperedges, linking multiple events to represent complex causal relationships. These define the dynamic interactions within the observed reality, with explicit assertions and evidentiary support.",
+      "items": {
+        "$ref": "#/definitions/Hyperedge"
+      },
+      "uniqueItems": true
+    },
+    "eventBlocks": {
+      "type": "array",
+      "description": "An optional ordered collection of EventBlocks, each representing a batch of events committed together, often forming a verifiable chain (e.g., on a blockchain). This provides a higher-level structure for integrity and historical proofs.",
+      "items": {
+        "$ref": "#/definitions/EventBlock"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["schemaVersion", "networkId", "networkType", "events", "hyperedges", "semanticVocabularies"],
+  "definitions": {
+    "Event": {
+      "type": "object",
+      "description": "Represents a single, cryptographically immutable spatiotemporal event, enhanced with deep provenance and verification mechanisms. This is the atom of recorded reality.",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "A universally unique identifier (UUIDv4 recommended) for this specific event. Must be unique within the entire CSDW, acting as its primary key.",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+        },
+        "eventVersion": {
+          "type": "string",
+          "description": "The specific version of the event's *type schema* (e.g., 'SensorReading:1.0.1'). Allows for graceful evolution of event data structures over time without invalidating historical data.",
+          "pattern": "^[a-zA-Z0-9_\\-]+:\\d+\\.\\d+\\.\\d+$",
+          "examples": ["SensorReading:1.0.0", "FinancialTransaction:2.1.0"]
+        },
+        "temporalContext": {
+          "$ref": "#/definitions/TemporalContext"
+        },
+        "coordinates": {
+          "type": "object",
+          "description": "Spatiotemporal coordinates of the event's occurrence. Supports various reference frames for multi-planetary scope, including spatial uncertainty and extent.",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90,
+              "description": "Geographical latitude in degrees (for planetary bodies)."
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180,
+              "description": "Geographical longitude in degrees (for planetary bodies)."
+            },
+            "altitude": {
+              "type": "number",
+              "description": "Altitude or depth relative to a datum (e.g., mean sea level, planetary surface), in meters."
+            },
+            "x": { "type": "number", "description": "X-coordinate in a specified Cartesian system." },
+            "y": { "type": "number", "description": "Y-coordinate in a specified Cartesian system." },
+            "z": { "type": "number", "description": "Z-coordinate in a specified Cartesian system." },
+            "spatialRefSystem": {
+              "type": "string",
+              "description": "Identifier or URI for the spatial reference system (e.g., 'WGS84', 'J2000', 'MarsDatum', 'GalacticCartesian', 'http://www.opengis.net/def/crs/OGC/1.3/CRS84').",
+              "examples": ["WGS84", "MarsDatum", "http://www.opengis.net/def/crs/OGC/1.3/CRS84"]
+            },
+            "spatialAccuracy": {
+              "type": "string",
+              "description": "A qualitative or quantitative string indicating the precision or uncertainty of the coordinates (e.g., '+/- 10m', 'approximate location', 'census block')."
+            },
+            "spatialExtent": {
+              "type": "object",
+              "description": "Optional GeoJSON object representing a spatial region or extent rather than a single point (e.g., Polygon, Circle). Provides explicit representation of spatial fuzziness or distributed events.",
+              "properties": {
+                "type": { "type": "string", "enum": ["Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection"] },
+                "coordinates": { "type": "array" }
+              },
+              "required": ["type", "coordinates"],
+              "additionalProperties": true
+            }
+          },
+          "oneOf": [
+            { "required": ["latitude", "longitude", "spatialRefSystem"] },
+            { "required": ["x", "y", "z", "spatialRefSystem"] }
+          ],
+          "required": ["spatialRefSystem"]
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Categorical type of the event, indicating its nature. Should ideally be a URI from a semantic vocabulary for machine-readability and interoperability (e.g., 'http://schema.org/ObserveAction', 'https://example.com/ontology/EnvironmentalChange').",
+          "format": "uri"
+        },
+        "dataSchemaURI": {
+          "type": "string",
+          "format": "uri",
+          "description": "A URI pointing to the specific JSON schema definition for the 'data' payload of *this specific event type and version*. Enables dynamic validation and semantic understanding of the arbitrary data content."
+        },
+        "data": {
+          "type": "object",
+          "description": "Arbitrary JSON data payload containing all specific, non-structural details of the event. Its structure is defined by 'dataSchemaURI'. This is the core empirical content of the event.",
+          "additionalProperties": true
+        },
+        "dataHash": {
+          "type": "string",
+          "description": "The cryptographic hash (SHA-256) of only the 'data' payload. Useful for targeted integrity checks or generating zero-knowledge proofs on specific data subsets without revealing the full event hash.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "producerAgentDID": {
+          "type": "string",
+          "description": "The Decentralized Identifier (DID) of the agent (human, organization, AI, sensor) that originally produced, observed, or recorded this event. Critical for provenance and accountability.",
+          "pattern": "^did:[a-z0-9]+:.*$"
+        },
+        "observerAgentDIDs": {
+          "type": "array",
+          "description": "An optional array of Decentralized Identifiers (DIDs) of independent agents who have attested to observing or verifying this event's occurrence or its data. Adds layers of trust and resilience.",
+          "items": {
+            "type": "string",
+            "pattern": "^did:[a-z0-9]+:.*$"
+          },
+          "uniqueItems": true,
+          "minItems": 0
+        },
+        "predecessorEventHashes": {
+          "type": "array",
+          "description": "An array of cryptographic hashes of directly causally preceding events. This forms the immutable chain of causality for historical reconstruction and integrity verification. An empty array signifies a genesis event, untraced by prior events in this CSDW.",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{64}$",
+            "description": "SHA-256 hash of a preceding event."
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "zeroKnowledgeProof": {
+          "type": "string",
+          "description": "Optional: A serialized zero-knowledge proof (ZKP) string that verifies certain properties of the event's 'data' or 'dataHash' without revealing the underlying information. This ensures privacy while maintaining verifiability (e.g., 'data.amount > 100' without revealing amount).",
+          "examples": ["zkp_payload_string_for_data_validity"]
+        },
+        "verifiableClaims": {
+          "type": "array",
+          "description": "Optional: An array of structured claims associated with this event, each with its own verification proof. Can be used for fine-grained attestations or property-based ZKPs (e.g., 'event occurred within specific geographic bounds').",
+          "items": {
+            "$ref": "#/definitions/VerifiableClaim"
+          }
+        },
+        "eventSignature": {
+          "type": "string",
+          "description": "A cryptographic signature (e.g., EdDSA, ECDSA) of the canonicalized `eventHash` by the `producerAgentDID`. Provides irrefutable proof of authorship and non-repudiation.",
+          "pattern": "^[0-9a-fA-F]+$"
+        },
+        "merkleProof": {
+          "$ref": "#/definitions/MerkleProof",
+          "description": "Optional: A Merkle proof path and root, demonstrating that this event is immutably included in a specific EventBlock or data structure, often used for distributed ledger integration."
+        },
+        "eventHash": {
+          "type": "string",
+          "description": "The cryptographic hash (SHA-256) of this event. Computed from a canonical serialization of all critical, immutable properties: 'eventId', 'temporalContext', 'coordinates', 'eventType', 'dataSchemaURI', 'dataHash', 'producerAgentDID', 'predecessorEventHashes', 'zeroKnowledgeProof', 'verifiableClaims', 'eventSignature'. This hash guarantees the event's immutability and tamper-detection, representing its unique, verifiable fingerprint.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        }
+      },
+      "required": ["eventId", "eventVersion", "temporalContext", "coordinates", "eventType", "dataSchemaURI", "data", "dataHash", "producerAgentDID", "predecessorEventHashes", "eventSignature", "eventHash"]
+    },
+    "Hyperedge": {
+      "type": "object",
+      "description": "Represents a verifiable causal relationship or complex linkage between multiple events within the CSDW. Unlike simple directed edges, hyperedges can connect an arbitrary number of source and target events, offering rich semantic detail and evidentiary support.",
+      "properties": {
+        "hyperedgeId": {
+          "type": "string",
+          "description": "A universally unique identifier (UUIDv4 recommended) for this specific hyperedge. Must be unique within the CSDW.",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+        },
+        "causalType": {
+          "type": "string",
+          "description": "The semantic type of the causal relationship. Should ideally be a URI from a semantic vocabulary (e.g., 'http://schema.org/Cause', 'https://example.com/ontology/EnablingCondition', 'CorrelatedOutcome').",
+          "format": "uri"
+        },
+        "sourceEventIds": {
+          "type": "array",
+          "description": "An array of 'eventId's that are considered causal 'sources' or 'inputs' for this relationship. These events conceptually precede the causal link.",
+          "items": { "type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "targetEventIds": {
+          "type": "array",
+          "description": "An array of 'eventId's that are considered 'effects' or 'outputs' resulting from this relationship. These events conceptually follow the causal link.",
+          "items": { "type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "temporalConstraints": {
+          "type": "array",
+          "description": "Optional: An array of explicit temporal constraints defining the expected ordering or duration relationships between source and target events, or within the group. Reinforces the causality's temporal logic.",
+          "items": {
+            "$ref": "#/definitions/TemporalConstraint"
+          }
+        },
+        "causalStrength": {
+          "type": "number",
+          "description": "A quantifiable measure (0.0 to 1.0) representing the inferred strength, probability, or confidence of this causal link. Can be derived from probabilistic models, statistical analysis, or expert systems.",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "assertingAgentDID": {
+          "type": "string",
+          "description": "The Decentralized Identifier (DID) of the agent (human, AI, system) that asserted or inferred this causal relationship. Provides clear accountability for causal claims.",
+          "pattern": "^did:[a-z0-9]+:.*$"
+        },
+        "causalMechanismDescription": {
+          "type": "string",
+          "description": "An optional natural language description or URI pointing to documentation detailing the proposed mechanism or theory by which the source events lead to the target events. Enhances interpretability and auditability."
+        },
+        "causalModelURI": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional: A URI pointing to the computational model or algorithm used to infer or quantify this causal link (e.g., 'https://example.com/models/bayesian_network_v3')."
+        },
+        "evidenceURIs": {
+          "type": "array",
+          "description": "An array of URIs pointing to external evidence, data, or scientific papers that support the assertion of this causal relationship. Enables rigorous validation of causal claims.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true,
+          "minItems": 0
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional: Additional descriptive or analytical metadata about the hyperedge (e.g., model confidence intervals, specific conditions under which causality holds, counterfactual analysis results).",
+          "additionalProperties": true
+        },
+        "hyperedgeSignature": {
+          "type": "string",
+          "description": "A cryptographic signature (e.g., EdDSA, ECDSA) of the canonicalized `hyperedgeHash` by the `assertingAgentDID`. Provides irrefutable proof of authorship and non-repudiation for the causal claim.",
+          "pattern": "^[0-9a-fA-F]+$"
+        },
+        "hyperedgeHash": {
+          "type": "string",
+          "description": "The cryptographic hash (SHA-256) of this hyperedge. Computed from a canonical serialization of 'hyperedgeId', 'causalType', 'sourceEventIds', 'targetEventIds', 'temporalConstraints', 'causalStrength', 'assertingAgentDID', 'causalMechanismDescription', 'causalModelURI', 'evidenceURIs', 'metadata', and 'hyperedgeSignature'. Ensures the hyperedge's immutability and verifiable integrity.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        }
+      },
+      "required": ["hyperedgeId", "causalType", "sourceEventIds", "targetEventIds", "causalStrength", "assertingAgentDID", "hyperedgeSignature", "hyperedgeHash"]
+    },
+    "TemporalContext": {
+      "type": "object",
+      "description": "Detailed temporal information for an event, differentiating between observed and actual occurrence, and including uncertainty.",
+      "properties": {
+        "observedTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The precise ISO 8601 UTC timestamp of when the event was recorded or observed by the 'producerAgentDID'. This is the anchor point for data ingestion order."
+        },
+        "eventTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The precise ISO 8601 UTC timestamp of when the event is believed to have actually occurred. May differ from 'observedTimestamp' due to latency, historical reconstruction, or prediction."
+        },
+        "temporalUncertainty": {
+          "type": "string",
+          "description": "A string representing the uncertainty or precision of the 'eventTimestamp' (e.g., '+/- 5 seconds', 'within the hour', 'estimated'). Uses ISO 8601 Duration format for quantitative values."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Optional: The ISO 8601 Duration string (e.g., 'PT1H30M') if the event represents an interval rather than an instantaneous point in time. If present, 'eventTimestamp' typically denotes the start."
+        }
+      },
+      "required": ["observedTimestamp", "eventTimestamp"]
+    },
+    "VerifiableClaim": {
+      "type": "object",
+      "description": "A structured claim about a specific property or aspect of an event's data, accompanied by a cryptographic proof.",
+      "properties": {
+        "claimId": {
+          "type": "string",
+          "description": "Unique identifier for this specific claim within the event."
+        },
+        "claimType": {
+          "type": "string",
+          "description": "The semantic type of the claim (e.g., 'RangeAssertion', 'EqualityAssertion', 'PropertyExistence'). Should be a URI."
+        },
+        "targetField": {
+          "type": "string",
+          "description": "JSONPath expression to the field within the event's 'data' payload that this claim pertains to (e.g., '$.sensor.temperature', '$.transaction.amount')."
+        },
+        "claimValue": {
+          "description": "The value or condition being claimed (e.g., 'temperature > 25', 'amount == 100'). Can be a string, number, or object representing the assertion.",
+          "type": ["string", "number", "boolean", "object", "array", "null"]
+        },
+        "proof": {
+          "$ref": "#/definitions/VerificationProof",
+          "description": "The cryptographic proof (e.g., ZKP) validating this claim without necessarily revealing the underlying data."
+        }
+      },
+      "required": ["claimId", "claimType", "targetField", "claimValue", "proof"]
+    },
+    "VerificationProof": {
+      "type": "object",
+      "description": "Generic structure for cryptographic proofs that attest to data integrity or specific properties.",
+      "properties": {
+        "proofType": {
+          "type": "string",
+          "description": "The type of cryptographic proof (e.g., 'EdDSA_Signature', 'ZK-SNARK', 'MerkleRootAttestation', 'JSONSchemaValidation')."
+        },
+        "proofValue": {
+          "type": "string",
+          "description": "The serialized cryptographic proof string or verifiable credential."
+        },
+        "provingAgentDID": {
+          "type": "string",
+          "description": "The DID of the agent that generated or provided this proof.",
+          "pattern": "^did:[a-z0-9]+:.*$"
+        },
+        "proofGenerationTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The UTC timestamp when this proof was generated."
+        },
+        "verificationMethodURI": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI to the public key or verification method within the `provingAgentDID`'s DID document, used to verify this proof."
+        }
+      },
+      "required": ["proofType", "proofValue", "provingAgentDID", "proofGenerationTimestamp", "verificationMethodURI"]
+    },
+    "MerkleProof": {
+      "type": "object",
+      "description": "Provides the necessary information to verify the inclusion of an event within a Merkle tree structure (e.g., an EventBlock).",
+      "properties": {
+        "merkleRoot": {
+          "type": "string",
+          "description": "The root hash of the Merkle tree that includes this event.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "proofPath": {
+          "type": "array",
+          "description": "An array of Merkle proof steps, each containing a hash and direction ('left' or 'right') to reconstruct the Merkle root.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hash": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+              "direction": { "type": "string", "enum": ["left", "right"] }
+            },
+            "required": ["hash", "direction"]
+          }
+        },
+        "blockIdReference": {
+          "type": "string",
+          "description": "The ID of the EventBlock or other aggregate structure this Merkle proof relates to. Enables contextual verification.",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+        }
+      },
+      "required": ["merkleRoot", "proofPath", "blockIdReference"]
+    },
+    "EventBlock": {
+      "type": "object",
+      "description": "Represents a collection of events batched together, typically for efficient storage, processing, and ledger commitment. Each block forms a cryptographic link in a chain, ensuring temporal integrity and immutability for its contents.",
+      "properties": {
+        "blockId": {
+          "type": "string",
+          "description": "A universally unique identifier (UUIDv4 recommended) for this specific block.",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+        },
+        "blockNumber": {
+          "type": "integer",
+          "description": "The sequential number of this block in the chain.",
+          "minimum": 0
+        },
+        "blockTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The precise ISO 8601 UTC timestamp of when this block was created or committed."
+        },
+        "previousBlockHash": {
+          "type": "string",
+          "description": "The cryptographic hash (SHA-256) of the preceding EventBlock in the chain. An empty string for the genesis block.",
+          "pattern": "^([0-9a-fA-F]{64})?$"
+        },
+        "merkleRoot": {
+          "type": "string",
+          "description": "The Merkle root hash of all canonicalized event hashes contained within this block. Provides efficient verification of event inclusion.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "eventReferences": {
+          "type": "array",
+          "description": "An array of `eventId`s included in this block. The order must match the order used to construct the Merkle tree.",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "inclusionProofs": {
+          "type": "array",
+          "description": "Optional: An array of cryptographic proofs (e.g., blockchain transaction hashes, attestations) that this EventBlock was indeed committed to a higher-level ledger or attested by a consensus mechanism.",
+          "items": {
+            "$ref": "#/definitions/VerificationProof"
+          },
+          "minItems": 0
+        },
+        "blockHash": {
+          "type": "string",
+          "description": "The cryptographic hash (SHA-256) of this entire EventBlock. Computed from a canonical serialization of 'blockId', 'blockNumber', 'blockTimestamp', 'previousBlockHash', 'merkleRoot', 'eventReferences', and 'inclusionProofs'. Secures the integrity of the block within the chain.",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        }
+      },
+      "required": ["blockId", "blockNumber", "blockTimestamp", "previousBlockHash", "merkleRoot", "eventReferences", "blockHash"]
+    },
+    "TemporalConstraint": {
+      "type": "object",
+      "description": "Defines a specific temporal relationship constraint between two events or within a group of events.",
+      "properties": {
+        "constraintType": {
+          "type": "string",
+          "description": "The type of temporal constraint (e.g., 'PRECEDES', 'SUCCEEDS', 'OVERLAPS', 'DURING', 'STARTS', 'FINISHES'). Based on Allen's Interval Algebra or similar.",
+          "enum": ["PRECEDES", "SUCCEEDS", "OVERLAPS", "MEETS", "DURING", "STARTS", "FINISHES", "EQUALS"]
+        },
+        "sourceEventRef": {
+          "type": "string",
+          "description": "The `eventId` of the source event for this constraint."
+        },
+        "targetEventRef": {
+          "type": "string",
+          "description": "The `eventId` of the target event for this constraint."
+        },
+        "minDuration": {
+          "type": "string",
+          "description": "Optional: Minimum ISO 8601 duration string (e.g., 'PT5M') for the constraint (e.g., A PRECEDES B by at least 5 minutes)."
+        },
+        "maxDuration": {
+          "type": "string",
+          "description": "Optional: Maximum ISO 8601 duration string (e.g., 'PT1H') for the constraint (e.g., A PRECEDES B by at most 1 hour)."
+        },
+        "certainty": {
+          "type": "number",
+          "description": "A confidence score (0.0 to 1.0) in the validity of this temporal constraint, if inferred probabilistically.",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": ["constraintType", "sourceEventRef", "targetEventRef"]
+    }
+  }
+}
+```

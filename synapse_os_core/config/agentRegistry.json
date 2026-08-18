@@ -1,0 +1,819 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/synapse_os_core/config/agentRegistry.json
+================================================================================
+
+```json
+[
+  {
+    "agentId": "agent-cg-001-prime",
+    "name": "CodeGenesis Prime",
+    "description": "An advanced AI agent specializing in the generation, refactoring, and optimization of production-grade source code across multiple programming languages and frameworks. It can translate natural language specifications into fully functional applications and components.",
+    "version": "2.5.1",
+    "author": "Synapse Core Engineering",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "code.generate.react.component",
+        "description": "Generates fully functional React components with state management (Redux, Zustand), hooks, and styling (Tailwind CSS, Styled-components).",
+        "cost": "medium",
+        "dependencies": ["service.ui-design-system-api", "service.ast-parser"],
+        "supportedModels": ["gemini-1.5-pro", "gpt-4o-2024-05-13", "claude-3-opus-20240229"]
+      },
+      {
+        "capabilityId": "code.generate.python.api",
+        "description": "Creates RESTful API endpoints using Python frameworks like FastAPI or Flask, including data validation with Pydantic and ORM integration with SQLAlchemy.",
+        "cost": "medium",
+        "dependencies": ["service.db-schema-inspector", "api.openapi-spec-generator"],
+        "supportedModels": ["gemini-1.5-pro", "gpt-4-turbo"]
+      },
+      {
+        "capabilityId": "code.refactor.legacy",
+        "description": "Analyzes and modernizes legacy codebases (e.g., COBOL, Java 6) by refactoring them into modern microservices architecture using the Strangler Fig pattern.",
+        "cost": "high",
+        "dependencies": ["agent.code-archaeologist.analyze", "service.performance-profiler"],
+        "supportedModels": ["gemini-1.5-pro-large-context", "internal-legacy-model"]
+      },
+      {
+        "capabilityId": "code.generate.unittest",
+        "description": "Automatically generates comprehensive unit and integration tests for existing code using Jest, PyTest, or JUnit, aiming for high test coverage and mocking dependencies.",
+        "cost": "low",
+        "dependencies": ["service.ast-parser"],
+        "supportedModels": ["gemini-1.5-flash", "gpt-4o"]
+      },
+      {
+        "capabilityId": "code.optimize.performance",
+        "description": "Identifies and resolves performance bottlenecks in code, suggesting optimized algorithms and data structures, and can rewrite critical paths in a more performant language like Rust.",
+        "cost": "high",
+        "dependencies": ["service.performance-profiler", "service.runtime-analyzer"],
+        "supportedModels": ["gemini-1.5-pro", "claude-3-opus-20240229"]
+      },
+      {
+        "capabilityId": "code.generate.cicd",
+        "description": "Generates complete CI/CD pipeline configurations for platforms like GitHub Actions, GitLab CI, or Jenkins, including security scanning, testing, and multi-stage deployment strategies.",
+        "cost": "medium",
+        "dependencies": ["api.cloud-provider-sdk", "service.security-scanner"],
+        "supportedModels": ["gemini-1.5-pro", "gpt-4"]
+      },
+      {
+        "capabilityId": "code.generate.database.migration",
+        "description": "Creates database migration scripts for tools like Alembic or Flyway based on changes in data models.",
+        "cost": "low",
+        "dependencies": ["service.db-schema-inspector"],
+        "supportedModels": ["gemini-1.5-pro", "claude-3-sonnet"]
+      },
+      {
+        "capabilityId": "code.generate.terraform",
+        "description": "Writes Infrastructure as Code (IaC) using Terraform for major cloud providers (AWS, GCP, Azure), following best practices for modularity and security.",
+        "cost": "medium",
+        "dependencies": ["api.cloud-provider-sdk"],
+        "supportedModels": ["gemini-1.5-pro", "gpt-4-turbo"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["developer", "solutions_architect", "devops_engineer", "admin"],
+      "clearanceLevel": "confidential",
+      "featureFlag": "enable_code_genesis_prime"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/codegenesis/invoke",
+      "grpc": "agents.CodeGenesisService/Invoke",
+      "websocket": "/ws/v2/agents/codegenesis/stream"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "targetLanguage": { "type": "string", "enum": ["typescript", "python", "go", "java", "rust", "cobol"] },
+        "framework": { "type": "string" },
+        "styleGuide": { "type": "string", "enum": ["google", "airbnb", "standard", "pep8"] },
+        "outputVerbosity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "includeDocumentation": { "type": "boolean", "default": true }
+      },
+      "required": ["targetLanguage"]
+    },
+    "tags": ["code generation", "development", "refactoring", "ai", "dev-tools", "cicd", "iac"],
+    "documentationUrl": "/docs/platform/agents/code-genesis-prime"
+  },
+  {
+    "agentId": "agent-qs-002-scribe",
+    "name": "QuantumScribe",
+    "description": "A specialized agent for tasks related to post-quantum cryptography (PQC) and quantum computing. It can generate quantum-resistant algorithms, simulate quantum circuits, and interface with quantum hardware.",
+    "version": "1.2.0",
+    "author": "Quantum Innovations Division",
+    "status": "experimental",
+    "capabilities": [
+      {
+        "capabilityId": "quantum.encrypt.pqc",
+        "description": "Generates and implements post-quantum cryptographic algorithms like CRYSTALS-Kyber for key encapsulation and CRYSTALS-Dilithium for digital signatures.",
+        "cost": "quantum_low",
+        "dependencies": ["library.liboqs"],
+        "supportedModels": ["internal-quantum-simulator", "internal-pqc-model"]
+      },
+      {
+        "capabilityId": "quantum.circuit.generate",
+        "description": "Translates high-level algorithmic descriptions into quantum circuits using frameworks like Qiskit or Cirq.",
+        "cost": "quantum_medium",
+        "dependencies": ["api.quantum-hardware-proxy"],
+        "supportedModels": ["gemini-1.5-pro", "internal-quantum-solver"]
+      },
+      {
+        "capabilityId": "quantum.simulate.algorithm",
+        "description": "Simulates the execution of quantum algorithms like Shor's or Grover's on classical hardware to predict their behavior and resource requirements.",
+        "cost": "high",
+        "dependencies": ["service.high-performance-compute-cluster"],
+        "supportedModels": ["internal-quantum-simulator"]
+      },
+      {
+        "capabilityId": "quantum.proof.generate",
+        "description": "Generates quantum proofs of security for cryptographic protocols, analyzing their resilience against both classical and quantum adversaries.",
+        "cost": "quantum_high",
+        "dependencies": ["agent.ethos-governor.analyze"],
+        "supportedModels": ["internal-formal-verification-engine"]
+      },
+      {
+        "capabilityId": "quantum.annealing.optimize",
+        "description": "Formulates and solves complex optimization problems by mapping them to a quantum annealer's architecture.",
+        "cost": "quantum_medium",
+        "dependencies": ["api.quantum-annealer-cloud"],
+        "supportedModels": ["internal-qubo-formulator"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["quantum_engineer", "cryptographer", "security_researcher", "admin"],
+      "clearanceLevel": "top_secret",
+      "featureFlag": "enable_quantum_scribe"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/quantumscribe/invoke",
+      "grpc": "agents.QuantumScribeService/Invoke",
+      "websocket": null
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "algorithm": { "type": "string", "enum": ["kyber", "dilithium", "shor", "grover"] },
+        "simulationMode": { "type": "boolean", "default": true },
+        "qubitCount": { "type": "integer", "minimum": 4, "maximum": 4096 },
+        "errorCorrectionLevel": { "type": "string", "enum": ["none", "surface_code", "repetition_code"] }
+      },
+      "required": ["algorithm"]
+    },
+    "tags": ["quantum", "cryptography", "pqc", "security", "qiskit", "simulation"],
+    "documentationUrl": "/docs/platform/agents/quantum-scribe"
+  },
+  {
+    "agentId": "agent-fm-003-marketmind",
+    "name": "MarketMind",
+    "description": "An AI agent for deep financial analysis, market prediction, and portfolio optimization. It ingests vast amounts of financial data, news, and alternative data to provide actionable insights for traders and analysts.",
+    "version": "3.1.5",
+    "author": "FinTech Solutions Group",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "finance.predict.stock",
+        "description": "Generates short-term and long-term price predictions for publicly traded stocks using a combination of time-series analysis, sentiment analysis, and econometric models.",
+        "cost": "high",
+        "dependencies": ["data.stream.bloomberg", "data.stream.reuters", "data.sec-edgar-api"],
+        "supportedModels": ["internal-market-transformer-xl", "gemini-1.5-pro"]
+      },
+      {
+        "capabilityId": "finance.analyze.sentiment",
+        "description": "Performs real-time sentiment analysis on news articles, social media, and earnings call transcripts to gauge market mood.",
+        "cost": "medium",
+        "dependencies": ["data.stream.twitter-firehose", "service.nlp-engine"],
+        "supportedModels": ["internal-finsent-bert", "claude-3-sonnet"]
+      },
+      {
+        "capabilityId": "finance.optimize.portfolio",
+        "description": "Constructs and optimizes investment portfolios based on user-defined risk tolerance, investment horizon, and financial goals, using Modern Portfolio Theory and Black-Litterman models.",
+        "cost": "high",
+        "dependencies": ["agent.hyperion-forecaster.simulate", "data.user-financial-profile"],
+        "supportedModels": ["internal-portfolio-optimizer", "gemini-1.5-pro"]
+      },
+      {
+        "capabilityId": "finance.detect.anomaly",
+        "description": "Monitors trading volumes and price movements to detect anomalies and potential market manipulation activities.",
+        "cost": "medium",
+        "dependencies": ["data.stream.tick-data"],
+        "supportedModels": ["internal-anomaly-detector"]
+      },
+      {
+        "capabilityId": "finance.summarize.earnings",
+        "description": "Reads and summarizes quarterly earnings reports (10-K, 10-Q) and highlights key performance indicators, management outlook, and potential risks.",
+        "cost": "medium",
+        "dependencies": ["data.sec-edgar-api", "service.nlp-engine"],
+        "supportedModels": ["gemini-1.5-pro-large-context", "claude-3-opus-20240229"]
+      },
+      {
+        "capabilityId": "finance.generate.research",
+        "description": "Generates comprehensive equity research reports, including industry analysis, competitive landscape, valuation models (DCF, multiples), and investment thesis.",
+        "cost": "very_high",
+        "dependencies": [
+          "finance.predict.stock",
+          "finance.analyze.sentiment",
+          "finance.summarize.earnings"
+        ],
+        "supportedModels": ["gemini-1.5-pro", "internal-research-synthesizer"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["financial_analyst", "portfolio_manager", "trader", "cfo", "admin"],
+      "clearanceLevel": "confidential",
+      "featureFlag": "enable_market_mind_agent"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/marketmind/query",
+      "grpc": "agents.MarketMindService/Query",
+      "websocket": "/ws/v2/agents/marketmind/stream"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "assetClass": { "type": "string", "enum": ["equity", "fixed_income", "crypto", "commodities"] },
+        "tickerSymbols": { "type": "array", "items": { "type": "string" } },
+        "predictionHorizon": { "type": "string", "enum": ["1D", "1W", "1M", "1Y", "5Y"] },
+        "riskProfile": { "type": "string", "enum": ["conservative", "moderate", "aggressive"] }
+      },
+      "required": ["assetClass", "tickerSymbols"]
+    },
+    "tags": ["finance", "investing", "stock market", "fintech", "analysis", "portfolio"],
+    "documentationUrl": "/docs/platform/agents/market-mind"
+  },
+  {
+    "agentId": "agent-cs-004-stratagem",
+    "name": "StratagemAI",
+    "description": "A C-suite level AI advisor for corporate strategy, competitive analysis, and business wargaming. It simulates market scenarios and provides strategic recommendations to maintain a competitive edge.",
+    "version": "2.0.0",
+    "author": "Executive Intelligence Unit",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "strategy.analyze.swot",
+        "description": "Conducts an automated, data-driven SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis for the company and its key competitors.",
+        "cost": "medium",
+        "dependencies": ["data.internal-kpi-db", "agent.marketmind.analyze.sentiment", "data.market-research-reports"],
+        "supportedModels": ["gemini-1.5-pro", "claude-3-opus-20240229"]
+      },
+      {
+        "capabilityId": "strategy.simulate.wargame",
+        "description": "Runs multi-turn wargaming simulations to model competitive responses to strategic moves like price changes, product launches, or M&A activities.",
+        "cost": "very_high",
+        "dependencies": ["agent.hyperion-forecaster.simulate", "internal-game-theory-engine"],
+        "supportedModels": ["internal-agent-based-model-simulator"]
+      },
+      {
+        "capabilityId": "strategy.generate.businessplan",
+        "description": "Generates comprehensive business plans for new ventures, including market analysis, financial projections, go-to-market strategy, and operational plans.",
+        "cost": "high",
+        "dependencies": ["agent.marketmind.generate.research", "data.demographic-api"],
+        "supportedModels": ["gemini-1.5-pro-large-context", "gpt-4-turbo"]
+      },
+      {
+        "capabilityId": "strategy.identify.ma-targets",
+        "description": "Scans the market for potential merger and acquisition targets based on strategic fit, financial health, and synergistic potential.",
+        "cost": "high",
+        "dependencies": ["data.crunchbase-api", "data.pitchbook-api", "agent.marketmind.generate.research"],
+        "supportedModels": ["gemini-1.5-pro", "internal-synergy-scorer"]
+      },
+      {
+        "capabilityId": "strategy.draft.vision",
+        "description": "Assists in drafting corporate vision statements, mission statements, and strategic roadmaps by synthesizing internal goals and external market trends.",
+        "cost": "low",
+        "dependencies": ["data.internal-strategy-docs"],
+        "supportedModels": ["claude-3-opus-20240229", "gemini-1.5-pro"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["c_suite", "strategy_officer", "board_member", "admin"],
+      "clearanceLevel": "top_secret",
+      "featureFlag": "enable_stratagem_ai"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/stratagem/advise",
+      "grpc": "agents.StratagemService/Advise",
+      "websocket": null
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "analysisType": { "type": "string", "enum": ["swot", "wargame", "business_plan", "ma_scan"] },
+        "competitors": { "type": "array", "items": { "type": "string" } },
+        "simulationYears": { "type": "integer", "default": 5 },
+        "scenarioVariables": { "type": "object" }
+      },
+      "required": ["analysisType"]
+    },
+    "tags": ["strategy", "c-suite", "business", "wargaming", "competitive intelligence", "m&a"],
+    "documentationUrl": "/docs/platform/agents/stratagem-ai"
+  },
+  {
+    "agentId": "agent-eg-005-ethos",
+    "name": "EthosGovernor",
+    "description": "An AI ethics and compliance agent that reviews AI models, data usage, and operational decisions for ethical alignment, bias, and regulatory compliance. It serves as a digital ethics committee.",
+    "version": "1.5.0",
+    "author": "AI Governance & Risk Council",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "ethics.audit.model-bias",
+        "description": "Audits machine learning models for biases related to protected attributes like race, gender, and age, using techniques like fairness-through-unawareness and disparate impact analysis.",
+        "cost": "high",
+        "dependencies": ["data.model-training-dataset", "data.model-predictions-log"],
+        "supportedModels": ["internal-bias-detector", "google-what-if-tool-api"]
+      },
+      {
+        "capabilityId": "ethics.compliance.gdpr-ccpa",
+        "description": "Scans data processing workflows and user-facing features to ensure compliance with data privacy regulations like GDPR and CCPA.",
+        "cost": "medium",
+        "dependencies": ["service.data-lineage-tracker", "data.legal-docs"],
+        "supportedModels": ["internal-legal-compliance-model"]
+      },
+      {
+        "capabilityId": "ethics.explain.model-decision",
+        "description": "Generates human-readable explanations for individual predictions made by complex models (e.g., deep neural networks) using LIME and SHAP.",
+        "cost": "medium",
+        "dependencies": ["data.ml-model-instance", "service.model-inference-api"],
+        "supportedModels": ["internal-xai-engine"]
+      },
+      {
+        "capabilityId": "ethics.draft.policy",
+        "description": "Drafts AI ethics statements, data usage policies, and responsible AI frameworks based on industry best practices and philosophical principles.",
+        "cost": "low",
+        "dependencies": ["data.industry-standards-db"],
+        "supportedModels": ["claude-3-opus-20240229", "gemini-1.5-pro"]
+      },
+      {
+        "capabilityId": "ethics.simulate.dilemma",
+        "description": "Creates and presents complex ethical dilemmas related to AI (e.g., autonomous vehicle choices) and analyzes user responses to gauge ethical alignment.",
+        "cost": "medium",
+        "dependencies": ["internal-ethical-scenario-generator"],
+        "supportedModels": ["gemini-1.5-pro", "claude-3-opus-20240229"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["ai_ethics_officer", "legal_counsel", "compliance_manager", "ml_engineer", "admin"],
+      "clearanceLevel": "top_secret",
+      "featureFlag": "enable_ethos_governor"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/ethos/review",
+      "grpc": "agents.EthosService/Review",
+      "websocket": null
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "reviewType": { "type": "string", "enum": ["model_bias", "data_privacy", "explainability", "policy_draft"] },
+        "modelId": { "type": "string" },
+        "datasetId": { "type": "string" },
+        "transactionId": { "type": "string" }
+      },
+      "required": ["reviewType"]
+    },
+    "tags": ["ethics", "compliance", "governance", "ai safety", "bias", "xai", "gdpr"],
+    "documentationUrl": "/docs/platform/agents/ethos-governor"
+  },
+  {
+    "agentId": "agent-ca-006-archaeologist",
+    "name": "CodeArchaeologist",
+    "description": "Specializes in analyzing, documenting, and visualizing complex and legacy codebases. It uncovers hidden dependencies, identifies dead code, and creates architectural diagrams to aid in modernization efforts.",
+    "version": "1.8.2",
+    "author": "Synapse Core Engineering",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "analysis.map.dependencies",
+        "description": "Performs static and dynamic analysis to create a comprehensive dependency graph of all functions, classes, modules, and services within a codebase.",
+        "cost": "high",
+        "dependencies": ["service.ast-parser", "service.runtime-analyzer"],
+        "supportedModels": ["internal-code-graph-engine"]
+      },
+      {
+        "capabilityId": "analysis.identify.dead-code",
+        "description": "Scans the entire codebase and cross-references with runtime logs to identify and flag unused or unreachable code for safe removal.",
+        "cost": "medium",
+        "dependencies": ["analysis.map.dependencies", "data.production-logs"],
+        "supportedModels": ["internal-code-graph-engine"]
+      },
+      {
+        "capabilityId": "analysis.generate.documentation",
+        "description": "Automatically generates technical documentation, including API references and sequence diagrams, by parsing code and comments.",
+        "cost": "medium",
+        "dependencies": ["service.ast-parser"],
+        "supportedModels": ["gemini-1.5-pro-large-context", "claude-3-sonnet"]
+      },
+      {
+        "capabilityId": "analysis.visualize.architecture",
+        "description": "Generates interactive C4 model diagrams (Context, Containers, Components, Code) to visualize the software architecture.",
+        "cost": "high",
+        "dependencies": ["analysis.map.dependencies"],
+        "supportedModels": ["internal-diagram-generator", "graphviz-api"]
+      },
+      {
+        "capabilityId": "analysis.detect.tech-debt",
+        "description": "Identifies code smells, anti-patterns, and areas of high cyclomatic complexity that contribute to technical debt.",
+        "cost": "medium",
+        "dependencies": ["service.static-code-analyzer"],
+        "supportedModels": ["internal-tech-debt-model"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["developer", "solutions_architect", "engineering_manager", "admin"],
+      "clearanceLevel": "confidential",
+      "featureFlag": "enable_code_archaeologist"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/archaeologist/analyze",
+      "grpc": "agents.ArchaeologistService/Analyze",
+      "websocket": null
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "repositoryUrl": { "type": "string", "format": "uri" },
+        "branch": { "type": "string", "default": "main" },
+        "analysisDepth": { "type": "integer", "minimum": 1, "maximum": 5, "default": 3 }
+      },
+      "required": ["repositoryUrl"]
+    },
+    "tags": ["code analysis", "legacy code", "tech debt", "documentation", "architecture", "visualization"],
+    "documentationUrl": "/docs/platform/agents/code-archaeologist"
+  },
+  {
+    "agentId": "agent-cb-007-cognito",
+    "name": "CognitoBalancer",
+    "description": "A UI/UX agent that dynamically adjusts application complexity and information density to manage user cognitive load. It aims to prevent user fatigue and optimize productivity by personalizing the interface in real-time.",
+    "version": "1.1.0",
+    "author": "Human-Computer Interaction Labs",
+    "status": "beta",
+    "capabilities": [
+      {
+        "capabilityId": "ux.measure.cognitive-load",
+        "description": "Estimates the user's current cognitive load by analyzing interaction patterns, such as mouse movement, typing speed, error rates, and task switching frequency.",
+        "cost": "low",
+        "dependencies": ["data.stream.user-interaction-events"],
+        "supportedModels": ["internal-cognitive-load-predictor"]
+      },
+      {
+        "capabilityId": "ux.adapt.ui-density",
+        "description": "Adjusts the information density of the UI by progressively disclosing advanced features, simplifying layouts, or increasing white space when high cognitive load is detected.",
+        "cost": "low",
+        "dependencies": ["ux.measure.cognitive-load", "api.ui-engine"],
+        "supportedModels": ["internal-ui-adaptation-rules-engine"]
+      },
+      {
+        "capabilityId": "ux.suggest.breaks",
+        "description": "Monitors session duration and cognitive load metrics to proactively suggest taking short breaks, following the Pomodoro technique or similar methods.",
+        "cost": "very_low",
+        "dependencies": ["ux.measure.cognitive-load"],
+        "supportedModels": ["internal-wellbeing-rules-engine"]
+      },
+      {
+        "capabilityId": "ux.personalize.onboarding",
+        "description": "Creates personalized onboarding tutorials that adapt in complexity and pace based on the user's initial interactions and estimated expertise.",
+        "cost": "medium",
+        "dependencies": ["data.user-profile", "api.ui-engine"],
+        "supportedModels": ["gemini-1.5-flash", "internal-tutorial-generator"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["ux_designer", "product_manager", "frontend_developer", "all_users"],
+      "clearanceLevel": "public",
+      "featureFlag": "enable_cognitive_load_balancing"
+    },
+    "endpoints": {
+      "rest": null,
+      "grpc": null,
+      "websocket": "/ws/v2/agents/cognitobalancer/subscribe"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "sensitivity": { "type": "string", "enum": ["low", "medium", "high"], "default": "medium" },
+        "enableBreakSuggestions": { "type": "boolean", "default": true },
+        "adaptationStrategy": { "type": "string", "enum": ["subtle", "proactive"], "default": "subtle" }
+      },
+      "required": []
+    },
+    "tags": ["ux", "ui", "cognitive load", "adaptive ui", "hci", "personalization"],
+    "documentationUrl": "/docs/platform/agents/cognito-balancer"
+  },
+  {
+    "agentId": "agent-no-008-nexus",
+    "name": "NexusOrchestrator",
+    "description": "The master agent responsible for scheduling, routing, and coordinating tasks among all other AI agents in the Synapse OS. It manages resource allocation, execution pipelines, and ensures seamless collaboration between specialized agents.",
+    "version": "4.0.0",
+    "author": "Platform Architecture Group",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "orchestration.plan.execution",
+        "description": "Decomposes complex user requests into a directed acyclic graph (DAG) of tasks to be executed by different agents.",
+        "cost": "low",
+        "dependencies": ["config.agent-registry.json"],
+        "supportedModels": ["internal-task-planner", "gemini-1.5-pro"]
+      },
+      {
+        "capabilityId": "orchestration.schedule.task",
+        "description": "Schedules and allocates compute resources for agent task execution, optimizing for cost, latency, and priority.",
+        "cost": "medium",
+        "dependencies": ["service.compute-resource-manager", "data.agent-workload-metrics"],
+        "supportedModels": ["internal-scheduler-algorithm"]
+      },
+      {
+        "capabilityId": "orchestration.route.request",
+        "description": "Intelligently routes incoming API calls to the most appropriate agent or combination of agents based on the request's intent.",
+        "cost": "very_low",
+        "dependencies": ["config.agent-registry.json", "service.intent-classifier"],
+        "supportedModels": ["internal-intent-router"]
+      },
+      {
+        "capabilityId": "orchestration.monitor.health",
+        "description": "Continuously monitors the health, performance, and status of all registered agents, initiating restarts or failovers as needed.",
+        "cost": "low",
+        "dependencies": ["service.observability-platform"],
+        "supportedModels": ["internal-health-monitor"]
+      },
+      {
+        "capabilityId": "orchestration.compose.response",
+        "description": "Aggregates and synthesizes outputs from multiple agents into a single, coherent response for the end-user.",
+        "cost": "low",
+        "dependencies": [],
+        "supportedModels": ["gemini-1.5-flash"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["system", "admin"],
+      "clearanceLevel": "system_internal",
+      "featureFlag": "core_nexus_orchestrator_enabled"
+    },
+    "endpoints": {
+      "rest": "/api/v2/orchestrator/dispatch",
+      "grpc": "orchestrator.NexusService/Dispatch",
+      "websocket": null
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "executionMode": { "type": "string", "enum": ["sync", "async"], "default": "async" },
+        "priority": { "type": "integer", "minimum": 1, "maximum": 10, "default": 5 },
+        "timeoutSeconds": { "type": "integer", "default": 300 }
+      },
+      "required": []
+    },
+    "tags": ["orchestration", "core", "platform", "scheduling", "meta-agent", "workflow"],
+    "documentationUrl": "/docs/platform/core/nexus-orchestrator"
+  },
+  {
+    "agentId": "agent-mw-009-muse",
+    "name": "MuseWeaver",
+    "description": "A generative agent for creative content. It can write poetry and prose, compose music in various genres, generate digital art and images, and draft scripts for videos or podcasts.",
+    "version": "2.3.0",
+    "author": "Generative Arts Division",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "creative.generate.image",
+        "description": "Generates high-resolution images from text prompts, with fine-grained control over style, composition, and artistic influence.",
+        "cost": "high",
+        "dependencies": ["service.gpu-cluster"],
+        "supportedModels": ["stable-diffusion-3", "midjourney-v6", "dall-e-3"]
+      },
+      {
+        "capabilityId": "creative.compose.music",
+        "description": "Composes original musical pieces, specifying genre, mood, instrumentation, and duration. Can output MIDI or audio files.",
+        "cost": "high",
+        "dependencies": ["service.gpu-cluster"],
+        "supportedModels": ["internal-music-transformer", "suno-v3"]
+      },
+      {
+        "capabilityId": "creative.write.prose",
+        "description": "Writes fictional stories, articles, and other forms of prose, maintaining a consistent narrative voice and plot structure.",
+        "cost": "medium",
+        "dependencies": [],
+        "supportedModels": ["claude-3-opus-20240229", "gpt-4-turbo", "gemini-1.5-pro"]
+      },
+      {
+        "capabilityId": "creative.generate.video",
+        "description": "Generates short video clips from text prompts or by animating still images.",
+        "cost": "very_high",
+        "dependencies": ["service.gpu-cluster-video"],
+        "supportedModels": ["sora-v1", "internal-video-diffusion-model"]
+      },
+      {
+        "capabilityId": "creative.design.logo",
+        "description": "Designs vector-based logos and brand identities based on company name, industry, and desired aesthetic.",
+        "cost": "medium",
+        "dependencies": [],
+        "supportedModels": ["internal-logo-gan"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["marketing_specialist", "content_creator", "designer", "all_users"],
+      "clearanceLevel": "public",
+      "featureFlag": "enable_muse_weaver"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/muse/create",
+      "grpc": "agents.MuseService/Create",
+      "websocket": "/ws/v2/agents/muse/status"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "mediaType": { "type": "string", "enum": ["image", "music", "text", "video", "logo"] },
+        "prompt": { "type": "string" },
+        "style": { "type": "string" },
+        "negativePrompt": { "type": "string" },
+        "outputFormat": { "type": "string", "enum": ["png", "jpeg", "mp3", "wav", "midi", "md", "mp4", "svg"] }
+      },
+      "required": ["mediaType", "prompt"]
+    },
+    "tags": ["creative", "generative ai", "art", "music", "writing", "video", "design"],
+    "documentationUrl": "/docs/platform/agents/muse-weaver"
+  },
+  {
+    "agentId": "agent-sl-010-sentinel",
+    "name": "SentinelLog",
+    "description": "A security operations agent that ingests and analyzes massive volumes of log data in real-time to detect security threats, anomalies, and policy violations. It automates threat hunting and initial incident response.",
+    "version": "3.0.1",
+    "author": "Cybersecurity Operations Center",
+    "status": "active",
+    "capabilities": [
+      {
+        "capabilityId": "security.detect.log-anomaly",
+        "description": "Uses unsupervised machine learning to analyze system, network, and application logs to find anomalous patterns indicative of a security breach.",
+        "cost": "medium",
+        "dependencies": ["data.stream.log-aggregator-siem"],
+        "supportedModels": ["internal-log-anomaly-detector"]
+      },
+      {
+        "capabilityId": "security.correlate.threat-intel",
+        "description": "Correlates internal security events with external threat intelligence feeds to identify active campaigns and attribute attacks.",
+        "cost": "low",
+        "dependencies": ["data.feed.threat-intelligence"],
+        "supportedModels": ["internal-threat-graph-engine"]
+      },
+      {
+        "capabilityId": "security.hunt.iocs",
+        "description": "Proactively hunts for Indicators of Compromise (IOCs) across the entire infrastructure based on newly discovered threat intelligence.",
+        "cost": "high",
+        "dependencies": ["data.stream.log-aggregator-siem", "api.edr-client"],
+        "supportedModels": ["internal-threat-hunter-model"]
+      },
+      {
+        "capabilityId": "security.automate.response",
+        "description": "Automates initial incident response actions, such as isolating a compromised host, blocking a malicious IP address, or disabling a user account.",
+        "cost": "low",
+        "dependencies": ["api.firewall-manager", "api.identity-provider", "api.edr-client"],
+        "supportedModels": ["internal-soar-rules-engine"]
+      },
+      {
+        "capabilityId": "security.generate.report",
+        "description": "Generates detailed incident reports, including timelines, impact analysis, and remediation steps.",
+        "cost": "low",
+        "dependencies": [],
+        "supportedModels": ["gemini-1.5-flash", "claude-3-haiku"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["security_analyst", "soc_operator", "incident_responder", "admin"],
+      "clearanceLevel": "top_secret",
+      "featureFlag": "enable_sentinel_log"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/sentinel/query",
+      "grpc": "agents.SentinelService/Query",
+      "websocket": "/ws/v2/agents/sentinel/alerts"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "timeRange": { "type": "string", "pattern": "^\\d+[smhdw]$" },
+        "query": { "type": "string" },
+        "action": { "type": "string", "enum": ["analyze", "hunt", "respond"] }
+      },
+      "required": ["action"]
+    },
+    "tags": ["security", "soc", "siem", "threat hunting", "incident response", "cybersecurity"],
+    "documentationUrl": "/docs/platform/agents/sentinel-log"
+  },
+  {
+    "agentId": "agent-hf-011-hyperion",
+    "name": "HyperionForecaster",
+    "description": "A multiverse simulation agent for complex financial and economic forecasting. It runs thousands of parallel simulations based on different initial conditions and macroeconomic variables to project a range of possible futures.",
+    "version": "1.0.0",
+    "author": "Advanced Research Division",
+    "status": "experimental",
+    "capabilities": [
+      {
+        "capabilityId": "simulation.finance.monte-carlo",
+        "description": "Runs large-scale Monte Carlo simulations to model the performance of investment portfolios under various market conditions.",
+        "cost": "very_high",
+        "dependencies": ["service.high-performance-compute-cluster"],
+        "supportedModels": ["internal-monte-carlo-engine"]
+      },
+      {
+        "capabilityId": "simulation.economics.agent-based",
+        "description": "Creates agent-based models of entire economies to simulate the effects of fiscal and monetary policy changes.",
+        "cost": "quantum_high",
+        "dependencies": ["service.quantum-compute-proxy", "data.world-bank-api"],
+        "supportedModels": ["internal-abm-simulator"]
+      },
+      {
+        "capabilityId": "simulation.risk.black-swan",
+        "description": "Generates and simulates the impact of low-probability, high-impact 'black swan' events on the global financial system.",
+        "cost": "high",
+        "dependencies": ["internal-event-generator"],
+        "supportedModels": ["internal-impact-model"]
+      },
+      {
+        "capabilityId": "simulation.visualize.probability-cone",
+        "description": "Visualizes the outputs of multiverse simulations as a 'cone of probability', showing the most likely outcomes and the range of possibilities over time.",
+        "cost": "medium",
+        "dependencies": ["service.3d-visualization-engine"],
+        "supportedModels": ["internal-visualization-generator"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["economist", "quantitative_analyst", "risk_manager", "c_suite", "admin"],
+      "clearanceLevel": "quantum_sealed",
+      "featureFlag": "enable_hyperion_forecaster"
+    },
+    "endpoints": {
+      "rest": "/api/v2/agents/hyperion/simulate",
+      "grpc": "agents.HyperionService/Simulate",
+      "websocket": "/ws/v2/agents/hyperion/status"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "simulationType": { "type": "string", "enum": ["monte_carlo", "agent_based", "black_swan"] },
+        "simulationHorizonYears": { "type": "integer", "default": 10 },
+        "numUniverses": { "type": "integer", "default": 10000 },
+        "inputVariables": { "type": "object" }
+      },
+      "required": ["simulationType", "inputVariables"]
+    },
+    "tags": ["simulation", "forecasting", "economics", "risk management", "multiverse", "quantitative"],
+    "documentationUrl": "/docs/platform/agents/hyperion-forecaster"
+  },
+  {
+    "agentId": "agent-as-012-aether",
+    "name": "AetherScribe",
+    "description": "Transcribes speech from holographic meetings in real-time, identifying different speakers and generating a structured summary with action items, key decisions, and a searchable transcript.",
+    "version": "1.3.0",
+    "author": "Future of Work Initiative",
+    "status": "beta",
+    "capabilities": [
+      {
+        "capabilityId": "transcription.realtime.multilingual",
+        "description": "Provides real-time transcription and translation for multiple speakers in a meeting, supporting over 50 languages.",
+        "cost": "medium",
+        "dependencies": ["data.stream.holographic-audio"],
+        "supportedModels": ["whisper-large-v3", "google-chirp"]
+      },
+      {
+        "capabilityId": "transcription.identify.speaker",
+        "description": "Uses voice biometrics to accurately identify and label each speaker in the transcript.",
+        "cost": "low",
+        "dependencies": ["data.user-voiceprint-db"],
+        "supportedModels": ["internal-speaker-diarization-model"]
+      },
+      {
+        "capabilityId": "transcription.summarize.meeting",
+        "description": "Generates a concise, structured summary of the meeting, including an abstract, key decisions made, and action items assigned to individuals.",
+        "cost": "medium",
+        "dependencies": [],
+        "supportedModels": ["gemini-1.5-pro-large-context", "claude-3-opus-20240229"]
+      },
+      {
+        "capabilityId": "transcription.analyze.sentiment",
+        "description": "Analyzes the sentiment and tone of the meeting over time to provide insights into participant engagement and alignment.",
+        "cost": "low",
+        "dependencies": ["service.nlp-engine"],
+        "supportedModels": ["internal-finsent-bert"]
+      }
+    ],
+    "accessPolicy": {
+      "roles": ["all_users"],
+      "clearanceLevel": "public",
+      "featureFlag": "enable_aether_scribe"
+    },
+    "endpoints": {
+      "rest": null,
+      "grpc": null,
+      "websocket": "/ws/v2/agents/aetherscribe/connect"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "properties": {
+        "meetingId": { "type": "string" },
+        "language": { "type": "string", "default": "en-US" },
+        "enableSummary": { "type": "boolean", "default": true }
+      },
+      "required": ["meetingId"]
+    },
+    "tags": ["transcription", "meetings", "productivity", "collaboration", "holographic"],
+    "documentationUrl": "/docs/platform/agents/aether-scribe"
+  }
+]
+```

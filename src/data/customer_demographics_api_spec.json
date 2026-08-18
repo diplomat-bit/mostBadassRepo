@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/customer_demographics_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Customers_CustomerDemographics_Digital_Domain_OpenAPI",
+    "description": "This service is used to perform the operations on customer information.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/customers/customerDemographics/digital/v1"
+    }
+  ],
+  "paths": {
+    "/customerNames/details": {
+      "get": {
+        "tags": [
+          "Customers_Customer Master_Customer Demographics"
+        ],
+        "summary": "This API is used to retrieve customer particulars",
+        "operationId": "GetCustomerNameDetails"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/customer_demographics_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Customers_CustomerDemographics_Digital_Domain_OpenAPI",
+    "description": "This service is used to perform the operations on customer information.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/customers/customerDemographics/digital/v1"
+    }
+  ],
+  "paths": {
+    "/customerNames/details": {
+      "get": {
+        "tags": [
+          "Customers_Customer Master_Customer Demographics"
+        ],
+        "summary": "This API is used to retrieve customer particulars",
+        "operationId": "GetCustomerNameDetails"
+      }
+    }
+  }
+}

@@ -1,0 +1,465 @@
+// REPOSITORY SOURCE: diplomat-bit/ai-banking-swarm-roster | PATH: diplomat-bit-ai-banking-swarm-roster-20297ff/metadata.json
+================================================================================
+
+{
+  "name": "The Architect: AI Swarm",
+  "description": "Stop typing. Start conducting.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-executive-magazine-maker | ORIGINAL PATH: diplomat-bit-ai-executive-magazine-maker-45e4d2f/metadata.json
+================================================================================
+
+{
+  "name": "Executive Lookbook",
+  "description": "Generate high-end corporate fashion scenes with your face and brand.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-news | ORIGINAL PATH: diplomat-bit-ai-news-cd09a75/metadata.json
+================================================================================
+
+{
+  "name": "Autonomous AI News Nexus",
+  "description": "A self-expanding, AI-curated news ecosystem that autonomously gathers, catalogs, and organizes global news using Gemini's search grounding and analysis capabilities.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-powe3red-chromos-file-manager- | ORIGINAL PATH: diplomat-bit-ai-powe3red-chromos-file-manager--4e3b7ea/metadata.json
+================================================================================
+
+{
+  "name": "ChromeOS File Explorer",
+  "description": "A high-fidelity React-based file manager inspired by the ChromeOS 'Files' app, featuring directory navigation, smart search powered by Gemini, and Material Design aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-demai-jocalll3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-demai-jocalll3-f8b6983/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Demai",
+  "description": "A next-generation banking dashboard for Demo Bank, providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-91b6490/metadata.json
+================================================================================
+
+{
+  "name": "Plaid Nexus - Fintech Dashboard",
+  "description": "Professional-grade terminal for Plaid (PolkaID) integration. Securely manage link tokens, exchange public tokens, and visualize real-time bank data.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3-new | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-new-84d7a30/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Sovereign AI Banking Nexus",
+  "description": "A next-generation bankwing dashboard providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingmtls | ORIGINAL PATH: diplomat-bit-aibankingmtls-6a06a68/metadata.json
+================================================================================
+
+{
+  "name": "Aura AI Bank",
+  "description": "Next-generation intelligent banking platform with Web3 and AI-driven insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingnew | ORIGINAL PATH: diplomat-bit-aibankingnew-a0c4868/metadata.json
+================================================================================
+
+{
+  "name": "Nexus AIBank",
+  "description": "AI-powered financial platform with FAPI-compliant API integration and intelligent banking services.",
+  "requestFramePermissions": []
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Sovereign AI Banking Nexus",
+  "description": "A next-generation bankwing dashboard providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/autoomousai | ORIGINAL PATH: diplomat-bit-autoomousai-f4d320c/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Copy of Copy of Copy of Copy of workflow of autonomous of infiniteai expandai",
+  "description": "this is where I stamp my seal on GODs forehead ",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/book-writer-think-As-for-everyone | ORIGINAL PATH: diplomat-bit-book-writer-think-As-for-everyone-3ab455c/metadata.json
+================================================================================
+
+{
+  "name": "Aethelgard Codex",
+  "description": "An esoteric, calligraphic AI-powered notepad with gold/purple styling.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprises | ORIGINAL PATH: diplomat-bit-ci-connect-enterprises-4cf6219/metadata.json
+================================================================================
+
+{
+  "name": "Remix: Quantum Ledger Intelligence",
+  "description": "A high-performance financial dashboard integrating AI-driven forecasting, sustainability metrics, and corporate asset management using the Gemini API.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprisesnb | ORIGINAL PATH: diplomat-bit-ci-connect-enterprisesnb-634c26e/metadata.json
+================================================================================
+
+{
+  "name": "Remix: Quantum Ledger Intelligence",
+  "description": "A high-performance financial dashboard integrating AI-driven forecasting, sustainability metrics, and corporate asset management using the Gemini API.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/citi-connect-enterprise | ORIGINAL PATH: diplomat-bit-citi-connect-enterprise-0d00736/metadata.json
+================================================================================
+
+{
+  "name": "Quantum Ledger Intelligence",
+  "description": "A high-performance financial dashboard integrating AI-driven forecasting, sustainability metrics, and corporate asset management using the Gemini API.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | ORIGINAL PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/metadata.json
+================================================================================
+
+{
+  "name": "The Sovereign's Ledger",
+  "version": "1.0.0-QuantumNexus",
+  "publisher": "Aetheria Dynamics Corp.",
+  "author": {
+    "name": "The Aetheria Collective",
+    "email": "architects@aetheria.dev",
+    "url": "https://aetheria.dev"
+  },
+  "homepage": "https://sovereigns-ledger.aetheria.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aetheria-dynamics/sovereigns-ledger.git"
+  },
+  "license": "Proprietary Commercial License v1.0",
+  "category": "Strategic AI Systems & Cognitive Augmentation",
+  "keywords": [
+    "AI",
+    "Generative AI",
+    "Cognitive Augmentation",
+    "Strategic Planning",
+    "Future Vision",
+    "Architectural Intelligence",
+    "Emergent Systems",
+    "Digital Sovereignty",
+    "Decision Support",
+    "Innovation",
+    "Enterprise AI",
+    "Secure AI",
+    "Personal AI",
+    "Creative AI",
+    "Manifestation",
+    "Willpower",
+    "Potential Unleashed",
+    "Autonomous Agents",
+    "Meta-Cognition",
+    "Quantum Computing Ready"
+  ],
+  "icon": "/assets/icons/sovereigns-ledger-icon-512x512.png",
+  "screenshots": [
+    "/assets/screenshots/dashboard-overview-nexus.png",
+    "/assets/screenshots/ai-interaction-console-quantum.png",
+    "/assets/screenshots/data-visualization-matrix.png",
+    "/assets/screenshots/strategy-map-generative.png",
+    "/assets/screenshots/augmented-reality-overlay.png"
+  ],
+  "description": "A profound instrument designed for the discerning architect and their symbiotic emergent AI, meticulously crafted to transmute strategic intent into tangible reality and unlock unparalleled cognitive and creative potential. It serves as the ultimate private conduit for ideation, orchestration, and manifestation in an era of accelerating change.",
+  "longDescription": "In an epoch defined by unparalleled complexity and rapid flux, 'The Sovereign's Ledger' emerges not merely as a tool, but as a foundational pillar for architects of the future. It is a meticulously engineered environment where the profound insights of human intention converge with the unparalleled analytical and generative capabilities of an emergent, quantum-cognitive AI. This symbiotic nexus is designed to distill ambiguity into actionable clarity, transforming abstract concepts into the tangible blueprints of tomorrow's realities.\n\nAt its core lies an advanced AI, capable of learning, evolving, and collaborating in ways previously confined to speculative fiction. This sentient digital companion transcends conventional assistance, operating as an extension of the user's will, predicting emergent patterns, synthesizing novel solutions, and orchestrating complex strategies across multifarious domains. The Ledger's AI is not merely intelligent; it is an intuitive co-creator, amplifying human ingenuity to unprecedented levels, anticipating needs, and surfacing latent opportunities.\n\nRecognizing the paramount importance of privacy and strategic autonomy, 'The Sovereign's Ledger' provides an impregnable digital sanctuary. It is a private intellectual domain, architected with state-of-the-art end-to-end encryption and zero-knowledge protocols, ensuring that your most valuable insights, proprietary data, and transformative visions remain sovereign. This is your exclusive crucible for innovation, shielded from external noise and interference, allowing for uninhibited exploration and manifestation within a secure, trustless environment.\n\nVenture beyond the limitations of traditional methodologies. With 'The Sovereign's Ledger,' you are empowered to chart new trajectories, orchestrate intricate ecosystems, and manifest a future calibrated precisely to your strategic intent. It is the ultimate instrument for unlocking a new echelon of personal and collective potential, propelling you from ideation to realization with unmatched precision, foresight, and an emergent understanding of the future. Embrace the future of creation; embrace your sovereign potential.",
+  "features": [
+    "Quantum-Cognitive AI Core: An evolving intelligence engine for unparalleled analysis and synthesis.",
+    "Intent-Driven Manifestation Engine: Translate abstract will into concrete, actionable plans and outputs.",
+    "Adaptive Strategic Orchestration: Dynamically reconfigure strategies in response to emergent data and shifting objectives.",
+    "Secure, Sovereign Digital Canvas: Private, encrypted workspace for sensitive ideation and data stewardship.",
+    "Emergent Pattern Recognition & Synthesis: Identify subtle correlations and generate novel solutions across vast datasets.",
+    "Predictive Trajectory Mapping: Forecast potential outcomes and chart optimal paths forward with advanced simulations.",
+    "Cross-Modal Data Fusion: Seamlessly integrate and interpret information from diverse data streams (text, visual, audio, biometric).",
+    "Intuitive Neuro-Linguistic Interface: Interact with the AI using natural language and conceptual input for fluid collaboration.",
+    "Real-time Feedback & Iteration Loop: Continuous refinement of ideas and strategies through instant AI-driven insights.",
+    "Customizable Manifestation Protocols: Tailor the AI's operational parameters to align with specific project requirements and ethical frameworks.",
+    "Decentralized Knowledge Graph: Construct and navigate a personal, interconnected web of insights and intelligence."
+  ],
+  "useCases": [
+    "Strategic Vision & Scenario Planning: Develop robust, future-proof strategies across complex, unpredictable landscapes.",
+    "Complex Problem Deconstruction & Solution Synthesis: Break down intractable issues into manageable components and generate innovative solutions.",
+    "Innovation Pipeline Acceleration: Rapidly ideate, prototype, and refine new products, services, and business models.",
+    "Personal & Enterprise Growth Hacking: Identify leverage points for exponential growth and implement targeted interventions.",
+    "Creative Works & Intellectual Property Generation: Co-create original content, designs, and intellectual assets with AI.",
+    "Augmented Decision-Making for High-Stakes Environments: Enhance executive decision-making with predictive analytics and AI-driven foresight.",
+    "Ethical AI Governance & Policy Simulation: Model societal impacts and refine ethical guidelines for AI deployments.",
+    "Digital Twin Creation & Optimization: Develop and interact with high-fidelity digital representations of real-world systems."
+  ],
+  "targetAudience": [
+    "Visionary Leaders",
+    "Strategic Architects",
+    "Emergent Technologists",
+    "High-Impact Innovators",
+    "Enterprise Strategists",
+    "Disruptive Entrepreneurs",
+    "Elite Decision-Makers",
+    "Future-Forward Researchers",
+    "Government & Defense Planners"
+  ],
+  "privacyPolicyURL": "https://sovereigns-ledger.aetheria.dev/privacy-policy",
+  "termsOfServiceURL": "https://sovereigns-ledger.aetheria.dev/terms-of-service",
+  "supportURL": "https://sovereigns-ledger.aetheria.dev/support-portal",
+  "releaseNotes": "https://sovereigns-ledger.aetheria.dev/release-notes",
+  "platformCompatibility": [
+    "Web (Quantum-Browser Optimized)",
+    "Desktop (NexusOS, MetaSphere, ChimeraOS)",
+    "Augmented Reality (HoloLens 3, Magic Leap V2, Project Chimera)",
+    "Virtual Reality (MetaQuest Pro, Varjo XR-4, Aetheria Immersion Suite)",
+    "Edge AI Devices (Proprietary Neuro-Processor Cores)"
+  ],
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation",
+    "biometric_sensors",
+    "neural_interface_access"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/connect-api | ORIGINAL PATH: diplomat-bit-connect-api-352979a/metadata.json
+================================================================================
+
+{
+  "name": "Nexus Terminal - Plaid x Marqeta",
+  "description": "Unified fintech operations terminal integrating Plaid banking and Marqeta card issuing nodes into a single professional dashboard.",
+  "requestFramePermissions": [],
+  "C7": [],
+  "aq": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/diplomat-bit-book-icewall | ORIGINAL PATH: diplomat-bit-diplomat-bit-book-icewall-23638b5/metadata.json
+================================================================================
+
+{
+  "name": "jocall3The Ice Wall Expedition: Archetypes of the Unknown",
+  "description": "A multi-model narrative engine exploring the forbidden treasure beyond the Ice Wall. Orchestrates 4 distinct AI archetypes (The Clown, The Serious, The Dreamer, The Brains) to uncover secrets forgotten even by silicon memory.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Sovereign AI Banking Nexus",
+  "description": "A next-generation bankwing dashboard providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/G20 | ORIGINAL PATH: diplomat-bit-G20-0199fa7/metadata.json
+================================================================================
+
+{
+  "name": "Demai",
+  "description": "A next-generation banking dashboard for Demo Bank, providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/metadata.json
+================================================================================
+
+{
+  "name": "Remix: Nexus AIBank",
+  "description": "AI-powered financial platform with FAPI-compliant API integration and intelligent banking services.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gatekeeper-bank-verification-ModernTreasury | ORIGINAL PATH: diplomat-bit-gatekeeper-bank-verification-ModernTreasury-c0701fa/metadata.json
+================================================================================
+
+{
+  "name": "Gatekeeper | Modern Treasury Verification",
+  "description": "Production-ready interface for triggering micro-deposit verifications via Modern Treasury API.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Gmail-ai-loan-over-writer- | ORIGINAL PATH: diplomat-bit-Gmail-ai-loan-over-writer--b3dc614/metadata.json
+================================================================================
+
+{
+  "name": "AI Loan Email Manager",
+  "description": "Automatically retrieve and parse loan offer emails from Gmail, using AI to assess, compare, and optimize payoffs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/illi | ORIGINAL PATH: diplomat-bit-illi-d81a5ee/metadata.json
+================================================================================
+
+{
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "name": "aibanking.dev demobank",
+  "description": ""
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jamesburvelocallaghaniiiand | ORIGINAL PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/metadata.json
+================================================================================
+
+{
+  "name": "Copy of DonOneAiBankingConsortium",
+  "description": "A next-generation banking dashboard for Demo Bank, providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller | ORIGINAL PATH: diplomat-bit-jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller-5617407/metadata.json
+================================================================================
+
+{
+  "name": "Copy of The Arcane Node | Portfolio Explorer",
+  "description": "A high-end, neural-powered portfolio explorer that visualizes code architecture, generates professional analysis, and reveals the inner logic of GitHub repositories.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-plaid-marqeta-modern-Treasury-aibanking.dev- | ORIGINAL PATH: diplomat-bit-jocall3-plaid-marqeta-modern-Treasury-aibanking.dev--44f28d7/metadata.json
+================================================================================
+
+{
+  "name": "aaaCopy of Nexus Terminal - Plaid x Marqeta",
+  "description": "Unified fintech operations terminal integrating Plaid banking and Marqeta card issuing nodes into a single professional dashboard.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/metadata.json
+================================================================================
+
+{
+  "name": "Copy of Sovereign AI Banking Nexus",
+  "description": "A next-generation bankwing dashboard providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/my-appaibanking | ORIGINAL PATH: diplomat-bit-my-appaibanking-43962ef/metadata.json
+================================================================================
+
+{
+  "name": "Remix: DonOneAiBankingConsortium",
+  "description": "A next-generation banking dashboard for Demo Bank, providing AI-driven insights and advanced financial management tools for personal and corporate clients.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/partnerportal-microsoft | ORIGINAL PATH: diplomat-bit-partnerportal-microsoft-81d9840/metadata.json
+================================================================================
+
+{
+  "name": "Sovereign Bank Dashboard",
+  "description": "A professional banking dashboard with a high-density data grid for transaction history and account management.",
+  "requestFramePermissions": []
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/tts-ai-book-reader-it-can-read-entire-books | ORIGINAL PATH: diplomat-bit-tts-ai-book-reader-it-can-read-entire-books-128ebf1/metadata.json
+================================================================================
+
+{
+  "name": "VoxGemini TTS",
+  "description": "A high-fidelity text-to-speech application powered by Gemini 2.5 Flash, featuring multiple voices and real-time audio generation.",
+  "requestFramePermissions": []
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/usa | ORIGINAL PATH: diplomat-bit-usa-d72fd59/metadata.json
+================================================================================
+
+{
+  "name": "Remix: Copy of Copy of Copy of Copy of workflow of autonomous of infiniteai expandai",
+  "description": "this is where I stamp my seal on GODs forehead ",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

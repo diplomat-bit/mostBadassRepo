@@ -1,0 +1,71 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingmtls | PATH: diplomat-bit-aibankingmtls-6a06a68/runtime.ts
+================================================================================
+
+export interface Configuration {
+    username?: string;
+    password?: string;
+    accessToken?: string | ((name?: string, scopes?: string[]) => string | Promise<string>);
+    basePath?: string;
+    fetchApi?: WindowOrWorkerGlobalScope['fetch'];
+    middleware?: Middleware[];
+    queryParamsStringify?: (params: any) => string;
+}
+
+export interface RequestOpts {
+    path: string;
+    method: string;
+    headers: HTTPHeaders;
+    query?: any;
+    body?: any;
+}
+
+export type HTTPHeaders = { [key: string]: string };
+export type InitOverrideFunction = (requestContext: { init: RequestInit, context: any }) => Promise<RequestInit>;
+
+export class BaseAPI {
+    protected configuration: Configuration;
+
+    constructor(configuration?: Configuration) {
+        this.configuration = configuration || {};
+    }
+
+    protected async request(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction): Promise<Response> {
+        const url = (this.configuration.basePath || '') + context.path;
+        const headers = { ...context.headers };
+        if (this.configuration.accessToken) {
+            const token = typeof this.configuration.accessToken === 'function' 
+                ? await this.configuration.accessToken() 
+                : this.configuration.accessToken;
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+        const init: RequestInit = {
+            method: context.method,
+            headers: headers,
+            body: context.body ? JSON.stringify(context.body) : undefined,
+        };
+        return fetch(url, init);
+    }
+}
+
+export class RequiredError extends Error {
+    constructor(public field: string, msg?: string) {
+        super(msg);
+        this.name = "RequiredError";
+    }
+}
+
+export interface ApiResponse<T> {
+    raw: Response;
+    value(): Promise<T>;
+}
+
+export class JSONApiResponse<T> implements ApiResponse<T> {
+    constructor(public raw: Response, private transformer: (jsonValue: any) => T) {}
+
+    async value(): Promise<T> {
+        const json = await this.raw.json();
+        return this.transformer(json);
+    }
+}
+
+export interface Middleware {}

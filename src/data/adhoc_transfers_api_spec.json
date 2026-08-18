@@ -1,0 +1,75 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/adhoc_transfers_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovementAdhocMultipleTransfers_OpenAPI",
+    "description": "This API contains endpoints related to adhoc multiple transfers.",
+    "version": "1.4.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/adhoc/multipleTransfers"
+    }
+  ],
+  "paths": {
+    "/async": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers"
+        ],
+        "summary": "Submit Multiple Transfers for Adhoc Payees",
+        "operationId": "ExecuteAdhocMultipleTransfersAsync"
+      }
+    },
+    "/confirmation/async": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers"
+        ],
+        "summary": "Confirm Multiple Transfers for Adhoc Payees",
+        "operationId": "ConfirmAdhocMultipleTransfersAsync"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/adhoc_transfers_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovementAdhocMultipleTransfers_OpenAPI",
+    "description": "This API contains endpoints related to adhoc multiple transfers.",
+    "version": "1.4.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/adhoc/multipleTransfers"
+    }
+  ],
+  "paths": {
+    "/async": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers"
+        ],
+        "summary": "Submit Multiple Transfers for Adhoc Payees",
+        "operationId": "ExecuteAdhocMultipleTransfersAsync"
+      }
+    },
+    "/confirmation/async": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers"
+        ],
+        "summary": "Confirm Multiple Transfers for Adhoc Payees",
+        "operationId": "ConfirmAdhocMultipleTransfersAsync"
+      }
+    }
+  }
+}

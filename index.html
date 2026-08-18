@@ -1,0 +1,2092 @@
+// REPOSITORY SOURCE: diplomat-bit/ai-banking-swarm-roster | PATH: diplomat-bit-ai-banking-swarm-roster-20297ff/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub AI Code Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gray': {
+                '850': '#182030',
+                '950': '#0b0f1a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-950 text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-executive-magazine-maker | ORIGINAL PATH: diplomat-bit-ai-executive-magazine-maker-45e4d2f/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executive Lookbook AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Cinzel for headings (Luxury), Lato for body (Clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        /* Magazine aspect ratio */
+        --page-height: min(85vh, 800px);
+        --page-width: calc(var(--page-height) * 0.70); /* Slightly wider than comic */
+      }
+
+      /* Luxury Dark Background */
+      body {
+        min-height: 100vh;
+        font-family: 'Lato', sans-serif;
+        margin: 0;
+        background-color: #050505;
+        color: #ffffff;
+      }
+
+      /* Subtle marble/noise texture */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .font-luxury { font-family: 'Cinzel', serif; }
+      .font-body { font-family: 'Lato', sans-serif; }
+
+      /* --- 3D Book Mechanics --- */
+      .lookbook-scene {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0;
+        perspective: 3000px;
+        min-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .book {
+        position: relative;
+        width: var(--page-width);
+        height: var(--page-height);
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      
+      .book.opened {
+          transform: translateX(25%); 
+      }
+      @media (min-width: 1000px) {
+          .book.opened { transform: translateX(calc(var(--page-width) / 2)); }
+      }
+
+      .paper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: left center;
+        transform-style: preserve-3d;
+        transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        cursor: pointer;
+        background: #111;
+      }
+
+      .paper.flipped {
+        transform: rotateY(-180deg);
+      }
+
+      .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        overflow: hidden;
+        background-color: #000;
+      }
+
+      .front {
+         border-right: 1px solid #222;
+      }
+      
+      .back {
+        transform: rotateY(180deg);
+        border-left: 1px solid #222;
+      }
+
+      /* Gloss finish */
+      .gloss {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+        pointer-events: none; 
+        z-index: 30;
+      }
+
+      .panel-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #000;
+        position: relative;
+      }
+
+      .panel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .luxury-btn {
+        font-family: 'Cinzel', serif;
+        letter-spacing: 2px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(0,0,0,0.6);
+        color: white;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+      }
+      .luxury-btn:hover:not(:disabled) {
+        background: white;
+        color: black;
+        border-color: white;
+      }
+      .luxury-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 768px) {
+        :root { 
+             --page-height: min(75vh, 120vw);
+             --page-width: calc(var(--page-height) * 0.70);
+        }
+        .lookbook-scene { 
+             perspective: 1500px; 
+             height: auto; 
+        }
+        .book.opened { transform: translateX(100%); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-news | ORIGINAL PATH: diplomat-bit-ai-news-cd09a75/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Nexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+    
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-powe3red-chromos-file-manager- | ORIGINAL PATH: diplomat-bit-ai-powe3red-chromos-file-manager--4e3b7ea/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Files - My files</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        overflow: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#f1f3f4] text-[#3c4043]">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-demai-jocalll3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-demai-jocalll3-f8b6983/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preload" href="/IMG_5610.webp" as="image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "recharts/": "https://aistudiocdn.com/recharts@^3.3.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-91b6490/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech Nexus | Multi-Node Terminal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        @keyframes subtle-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .animate-subtle { animation: subtle-pulse 4s ease-in-out infinite; }
+    </style>
+
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3-new | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-new-84d7a30/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sovereign AI Banking Nexus</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/index.css">
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@auth0/auth0-react": "https://aistudiocdn.com/@auth0/auth0-react@^2.2.4",
+    "modern-treasury": "https://aistudiocdn.com/modern-treasury@^3.3.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "recharts/": "https://aistudiocdn.com/recharts@^3.3.0/",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1",
+    "react-chartjs-2": "https://aistudiocdn.com/react-chartjs-2@^5.3.1",
+    "@tanstack/react-query": "https://aistudiocdn.com/@tanstack/react-query@^5.90.10",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "plaid": "https://aistudiocdn.com/plaid@^20.0.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@mui/x-data-grid": "https://aistudiocdn.com/@mui/x-data-grid@^8.20.0",
+    "@mui/material": "https://aistudiocdn.com/@mui/material@^7.3.6",
+    "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+    "@mui/material/": "https://aistudiocdn.com/@mui/material@^7.3.6/",
+    "@chakra-ui/react": "https://aistudiocdn.com/@chakra-ui/react@^3.30.0",
+    "@chakra-ui/icons": "https://aistudiocdn.com/@chakra-ui/icons@^2.2.4",
+    "class-variance-authority": "https://aistudiocdn.com/class-variance-authority@^0.7.1",
+    "@hello-pangea/dnd": "https://aistudiocdn.com/@hello-pangea/dnd@18.0.1",
+    "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "@nestjs/common": "https://aistudiocdn.com/@nestjs/common@^11.1.9",
+    "xml2js": "https://aistudiocdn.com/xml2js@^0.6.2",
+    "axios": "https://aistudiocdn.com/axios@^1.13.2",
+    "@mui/icons-material": "https://aistudiocdn.com/@mui/icons-material@^7.3.6",
+    "primereact/": "https://aistudiocdn.com/primereact@^10.9.7/",
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.9",
+    "@mui/icons-material/": "https://aistudiocdn.com/@mui/icons-material@^7.3.6/",
+    "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.67.0",
+    "inversify": "https://aistudiocdn.com/inversify@^7.10.5",
+    "react-bootstrap": "https://aistudiocdn.com/react-bootstrap@^2.10.10",
+    "@tanstack/react-table": "https://aistudiocdn.com/@tanstack/react-table@^8.21.3",
+    "@stripe/stripe-js": "https://aistudiocdn.com/@stripe/stripe-js@^8.5.3",
+    "zustand/": "https://aistudiocdn.com/zustand@^5.0.9/",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+    "zod": "https://aistudiocdn.com/zod@^4.1.13",
+    "fs": "https://aistudiocdn.com/fs@^0.0.1-security",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "notistack": "https://aistudiocdn.com/notistack@^3.0.2",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "fast-xml-parser": "https://aistudiocdn.com/fast-xml-parser@^5.3.2",
+    "react-plaid-link": "https://aistudiocdn.com/react-plaid-link@^4.1.1",
+    "js-yaml": "https://aistudiocdn.com/js-yaml@^4.1.1",
+    "styled-components": "https://aistudiocdn.com/styled-components@^6.1.19",
+    "antd": "https://aistudiocdn.com/antd@^6.0.1",
+    "@ant-design/icons": "https://aistudiocdn.com/@ant-design/icons@^6.1.0",
+    "@radix-ui/react-progress": "https://aistudiocdn.com/@radix-ui/react-progress@^1.1.8",
+    "cmdk": "https://aistudiocdn.com/cmdk@^1.1.1",
+    "@radix-ui/react-separator": "https://aistudiocdn.com/@radix-ui/react-separator@^1.1.8",
+    "@radix-ui/react-label": "https://aistudiocdn.com/@radix-ui/react-label@^2.1.8",
+    "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^5.0.2",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/",
+    "express": "https://aistudiocdn.com/express@^5.2.1",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "reactflow/": "https://aistudiocdn.com/reactflow@^11.11.4/",
+    "reactflow": "https://aistudiocdn.com/reactflow@^11.11.4",
+    "@hookform/resolvers/": "https://aistudiocdn.com/@hookform/resolvers@^5.2.2/",
+    "sonner": "https://aistudiocdn.com/sonner@^2.0.7",
+    "@radix-ui/react-select": "https://aistudiocdn.com/@radix-ui/react-select@^2.2.6",
+    "@radix-ui/react-slot": "https://aistudiocdn.com/@radix-ui/react-slot@^1.2.4",
+    "@radix-ui/react-dialog": "https://aistudiocdn.com/@radix-ui/react-dialog@^1.1.15",
+    "stripe": "https://aistudiocdn.com/stripe@^20.0.0",
+    "antd/": "https://aistudiocdn.com/antd@^6.0.1/",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8",
+    "react-circular-progressbar/": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0/",
+    "react-circular-progressbar": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0",
+    "chartjs-adapter-date-fns": "https://aistudiocdn.com/chartjs-adapter-date-fns@^3.0.0",
+    "react-select": "https://aistudiocdn.com/react-select@^5.10.2",
+    "@rjsf/core": "https://aistudiocdn.com/@rjsf/core@^6.1.2",
+    "@stripe/react-stripe-js": "https://aistudiocdn.com/@stripe/react-stripe-js@^5.4.1",
+    "json-schema": "https://aistudiocdn.com/json-schema@^0.4.0",
+    "@radix-ui/react-popover": "https://aistudiocdn.com/@radix-ui/react-popover@^1.1.15",
+    "@rjsf/validator-ajv8": "https://aistudiocdn.com/@rjsf/validator-ajv8@^6.1.2",
+    "react-simple-maps": "https://esm.sh/react-simple-maps@^3.0.0",
+    "react-router": "https://esm.sh/react-router@^7.10.1",
+    "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4",
+    "express-oauth2-jwt-bearer": "https://aistudiocdn.com/express-oauth2-jwt-bearer@^1.6.0",
+    "@datadog/browser-rum": "https://esm.sh/@datadog/browser-rum@^6.25.3",
+    "@datadog/browser-rum-react": "https://esm.sh/@datadog/browser-rum-react@^6.25.3",
+    "@datadog/browser-logs": "https://esm.sh/@datadog/browser-logs@^6.25.3"
+  }
+}
+</script>
+
+    <!-- Datadog RUM Initialization: Start early to capture boot errors -->
+    <script type="module">
+      import { datadogRum } from '@datadog/browser-rum';
+      import { reactPlugin } from '@datadog/browser-rum-react';
+
+      datadogRum.init({
+          applicationId: '4e297c6d-af2d-49f6-8b23-7e87cfad5402',
+          clientToken: 'pub71d163b6b3e6eb0c97a06e848c97301e',
+          site: 'us5.datadoghq.com',
+          service:'jocall3',
+          env: 'prod',
+          sessionSampleRate: 100,
+          sessionReplaySampleRate: 20,
+          defaultPrivacyLevel: 'mask-user-input',
+          plugins: [reactPlugin({ router: true })],
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="app-container">
+      <!-- Initial Splash Screen / Loading State -->
+      <div id="loading" class="loading-state">
+        <div class="loading-text">Synchronizing with Quantum Core...</div>
+      </div>
+
+      <!-- Static Error Catch -->
+      <div id="error" class="error-state" style="display: none;">
+        <div class="error-title">Oops!</div>
+        <div class="error-message">Nexus Handshake Interrupted</div>
+        <div id="error-details" class="error-sub-message"></div>
+      </div>
+
+      <!-- React Mount Point -->
+      <div id="root" class="main-card-wrapper" style="display: none;">
+          <!-- React will render here -->
+      </div>
+    </div>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingmtls | ORIGINAL PATH: diplomat-bit-aibankingmtls-6a06a68/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura AI Bank</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingnew | ORIGINAL PATH: diplomat-bit-aibankingnew-a0c4868/index.html
+================================================================================
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sovereign AI Banking Nexus</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="manifest" href="/manifest.json">
+   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+    
+
+    <!-- Datadog RUM Initialization: Start early to capture boot errors -->
+    <script type="module">
+      import { datadogRum } from '@datadog/browser-rum';
+      import { reactPlugin } from '@datadog/browser-rum-react';
+
+      datadogRum.init({
+          applicationId: '4e297c6d-af2d-49f6-8b23-7e87cfad5402',
+          clientToken: 'pub71d163b6b3e6eb0c97a06e848c97301e',
+          site: 'us5.datadoghq.com',
+          service:'jocall3',
+          env: 'prod',
+          sessionSampleRate: 100,
+          sessionReplaySampleRate: 20,
+          defaultPrivacyLevel: 'mask-user-input',
+          plugins: [reactPlugin({ router: true })],
+      });
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+  <body>
+    <div class="app-container">
+      <!-- Initial Splash Screen / Loading State -->
+      <div id="loading" class="loading-state">
+        <div class="loading-text">Synchronizing with Quantum Core...</div>
+      </div>
+
+      <!-- Static Error Catch -->
+      <div id="error" class="error-state" style="display: none;">
+        <div class="error-title">Oops!</div>
+        <div class="error-message">Nexus Handshake Interrupted</div>
+        <div id="error-details" class="error-sub-message"></div>
+      </div>
+
+      <!-- React Mount Point -->
+      <div id="root" class="main-card-wrapper" style="display: none;">
+          <!-- React will render here -->
+      </div>
+    </div>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/autoomousai | ORIGINAL PATH: diplomat-bit-autoomousai-f4d320c/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub AI Code Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gray': {
+                '850': '#182030',
+                '950': '#0b0f1a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-950 text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/book-writer-think-As-for-everyone | ORIGINAL PATH: diplomat-bit-book-writer-think-As-for-everyone-3ab455c/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aethelgard Codex | Enterprise Epic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+    body {
+      background-color: #050a14;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* CRISP CORPORATE SERIF */
+    .font-readable { 
+      font-family: 'Georgia', serif !important; 
+      color: #1a202c !important; 
+      font-size: 13pt !important; 
+      font-weight: 400 !important;
+      line-height: 1.7 !important;
+      white-space: pre-wrap !important;
+    }
+    
+    /* EPIC CALLIGRAPHIC STYLE */
+    .epic-script {
+      font-family: 'IM Fell English', serif !important;
+      font-style: italic;
+      color: #2c5282 !important; /* Deep Corporate Blue */
+      font-size: 1.15em;
+      letter-spacing: 0.02em;
+    }
+
+    .font-ui { font-family: 'Inter', sans-serif; }
+    
+    ::selection {
+      background: #3182ce !important;
+      color: #fff !important;
+    }
+
+    .premium-container {
+      background-color: #ffffff;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      border: 1px solid #cbd5e0;
+      outline: 4px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      overflow-x: hidden;
+      overflow-y: auto; /* ENABLE SCROLLING */
+      transition: all 0.3s ease;
+    }
+
+    .line-numbers {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #a0aec0;
+      text-align: right;
+      padding-right: 12px;
+      user-select: none;
+      background: #f7fafc;
+      border-right: 1px solid #edf2f7;
+    }
+
+    [contenteditable] {
+      outline: none;
+      min-height: 100%;
+      padding: 0 40px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e0;
+      border-radius: 4px;
+      border: 2px solid #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* PRINT STYLES FOR HIGH FIDELITY EXPORT */
+    @media print {
+      body { background: white !important; overflow: visible !important; }
+      .no-print { display: none !important; }
+      .flex-1 { overflow: visible !important; height: auto !important; position: static !important; }
+      .h-screen { height: auto !important; overflow: visible !important; display: block !important; }
+      .premium-container { 
+        box-shadow: none !important; 
+        border: 1px solid #eee !important;
+        outline: none !important;
+        overflow: visible !important;
+        height: auto !important;
+      }
+      .line-numbers { display: none !important; }
+      [contenteditable] { padding: 40px !important; }
+      .font-readable { color: black !important; font-size: 12pt !important; }
+      header, footer { border: none !important; color: black !important; }
+      h1 { color: #0a2540 !important; }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+    "@google/genai": "https://esm.sh/@google/genai@1.38.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.463.0?external=react",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprises | ORIGINAL PATH: diplomat-bit-ci-connect-enterprises-4cf6219/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Quantum Ledger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e5e5e5; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    @keyframes matrix-scan { 0% { top: -10%; } 100% { top: 110%; } }
+    .matrix-line { position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #f43f5e, transparent); opacity: 0.3; animation: matrix-scan 3s linear infinite; }
+    /* Custom Scrollbar for the dark theme */
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
+    "url": "https://esm.sh/url@^0.11.4"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprisesnb | ORIGINAL PATH: diplomat-bit-ci-connect-enterprisesnb-634c26e/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Quantum Ledger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e5e5e5; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    @keyframes matrix-scan { 0% { top: -10%; } 100% { top: 110%; } }
+    .matrix-line { position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #f43f5e, transparent); opacity: 0.3; animation: matrix-scan 3s linear infinite; }
+    /* Custom Scrollbar for the dark theme */
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
+    "url": "https://esm.sh/url@^0.11.4"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/citi-connect-enterprise | ORIGINAL PATH: diplomat-bit-citi-connect-enterprise-0d00736/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Quantum Ledger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e5e5e5; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    @keyframes matrix-scan { 0% { top: -10%; } 100% { top: 110%; } }
+    .matrix-line { position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #f43f5e, transparent); opacity: 0.3; animation: matrix-scan 3s linear infinite; }
+    /* Custom Scrollbar for the dark theme */
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
+    "url": "https://esm.sh/url@^0.11.4"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/connect-api | ORIGINAL PATH: diplomat-bit-connect-api-352979a/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaid Nexus | Live Developer Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Official Plaid Link SDK -->
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f1f5f9;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        @keyframes pulse-blue {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+        .animate-pulse-blue { animation: pulse-blue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/diplomat-bit-book-icewall | ORIGINAL PATH: diplomat-bit-diplomat-bit-book-icewall-23638b5/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Ice Wall Expedition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: #020617; /* slate-950 */
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+      .font-mono-tech {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #38bdf8; /* sky-400 */
+        border-radius: 10px;
+      }
+      .frost-glow {
+        box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+      }
+      .glass-card {
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(56, 189, 248, 0.1);
+      }
+      @keyframes drift {
+        0% { transform: translateX(-10%) translateY(-10%); }
+        100% { transform: translateX(10%) translateY(10%); }
+      }
+      .bg-frost {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+        animation: drift 20s ease-in-out infinite alternate;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.15.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="bg-frost"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sovereign AI Banking Nexus</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="manifest" href="/manifest.json">
+   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@auth0/auth0-react": "https://aistudiocdn.com/@auth0/auth0-react@^2.2.4",
+    "modern-treasury": "https://aistudiocdn.com/modern-treasury@^3.3.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "recharts/": "https://aistudiocdn.com/recharts@^3.3.0/",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1",
+    "react-chartjs-2": "https://aistudiocdn.com/react-chartjs-2@^5.3.1",
+    "@tanstack/react-query": "https://aistudiocdn.com/@tanstack/react-query@^5.90.10",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "plaid": "https://aistudiocdn.com/plaid@^20.0.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@mui/x-data-grid": "https://aistudiocdn.com/@mui/x-data-grid@^8.20.0",
+    "@mui/material": "https://aistudiocdn.com/@mui/material@^7.3.6",
+    "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+    "@mui/material/": "https://aistudiocdn.com/@mui/material@^7.3.6/",
+    "@chakra-ui/react": "https://aistudiocdn.com/@chakra-ui/react@^3.30.0",
+    "@chakra-ui/icons": "https://aistudiocdn.com/@chakra-ui/icons@^2.2.4",
+    "class-variance-authority": "https://aistudiocdn.com/class-variance-authority@^0.7.1",
+    "@hello-pangea/dnd": "https://aistudiocdn.com/@hello-pangea/dnd@18.0.1",
+    "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "@nestjs/common": "https://aistudiocdn.com/@nestjs/common@^11.1.9",
+    "xml2js": "https://aistudiocdn.com/xml2js@^0.6.2",
+    "axios": "https://aistudiocdn.com/axios@^1.13.2",
+    "@mui/icons-material": "https://aistudiocdn.com/@mui/icons-material@^7.3.6",
+    "primereact/": "https://aistudiocdn.com/primereact@^10.9.7/",
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.9",
+    "@mui/icons-material/": "https://aistudiocdn.com/@mui/icons-material@^7.3.6/",
+    "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.67.0",
+    "inversify": "https://aistudiocdn.com/inversify@^7.10.5",
+    "react-bootstrap": "https://aistudiocdn.com/react-bootstrap@^2.10.10",
+    "@tanstack/react-table": "https://aistudiocdn.com/@tanstack/react-table@^8.21.3",
+    "@stripe/stripe-js": "https://aistudiocdn.com/@stripe/stripe-js@^8.5.3",
+    "zustand/": "https://aistudiocdn.com/zustand@^5.0.9/",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+    "zod": "https://aistudiocdn.com/zod@^4.1.13",
+    "fs": "https://aistudiocdn.com/fs@^0.0.1-security",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "notistack": "https://aistudiocdn.com/notistack@^3.0.2",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "fast-xml-parser": "https://aistudiocdn.com/fast-xml-parser@^5.3.2",
+    "react-plaid-link": "https://aistudiocdn.com/react-plaid-link@^4.1.1",
+    "js-yaml": "https://aistudiocdn.com/js-yaml@^4.1.1",
+    "styled-components": "https://aistudiocdn.com/styled-components@^6.1.19",
+    "antd": "https://aistudiocdn.com/antd@^6.0.1",
+    "@ant-design/icons": "https://aistudiocdn.com/@ant-design/icons@^6.1.0",
+    "@radix-ui/react-progress": "https://aistudiocdn.com/@radix-ui/react-progress@^1.1.8",
+    "cmdk": "https://aistudiocdn.com/cmdk@^1.1.1",
+    "@radix-ui/react-separator": "https://aistudiocdn.com/@radix-ui/react-separator@^1.1.8",
+    "@radix-ui/react-label": "https://aistudiocdn.com/@radix-ui/react-label@^2.1.8",
+    "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^5.0.2",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/",
+    "express": "https://aistudiocdn.com/express@^5.2.1",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "reactflow/": "https://aistudiocdn.com/reactflow@^11.11.4/",
+    "reactflow": "https://aistudiocdn.com/reactflow@^11.11.4",
+    "@hookform/resolvers/": "https://aistudiocdn.com/@hookform/resolvers@^5.2.2/",
+    "sonner": "https://aistudiocdn.com/sonner@^2.0.7",
+    "@radix-ui/react-select": "https://aistudiocdn.com/@radix-ui/react-select@^2.2.6",
+    "@radix-ui/react-slot": "https://aistudiocdn.com/@radix-ui/react-slot@^1.2.4",
+    "@radix-ui/react-dialog": "https://aistudiocdn.com/@radix-ui/react-dialog@^1.1.15",
+    "stripe": "https://aistudiocdn.com/stripe@^20.0.0",
+    "antd/": "https://aistudiocdn.com/antd@^6.0.1/",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8",
+    "react-circular-progressbar/": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0/",
+    "react-circular-progressbar": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0",
+    "chartjs-adapter-date-fns": "https://aistudiocdn.com/chartjs-adapter-date-fns@^3.0.0",
+    "react-select": "https://aistudiocdn.com/react-select@^5.10.2",
+    "@rjsf/core": "https://aistudiocdn.com/@rjsf/core@^6.1.2",
+    "@stripe/react-stripe-js": "https://aistudiocdn.com/@stripe/react-stripe-js@^5.4.1",
+    "json-schema": "https://aistudiocdn.com/json-schema@^0.4.0",
+    "@radix-ui/react-popover": "https://aistudiocdn.com/@radix-ui/react-popover@^1.1.15",
+    "@rjsf/validator-ajv8": "https://aistudiocdn.com/@rjsf/validator-ajv8@^6.1.2",
+    "react-simple-maps": "https://esm.sh/react-simple-maps@^3.0.0",
+    "react-router": "https://esm.sh/react-router@^7.10.1",
+    "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4",
+    "express-oauth2-jwt-bearer": "https://aistudiocdn.com/express-oauth2-jwt-bearer@^1.6.0",
+    "@datadog/browser-rum": "https://esm.sh/@datadog/browser-rum@^6.25.3",
+    "@datadog/browser-rum-react": "https://esm.sh/@datadog/browser-rum-react@^6.25.3",
+    "@datadog/browser-logs": "https://esm.sh/@datadog/browser-logs@^6.25.3"
+  }
+}
+</script>
+
+    <!-- Datadog RUM Initialization: Start early to capture boot errors -->
+    <script type="module">
+      import { datadogRum } from '@datadog/browser-rum';
+      import { reactPlugin } from '@datadog/browser-rum-react';
+
+      datadogRum.init({
+          applicationId: '4e297c6d-af2d-49f6-8b23-7e87cfad5402',
+          clientToken: 'pub71d163b6b3e6eb0c97a06e848c97301e',
+          site: 'us5.datadoghq.com',
+          service:'jocall3',
+          env: 'prod',
+          sessionSampleRate: 100,
+          sessionReplaySampleRate: 20,
+          defaultPrivacyLevel: 'mask-user-input',
+          plugins: [reactPlugin({ router: true })],
+      });
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+  <body>
+    <div class="app-container">
+      <!-- Initial Splash Screen / Loading State -->
+      <div id="loading" class="loading-state">
+        <div class="loading-text">Synchronizing with Quantum Core...</div>
+      </div>
+
+      <!-- Static Error Catch -->
+      <div id="error" class="error-state" style="display: none;">
+        <div class="error-title">Oops!</div>
+        <div class="error-message">Nexus Handshake Interrupted</div>
+        <div id="error-details" class="error-sub-message"></div>
+      </div>
+
+      <!-- React Mount Point -->
+      <div id="root" class="main-card-wrapper" style="display: none;">
+          <!-- React will render here -->
+      </div>
+    </div>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/G20 | ORIGINAL PATH: diplomat-bit-G20-0199fa7/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preload" href="/IMG_5610.webp" as="image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demai Financial Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Load Base Account SDK via CDN for production-grade authentication and payments -->
+    <script src="https://unpkg.com/@base-org/account/dist/base-account.min.js"></script>
+    <script>
+      // Polyfill Buffer for environments that expect it (like various crypto libraries)
+      if (typeof window !== 'undefined' && typeof window.Buffer === 'undefined') {
+        window.Buffer = {
+          isBuffer: () => false,
+          from: (data) => new Uint8Array(data),
+        };
+      }
+      if (typeof window !== 'undefined' && typeof window.global === 'undefined') {
+        window.global = window;
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.2.3",
+    "react-dom": "https://esm.sh/react-dom@19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@19.2.3/client",
+    "react/jsx-runtime": "https://esm.sh/react@19.2.3/jsx-runtime",
+    "recharts": "https://esm.sh/recharts@3.7.0",
+    "@google/genai": "https://esm.sh/@google/genai@1.19.0",
+    "@reown/appkit/react": "https://aistudiocdn.com/@reown/appkit@1.11.0/react",
+    "@reown/appkit/networks": "https://aistudiocdn.com/@reown/appkit@1.11.0/networks",
+    "@reown/appkit-adapter-wagmi": "https://aistudiocdn.com/@reown/appkit-adapter-wagmi@1.8.17",
+    "@reown/appkit-core": "https://aistudiocdn.com/@reown/appkit-core@1.11.0",
+    "@reown/appkit-ui": "https://aistudiocdn.com/@reown/appkit-ui@1.11.0",
+    "@coinbase/wallet-sdk": "https://aistudiocdn.com/@coinbase/wallet-sdk@4.3.6",
+    "wagmi": "https://esm.sh/wagmi@2.19.5",
+    "viem": "https://esm.sh/viem@2.44.2",
+    "@tanstack/react-query": "https://esm.sh/@tanstack/react-query@5.56.2",
+    "react-dom/": "https://esm.sh/react-dom@19.2.3/",
+    "react/": "https://esm.sh/react@19.2.3/",
+    "recharts/": "https://esm.sh/recharts@3.7.0/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "@originjs/vite-plugin-federation": "https://esm.sh/@originjs/vite-plugin-federation@^1.4.1",
+    "path-browserify": "https://esm.sh/path-browserify@0.12.7",
+    "@types/node": "https://esm.sh/@types/node@25.0.10",
+    "url": "https://esm.sh/url@^0.11.4",
+    "viem/": "https://esm.sh/viem@^2.45.0/",
+    "@reown/appkit": "https://aistudiocdn.com/@reown/appkit@1.1.8",
+    "path": "https://esm.sh/path@^0.12.7",
+    "@reown/appkit/": "https://esm.sh/@reown/appkit@^1.8.17/",
+    "@tanstack/query-core": "https://esm.sh/@tanstack/query-core@^5.90.20"
+  }
+}
+</script>
+  </head>
+  <body class="bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      // Global initialization of Base SDK for cross-component access
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.createBaseAccountSDK) {
+          window.demaiBaseSDK = window.createBaseAccountSDK({
+            appName: "Demai Sovereign Hub",
+            appLogoUrl: "https://avatars.githubusercontent.com/u/221693154?s=48&v=4",
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/index.html
+================================================================================
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gatekeeper-bank-verification-ModernTreasury | ORIGINAL PATH: diplomat-bit-gatekeeper-bank-verification-ModernTreasury-c0701fa/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gatekeeper | MT Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              slate: {
+                850: '#151f32',
+                900: '#0f172a',
+                950: '#020617',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #020617;
+        color: #e2e8f0;
+      }
+      /* Custom scrollbar for raw JSON blocks */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Gmail-ai-loan-over-writer- | ORIGINAL PATH: diplomat-bit-Gmail-ai-loan-over-writer--b3dc614/index.html
+================================================================================
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/illi | ORIGINAL PATH: diplomat-bit-illi-d81a5ee/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperspace Logic: The 5th Dimension</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="trip-bg">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jamesburvelocallaghaniiiand | ORIGINAL PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Bank</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "modern-treasury": "https://aistudiocdn.com/modern-treasury@^3.3.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "recharts/": "https://aistudiocdn.com/recharts@^3.3.0/",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1",
+    "react-chartjs-2": "https://aistudiocdn.com/react-chartjs-2@^5.3.1",
+    "@tanstack/react-query": "https://aistudiocdn.com/@tanstack/react-query@^5.90.10",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "plaid": "https://aistudiocdn.com/plaid@^20.0.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@mui/x-data-grid": "https://aistudiocdn.com/@mui/x-data-grid@^8.20.0",
+    "@mui/material": "https://aistudiocdn.com/@mui/material@^7.3.6",
+    "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+    "@mui/material/": "https://aistudiocdn.com/@mui/material@^7.3.6/",
+    "@chakra-ui/react": "https://aistudiocdn.com/@chakra-ui/react@^3.30.0",
+    "@chakra-ui/icons": "https://aistudiocdn.com/@chakra-ui/icons@^2.2.4",
+    "class-variance-authority": "https://aistudiocdn.com/class-variance-authority@^0.7.1",
+    "@hello-pangea/dnd": "https://aistudiocdn.com/@hello-pangea/dnd@18.0.1",
+    "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "@nestjs/common": "https://aistudiocdn.com/@nestjs/common@^11.1.9",
+    "xml2js": "https://aistudiocdn.com/xml2js@^0.6.2",
+    "axios": "https://aistudiocdn.com/axios@^1.13.2",
+    "@mui/icons-material": "https://aistudiocdn.com/@mui/icons-material@^7.3.6",
+    "primereact/": "https://aistudiocdn.com/primereact@^10.9.7/",
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.9",
+    "@mui/icons-material/": "https://aistudiocdn.com/@mui/icons-material@^7.3.6/",
+    "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.67.0",
+    "inversify": "https://aistudiocdn.com/inversify@^7.10.5",
+    "react-bootstrap": "https://aistudiocdn.com/react-bootstrap@^2.10.10",
+    "@tanstack/react-table": "https://aistudiocdn.com/@tanstack/react-table@^8.21.3",
+    "@stripe/stripe-js": "https://aistudiocdn.com/@stripe/stripe-js@^8.5.3",
+    "zustand/": "https://aistudiocdn.com/zustand@^5.0.9/",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+    "zod": "https://aistudiocdn.com/zod@^4.1.13",
+    "fs": "https://aistudiocdn.com/fs@^0.0.1-security",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "notistack": "https://aistudiocdn.com/notistack@^3.0.2",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "fast-xml-parser": "https://aistudiocdn.com/fast-xml-parser@^5.3.2",
+    "react-plaid-link": "https://aistudiocdn.com/react-plaid-link@^4.1.1",
+    "js-yaml": "https://aistudiocdn.com/js-yaml@^4.1.1",
+    "styled-components": "https://aistudiocdn.com/styled-components@^6.1.19",
+    "antd": "https://aistudiocdn.com/antd@^6.0.1",
+    "@ant-design/icons": "https://aistudiocdn.com/@ant-design/icons@^6.1.0",
+    "@radix-ui/react-progress": "https://aistudiocdn.com/@radix-ui/react-progress@^1.1.8",
+    "cmdk": "https://aistudiocdn.com/cmdk@^1.1.1",
+    "@radix-ui/react-separator": "https://aistudiocdn.com/@radix-ui/react-separator@^1.1.8",
+    "@radix-ui/react-label": "https://aistudiocdn.com/@radix-ui/react-label@^2.1.8",
+    "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^5.0.2",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/",
+    "express": "https://aistudiocdn.com/express@^5.2.1",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "reactflow/": "https://aistudiocdn.com/reactflow@^11.11.4/",
+    "reactflow": "https://aistudiocdn.com/reactflow@^11.11.4",
+    "@hookform/resolvers/": "https://aistudiocdn.com/@hookform/resolvers@^5.2.2/",
+    "sonner": "https://aistudiocdn.com/sonner@^2.0.7",
+    "@radix-ui/react-select": "https://aistudiocdn.com/@radix-ui/react-select@^2.2.6",
+    "@radix-ui/react-slot": "https://aistudiocdn.com/@radix-ui/react-slot@^1.2.4",
+    "@radix-ui/react-dialog": "https://aistudiocdn.com/@radix-ui/react-dialog@^1.1.15",
+    "stripe": "https://aistudiocdn.com/stripe@^20.0.0",
+    "antd/": "https://aistudiocdn.com/antd@^6.0.1/",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8",
+    "react-circular-progressbar/": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0/",
+    "react-circular-progressbar": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0",
+    "chartjs-adapter-date-fns": "https://aistudiocdn.com/chartjs-adapter-date-fns@^3.0.0",
+    "react-select": "https://aistudiocdn.com/react-select@^5.10.2",
+    "@rjsf/core": "https://aistudiocdn.com/@rjsf/core@^6.1.2",
+    "@stripe/react-stripe-js": "https://aistudiocdn.com/@stripe/react-stripe-js@^5.4.1",
+    "json-schema": "https://aistudiocdn.com/json-schema@^0.4.0",
+    "@radix-ui/react-popover": "https://aistudiocdn.com/@radix-ui/react-popover@^1.1.15",
+    "@rjsf/validator-ajv8": "https://aistudiocdn.com/@rjsf/validator-ajv8@^6.1.2"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+  <body class="bg-gray-900">
+    <div id="root"></div>
+
+    <!-- No API key, nothing injected, nothing global -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller | ORIGINAL PATH: diplomat-bit-jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller-5617407/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcane Registry | JOCALL3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --indigo-glow: #6366f1;
+            --void-black: #020205;
+        }
+        body {
+            font-family: 'EB Garamond', serif;
+            background-color: var(--void-black);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 1) 0%, rgba(2, 2, 5, 1) 100%),
+                url("https://www.transparenttextures.com/patterns/dark-matter.png");
+            color: #e2e8f0;
+        }
+        .font-sacred { font-family: 'Uncial Antiqua', serif; }
+        .font-header { font-family: 'Cinzel', serif; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { background: #2d2d4a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--indigo-glow); }
+
+        .glass {
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .gold-border {
+            border: 1px solid var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .animate-spin-slow {
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-markdown": "https://esm.sh/react-markdown@^9.0.1",
+    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.0",
+    "mermaid": "https://esm.sh/mermaid@^11.4.0",
+    "react-syntax-highlighter": "https://esm.sh/react-syntax-highlighter@^15.5.0",
+    "react-syntax-highlighter/dist/esm/styles/prism": "https://esm.sh/react-syntax-highlighter@^15.5.0/dist/esm/styles/prism",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-syntax-highlighter/": "https://esm.sh/react-syntax-highlighter@^16.1.0/"
+  }
+}
+</script>
+</head>
+<body class="antialiased overflow-hidden">
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-plaid-marqeta-modern-Treasury-aibanking.dev- | ORIGINAL PATH: diplomat-bit-jocall3-plaid-marqeta-modern-Treasury-aibanking.dev--44f28d7/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaid Nexus | Live Developer Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Official Plaid Link SDK -->
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f1f5f9;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        @keyframes pulse-blue {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+        .animate-pulse-blue { animation: pulse-blue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sovereign AI Banking Nexus</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "@auth0/auth0-react": "https://aistudiocdn.com/@auth0/auth0-react@^2.2.4",
+        "modern-treasury": "https://aistudiocdn.com/modern-treasury@^3.3.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+        "react/": "https://aistudiocdn.com/react@^19.1.1/",
+        "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+        "recharts/": "https://aistudiocdn.com/recharts@^3.3.0/",
+        "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1",
+        "react-chartjs-2": "https://aistudiocdn.com/react-chartjs-2@^5.3.1",
+        "@tanstack/react-query": "https://aistudiocdn.com/@tanstack/react-query@^5.90.10",
+        "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+        "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+        "vite": "https://aistudiocdn.com/vite@^7.2.4",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@0.555.0",
+        "path": "https://aistudiocdn.com/path@^0.12.7",
+        "plaid": "https://aistudiocdn.com/plaid@^20.0.0",
+        "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+        "@mui/x-data-grid": "https://aistudiocdn.com/@mui/x-data-grid@^8.20.0",
+        "@mui/material": "https://aistudiocdn.com/@mui/material@^7.3.6",
+        "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+        "@mui/material/": "https://aistudiocdn.com/@mui/material@^7.3.6/",
+        "@chakra-ui/react": "https://aistudiocdn.com/@chakra-ui/react@^3.30.0",
+        "@chakra-ui/icons": "https://aistudiocdn.com/@chakra-ui/icons@^2.2.4",
+        "class-variance-authority": "https://aistudiocdn.com/class-variance-authority@^0.7.1",
+        "@hello-pangea/dnd": "https://aistudiocdn.com/@hello-pangea/dnd@18.0.1",
+        "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+        "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+        "@nestjs/common": "https://aistudiocdn.com/@nestjs/common@^11.1.9",
+        "xml2js": "https://aistudiocdn.com/xml2js@^0.6.2",
+        "axios": "https://aistudiocdn.com/axios@^1.13.2",
+        "@mui/icons-material": "https://aistudiocdn.com/@mui/icons-material@^7.3.6",
+        "primereact/": "https://aistudiocdn.com/primereact@^10.9.7/",
+        "zustand": "https://aistudiocdn.com/zustand@^5.0.9",
+        "@mui/icons-material/": "https://aistudiocdn.com/@mui/icons-material@^7.3.6/",
+        "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.67.0",
+        "inversify": "https://aistudiocdn.com/inversify@^7.10.5",
+        "react-bootstrap": "https://aistudiocdn.com/react-bootstrap@^2.10.10",
+        "@tanstack/react-table": "https://aistudiocdn.com/@tanstack/react-table@^8.21.3",
+        "@stripe/stripe-js": "https://aistudiocdn.com/@stripe/stripe-js@^8.5.3",
+        "zustand/": "https://aistudiocdn.com/zustand@^5.0.9/",
+        "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+        "zod": "https://aistudiocdn.com/zod@^4.1.13",
+        "fs": "https://aistudiocdn.com/fs@^0.0.1-security",
+        "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+        "notistack": "https://aistudiocdn.com/notistack@^3.0.2",
+        "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+        "fast-xml-parser": "https://aistudiocdn.com/fast-xml-parser@^5.3.2",
+        "react-plaid-link": "https://aistudiocdn.com/react-plaid-link@^4.1.1",
+        "js-yaml": "https://aistudiocdn.com/js-yaml@^4.1.1",
+        "styled-components": "https://aistudiocdn.com/styled-components@^6.1.19",
+        "antd": "https://aistudiocdn.com/antd@^6.0.1",
+        "@ant-design/icons": "https://aistudiocdn.com/@ant-design/icons@^6.1.0",
+        "@radix-ui/react-progress": "https://aistudiocdn.com/@radix-ui/react-progress@^1.1.8",
+        "cmdk": "https://aistudiocdn.com/cmdk@^1.1.1",
+        "@radix-ui/react-separator": "https://aistudiocdn.com/@radix-ui/react-separator@^1.1.8",
+        "@radix-ui/react-label": "https://aistudiocdn.com/@radix-ui/react-label@^2.1.8",
+        "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^5.0.2",
+        "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+        "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/",
+        "express": "https://aistudiocdn.com/express@^5.2.1",
+        "url": "https://aistudiocdn.com/url@^0.11.4",
+        "reactflow/": "https://aistudiocdn.com/reactflow@^11.11.4/",
+        "reactflow": "https://aistudiocdn.com/reactflow@^11.11.4",
+        "@hookform/resolvers/": "https://aistudiocdn.com/@hookform/resolvers@^5.2.2/",
+        "sonner": "https://aistudiocdn.com/sonner@^2.0.7",
+        "@radix-ui/react-select": "https://aistudiocdn.com/@radix-ui/react-select@^2.2.6",
+        "@radix-ui/react-slot": "https://aistudiocdn.com/@radix-ui/react-slot@^1.2.4",
+        "@radix-ui/react-dialog": "https://aistudiocdn.com/@radix-ui/react-dialog@^1.1.15",
+        "stripe": "https://aistudiocdn.com/stripe@^20.0.0",
+        "antd/": "https://aistudiocdn.com/antd@^6.0.1/",
+        "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8",
+        "react-circular-progressbar/": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0/",
+        "react-circular-progressbar": "https://aistudiocdn.com/react-circular-progressbar@^2.2.0",
+        "chartjs-adapter-date-fns": "https://aistudiocdn.com/chartjs-adapter-date-fns@^3.0.0",
+        "react-select": "https://aistudiocdn.com/react-select@^5.10.2",
+        "@rjsf/core": "https://aistudiocdn.com/@rjsf/core@^6.1.2",
+        "@stripe/react-stripe-js": "https://aistudiocdn.com/@stripe/react-stripe-js@^5.4.1",
+        "json-schema": "https://aistudiocdn.com/json-schema@^0.4.0",
+        "@radix-ui/react-popover": "https://aistudiocdn.com/@radix-ui/react-popover@^1.1.15",
+        "@rjsf/validator-ajv8": "https://aistudiocdn.com/@rjsf/validator-ajv8@^6.1.2",
+        "react-simple-maps": "https://esm.sh/react-simple-maps@^3.0.0",
+        "react-router": "https://esm.sh/react-router@^7.10.1",
+        "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
+        "leaflet": "https://esm.sh/leaflet@^1.9.4",
+        "express-oauth2-jwt-bearer": "https://aistudiocdn.com/express-oauth2-jwt-bearer@^1.6.0",
+        "@datadog/browser-rum": "https://esm.sh/@datadog/browser-rum@^6.25.3",
+        "@datadog/browser-rum-react": "https://esm.sh/@datadog/browser-rum-react@^6.25.3",
+        "@datadog/browser-logs": "https://esm.sh/@datadog/browser-logs@^6.25.3"
+      }
+    }
+    </script>
+
+    <script type="module">
+      import { datadogRum } from '@datadog/browser-rum';
+      import { reactPlugin } from '@datadog/browser-rum-react';
+
+      datadogRum.init({
+          applicationId: '4e297c6d-af2d-49f6-8b23-7e87cfad5402',
+          clientToken: 'pub71d163b6b3e6eb0c97a06e848c97301e',
+          site: 'us5.datadoghq.com',
+          service:'jocall3',
+          env: 'prod',
+          sessionSampleRate: 100,
+          sessionReplaySampleRate: 20,
+          defaultPrivacyLevel: 'mask-user-input',
+          plugins: [reactPlugin({ router: true })],
+      });
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+
+  <body>
+    <div class="app-container">
+      <div id="loading" class="loading-state">
+        <div class="loading-text">Synchronizing with Quantum Core...</div>
+      </div>
+
+      <div id="error" class="error-state" style="display: none; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; color: #ef4444; font-family: monospace;">
+        <div class="error-title" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Oops!</div>
+        <div class="error-message" style="font-size: 1.25rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Nexus Handshake Interrupted</div>
+        <div id="error-details" class="error-sub-message" style="color: #9ca3af; font-size: 0.875rem; white-space: pre-wrap; background: #111827; padding: 1rem; border-radius: 0.375rem; border: 1px solid #374151; max-width: 90vw;"></div>
+      </div>
+
+      <div id="root" class="main-card-wrapper" style="display: none;">
+          </div>
+    </div>
+
+    <script>
+      window.addEventListener('error', function(event) {
+        const loadingEl = document.getElementById('loading');
+        const errorEl = document.getElementById('error');
+        const detailsEl = document.getElementById('error-details');
+        
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (errorEl) errorEl.style.display = 'flex';
+        
+        if (detailsEl) {
+          detailsEl.innerText = `Error: ${event.message}\nFile: ${event.filename}\nLine: ${event.lineno}:${event.colno}`;
+        }
+      });
+
+      window.addEventListener('unhandledrejection', function(event) {
+        const loadingEl = document.getElementById('loading');
+        const errorEl = document.getElementById('error');
+        const detailsEl = document.getElementById('error-details');
+        
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (errorEl) errorEl.style.display = 'flex';
+        
+        if (detailsEl) {
+          detailsEl.innerText = `Unhandled Promise Rejection:\n${event.reason ? (event.reason.stack || event.reason) : 'No reason provided.'}`;
+        }
+      });
+    </script>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/my-appaibanking | ORIGINAL PATH: diplomat-bit-my-appaibanking-43962ef/index.html
+================================================================================
+
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="/index.css">
+</head>
+<body>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.42.0",
+    "uuid": "https://esm.sh/uuid@^13.0.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
+    "express": "https://esm.sh/express@^5.2.1",
+    "url": "https://esm.sh/url@^0.11.4",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.5.0",
+    "reactflow": "https://esm.sh/reactflow@^11.11.4"
+  }
+}
+</script>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/partnerportal-microsoft | ORIGINAL PATH: diplomat-bit-partnerportal-microsoft-81d9840/index.html
+================================================================================
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/tts-ai-book-reader-it-can-read-entire-books | ORIGINAL PATH: diplomat-bit-tts-ai-book-reader-it-can-read-entire-books-128ebf1/index.html
+================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxGemini TTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/usa | ORIGINAL PATH: diplomat-bit-usa-d72fd59/index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub AI Code Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gray': {
+                '850': '#182030',
+                '950': '#0b0f1a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-950 text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

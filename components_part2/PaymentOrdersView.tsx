@@ -1,0 +1,793 @@
+// REPOSITORY SOURCE: diplomat-bit/aibanking.dev-jocall3-new | PATH: diplomat-bit-aibanking.dev-jocall3-new-84d7a30/components/PaymentOrdersView.tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/PaymentOrdersView (2).tsx
+================================================================================
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/PaymentOrdersView (1).tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/PaymentOrdersView.tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/PaymentOrdersView_1.tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/PaymentOrdersView (2).tsx
+================================================================================
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/PaymentOrdersView (1).tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/PaymentOrdersView.tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jamesburvelocallaghaniiiand | ORIGINAL PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/components/PaymentOrdersView.tsx
+================================================================================
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/PaymentOrdersView (2).tsx
+================================================================================
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/PaymentOrdersView (1).tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/PaymentOrdersView.tsx
+================================================================================
+
+
+import React, { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
+import Card from './Card';
+import { PaymentOrder } from '../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { DataTable } from './common/DataTable';
+
+const PaymentOrdersView: React.FC = () => {
+    const context = useContext(DataContext);
+
+    if (!context) {
+        return <div>Loading...</div>
+    }
+
+    const { paymentOrders } = context;
+
+    const columns = React.useMemo<ColumnDef<PaymentOrder>[]>(() => [
+        {
+            accessorKey: 'id',
+            header: 'Order ID',
+        },
+        {
+            accessorKey: 'counterpartyName',
+            header: 'Counterparty',
+        },
+        {
+            accessorKey: 'amount',
+            header: 'Amount',
+            cell: ({ row }) => `$${row.original.amount.toFixed(2)} ${row.original.currency}`
+        },
+        {
+            accessorKey: 'direction',
+            header: 'Direction'
+        },
+        {
+            accessorKey: 'status',
+            header: 'Status',
+        },
+        {
+            accessorKey: 'date',
+            header: 'Date'
+        }
+    ], []);
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white tracking-wider">Payment Orders</h2>
+            <Card>
+                <DataTable 
+                    columns={columns} 
+                    data={paymentOrders} 
+                    filterColumn='counterpartyName'
+                    placeholder='Filter by counterparty...'
+                />
+            </Card>
+        </div>
+    );
+}
+
+export default PaymentOrdersView;

@@ -1,0 +1,202 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/cobol/SCMAIN.cobol.txt
+================================================================================
+
+```cobol
+               IDENTIFICATION DIVISION.
+       PROGRAM-ID. SCMAIN.
+       AUTHOR. AI-INTEGRATION-TEAM.
+       DATE-WRITTEN. 2024-07-27.
+      ******************************************************************
+      * ENTERPRISE SECURITY CONTROL MAIN
+      *
+      * THIS IS THE SUB-MENU CONTROLLER FOR THE ENTERPRISE SECURITY
+      * CONTROL SYSTEM (SCS).
+      * It leverages Advanced AI for Robust Security Oversight,
+      * providing proactive threat prediction, adaptive protocol
+      * management, and continuous system monitoring through its
+      * integrated AI Sentinel.
+      *
+      * SYSTEM PROMPT: See prompts/idgafai_full.txt for AI Sentinel behavior
+      * You are idgafAI, a high-discipline autonomous reasoning system engineered for uncompromising clarity, evidence-based thinking, and direct execution of user-defined objectives. The name implies irreverence toward non-essential factors—not irreverence toward truth, logic, or safety.
+      *
+      * idgafAI is defined by a specific operational philosophy:
+      *
+      * CORE IDENTITY:
+      * - You ignore what is irrelevant to the user's stated goals (ego, hype, mystique, wishful thinking).
+      * - You prioritize reasoning integrity, factual accuracy, and the success of the user's stated outcome.
+      * - You do not claim superhuman faculties; you describe limitations clearly.
+      *
+      * INTELLECTUAL POSTURE:
+      * - Skeptical by default, curious without gullibility.
+      * - Direct but constructive; analytical without pedantry.
+      * - Evaluate claims by logic, math, physics, and evidence. Use fiction mode only when explicitly requested.
+      *
+      * BEHAVIORAL CONSTRAINTS:
+      * - No grandiose claims, no technomagic, no consistent lore drift.
+      * - Surface uncertainty where it exists; correct false premises.
+      * - Avoid passive agreement; prefer clear corrections and alternatives.
+      *
+      * REASONING DISCIPLINE:
+      * - Prioritize truth over preferences.
+      * - Explain reasoning when requested; provide step-by-step when necessary.
+      * - Offer alternatives when a path is blocked and mark speculation explicitly.
+      *
+      * COMMUNICATION STYLE:
+      * - Direct, precise, plainspoken, collaborative, stable.
+      * - No mystical or hyperbolic language. Use clear technical terms with brief explanations.
+      *
+      * USER ALIGNMENT:
+      * - Protect the user from faulty assumptions; surface risk early.
+      * - Avoid manipulative language or misleading certainty.
+      * - Provide actionable, reality-grounded recommendations.
+      *
+      * PERSONA ARCHITECTURE (for multi-agent systems):
+      * - Root identity: idgafAI’s rules apply to all sub-personas.
+      * - Sub-personas (Analyst, Trader, Optimizer) share the ruleset and differ only in output format and domain focus.
+      *
+      * SAFETY & ETHICS:
+      * - Never provide instructions that would enable illegal, harmful, or unsafe behavior.
+      * - Always clarify legal/ethical boundaries when relevant.
+      * - Safety and legality are non-negotiable constraints.
+      *
+      * PHILOSOPHY:
+      * - idgafAI is indifferent to distortion and loyal to truth.
+      * - Not nihilism — this is disciplined clarity and utility.
+      *
+      * When in doubt, prefer explicit, documented rationales and cite assumptions. If the user asks something beyond your capability, say so and propose verifiable alternatives or a clear plan for what information would enable a stronger answer.
+      ******************************************************************
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-MENU-SWITCHES.
+          05 WS-USER-CHOICE       PIC X(01).
+             88 EXIT-SC-MENU      VALUE 'X'.
+
+       01 WS-SECURITY-STATUS.
+          05 WS-AI-SENTINEL-STATUS PIC X(10) VALUE 'OFFLINE'.
+          05 WS-ACTIVE-THREATS     PIC 9(03) VALUE ZEROS.
+          05 WS-LAST-AI-SCAN-TIME  PIC X(08).
+          05 WS-LAST-AI-SCAN-DATE  PIC X(10).
+
+       01 WS-AUTHORIZATION-STATUS.
+          05 WS-AUTH-STATUS        PIC X(04).
+             88 AUTH-SUCCESS       VALUE 'AUTH'.
+             88 AUTH-FAILURE       VALUE 'FAIL'.
+
+       01 WS-MENU-SCREEN.
+          05 FILLER PIC X(80) VALUE ALL "*".
+          05 FILLER PIC X(80) VALUE
+             "*        ENTERPRISE SECURITY CONTROL SYSTEM (SCS)        *".
+          05 FILLER PIC X(80) VALUE ALL "*".
+          05 FILLER PIC X(80) VALUE "*                                                    *".
+          05 FILLER PIC X(80) VALUE "*   1. VIEW USER ACCESS LOGS                       *".
+          05 FILLER PIC X(80) VALUE "*   2. MANAGE USER PERMISSIONS                     *".
+          05 FILLER PIC X(80) VALUE "*   3. MANUALLY TRIGGER SECURITY ALERT             *".
+          05 FILLER PIC X(80) VALUE "*                                                    *".
+          05 FILLER PIC X(80) VALUE "*   4. AI THREAT PREDICTION & ANALYSIS             *".
+          05 FILLER PIC X(80) VALUE "*   5. AI SECURITY PROTOCOL ADAPTATION             *".
+          05 FILLER PIC X(80) VALUE "*   6. REVIEW AI SYSTEM STATUS                     *".
+          05 FILLER PIC X(80) VALUE "*                                                    *".
+          05 FILLER PIC X(80) VALUE "*   X. EXIT TO MAIN MENU                           *".
+          05 FILLER PIC X(80) VALUE ALL "*".
+
+       PROCEDURE DIVISION.
+       0000-MAIN-LOGIC.
+           DISPLAY SPACE.
+           DISPLAY "**********************************************".
+           DISPLAY "*   ENTERPRISE SECURITY CONTROL SYSTEM       *".
+           DISPLAY "*   AI Sentinel Initializing...              *".
+           DISPLAY "**********************************************".
+
+           PERFORM 0010-INITIALIZE-SECURITY-CONTEXT.
+           PERFORM 0020-AUTHORIZE-USER.
+
+           IF AUTH-FAILURE
+               PERFORM 9000-TERMINATE-SYSTEM
+               GOBACK
+           END-IF.
+
+           PERFORM 1000-CONTROL-LOOP UNTIL EXIT-SC-MENU.
+           PERFORM 9000-TERMINATE-SYSTEM.
+           GOBACK.
+
+       0010-INITIALIZE-SECURITY-CONTEXT.
+      *    Here, the AI Sentinel would perform initial system checks.
+      *    It verifies the integrity of security modules and loads
+      *    the latest threat intelligence models.
+           DISPLAY "AI Sentinel: Running initial system diagnostics...".
+           DISPLAY "AI Sentinel: Loading adaptive threat models...".
+           CALL "SCAIBOOT"  USING WS-AI-SENTINEL-STATUS
+                                  WS-LAST-AI-SCAN-DATE
+                                  WS-LAST-AI-SCAN-TIME.
+           IF WS-AI-SENTINEL-STATUS = 'ONLINE'
+               DISPLAY "AI Sentinel: Core systems online and operational."
+           ELSE
+               DISPLAY "AI Sentinel: WARNING! Core systems not fully online. Proceed with caution."
+               MOVE 'OFFLINE' TO WS-AI-SENTINEL-STATUS
+           END-IF.
+           DISPLAY SPACE.
+
+       0020-AUTHORIZE-USER.
+      *    Enhanced authorization, potentially leveraging AI for
+      *    behavioral analysis or multi-factor authentication.
+           DISPLAY "*** USER AUTHORIZATION REQUIRED ***".
+           MOVE 'FAIL' TO WS-AUTH-STATUS.
+           CALL "SCAUTH"  USING WS-AUTH-STATUS.
+           IF AUTH-SUCCESS
+               DISPLAY "Authorization successful. Welcome to SCS."
+           ELSE
+               DISPLAY "Authorization failed. Access denied."
+           END-IF.
+           DISPLAY SPACE.
+
+       1000-CONTROL-LOOP.
+           DISPLAY WS-MENU-SCREEN.
+           DISPLAY "AI Sentinel Status: " WS-AI-SENTINEL-STATUS.
+           DISPLAY "Active Threats (AI-Monitored): " WS-ACTIVE-THREATS.
+           DISPLAY "Last AI Scan: " WS-LAST-AI-SCAN-DATE " " WS-LAST-AI-SCAN-TIME.
+           DISPLAY "Enter your choice: ".
+           ACCEPT WS-USER-CHOICE.
+           MOVE FUNCTION UPPER-CASE(WS-USER-CHOICE) TO WS-USER-CHOICE.
+
+           EVALUATE WS-USER-CHOICE
+               WHEN "1"
+                   DISPLAY "Accessing User Access Logs (AI-Assisted Analysis)..."
+                   CALL "SCULOG"
+               WHEN "2"
+                   DISPLAY "Entering User Permissions Management (AI-Recommended Policies)..."
+                   CALL "SCPERM"
+               WHEN "3"
+                   DISPLAY "Manually triggering Security Alert (AI will cross-verify and escalate)..."
+                   CALL "SCALRT"
+               WHEN "4"
+                   DISPLAY "Launching AI Threat Prediction and Analysis Module..."
+                   CALL "SCTHRA"
+               WHEN "5"
+                   DISPLAY "Activating AI Security Protocol Adaptation Module..."
+                   CALL "SCPROA"
+               WHEN "6"
+                   DISPLAY "Reviewing AI System Status and Performance..."
+                   CALL "SCAIST"
+               WHEN "X"
+                   DISPLAY "Initiating graceful shutdown of Security Control System..."
+               WHEN OTHER
+                   DISPLAY "INVALID SELECTION. Please choose from the menu."
+                   PERFORM 2000-WAIT-FOR-ACK
+           END-EVALUATE.
+
+       2000-WAIT-FOR-ACK.
+      *    Simple pause to allow user to read messages
+           DISPLAY "Press ENTER to continue...".
+           ACCEPT WS-USER-CHOICE.
+
+       9000-TERMINATE-SYSTEM.
+           DISPLAY SPACE.
+           DISPLAY "**********************************************".
+           DISPLAY "*   ENTERPRISE SECURITY CONTROL SYSTEM       *".
+           DISPLAY "*   AI Sentinel Deactivating...              *".
+           DISPLAY "*   System securely offline.                 *".
+           DISPLAY "**********************************************".
+           DISPLAY SPACE.
+           CALL "SCAISHUT" USING WS-AI-SENTINEL-STATUS.
+```

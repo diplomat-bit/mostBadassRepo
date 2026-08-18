@@ -1,0 +1,8 @@
+// REPOSITORY SOURCE: diplomat-bit/jocall3-node | PATH: diplomat-bit-jocall3-node-fae6abf/scripts/build-all
+================================================================================
+
+#!/usr/bin/env bash
+
+# build-all is deprecated, use build instead
+
+bash ./scripts/build

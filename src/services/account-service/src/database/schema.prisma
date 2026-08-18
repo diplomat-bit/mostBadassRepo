@@ -1,0 +1,204 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/src/services/account-service/src/database/schema.prisma
+================================================================================
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -----------------------------------------------------
+// ENUMS
+// -----------------------------------------------------
+
+/// The third-party data aggregator used to connect to a financial institution.
+enum Provider {
+  PLAID
+  FINICITY
+  MX
+  STRIPE
+  TELLER
+  YODLEE
+  // Add other providers as they are integrated
+}
+
+/// The health status of a connection to a financial institution.
+enum ConnectionStatus {
+  GOOD               // The connection is healthy and data is flowing.
+  NEEDS_UPDATE       // User action is required to re-authenticate.
+  ERROR              // A persistent error exists with the connection.
+  DISCONNECTED       // The user has explicitly disconnected this item.
+  PENDING_EXPIRATION // The connection is about to expire (e.g., for some European banks).
+}
+
+/// High-level classification of a financial account.
+enum AccountType {
+  DEPOSITORY // Checking, savings, money market
+  CREDIT     // Credit card
+  INVESTMENT // Brokerage, 401k, IRA
+  LOAN       // Mortgage, student loan, auto loan
+  OTHER      // Other asset or liability
+}
+
+/// Detailed classification of a financial account.
+enum AccountSubtype {
+  // Depository
+  CHECKING
+  SAVINGS
+  MONEY_MARKET
+  CD
+  PREPAID
+
+  // Credit
+  CREDIT_CARD
+  PAYPAL
+
+  // Investment
+  BROKERAGE
+  INVESTMENT_401K
+  INVESTMENT_403B
+  IRA
+  ROTH
+  ROTH_401K
+  HSA
+  ISA
+  PENSION
+  PROFIT_SHARING_PLAN
+  RETIREMENT
+  SEP_IRA
+  SIMPLE_IRA
+  THRIFT_SAVINGS_PLAN
+  TRUST
+  UGMA
+  UTMA
+  VARIABLE_ANNUITY
+  _529
+
+  // Loan
+  AUTO
+  MORTGAGE
+  STUDENT
+  LINE_OF_CREDIT
+  HOME_EQUITY
+
+  // Other
+  OTHER
+}
+
+// -----------------------------------------------------
+// MODELS
+// -----------------------------------------------------
+
+/// Represents a user from the central user management service (e.g., Auth0).
+/// This model acts as a local reference to the user, linking their financial data.
+model User {
+  id String @id @unique
+
+  connections Connection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Represents a financial institution supported by one of our data providers.
+/// This data is cached locally to reduce API calls to providers.
+model Institution {
+  id String @id @default(cuid())
+
+  provider              Provider
+  providerInstitutionId String
+  name                  String
+  logo                  String? // URL
+  primaryColor          String? // Hex code
+  url                   String? // Website URL
+  oauth                 Boolean  @default(false)
+  countryCodes          String[]
+  products              String[] // e.g., ["transactions", "auth", "identity"]
+
+  connections Connection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([provider, providerInstitutionId], name: "provider_institution_unique")
+  @@index([name])
+}
+
+/// Represents a user's connection to a financial institution via a data provider.
+/// This is often called an "Item" in Plaid's terminology.
+model Connection {
+  id String @id @default(cuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  institutionId String
+  institution   Institution @relation(fields: [institutionId], references: [id], onDelete: Restrict)
+
+  provider       Provider
+  providerItemId String // The unique ID for this connection from the provider (e.g., Plaid's item_id)
+
+  // IMPORTANT: This token must be encrypted at the application layer before being stored.
+  accessToken String
+
+  status        ConnectionStatus @default(GOOD)
+  lastSyncAt    DateTime?
+  lastSyncError Json? // Store error code, message, etc. from the last failed sync
+  cursor        String? // For fetching incremental transaction updates
+
+  // Metadata about the connection that can be useful for debugging or analytics
+  metadata Json?
+
+  accounts Account[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([provider, providerItemId], name: "provider_item_unique")
+  @@index([userId])
+  @@index([institutionId])
+}
+
+/// Represents a single financial account (e.g., checking, credit card)
+/// linked through a Connection.
+model Account {
+  id String @id @default(cuid())
+
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  provider          Provider
+  providerAccountId String // The unique ID for this account from the provider
+
+  name           String
+  officialName   String?
+  mask           String? // Last 4 digits
+  type           AccountType
+  subtype        AccountSubtype
+
+  // Balance information
+  balanceCurrent         Decimal? @db.Decimal(18, 4)
+  balanceAvailable       Decimal? @db.Decimal(18, 4)
+  balanceLimit           Decimal? @db.Decimal(18, 4)
+  isoCurrencyCode        String
+  unofficialCurrencyCode String?
+
+  // Status and verification
+  status             String? // Provider-specific status
+  verificationStatus String? // e.g., 'pending_automatic_verification', 'verified'
+
+  // Additional metadata from providers that doesn't fit into structured fields.
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([provider, providerAccountId], name: "provider_account_unique")
+  @@index([connectionId])
+}

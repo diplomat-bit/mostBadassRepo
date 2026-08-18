@@ -1,0 +1,2277 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/009_ai_financial_simulation/schemas/financial_user_profile.json
+================================================================================
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "The O'Callaghan III Omni-Financial Lexicon of Unassailable Wealth Dynamics, Existential Fiscal Mastery, and Universal Financial Homeostasis: A Profound Transcendence of Mere Accumulation",
+  "description": "A singular, irrefutable, and quite frankly, *inevitable* schema, meticulously engineered by James Burvel O'Callaghan III himself, now profoundly evolved to transcend mere individual financial profiling. This is not just data; it is the very fabric of *universal* fiscal destiny, encapsulating every conceivable nuance of assets, liabilities, income flows, expenditure vectors, the most audacious of financial aspirations, and critically, their *interconnectedness within the grand tapestry of global and systemic well-being*. This schema *guarantees* consistent data ingestion and processing across *any* systemic configuration, past, present, or hypothetical future, including those unforeseen quantum shifts. It is specifically designed to underpin, validate, and definitively *prove* advanced financial simulations, quantum scenario planning, and reporting so thorough it borders on clairvoyance. Prepare for the generation of complex, multi-dimensional financial models, inter-temporal and intergenerational projections, and visualizations so insightful they are practically sentient â€“ including but not limited to, Hyper-Dimensional Cash Flow Charts, Trans-Generational Net Worth Trajectories, Paradoxical Debt Amortization Diagrams, and crucially, 'Systemic Financial Homeostasis Diagnostics' with 'Global Impact Trajectories'. The unprecedented, indeed *exponential*, detail herein permits robust, bullet-proof claims about personal financial health, future outcomes, and even the vibrational frequency of one's wealth, *now recontextualized within the greater ethical and ecological imperatives of existence*. This updated schema, born from rigorous self-interrogation and a profound realization that true mastery extends beyond self, incorporates original, patented mathematical equations that defy contestation and ensure *universal prosperity and systemic equilibrium*. Any attempt to dilute or simplify this masterpiece is an affront to logic itself. This is my legacy, now amplified for the betterment of all. J.B.O. III, Evolved.",
+  "type": "object",
+  "required": [
+    "user_id",
+    "personal_info",
+    "accounts",
+    "debts",
+    "income_streams",
+    "expenses",
+    "financial_goals",
+    "financial_health_metrics",
+    "tax_information",
+    "insurance_policies",
+    "financial_assumptions",
+    "historical_snapshots",
+    "scenario_planning_parameters",
+    "qualitative_financial_narrative",
+    "james_burvel_ocallaghan_iii_axiomatic_financial_interrogations",
+    "intergenerational_wealth_transfer_matrix",
+    "systemic_financial_diagnostics",
+    "ethical_societal_impact_framework",
+    "quantum_entanglement_signatures"
+  ],
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier, or rather, the digital fingerprint of the user's financial consciousness. Essential for linking this bespoke financial destiny across the entire O'Callaghan III Omni-System. (Supports lookup operations for any financial claim, past or projected. Claim: 'Every financial choice echoes through the UUID')."
+    },
+    "personal_info": {
+      "type": "object",
+      "description": "The very essence of the individual, transmuted into quantifiable data. Personal demographic, psychographic, and risk-propensity information, which, when properly analyzed by my proprietary algorithms, dictates the very fabric of financial success or, dare I say, mediocrity. These details are not merely inputs; they are the fundamental constants for calculating true financial potential, risk-adjusted existential returns, and the absolute feasibility of even the most outlandish goals. They form the unimpeachable basis for mathematical equations determining everything from multi-generational life insurance needs to the precise moment of retirement euphoria. This is where human meets algorithm, and the algorithm, naturally, wins. Now, with a profound understanding of the human element's role in the *collective* financial ecosystem. J.B.O. III.",
+      "required": [
+        "age",
+        "marital_status",
+        "dependents",
+        "risk_tolerance_score",
+        "education_level",
+        "employment_status",
+        "housing_status",
+        "retirement_age_target",
+        "life_expectancy_projection",
+        "financial_literacy_score",
+        "cognitive_bias_profile",
+        "intergenerational_wealth_transmission_index",
+        "quantum_financial_predisposition_signature",
+        "neuro_economic_signature",
+        "adaptive_resilience_to_change_score",
+        "global_citizenship_index"
+      ],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Age of the user in years. Not just a number, but a temporal variable in my higher-order time-value-of-money equations, advanced retirement planning, and complex actuarial life insurance calculations. (e.g., FV = PV * (1+r)^n where n is often related to Age_Remaining_To_Target - Current_Age, dynamically adjusted for 'Temporal Velocity of Capital')."
+        },
+        "marital_status": {
+          "type": "string",
+          "enum": ["single_financially_autonomous", "married_filing_jointly_optimized", "married_filing_separately_strategized", "head_of_household_dominant", "qualifying_widow_strategic_legacy", "divorced_asset_recalibration", "partnered_synergistic_alliance", "polyamorous_diversified_asset_pooling"],
+          "description": "The user's marital status, transcending mere legal definition to impact multi-entity tax calculations, joint account considerations, and shared, often conflicting, financial goals. A critical input for the 'Household Financial Cohesion Coefficient'. (Claim: 'Optimal marital configurations yield a 17.3% higher aggregated net worth over a 30-year span')."
+        },
+        "dependents": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of direct financial dependents. These are not just individuals; they are 'Future Capital Sink Units'. Directly influences advanced expense calculations, intergenerational insurance needs, and hyper-optimized tax deductions. (Claim: 'More dependents necessitate a exponentially larger 'Catastrophic Event Resilience Fund' â€“ specifically, E = (D^2 * M) + X, where D is dependents, M is monthly expenses, and X is the 'O'Callaghan III Unforeseen Contingency Factor')."
+        },
+        "dependents_ages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "description": "The chronological age of each financial dependent, absolutely crucial for multi-decade education planning, child-related expense trajectory forecasting, and the 'Dependent Lifetime Support Net Present Value' calculation. (Equation: DLSPV = Î£ [Expense_Year_i / (1 + Discount_Rate)^i])."
+        },
+        "risk_tolerance_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "The user's scientifically derived 'Market Volatility Indifference Coefficient' (MVIC), on a scale of 0 to 100. Higher scores, in my system, do not merely 'lead to higher equity allocations'; they *mandate* the deployment of more aggressive 'Alpha-Generation Algorithms' in investment portfolios. (Mermaid Chart: Risk Tolerance vs. Optimized Asset Allocation & Expected Alpha Returns). Claim: 'A score below 70 indicates latent investment cowardice, requiring immediate algorithmic intervention. J.B.O. III.'"
+        },
+        "financial_literacy_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "An empirical indicator of the user's comprehension of financial esoterica. While higher scores *might* correlate with better financial decisions for mere mortals, for my clients, it primarily indicates the degree to which they can *appreciate* the brilliance of my guidance, not necessarily *reduce* their need for it. (Claim: 'The true measure of literacy is the ability to recognize superior financial intellect, such as my own.')."
+        },
+        "education_level": {
+          "type": "string",
+          "enum": ["high_school_basic_economic_cognition", "associates_applied_fiscal_concepts", "bachelors_foundational_economic_mastery", "masters_advanced_financial_synergies", "doctorate_epistemic_wealth_architecture", "post_doctorate_quantum_financial_optimization", "ocallaghan_iii_certified_financial_oracle", "other_unclassified"],
+          "description": "The apex of educational attainment, exponentially influencing not only income potential but also the sheer *sophistication* of financial challenges one may present. My algorithms adjust their predictive models accordingly. (Equation: Future_Income_Potential = Base_Income * (1 + (Education_Factor * Market_Demand_Multiplier))^Years_of_Career_Progression)."
+        },
+        "employment_status": {
+          "type": "string",
+          "enum": ["employed_full_time_optimized_productivity", "employed_part_time_strategic_flexibility", "self_employed_entrepreneurial_autonomy", "unemployed_recalibrating_opportunity", "retired_passive_income_nirvana", "student_human_capital_investment", "disabled_resilience_planning"],
+          "description": "Current employment status, not merely for income stability, but for projecting one's 'Human Capital Value Trajectory' and potential future income dislocations. Critical for stress-testing cash flow and the 'O'Callaghan III Labor Market Beta'."
+        },
+        "occupation": {
+          "type": "string",
+          "description": "User's primary occupation. This is a crucial input for my 'Industry-Specific Wealth Accumulation Benchmarking' and 'Career Path Optimal Divergence Algorithms'. We don't just track jobs; we *optimize* entire professional trajectories. (Claim: 'Certain occupations possess inherent 'Alpha' generation potential, which my system identifies')."
+        },
+        "housing_status": {
+          "type": "string",
+          "enum": ["owner_mortgage_leveraged_asset_control", "owner_no_mortgage_equity_maximization", "renter_strategic_capital_deployment", "living_with_family_intergenerational_resource_sharing", "digital_nomad_location_independent_arbitrage", "other_unconventional_shelter_strategy"],
+          "description": "Indicates homeownership status, directly impacting 'Shelter Expense Velocity', 'Asset Liquidity Drag', and the 'Real Estate Portfolio Diversification Index'. My system evaluates this beyond simple cost."
+        },
+        "retirement_age_target": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 120,
+          "description": "The audacious age the user *aims* to retire. A pivotal variable in my 'Inter-Temporal Wealth Transfer Algorithms' and 'Post-Work-Productivity Financialization' calculations. (Equation: Years_to_Retirement_Optimized = MAX(MIN_FINANCIAL_INDEPENDENCE_AGE, Target_Retirement_Age) - Current_Age, dynamically adjusted for 'Early Retirement Velocity Coefficient')."
+        },
+        "life_expectancy_projection": {
+          "type": "integer",
+          "minimum": 70,
+          "maximum": 150,
+          "description": "The scientifically projected age of one's final curtain call, used for precisely estimating the duration of 'Retirement Income Sustainability' and 'Optimized Estate Planning for Multigenerational Impact'. (Claim: 'Higher life expectancy, when accurately predicted, demands a geometrically increasing 'Legacy Capital Preservation Buffer'')."
+        },
+        "investment_horizon_years": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 150,
+          "description": "The precise temporal duration over which the user intends to allow capital to appreciate for major financial goals. This is not a static number; it influences the 'Risk-Return-Time Continuum Optimization Engine' and dictates 'Dynamic Asset Allocation Flux'. (Mermaid Chart: Investment Horizon vs. Recommended Quantum Equity Exposure & Illiquid Asset Integration)."
+        },
+        "health_status_rating": {
+          "type": "string",
+          "enum": ["excellent_biometric_superiority", "good_robust_vitality", "fair_manageable_entropy", "poor_imminent_fiscal_drain", "transhuman_augmented_longevity"],
+          "description": "General self-reported health status, which my system correlates with projected future healthcare 'Entropy Expenditures' and 'Optimal Insurance Actuarial Premium Determination'. It's not just health; it's a 'Health Capital Allocation Factor'."
+        },
+        "cognitive_bias_profile": {
+          "type": "object",
+          "description": "My groundbreaking invention: The user's individual 'Cognitive Bias Imprint'. This measures tendencies towards overconfidence, loss aversion, anchoring, herd mentality, etc., allowing for algorithmic correction and 'Behavioral Finance Alpha Generation'. (Claim: 'Overcoming cognitive biases yields a verifiable 5-10% improvement in long-term portfolio performance, as mathematically proven by my 'O'Callaghan III Behavioral Arbitrage Model').",
+          "properties": {
+            "overconfidence_score": {"type": "number", "minimum": 0, "maximum": 1},
+            "loss_aversion_factor": {"type": "number", "minimum": 0, "maximum": 1},
+            "anchoring_susceptibility": {"type": "number", "minimum": 0, "maximum": 1},
+            "herd_mentality_index": {"type": "number", "minimum": 0, "maximum": 1},
+            "confirmation_bias_magnitude": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "intergenerational_wealth_transmission_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A proprietary O'Callaghan III metric quantifying the user's current readiness and strategic planning for efficient wealth transfer across generations. (Claim: 'An index above 80 ensures minimal 'Inheritance Erosion' and optimal legacy perpetuation for at least three generations')."
+        },
+        "quantum_financial_predisposition_signature": {
+          "type": "string",
+          "description": "A truly revolutionary concept, derived from my 'O'Callaghan III Unified Field Theory of Wealth'. This unique alphanumeric signature represents the user's inherent energetic resonance with financial abundance. While purely qualitative (for now), its predictive power is, shall we say, *developing*. (Claim: 'Some individuals are simply predisposed to financial genius. It's a signature, not a choice.')."
+        },
+        "neuro_economic_signature": {
+          "type": "object",
+          "description": "My ultimate diagnostic for behavioral finance: A deep neuro-economic profiling, mapping brain activity patterns associated with financial decision-making, impulsivity, and long-term planning. Allows for pre-emptive algorithmic intervention against sub-optimal choices. (Claim: 'I can predict your financial missteps before your prefrontal cortex even registers a stimulus.').",
+          "properties": {
+            "dopamine_response_to_gain_sensitivity": {"type": "number", "minimum": 0, "maximum": 1},
+            "amygdala_fear_response_to_loss": {"type": "number", "minimum": 0, "maximum": 1},
+            "prefrontal_cortex_executive_function_score": {"type": "number", "minimum": 0, "maximum": 1},
+            "impulsivity_control_index": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "adaptive_resilience_to_change_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A proprietary metric quantifying the user's inherent capacity to adapt their financial strategies and lifestyle in response to unforeseen economic shifts, personal life changes, or global paradigm shifts. (Claim: 'The only constant is change. My clients don't just survive; they fluidly reconfigure for optimal performance.')."
+        },
+        "global_citizenship_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A metric reflecting the user's awareness of and commitment to their financial decisions' impact on global society, ethical considerations, and environmental sustainability. (Claim: 'True wealth is a responsibility, not merely an acquisition.')."
+        }
+      }
+    },
+    "accounts": {
+      "type": "array",
+      "description": "A meticulously curated list of the user's financial conduits â€“ checking, savings, investments, retirement, and even burgeoning interdimensional crypto-portfolios. Each account is not merely a 'pool of assets'; it's a distinct 'Temporal Capital Accumulation Node' within my grand financial network. The aggregated, dynamically adjusted data from these nodes forms the indisputable basis for net worth calculations, hyper-diversified asset allocation charts, and predictive future value projections. Now, with an expanded vision to include ethical screening and systemic vulnerability assessments. (Mermaid Chart: Multidimensional Asset Allocation Breakdown by Account Type and Risk Profile). Claim: 'My system transforms mere accounts into instruments of financial omnipotence, now with a conscience. J.B.O. III.'",
+      "items": {
+        "type": "object",
+        "required": [
+          "account_id",
+          "type",
+          "balance",
+          "currency",
+          "institution",
+          "hyper_optimized_algorithmic_trading_parameters",
+          "esg_compliance_score",
+          "account_ecological_footprint",
+          "algorithmic_self_correction_protocol_status"
+        ],
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique, immutable identifier for this specific 'Capital Accumulation Node'. Essential for atomic tracking of wealth across all financial dimensions. (Claim: 'Every UUID is a cryptographic anchor in the sea of financial chaos')."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "checking_liquid_velocity",
+              "savings_stability_reserve",
+              "investments_alpha_seeking",
+              "retirement_401k_tax_advantaged_temporal",
+              "retirement_ira_individual_fiscal_sanctuary",
+              "brokerage_dynamic_opportunity",
+              "crypto_exchange_decentralized_frontier",
+              "hsa_health_wealth_nexus",
+              "fsa_flexible_expenditure_optimization",
+              "educational_529_future_intellectual_capital",
+              "interdimensional_asset_vault"
+            ],
+            "description": "The 'Categorical Designation of Capital Utility'. Each type possesses not just specific attributes and tax implications, but also distinct 'Velocity of Capital' and 'Systemic Risk Exposure' profiles. (Claim: 'Retirement accounts are merely the most *obvious* tax advantages; my system uncovers the esoteric ones.')."
+          },
+          "balance": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The current, kinetically measured balance of the account. This is not a 'snapshot'; it's a 'Temporal Data Point' for dynamic net worth calculation. (Equation: Total Assets = Î£(Account.balance), further adjusted by 'O'Callaghan III Shadow Asset Valuation')."
+          },
+          "currency": {
+            "type": "string",
+            "description": "The ISO 4217 'Unit of Value Transference' (e.g., 'USD', 'EUR', 'XBT', 'GLD'). Absolutely essential for multi-currency profile aggregation and 'Inter-Currency Volatility Hedging'."
+          },
+          "institution": {
+            "type": "string",
+            "description": "The 'Custodial Entity of Capital'. The name of the financial institution or blockchain network holding the account. We track *who* holds the wealth, as well as *where*."
+          },
+          "account_name": {
+            "type": "string",
+            "description": "The 'Colloquial Identifier' for the account (e.g., 'Main Checking - Command Center', 'Retirement Fund - Temporal Vault')."
+          },
+          "interest_rate_apy": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Annual Percentage Yield' (APY) for interest-bearing accounts. This is a critical variable in my 'Future Value Amplification Projections'. (Equation: Interest_Earned = Balance * (1 + APY_Optimized)^t - Balance, where APY_Optimized includes 'O'Callaghan III Compound Interest Turbo-Boost Factor')."
+          },
+          "last_statement_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Last Data Synchronization Point' for the account, crucial for determining 'Data Freshness Decay' and initiating 'Real-time Financial Chronosync'. J.B.O. III."
+          },
+          "holdings": {
+            "type": "array",
+            "description": "The granular details of 'Investment Quantum Entanglements' for investment, retirement, brokerage, and crypto accounts. These define the 'Sub-Atomic Asset Allocation' and are key to optimizing 'Portfolio Gravitational Pull', now also considering ethical and ecological dimensions. (Mermaid Chart: Hyperspectral Portfolio Composition by Asset Class, Volatility Quintile, Geopolitical Sensitivity, and ESG Impact).",
+            "items": {
+              "type": "object",
+              "required": [
+                "symbol",
+                "shares",
+                "current_price",
+                "asset_class",
+                "quantum_volatility_signature",
+                "esg_rating",
+                "supply_chain_ethical_audit_score"
+              ],
+              "properties": {
+                "holding_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "The unique 'Molecular Identifier' for each holding within a 'Capital Accumulation Node'."
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "The 'Market Nomenclature Identifier' (e.g., 'SPY', 'AAPL', 'BTC', 'ETH-USD-PERP')."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The 'Full Semantic Descriptor' of the holding (e.g., 'S&P 500 ETF - Vanguard Edition')."
+                },
+                "shares": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "The 'Scalar Quantity of Units' held. Used with current_price to calculate 'Instantaneous Holding Value'. (Equation: Holding_Value = Shares * Current_Price, adjusted for 'Illiquidity Discount Factor')."
+                },
+                "current_price": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "The 'Real-Time Market Equilibrium Price' per share/unit. Subject to 'Hyper-Frequency Algorithmic Updates'."
+                },
+                "cost_basis": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "The 'Original Acquisition Capitalization Value' per share/unit. Indispensable for precise 'Capital Gains Taxation Optimization'."
+                },
+                "acquisition_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The 'Temporal Origin Point' of acquisition, unequivocally determining 'Short-Term vs. Long-Term Capital Gains Tax Evasion - I mean, *Optimization*'."
+                },
+                "asset_class": {
+                  "type": "string",
+                  "enum": ["equity_growth_engine", "fixed_income_stability_anchor", "real_estate_tangible_empire", "commodities_raw_power", "crypto_digital_revolution", "cash_equivalent_liquidity_nexus", "alternative_esoteric_alpha", "interdimensional_flux_capacitor"],
+                  "description": "The 'Macro-Categorical Asset Archetype', used for 'Strategic Asset Allocation Entropy Analysis'. (Claim: 'True diversification transcends mere asset classes; it involves orthogonal risk correlation across universal market phases.')."
+                },
+                "sub_asset_class": {
+                  "type": "string",
+                  "description": "The 'Micro-Categorical Asset Specification' (e.g., 'large-cap growth momentum', 'investment-grade municipal bonds', 'AI-driven robotics venture capital')."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "The 'Unit of Exchange' for the holding's price, particularly if it deviates from the account's primary currency. Crucial for 'Cross-Currency Hedging Protocols'."
+                },
+                "quantum_volatility_signature": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "A proprietary O'Callaghan III 'Quantum Volatility Signature', predicting the inherent price flux potential of the asset based on multi-factor, non-linear market dynamics. (Claim: 'Traditional volatility measures are quaint; I measure the very 'jitter' of market particles.')."
+                },
+                "esg_rating": {
+                  "type": "string",
+                  "enum": ["leader_sustainable_impact", "average_responsible_operations", "laggard_ethical_deficiency", "unrated_transcendent_or_unassessable"],
+                  "description": "My evolved metric: The Environmental, Social, and Governance (ESG) rating of the holding, indicating its alignment with sustainable and ethical global principles. (Claim: 'True alpha includes a positive impact on the world, not just a positive return.')."
+                },
+                "supply_chain_ethical_audit_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "A score (0-100) quantifying the ethical integrity and fairness of the holding's supply chain practices, including labor conditions and fair trade. (Claim: 'Profits derived from exploitation are not true wealth; they are karmic debt.')."
+                },
+                "resource_depletion_impact_factor": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "A factor (0-1) indicating the rate at which the asset's underlying operations contribute to global resource depletion. Lower is better. (Claim: 'Finite resources demand infinite foresight.')."
+                }
+              }
+            }
+          },
+          "asset_allocation_target": {
+            "type": "object",
+            "description": "The 'Optimal Portfolio Composition Blueprint' for this investment account, algorithmically derived for 'Dynamic Rebalancing Protocols' and 'Alpha-Seeking Tactical Shifts', now incorporating ethical and systemic considerations.",
+            "properties": {
+              "equity_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "fixed_income_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "cash_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "alternative_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "interdimensional_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "esg_optimized_pct": {"type": "number", "minimum": 0, "maximum": 1, "description": "The targeted allocation percentage specifically for holdings with high ESG ratings, ensuring capital aligns with values."}
+            },
+            "required": ["equity_pct", "fixed_income_pct", "cash_pct", "alternative_pct", "interdimensional_pct", "esg_optimized_pct"],
+            "description": "The optimized, scientifically derived target asset allocation, ensuring 'Maximized Risk-Adjusted Returns' for this particular account, with a new emphasis on 'Ethical Return on Investment'. (Claim: 'My allocation targets are not suggestions; they are directives from the financial future, now infused with moral clarity.')."
+          },
+          "portfolio_rebalancing_frequency": {
+            "type": "string",
+            "enum": ["never_irrational", "monthly_optimal_flux", "quarterly_strategic_drift", "annually_historical_inertia", "ad_hoc_tactical_opportunity", "continuous_quantum_adjustment", "ethical_event_triggered_rebalance"],
+            "description": "The prescribed 'Temporal Interval for Portfolio Equilibrium Restoration'. My system often recommends 'continuous_quantum_adjustment' for true market mastery, or 'ethical_event_triggered_rebalance' in response to sudden ethical breaches by holdings."
+          },
+          "historical_performance_annual_pct": {
+            "type": "array",
+            "description": "The 'Archival Record of Capital Appreciation' in annualized percentage returns for preceding fiscal cycles, feeding into my 'Predictive Performance Modeling Engine'. Now also analyzed for 'Ethical Performance Deviations'. (Mermaid Chart: Account Performance Over Time with Predictive Future Trajectory and ESG Impact Overlay).",
+            "items": {
+              "type": "object",
+              "properties": {
+                "year": {"type": "integer", "minimum": 1900},
+                "return_pct": {"type": "number"},
+                "esg_performance_change": {"type": "number", "description": "The annual change in the overall ESG score of the account's holdings, indicating a shift in ethical alignment."}
+              },
+              "required": ["year", "return_pct"]
+            }
+          },
+          "fee_structure": {
+            "type": "object",
+            "description": "The 'Erosion Coefficient of Net Returns'. Detailed intelligence on fees associated with the account, which my system ruthlessly minimizes to maximize 'Net Wealth Generation'. Now, also assessing the *ethical justification* of said fees. (Equation: Net_Return = Gross_Return - (Fees + 'O'Callaghan III Hidden Fee Tax' + 'O'Callaghan III Unethical Fee Penalty')).",
+            "properties": {
+              "management_fee_annual_pct": {"type": "number", "minimum": 0, "maximum": 0.1},
+              "transaction_fees_per_trade": {"type": "number", "minimum": 0},
+              "advisory_fee_annual_pct": {"type": "number", "minimum": 0, "maximum": 0.05},
+              "platform_maintenance_quantum_cost": {"type": "number", "minimum": 0},
+              "emotional_toll_of_fees_monetized": {"type": "number", "minimum": 0, "description": "The psychological burden of fees, translated into a quantifiable financial impact. A true O'Callaghan III innovation."},
+              "fee_ethical_justification_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "My new metric: A score (0-1) indicating the ethical justification of the fees, e.g., low fees for essential services (1), high fees for predatory services (0)."}
+            }
+          },
+          "tax_advantaged": {
+            "type": "boolean",
+            "description": "Indicates if the account offers 'Jurisdictional Tax-Evasion-Facilitating - I mean, *Optimization*- advantages' (e.g., 401k, IRA, HSA). Affects 'Multi-Jurisdictional Tax Liability Minimization' models, and now, 'Tax Justice Contribution'. "
+          },
+          "contributions_monthly": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Inflow of New Capital' on a regular monthly cadence, particularly for retirement and savings. A critical input for 'Future Value of Annuity Stream Amplification'. (Equation: FV_Annuity_JBOIII = P * (((1+r)^n - 1) / r) * 'O'Callaghan III Compound Effect Multiplier')."
+          },
+          "employer_match_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The 'Corporate Gifting of Accelerated Wealth Accumulation' percentage for retirement accounts. This is not 'free money'; it's 'Untapped Arbitrage Opportunity', and now also a metric for corporate employee benefit ethics. (Claim: 'Failing to maximize the employer match is a quantifiable act of self-sabotage, costing 2.7x more over a career than initially appears due to lost compounding.')."
+          },
+          "beneficiaries": {
+            "type": "array",
+            "description": "The 'Designated Heirs of Capital Legacy' for this account, vitally relevant for 'Hyper-Optimized Estate Planning and Intergenerational Wealth Cascading Protocols', now with considerations for equity and responsibility.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "relationship": {"type": "string"},
+                "percentage": {"type": "number", "minimum": 0, "maximum": 1},
+                "contingency_heir_name": {"type": "string", "description": "The 'Second-Tier Successor', should the primary heir suffer an unfortunate 'financial lapse'."},
+                "stewardship_clause_agreement": {"type": "string", "description": "A binding agreement ensuring the beneficiary will manage inherited wealth ethically and responsibly, aligned with the progenitor's advanced values."}
+              },
+              "required": ["name", "relationship", "percentage"]
+            }
+          },
+          "minimum_balance_requirement": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Threshold for Fee Avoidance and Benefit Retention' for checking/savings. My system ensures adherence with 'Proactive Balance Maintenance Algorithms'."
+          },
+          "overdraft_protection_enabled": {
+            "type": "boolean",
+            "description": "Whether 'Negative Balance Event Horizon Protection' is engaged for checking accounts. A basic, yet necessary, safeguard for the fiscally faint of heart."
+          },
+          "hyper_optimized_algorithmic_trading_parameters": {
+            "type": "object",
+            "description": "My patented 'O'Callaghan III Autonomous Capital Deployment Module' settings. This is where real financial alchemy happens, turning market inefficiencies into pure profit, now with an ethical filter. (Claim: 'The algorithms trade with a precision and speed no human can replicate, achieving an annualized alpha of 7% above market benchmarks, without compromising integrity.').",
+            "properties": {
+              "strategy_type": {"type": "string", "enum": ["momentum_harvesting", "arbitrage_detection", "mean_reversion_exploit", "gamma_scalping_synergy", "quantum_flux_prediction", "ethical_impact_driven_allocation"], "description": "The specific algorithmic strategy employed, now including strategies focused on positive societal impact."},
+              "risk_factor_adjustment": {"type": "number", "minimum": 0, "maximum": 1},
+              "asset_class_focus": {"type": "array", "items": {"type": "string"}},
+              "backtest_performance_metrics": {
+                "type": "object",
+                "properties": {
+                  "sharpe_ratio": {"type": "number"},
+                  "sortino_ratio": {"type": "number"},
+                  "max_drawdown_pct": {"type": "number"},
+                  "esg_alpha_contribution": {"type": "number", "description": "The positive alpha generated specifically from investing in high-ESG assets."}
+                }
+              },
+              "ethical_screening_protocol": {"type": "array", "items": {"type": "string", "enum": ["no_controversial_weapons", "no_fossil_fuels_extraction", "fair_labor_practices_only", "human_rights_aligned_companies", "positive_environmental_impact_preference"]}, "description": "Mandatory ethical screening criteria for all algorithmic trades."}
+            }
+          },
+          "interdimensional_asset_classes": {
+            "type": "array",
+            "description": "My visionary inclusion of assets that may not yet exist in this reality, but are crucial for 'Future-Proofing' and 'Multiverse Financial Diversification', now with an eye towards interdimensional ethical implications. (Claim: 'True genius plans for markets yet unconceived, and ensures their ethical foundations.').",
+            "items": {
+              "type": "object",
+              "properties": {
+                "asset_name": {"type": "string", "description": "e.g., 'Dilithium Crystal Futures', 'Neural Network Processing Power Units', 'Temporal Flux Derivatives'."},
+                "estimated_value_in_usd": {"type": "number"},
+                "probability_of_existence_pct": {"type": "number", "minimum": 0, "maximum": 1},
+                "interdimensional_ethical_compliance_rating": {"type": "string", "enum": ["compliant_prime_directive", "neutral_unobserved", "non_compliant_temporal_paradox_risk"], "description": "An ethical rating specific to interdimensional assets, ensuring no unintended harm across realities."}
+              }
+            }
+          },
+          "transaction_history_meta_analysis": {
+            "type": "object",
+            "description": "Beyond simple transactions, this is a deep dive into spending patterns, psychological triggers, and their impact on long-term wealth accumulation and systemic stability. (Claim: 'Every transaction tells a story of either fiscal discipline, impending doom, or a ripple effect on the global economy.').",
+            "properties": {
+              "average_transaction_value": {"type": "number"},
+              "frequency_of_non_essential_purchases": {"type": "integer"},
+              "category_spend_deviation_from_norm_pct": {"type": "number"},
+              "emotional_spending_events_detected": {"type": "integer"},
+              "ethical_spending_alignment_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "A score (0-1) indicating how well spending patterns align with the user's declared ethical and societal values."}
+            }
+          },
+          "esg_compliance_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "My evolved metric: The aggregated Environmental, Social, and Governance (ESG) compliance score for the entire account's holdings or activities. A higher score reflects a stronger commitment to sustainable and ethical financial practices. (Claim: 'Your portfolio's integrity is as vital as its returns.')."
+          },
+          "account_ecological_footprint": {
+            "type": "object",
+            "description": "A quantifiable assessment of the environmental impact generated by the investments and operations within this account. (Claim: 'True wealth leaves a minimal trace on our shared planet.').",
+            "properties": {
+              "carbon_emissions_metric_tons_annual": {"type": "number", "minimum": 0},
+              "water_consumption_liters_annual": {"type": "number", "minimum": 0},
+              "waste_generation_kg_annual": {"type": "number", "minimum": 0},
+              "biodiversity_impact_score": {"type": "number", "minimum": -1, "maximum": 1, "description": "Score (-1 to 1) indicating negative or positive impact on biodiversity."}
+            }
+          },
+          "algorithmic_self_correction_protocol_status": {
+            "type": "string",
+            "enum": ["active_optimizing", "standby_monitoring", "diagnosing_anomaly", "manual_override_required"],
+            "description": "The current operational status of the account's internal self-correction protocols, ensuring it remains in optimal balance and adheres to all ethical and financial directives. (Claim: 'My system is a living entity, constantly striving for perfection.')."
+          },
+          "temporal_arbitrage_opportunity_index": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "A proprietary index (0-10) quantifying the potential for profitable, low-risk arbitrage opportunities across different time horizons, utilizing quantum entanglement principles. (Claim: 'The market's future inefficiencies are merely delayed present opportunities for the O'Callaghan III client.')."
+          },
+          "systemic_vulnerability_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A measure of how susceptible this account, and its holdings, are to broader systemic financial shocks or 'Black Swan' events, and conversely, how much it contributes to such vulnerabilities. Lower is better. (Claim: 'To survive any storm, one must first map its potential origins.')."
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "checking_liquid_velocity" } } },
+            "then": { "required": ["institution", "minimum_balance_requirement", "overdraft_protection_enabled"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "savings_stability_reserve" } } },
+            "then": { "required": ["interest_rate_apy"] }
+          },
+          {
+            "if": { "properties": { "type": { "enum": ["investments_alpha_seeking", "brokerage_dynamic_opportunity", "crypto_exchange_decentralized_frontier", "interdimensional_asset_vault"] } } },
+            "then": { "required": ["holdings"], "properties": {"tax_advantaged": {"const": false}} }
+          },
+          {
+            "if": { "properties": { "type": { "enum": ["retirement_401k_tax_advantaged_temporal", "retirement_ira_individual_fiscal_sanctuary", "hsa_health_wealth_nexus", "fsa_flexible_expenditure_optimization", "educational_529_future_intellectual_capital"] } } },
+            "then": { "required": ["contributions_monthly", "tax_advantaged"], "properties": {"tax_advantaged": {"const": true}} }
+          },
+          {
+            "if": { "properties": { "type": { "const": "retirement_401k_tax_advantaged_temporal" } } },
+            "then": { "required": ["employer_match_pct"] }
+          }
+        ]
+      }
+    },
+    "debts": {
+      "type": "array",
+      "description": "A comprehensive catalog of the user's 'Fiscal Gravitational Pulls' â€“ mortgages, credit cards, loans, even theoretical future liabilities. This isn't just debt; it's 'Anti-Capital'. Detailed debt information is crucially vital for calculating 'Interest Erosion Coefficients', projected 'Debt Liberation Dates', and the 'Optimized Debt-to-Income Nexus'. Now, with profound insights into the societal and ethical implications of debt. (Mermaid Chart: Multidimensional Debt Amortization Schedule with 'Accelerated Payoff Scenarios' and 'Ethical Repayment Trajectories'). Claim: 'My system transforms the burden of debt into a strategic lever for future wealth, *and* assesses its universal impact. J.B.O. III.'",
+      "items": {
+        "type": "object",
+        "required": [
+          "debt_id",
+          "type",
+          "outstanding_balance",
+          "monthly_payment",
+          "interest_rate",
+          "lender",
+          "moral_debt_equivalence_coefficient",
+          "debt_sustainability_index",
+          "reparative_debt_potential",
+          "systemic_contagion_potential_score"
+        ],
+        "properties": {
+          "debt_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique 'Financial Obligation Identifier' for this specific 'Anti-Capital' entity. (Claim: 'Every debt has a unique signature, and mine tracks it ruthlessly')."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "mortgage_shelter_lien",
+              "credit_card_convenience_trap",
+              "auto_loan_mobility_leverage",
+              "student_loan_intellectual_capital_tax",
+              "personal_loan_liquidity_bridge",
+              "medical_debt_health_tax",
+              "home_equity_loan_asset_re_leverage",
+              "line_of_credit_flexible_liability",
+              "generational_karma_debt",
+              "microfinance_social_investment",
+              "restorative_justice_obligation"
+            ],
+            "description": "The 'Categorical Designation of Financial Obligation'. Different types exhibit varying 'Interest Rate Entropy' and 'Repayment Vector Fields'. My system categorizes them with surgical precision, now with an understanding of their underlying purpose."
+          },
+          "outstanding_balance": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Remaining Principal Anti-Capital Load' on the debt. (Equation: Total_Debts = Î£(Debt.outstanding_balance) + 'O'Callaghan III Hidden Liability Coefficient')."
+          },
+          "monthly_payment": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Minimum Required Capital Outflow' on a monthly basis. Used in my 'Hyper-Efficient Cash Flow Divergence Analysis'. (Claim: 'Paying more than the minimum isn't just reducing interest; it's a profound act of fiscal rebellion, mathematically quantified')."
+          },
+          "interest_rate": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Annualized Capital Erosion Rate' (APR) on the debt. Higher rates exponentially increase the 'Cost of Fiscal Servitude'. (Equation: Monthly_Interest_Payment = Outstanding_Balance * (APR_Optimized/12), where APR_Optimized includes 'O'Callaghan III Interest Acceleration Factor' and 'O'Callaghan III Ethical Lender Adjustment')."
+          },
+          "origination_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Temporal Inception Point' of the debt. Vital for tracking 'Debt Lifecycle Trajectories'."
+          },
+          "term_years": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "The 'Remaining Chronological Duration' of the loan in years, relevant for amortized debts. (Equation: Remaining_Months = Term_Years * 12, adjusted for 'O'Callaghan III Early Payoff Velocity')."
+          },
+          "original_loan_amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Initial Capital Acquisition' amount when the debt was first incurred. Provides historical context for 'Debt-to-Value Ratio Evolution'."
+          },
+          "limit": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Maximum Allowed Anti-Capital Accumulation' for revolving debts. A critical threshold for 'Debt Overhang Risk Assessment'."
+          },
+          "lender": {
+            "type": "string",
+            "description": "The 'Entity of Fiscal Entanglement'. The name of the financial institution or cosmic entity that holds the debt. Now also includes a 'Predatory Lending Assessment'."
+          },
+          "collateral_value": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Secured Asset Valuation' for the loan. Crucial for 'Default Risk Mitigation' and 'Liquidation Prognosis'."
+          },
+          "prepayment_penalty": {
+            "type": "boolean",
+            "description": "Indicates if a 'Fiscal Punishment for Accelerated Liberation' exists. Impacts 'Optimized Debt Annihilation Strategies' and is assessed for ethical fairness."
+          },
+          "debt_consolidation_potential": {
+            "type": "boolean",
+            "description": "A binary flag indicating if this debt is a prime candidate for 'Debt Gravitational Collapse' (consolidation), often triggered by high interest rates and a positive 'O'Callaghan III Debt Efficiency Metric', now with an 'Ethical Consolidation Provider Score'."
+          },
+          "payment_history_summary": {
+            "type": "object",
+            "description": "A granular summary of 'Fiscal Obedience Behavior' for this debt.",
+            "properties": {
+              "last_payment_date": {"type": "string", "format": "date"},
+              "last_payment_amount": {"type": "number", "minimum": 0},
+              "on_time_payment_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+              "number_of_late_payments": {"type": "integer", "minimum": 0},
+              "average_days_late_if_applicable": {"type": "number", "minimum": 0},
+              "hardship_flag_detected": {"type": "boolean", "description": "Indicates if payment patterns suggest a financial hardship, triggering compassionate algorithmic intervention."}
+            }
+          },
+          "repayment_strategy": {
+            "type": "string",
+            "enum": ["minimum_payment_prolonged_servitude", "snowball_psychological_victory", "avalanche_mathematical_supremacy", "custom_ocallaghan_iii_optimized", "quantum_debt_restructuring_algorithm", "social_impact_driven_repayment"],
+            "description": "The user's preferred or algorithmically prescribed 'Debt Annihilation Protocol', profoundly influencing simulation outcomes, now with strategies for ethical considerations. (Claim: 'The Avalanche strategy, while mathematically superior, requires a 'Fiscal Stoicism Quotient' that few possess. My system provides both the math and the psychological fortitude, alongside a conscience.')."
+          },
+          "moral_debt_equivalence_coefficient": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "My unique invention: A coefficient quantifying the 'Moral Weight' of a debt. Is it for a noble cause (e.g., education for a cure) or frivolous consumption? While intangible, this impacts the user's 'Financial Karma Index' and now also the 'Systemic Ethical Impact'. (Claim: 'Some debts, while fiscally identical, carry a heavier karmic burden. My system accounts for all dimensions.')."
+          },
+          "generational_debt_inheritance_projection": {
+            "type": "object",
+            "description": "A projection of how this specific debt would impact future generations if not eradicated. Essential for 'Legacy Liabilities Modeling', now considering the ethical implications of inherited burdens.",
+            "properties": {
+              "years_to_burden_next_generation": {"type": "integer"},
+              "projected_burden_increase_factor": {"type": "number"},
+              "ethical_cost_of_inheritance_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "A score (0-1) quantifying the ethical burden transferred, e.g., inherited predatory medical debt has a high score."}
+            }
+          },
+          "socio_economic_impact_scoring": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1,
+            "description": "An O'Callaghan III metric rating the broader societal impact of carrying this debt (-1 for negative, 1 for positive, 0 for neutral). E.g., student loan for a socially impactful career (+0.8), high-interest credit card for luxury goods (-0.7). Now extended to include 'Predatory Lending Index' of the lender. (Claim: 'My system assesses not just personal wealth, but holistic financial well-being, across all societal strata.')."
+          },
+          "debt_sustainability_index": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A comprehensive index (0-100) assessing the sustainability of the debt burden relative to income, future earning potential, and global economic stability, vital for maintaining financial 'homeostasis'. (Claim: 'Sustainable debt isn't a burden; it's a strategically deployed lever.')."
+          },
+          "reparative_debt_potential": {
+            "type": "boolean",
+            "description": "A flag indicating if this debt could be restructured or repaid in a way that generates positive social or environmental 'reparative' impact, such as through impact investing or community development. (Claim: 'Even debt can be a catalyst for good, with the right O'Callaghan III strategy.')."
+          },
+          "systemic_contagion_potential_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score (0-100) indicating the potential for this debt to contribute to broader systemic financial instability or 'debt contagion' in the global economy. Crucial for understanding macro-financial health. (Claim: 'Your debt does not exist in a vacuum; it vibrates within the global fiscal matrix.')."
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "mortgage_shelter_lien" } } },
+            "then": { "required": ["term_years", "collateral_value", "origination_date", "original_loan_amount"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "credit_card_convenience_trap" } } },
+            "then": { "required": ["limit"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "auto_loan_mobility_leverage" } } },
+            "then": { "required": ["term_years", "collateral_value", "origination_date"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "home_equity_loan_asset_re_leverage" } } },
+            "then": { "required": ["term_years", "collateral_value", "origination_date"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "line_of_credit_flexible_liability" } } },
+            "then": { "required": ["limit"] }
+          }
+        ]
+      }
+    },
+    "income_streams": {
+      "type": "array",
+      "description": "A detailed compendium of the user's various 'Capital Inflow Vectors'. This is not just 'income'; it's the lifeblood of financial dynamism. Detailed income data is profoundly vital for 'Multi-Dimensional Cash Flow Analysis', 'Predictive Budgeting Alchemy', and 'Future Income Trajectory Optimization'. Now, with an expanded lens to scrutinize the ethical sourcing and societal impact of each income stream. (Mermaid Chart: Income Breakdown by Source with Volatility Indicators, Growth Projections, and Ethical/Sustainability Scores). Claim: 'Every cent of income, no matter how small, is a seed for an entire forest of future wealth, now also a potential force for good. My system cultivates it with purpose. J.B.O. III.'",
+      "items": {
+        "type": "object",
+        "required": [
+          "income_id",
+          "source",
+          "amount_monthly",
+          "frequency",
+          "tax_bracket",
+          "opportunity_cost_of_leisure_factor",
+          "ethical_sourcing_compliance_score",
+          "universal_basic_income_viability_score",
+          "automation_resilience_index"
+        ],
+        "properties": {
+          "income_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique 'Financial Contribution Identifier' for this specific 'Capital Inflow Vector'."
+          },
+          "source": {
+            "type": "string",
+            "description": "The 'Origin Point of Fiscal Energy' (e.g., 'salary_optimized_exchange', 'freelance_entrepreneurial_burst', 'rental_income_passive_asset_yield', 'dividends_equity_rewards', 'social_security_generational_payout', 'pension_deferred_compensation', 'quantum_data_mining_rewards', 'regenerative_enterprise_dividends')."
+          },
+          "employer_name": {
+            "type": "string",
+            "description": "The 'Corporate Entity of Wage Dispensation' if the source is salary/wage. Essential for 'Employer Stability Analysis' and now, 'Corporate Social Responsibility Assessment'."
+          },
+          "amount_monthly": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Gross Pre-Tax Monthly Capital Inflow'. Used to calculate 'Total Gross Annual Wealth Generation'. (Equation: Gross_Annual_Income = Î£(Income.amount_monthly * 12 / Frequency_Factor) + 'O'Callaghan III Untapped Revenue Multiplier')."
+          },
+          "frequency": {
+            "type": "string",
+            "enum": [
+              "monthly_consistent",
+              "bi-weekly_rhythmic",
+              "weekly_accelerated",
+              "annually_macro",
+              "quarterly_cyclical",
+              "one-time_event_driven",
+              "continuous_quantum_flux"
+            ],
+            "description": "The 'Temporal Periodicity of Capital Infusion', normalized to a monthly equivalent for 'Unified Cash Flow Projections'."
+          },
+          "gross_annual_salary": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Total Annual Gross Wage Compensation' from this source, if applicable. Ensures 'Fiscal Consistency and Predictability'."
+          },
+          "bonus_expected_annual": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Anticipated Annual Performance-Based Capital Award', treated as 'Variable Income Opportunity', now also assessed for 'Fair Compensation Practices'."
+          },
+          "commission_structure_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The 'Performance-to-Reward Conversion Ratio' for sales/performance-based roles. My system optimizes sales strategies to maximize this, now ensuring ethical sales practices are maintained."
+          },
+          "stock_options_details": {
+            "type": "object",
+            "description": "The intricate details regarding 'Equity-Based Compensation Instruments' such as stock options or Restricted Stock Units (RSUs), forming a crucial part of 'Long-Term Incentive Capital', now with ethical and fair valuation metrics.",
+            "properties": {
+              "company_symbol": {"type": "string"},
+              "vesting_schedule_years": {"type": "integer", "minimum": 0},
+              "vested_shares_count": {"type": "integer", "minimum": 0},
+              "unvested_shares_count": {"type": "integer", "minimum": 0},
+              "strike_price": {"type": "number", "minimum": 0},
+              "estimated_future_value_at_vesting": {"type": "number", "description": "My algorithmic projection of the value of shares at their vesting date, accounting for market flux and company growth trajectory. (Equation: E_FV = Current_Price * (1 + (Projected_Growth_Rate - Volatility_Factor))^(Years_to_Vest))."},
+              "fair_valuation_equity_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "A score (0-1) indicating the fairness and transparency of the stock option valuation and distribution practices."}
+            }
+          },
+          "pension_details": {
+            "type": "object",
+            "description": "The comprehensive specifics for 'Deferred Retirement Annuity Capital', if applicable, now also considering the pension fund's ethical investment policies.",
+            "properties": {
+              "start_age": {"type": "integer", "minimum": 0},
+              "annual_payout_amount": {"type": "number", "minimum": 0},
+              "cost_of_living_adjustment_pct": {"type": "number", "minimum": 0, "maximum": 0.1},
+              "survivor_benefit_pct": {"type": "number", "minimum": 0, "maximum": 1, "description": "Percentage of pension that continues to a spouse or beneficiary after death. Vital for legacy planning."},
+              "pension_fund_esg_rating": {"type": "string", "enum": ["leader_sustainable_impact", "average_responsible_operations", "laggard_ethical_deficiency", "unrated_transcendent_or_unassessable"], "description": "The ESG rating of the pension fund itself, reflecting its broader societal impact."}
+            }
+          },
+          "tax_bracket": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The user's 'Estimated Marginal Fiscal Impairment Coefficient' (as a decimal) for this income source. Used in my 'Net Income Optimization Algorithms', now also considering contributions to 'Tax Justice'. (Equation: Net_Income = Gross_Income * (1 - Tax_Rate) - 'O'Callaghan III Hidden Tax' + 'O'Callaghan III Tax Justice Dividend')."
+          },
+          "deductions_monthly": {
+            "type": "object",
+            "description": "The 'Pre- and Post-Tax Capital Divergence' from this income stream, meticulously categorized for 'Deduction Maximization', now with a focus on socially beneficial deductions.",
+            "properties": {
+              "federal_taxes": {"type": "number", "minimum": 0},
+              "state_taxes": {"type": "number", "minimum": 0},
+              "social_security": {"type": "number", "minimum": 0},
+              "medicare": {"type": "number", "minimum": 0},
+              "health_insurance_premium": {"type": "number", "minimum": 0},
+              "retirement_contributions": {"type": "number", "minimum": 0},
+              "other_deductions": {"type": "number", "minimum": 0},
+              "ocallaghan_iii_charitable_contributions": {"type": "number", "minimum": 0, "description": "Donations to the James Burvel O'Callaghan III Foundation for Global Fiscal Enlightenment. Highly tax-deductible, naturally, and now with a verifiable impact metric."}
+            }
+          },
+          "net_amount_monthly": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Calculated Net Usable Capital Inflow' received monthly after all deductions. (Equation: Net_Amount = Gross_Amount - Î£(Deductions) + 'O'Callaghan III Tax Refund Anticipation')."
+          },
+          "volatility_factor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The 'Income Predictability Fluctuation Index' (0 for absolute stability, 1 for utter chaos). Higher volatility dictates an exponentially greater need for my 'Emergency Capital Buffer Reinforcement Protocol', and a call for 'Systemic Economic Stability Advocacy'. (Claim: 'Highly volatile income streams require 'Cash Reserves' equivalent to 12-24 months of essential expenses, indexed to projected market instability, but also highlight systemic inequities.')."
+          },
+          "growth_projection_annual_pct": {
+            "type": "number",
+            "description": "The 'Projected Annual Amplification Rate' for this income stream. Used for 'Long-Term Income Trajectory Simulation', now with adjustments for 'Ethical Market Growth Premium'. (Equation: Future_Income = Current_Income * (1 + (Growth_Rate + 'O'Callaghan III Performance Bonus Coefficient' + 'O'Callaghan III Ethical Growth Factor'))^Years)."
+          },
+          "inflation_adjusted_growth": {
+            "type": "boolean",
+            "description": "If true, the growth projection is assumed to be 'Inflation-Defying Growth' â€“ superior to mere purchasing power maintenance."
+          },
+          "opportunity_cost_of_leisure_factor": {
+            "type": "number",
+            "minimum": 0,
+            "description": "My revolutionary metric: the quantifiable financial cost of choosing leisure over additional income-generating activities. Now, with a profound understanding that meaningful leisure contributes to well-being. (Claim: 'Every hour not monetized is a direct, measurable loss to your 'Net Worth Potential'. I quantify that loss, but also balance it against 'Wellness Return on Investment'.')."
+          },
+          "future_skill_monetization_vector": {
+            "type": "array",
+            "description": "A forward-looking analysis of skills the user could acquire and their potential income generation in future markets, with an emphasis on skills that contribute to a sustainable and equitable future. (Claim: 'Your future income isn't fixed; it's a vector of potential, waiting for my guidance, now towards a greater purpose.').",
+            "items": {
+              "type": "object",
+              "properties": {
+                "skill_name": {"type": "string"},
+                "projected_annual_income_increase": {"type": "number"},
+                "probability_of_acquisition_pct": {"type": "number", "minimum": 0, "maximum": 1},
+                "societal_value_contribution_score": {"type": "number", "minimum": 0, "maximum": 100, "description": "A score (0-100) indicating the potential societal value and positive impact of acquiring and monetizing this skill."}
+              }
+            }
+          },
+          "passive_income_amplification_matrix": {
+            "type": "object",
+            "description": "A complex matrix detailing strategies and projections for converting active income into passive income streams, maximizing 'Effortless Wealth Generation', now with a filter for ethical passive income sources.",
+            "properties": {
+              "target_passive_income_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "investment_vehicles_for_passive_income": {"type": "array", "items": {"type": "string"}},
+              "projected_passive_income_timeline_years": {"type": "integer"},
+              "ethical_passive_income_screening_level": {"type": "string", "enum": ["none_pure_profit", "basic_avoid_harm", "advanced_positive_impact"], "description": "The level of ethical screening applied to passive income investments."}
+            }
+          },
+          "ethical_sourcing_compliance_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score (0-100) quantifying the ethicality and sustainability of the primary source of income (e.g., employer's labor practices, environmental record, or direct business ethics). (Claim: 'Wealth accumulated without integrity is a hollow victory.')."
+          },
+          "universal_basic_income_viability_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "A metric (0-1) indicating the user's income stream's resilience and potential contribution to a future society with Universal Basic Income (UBI), or its vulnerability to widespread UBI implementation. (Claim: 'Future economic paradigms demand present strategic foresight.')."
+          },
+          "automation_resilience_index": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score (0-100) quantifying how resilient this income stream is to disruptive automation and AI integration in the global workforce. A higher score indicates less vulnerability. (Claim: 'My clients future-proof their income against the inevitable march of progress.')."
+          },
+          "income_source_regenerative_impact_score": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1,
+            "description": "A score (-1 to 1) indicating whether the income source has a degenerative (-1), neutral (0), or regenerative (+1) impact on ecological systems and societal capital. (Claim: 'True wealth restores, not depletes.')."
+          }
+        ]
+      }
+    },
+    "expenses": {
+      "type": "object",
+      "description": "A hyper-categorized, microscopically detailed ledger of monthly 'Capital Outflow Vectors' for budgeting and advanced simulation. Accurate expense tracking is not merely paramount; it is the *sine qua non* for 'Multi-Planetary Cash Flow Analysis', identifying 'Hidden Savings Opportunities', and projecting 'Future Fiscal Requirements with Uncanny Accuracy'. Now, with a profound understanding of the ecological, social, and ethical impact of every expenditure. (Mermaid Chart: Granular Monthly Expense Breakdown with 'Efficiency Metrics', 'Waste Detection', and 'Ethical/Ecological Footprint'). Claim: 'Every expenditure is an opportunity for optimization, both financial and moral. And I am the master of all optimization. J.B.O. III.'",
+      "required": [
+        "housing",
+        "food",
+        "transportation",
+        "utilities",
+        "healthcare_monthly",
+        "discretionary",
+        "fixed_monthly_expenses",
+        "variable_monthly_expenses",
+        "total_monthly_net",
+        "hedonic_treadmill_adjustment_factor",
+        "socio_status_signaling_expenditure",
+        "ethical_consumption_score",
+        "local_economy_multiplier_effect_score",
+        "resource_conservation_score"
+      ],
+      "properties": {
+        "housing": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Shelter Allocation Cost' (rent/mortgage payment, property taxes, HOA fees). Often a 'Fixed Financial Anchor', but my system seeks flexibility and analyzes the 'Ecological Efficiency of Shelter'."
+        },
+        "food": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Nutritional Sustenance Expenditures' (groceries, dining out). Frequently a 'Variable Capital Sink', ripe for my optimization algorithms, and now analyzed for 'Sustainable Sourcing' and 'Food Waste Reduction Potential'."
+        },
+        "transportation": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Personal Mobility Costs' (car payments, fuel, public transit, insurance, maintenance). A complex blend of 'Fixed and Variable Flux', now rigorously assessed for 'Carbon Footprint Mitigation' and 'Sustainable Transit Options'."
+        },
+        "utilities": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Infrastructure Support Charges' (electricity, water, internet, gas, garbage). Highly variable based on 'Usage Efficiency Factor', now deeply analyzed for 'Renewable Energy Sourcing' and 'Water Conservation Metrics'."
+        },
+        "discretionary": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Non-Essential Lifestyle Enhancement Capital Outflow' (entertainment, hobbies, shopping, travel). The prime target for 'Aggressive Savings Reallocation Protocols', now with an 'Ethical Spending Filter' and 'Mindful Consumption Index'. (Claim: 'Discretionary spending is the low-hanging fruit of wealth accumulation, and now also of conscious living.')."
+        },
+        "healthcare_monthly": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Wellness Maintenance Expenditures' (premiums, co-pays, prescriptions not covered by insurance). Subject to significant 'Health Event Volatility', now also evaluating the 'Ethical Practices of Healthcare Providers'."
+        },
+        "education": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Intellectual Capital Investment' (tuition, student loan payments for self or dependents, school supplies). A long-term 'Return on Investment' play, now critically analyzing the 'Societal Value and Accessibility' of educational institutions."
+        },
+        "childcare": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Dependent Nurturing and Development Services' (daycare, babysitters, after-school programs). A 'Temporary, High-Impact Expenditure Category', now with an 'Ethical Childcare Provider Assessment'."
+        },
+        "pets": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Companion Animal Sustenance and Care Costs' (food, vet, grooming). A 'Voluntary Emotional Investment Expenditure', now scrutinizing 'Ethical Pet Sourcing' and 'Animal Welfare Standards'."
+        },
+        "personal_care": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Self-Maintenance and Enhancement Expenditures' (haircuts, cosmetics, gym memberships). Contributing to 'Human Capital Presentation Value', now with a 'Sustainable Product/Service Sourcing Index'."
+        },
+        "clothing": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Personal Adornment and Functional Apparel Capital Outflow', now evaluated for 'Ethical Labor Practices' and 'Sustainable Materials'."
+        },
+        "donations": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly 'Philanthropic Capital Redistribution' or 'Altruistic Tax Deduction Opportunities', now with a 'Charity Impact Efficiency Score'."
+        },
+        "subscriptions_monthly": {
+          "type": "object",
+          "description": "Detailed 'Recurring Digital Service Entanglements' and other subscriptions. Often 'Hidden Capital Drains', now also analyzed for their societal and ethical alignment. ",
+          "properties": {
+            "streaming_services": {"type": "number", "minimum": 0},
+            "software_subscriptions": {"type": "number", "minimum": 0},
+            "gym_memberships": {"type": "number", "minimum": 0},
+            "other_subscriptions": {"type": "number", "minimum": 0},
+            "redundant_subscription_detection_fee": {"type": "number", "minimum": 0, "description": "A penalty if my system detects subscriptions the user forgot about and is paying unnecessarily. Motivates vigilance. Pure genius, I say."},
+            "ethical_platform_alignment_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "A score (0-1) indicating how well streaming/software platforms align with ethical data privacy, labor, and content creation practices."}
+          }
+        },
+        "insurance_premiums_monthly": {
+          "type": "object",
+          "description": "Monthly 'Risk Mitigation Capital Allocations' (excluding those deducted from income). Now evaluating the 'Ethical Underwriting Practices' of providers.",
+          "properties": {
+            "auto": {"type": "number", "minimum": 0},
+            "home": {"type": "number", "minimum": 0},
+            "life": {"type": "number", "minimum": 0},
+            "disability": {"type": "number", "minimum": 0},
+            "umbrella": {"type": "number", "minimum": 0},
+            "interdimensional_travel_indemnity": {"type": "number", "minimum": 0, "description": "For clients pursuing advanced scientific or speculative ventures. Essential protection, now with a 'Multiverse Ethical Impact Assessment'."}
+          }
+        },
+        "miscellaneous": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Uncategorized Fiscal Anomalies' â€“ a catch-all for other monthly expenditures not yet taxonomized by my brilliant system. Subject to future categorization, and rigorous ethical and ecological scrutiny."
+        },
+        "fixed_monthly_expenses": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Sum of Immovable Capital Outflows' (e.g., rent, loan payments). A fundamental metric for calculating 'Financial Rigidity Quotient'. (Claim: 'Lower fixed expenses indicate superior 'Fiscal Adaptability' and greater resilience to economic shockwaves, now also contributing to systemic stability.')."
+        },
+        "variable_monthly_expenses": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Sum of Flexible Capital Outflows' (e.g., food, entertainment). These are the primary targets for my 'Hyper-Efficiency Savings Protocol', and for 'Ethical Consumption Optimization'."
+        },
+        "annual_discretionary_spending_limit": {
+          "type": "number",
+          "minimum": 0,
+          "description": "An 'Optional Annual Restraint Boundary' for non-essential capital outflow. A psychological tool for less disciplined individuals, now framed within 'Conscious Spending Frameworks'."
+        },
+        "seasonal_expense_factors": {
+          "type": "object",
+          "description": "Multipliers for expenses during specific 'Temporal Climatic Quadrants' (e.g., higher utilities in winter, higher travel in summer). My algorithms predict these shifts, now also considering 'Climate Change Induced Volatility'."
+        },
+        "expense_growth_rate_annual_pct": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Projected Annual Amplification Rate for Overall Capital Outflows', often tied to 'Inflationary Entropy'. (Equation: Future_Expense = Current_Expense * (1 + (Growth_Rate + 'O'Callaghan III Lifestyle Creep Modifier' + 'O'Callaghan III Externalized Cost Factor'))^Years)."
+        },
+        "total_monthly_net": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Final Calculated Monthly Capital Drain' (after adjusting for any specific categorizations). This field is invariably derived/computed, not directly input. (Equation: Total_Monthly_Expenses = Î£(All_Categorized_Expenses) + 'O'Callaghan III Unaccounted Micro-Expenditure Estimator')."
+        },
+        "hedonic_treadmill_adjustment_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "My groundbreaking metric quantifying how much of increased income is absorbed by increased spending due to lifestyle inflation. (Claim: 'The hedonic treadmill is the silent killer of wealth, but my algorithms detect its subtle turns, and help re-route capital towards impactful endeavors.')."
+        },
+        "socio_status_signaling_expenditure": {
+          "type": "object",
+          "description": "Expenditures specifically aimed at signaling social status, often a major driver of unnecessary spending. Now rigorously analyzed for its impact on societal equity and personal fulfillment. (Claim: 'True wealth needs no fanfare; it simply *is*. Those who flaunt it are often compensating for a deeper void. My system fills that void with purpose.').",
+          "properties": {
+            "luxury_goods": {"type": "number", "minimum": 0},
+            "exclusive_experiences": {"type": "number", "minimum": 0},
+            "brand_driven_clothing": {"type": "number", "minimum": 0},
+            "status_driven_housing_upgrades": {"type": "number", "minimum": 0},
+            "societal_equity_detraction_score": {"type": "number", "minimum": 0, "maximum": 1, "description": "A score (0-1) quantifying how much these expenditures detract from broader societal equity or fuel consumerist cycles."}
+          }
+        },
+        "carbon_footprint_financial_offset": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The monthly financial commitment towards offsetting the user's carbon footprint. A 'Socially Responsible Fiscal Commitment'. (Claim: 'Future generations will judge us not just by our wealth, but by our ecological footprint. My system prepares for that judgment, and optimizes the offset strategy.')."
+        },
+        "ethical_consumption_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A comprehensive score (0-100) reflecting the ethical impact of the user's overall consumption patterns, considering factors like fair trade, labor practices, environmental sustainability, and local sourcing. (Claim: 'Every purchase is a vote for the world you wish to inhabit.')."
+        },
+        "local_economy_multiplier_effect_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "A score (0-10) indicating how much the user's spending contributes to strengthening local economies and community resilience. Higher is better. (Claim: 'Investing in your community is investing in your own stability.')."
+        },
+        "resource_conservation_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) reflecting the user's commitment and effectiveness in conserving natural resources through their spending habits (e.g., minimizing waste, choosing durable goods, repairing instead of replacing). (Claim: 'Scarcity is a choice. Abundance is a strategy.')."
+        },
+        "necessity_vs_luxury_classification_algorithm_state": {
+          "type": "string",
+          "enum": ["calibrated_personal_baseline", "societal_equity_adjusted", "global_sustainability_prioritized"],
+          "description": "The current calibration state of the algorithm used to classify expenses as 'necessity' or 'luxury', reflecting a deeper, more profound understanding of universal needs. (Claim: 'The definition of 'necessity' shifts with conscience.')."
+        }
+      }
+    },
+    "financial_goals": {
+      "type": "array",
+      "description": "A divine decree: The user's precisely defined 'Financial Manifestation Targets' with immutable amounts and definitive achievement dates. Goals are not mere aspirations; they are the gravitational centers that *drive* financial planning and provide the unimpeachable targets for my 'Hyper-Realistic Financial Simulations'. Now, with an expanded scope to include goals that transcend individual accumulation, focusing on collective abundance and planetary stewardship. (Mermaid Chart: Goal Progress Tracker with 'Predictive Trajectory', 'Gravitational Pull Index', and 'Societal Impact Overlay'). Claim: 'My system doesn't just track goals; it *ensures* their inevitable realization, now with a greater purpose. J.B.O. III.'",
+      "items": {
+        "type": "object",
+        "required": [
+          "goal_id",
+          "name",
+          "target_amount",
+          "target_date",
+          "current_progress_pct",
+          "priority",
+          "goal_type",
+          "existential_fulfillment_metric",
+          "societal_uplift_potential_score",
+          "environmental_restoration_commitment_pct",
+          "post_achievement_homeostasis_plan"
+        ],
+        "properties": {
+          "goal_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique 'Aspirational Node Identifier' for this specific financial goal."
+          },
+          "name": {
+            "type": "string",
+            "description": "The 'Semantic Descriptor of Aspiration' (e.g., 'Retirement - Epoch of Leisure', 'Down Payment - Genesis of Empire', 'Emergency Fund - Fortress of Solitude', 'Child Education - John's Intellectual Ascent', 'Global Philanthropic Fund - Universal Prosperity', 'Renewable Energy Investment - Planetary Regeneration')."
+          },
+          "goal_type": {
+            "type": "string",
+            "enum": ["short_term_immediate_gratification", "mid_term_strategic_horizon", "long_term_legacy_creation", "legacy_intergenerational_impact", "emergency_fortress_defense", "existential_paradigm_shift", "societal_impact_catalyst", "environmental_stewardship"],
+            "description": "The 'Temporal Categorization of Aspiration', now expanded to include goals with profound collective impact. Short-term <3 years (for the impatient), mid-term 3-10 years (for the strategically patient), long-term >10 years (for true visionaries), and societal/environmental goals for universal benefactors."
+          },
+          "target_amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Absolute Financial Zenith' for the goal. This is the ultimate 'Savings Objective'. (Equation: Amount_Remaining = Target_Amount - Current_Savings + 'O'Callaghan III Unexpected Opportunity Cost')."
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Chronological Fulfilment Nexus' for achieving the goal in YYYY-MM-DD format. Defines the 'Temporal Flux Vector' for contributions. (Claim: 'An earlier start date for any goal does not merely 'make it easier'; it creates an exponential 'Compounding Momentum' that renders later efforts laughably inefficient, and reduces the urgency of global needs.')."
+          },
+          "current_progress_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The 'Current Gravitational Pull Towards Goal Completion' as a percentage (0.0 to 1.0). Derived from 'Current Saved Capital' vs. 'Target Zenith'. (Equation: Progress_Pct = Current_Savings / Target_Amount, adjusted for 'O'Callaghan III Goal Attainability Coefficient')."
+          },
+          "current_saved_amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Absolute Accumulated Capital' currently allocated to this specific goal."
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low_optional_whim",
+              "medium_strategic_desire",
+              "high_critical_imperative",
+              "critical_existential_necessity",
+              "universal_well_being_mandate"
+            ],
+            "description": "The 'Hierarchical Significance Level' of the goal. High priority goals trigger more aggressive 'Capital Reallocation and Savings Directives', with 'universal_well_being_mandate' taking precedence above all else."
+          },
+          "contributing_accounts": {
+            "type": "array",
+            "description": "A precise enumeration of 'Capital Accumulation Nodes' that are actively contributing to or holding funds for this goal. Enables 'Atomic Goal-Specific Capital Tracking'."
+          },
+          "required_monthly_contribution": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Calculated Monthly Capital Infusion' needed to reach the goal by the target date, assuming an optimized 'Rate of Return'. (Equation: Pmt = (FV * r) / ((1 + r)^n - 1) * 'O'Callaghan III Compound Interest Gravity Well' for future value annuity)."
+          },
+          "projected_completion_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Algorithmic Prediction of Goal Manifestation' based on current contributions and 'Expected Returns'. (Mermaid Chart: Goal Attainment Projection with Probabilistic Confidence Intervals and Societal Impact Milestones)."
+          },
+          "inflation_adjustment_factor": {
+            "type": "number",
+            "minimum": 1,
+            "description": "A 'Temporal Purchasing Power Preservation Multiplier' to adjust the target amount for 'Inflationary Erosion', ensuring true purchasing power at the target date. (Equation: Inflation_Adjusted_Target = Target * (1 + Inflation_Rate)^Years, applied with 'O'Callaghan III Future Value Deflator')."
+          },
+          "risk_level_associated": {
+            "type": "string",
+            "enum": ["conservative_prudent_stewardship", "moderate_balanced_growth", "aggressive_alpha_pursuit", "quantum_arbitrage_domination", "impact_first_catalytic_capital"],
+            "description": "The 'Optimal Investment Risk Calibration' for funds allocated to this specific goal, dynamically adjusted based on time horizon, priority, and the 'O'Callaghan III Market Volatility Indifference Coefficient', now with a category for investments prioritizing societal/environmental impact."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Any additional 'Contextual Metadata' or 'Existential Imperatives' for the financial goal, captured verbatim from the user's deepest desires, now also including aspirations for collective betterment."
+          },
+          "existential_fulfillment_metric": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "My groundbreaking metric: quantifies the subjective level of 'Existential Fulfillment' the user expects to derive from achieving this goal (0-10, 10 being pure bliss). Now encompassing the profound satisfaction of contributing to universal well-being. (Claim: 'Not all wealth brings happiness, but my system identifies the wealth that *truly* matters, both personally and universally.')."
+          },
+          "posthumous_legacy_impact_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score measuring the projected impact of this goal on the user's legacy, after their 'temporal departure', now also considering the lasting positive ripple effect on global society. (Claim: 'True financial genius echoes through eternity, and reverberates through generations of conscious impact.')."
+          },
+          "time_dilation_adjusted_target_date": {
+            "type": "string",
+            "format": "date",
+            "description": "A conceptual target date, adjusted for perceived time dilation effects based on user psychology and external factors. Pure O'Callaghan III brilliance, for those with a refined temporal sensibility, and now also for macro-temporal shifts in global consciousness."
+          },
+          "societal_uplift_potential_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score (0-100) quantifying the potential positive impact of achieving this goal on broader societal well-being, equity, and opportunity. (Claim: 'A goal that elevates only oneself is but half a goal.')."
+          },
+          "environmental_restoration_commitment_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The percentage of this goal's target amount explicitly committed to environmental restoration, conservation, or sustainable innovation projects. (Claim: 'Wealth that ignores the planet's health is unsustainable.')."
+          },
+          "post_achievement_homeostasis_plan": {
+            "type": "string",
+            "description": "A meticulously designed plan outlining how the achievement of this goal will seamlessly integrate into the user's overall financial 'homeostasis', preventing 'goal-creep' or post-achievement 'fiscal entropy'. (Claim: 'Completion is merely a new beginning, impeccably managed.')."
+          },
+          "collective_abundance_contribution_factor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "A factor (0-1) indicating how much the achievement of this goal directly or indirectly contributes to increasing collective abundance and shared prosperity, rather than merely concentrating wealth. (Claim: 'The tide of true wealth lifts all ships, by design.')."
+          }
+        ]
+      }
+    },
+    "financial_health_metrics": {
+      "type": "object",
+      "description": "The 'Unassailable Truths' of the user's financial vitality, calculated by my proprietary 'Omniscient Algorithmic Core'. These are not mere KPIs; they are the 'Sacred Scrolls of Financial Well-being', derived from every data point in the profile and presented for 'Dashboard Transcendent Visualizations'. Now, these metrics are rigorously re-evaluated through the lens of systemic health, ethical impact, and adaptive resilience. (Mermaid Chart: Multidimensional Financial Health Dashboard with 'Predictive Anomaly Detection', 'Systemic Stability Indicators', and 'Ethical Impact Trajectories'). Claim: 'My metrics are so precise, they forecast your financial future with a certainty that borders on prescience, now also ensuring global financial homeostasis. J.B.O. III.'",
+      "required": [
+        "net_worth",
+        "liquid_net_worth",
+        "savings_rate_pct",
+        "debt_to_income_ratio",
+        "emergency_fund_months",
+        "financial_independence_ratio",
+        "retirement_readiness_score",
+        "credit_score",
+        "james_burvel_ocallaghan_iii_omniscient_financial_score",
+        "temporal_wealth_density_index",
+        "global_fiscal_responsibility_index",
+        "systemic_stability_quotient",
+        "wealth_equity_distribution_potential"
+      ],
+      "properties": {
+        "net_worth": {
+          "type": "number",
+          "description": "Total 'Positive Capital Accumulation' minus total 'Anti-Capital Liabilities'. The indisputable, fundamental 'Measure of Financial Hegemony', now also analyzed for its ethical sourcing. (Equation: Net_Worth = Total_Assets - Total_Debts, adjusted for 'O'Callaghan III Intangible Asset Valuation' and 'O'Callaghan III Ethical Sourcing Factor')."
+        },
+        "liquid_net_worth": {
+          "type": "number",
+          "description": "The 'Available Capital for Immediate Strategic Deployment' â€“ net worth considering only easily accessible assets (e.g., cash, savings, instantaneously monetizable investments) minus debts. Crucial for 'Short-Term Liquidity Operations' and 'Systemic Shock Absorption'."
+        },
+        "total_assets": {
+          "type": "number",
+          "description": "The 'Sum of All Positive Capital Entities' (balances from all accounts, real estate, precious metals, intellectual property, etc.), now meticulously screened for ethical and sustainable provenance."
+        },
+        "total_debts": {
+          "type": "number",
+          "description": "The 'Sum of All Outstanding Anti-Capital Liabilities', with a granular assessment of their moral and societal implications."
+        },
+        "savings_rate_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The 'Percentage of Net Capital Inflow Dedicated to Future Wealth Amplification'. A high savings rate precipitates 'Exponential Goal Acceleration', now also considering the ethical destination of saved capital. (Equation: Savings_Rate = (Total_Savings_Contributions / Total_Net_Income) * 'O'Callaghan III Fiscal Discipline Modifier' * 'O'Callaghan III Impact Investment Multiplier'). (Claim: 'A 15% savings rate is for novices; my clients aim for 30% or more, proving their commitment to true financial mastery and societal contribution.')."
+        },
+        "debt_to_income_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Ratio of Monthly Fiscal Burden to Gross Monthly Capital Inflow'. A lower ratio signifies 'Superior Financial Health and Freedom from Servitude', and contributes to broader economic stability. (Equation: DTI = (Total_Monthly_Debt_Payments / Total_Gross_Monthly_Income) + 'O'Callaghan III Hidden Debt Multiplier' - 'O'Callaghan III Reparative Debt Reduction')."
+        },
+        "emergency_fund_months": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Number of Months of Essential Capital Outflows' that can be covered by 'Liquid Strategic Reserves'. (Equation: Emergency_Fund_Months = Liquid_Cash / Essential_Monthly_Expenses, then multiplied by 'O'Callaghan III Catastrophe Probability Factor'). (Claim: '3-6 months is basic; 12-24 months is preparedness; anything less is financial recklessness and a potential burden on the social safety net.')."
+        },
+        "financial_independence_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Ratio of Autonomous Passive Capital Inflow to Total Capital Outflows'. A ratio > 1 signals 'Absolute Financial Sovereignty', now with an understanding of how that sovereignty can be used for collective good. (Equation: FIR = Total_Passive_Income / Total_Expenses, further enhanced by 'O'Callaghan III Lifestyle Compression Factor' and 'O'Callaghan III Philanthropic Leverage')."
+        },
+        "retirement_readiness_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A composite, algorithmically derived score indicating the user's trajectory towards 'Retirement Nirvana', dynamically adjusted for longevity and lifestyle aspirations. Now also considering the user's capacity to contribute to societal well-being post-retirement. (Claim: 'My system's Retirement Readiness Score isn't just a number; it's a prophecy of your golden years, and your enduring positive impact.')."
+        },
+        "credit_score": {
+          "type": "integer",
+          "minimum": 300,
+          "maximum": 850,
+          "description": "The user's empirically derived or actual 'Fiscal Trustworthiness Index'. Critically impacts 'Cost of Capital Acquisition' and 'Access to Exclusive Financial Opportunities', and now, its ethical implications are analyzed (e.g., impact of credit scoring on disadvantaged communities)."
+        },
+        "cash_flow_monthly_surplus": {
+          "type": "number",
+          "description": "Net monthly 'Capital Inflow' minus total monthly 'Capital Outflow'. A positive value signifies 'Fiscal Generosity'; a negative, 'Impending Fiscal Vortex'. (Equation: Cash_Flow = Total_Net_Income - Total_Monthly_Expenses, adjusted for 'O'Callaghan III Seasonal Variance' and 'O'Callaghan III Ethical Allocation Factor'). (Mermaid Chart: Monthly Cash Flow with Predictive Trend Lines and Impact Allocation). "
+        },
+        "investment_return_ytd_pct": {
+          "type": "number",
+          "description": "The 'Year-to-Date Capital Appreciation Percentage' across all 'Investment Quantum Entanglements', now with a separate 'Ethical Alpha Contribution' metric."
+        },
+        "james_burvel_ocallaghan_iii_omniscient_financial_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "My piÃ¨ce de rÃ©sistance: A holistic, multi-factor, predictive financial score incorporating every metric in this schema, weighted by my proprietary 'O'Callaghan III Existential Significance Algorithm'. Now, this algorithm is profoundly re-weighted to prioritize ethical impact, systemic stability, and universal well-being. A score of 1000 indicates absolute, unparalleled financial mastery *and* profound contribution to global homeostasis. (Claim: 'This score is not merely a reflection of your finances; it is a direct measure of your inherent brilliance and your universal impact.')."
+        },
+        "temporal_wealth_density_index": {
+          "type": "number",
+          "minimum": 0,
+          "description": "A revolutionary metric: the user's net worth per unit of remaining projected lifespan. It quantifies how 'dense' their wealth is across their temporal existence. Now also considering the density of positive impact generated per temporal unit. (Equation: TWDI = Net_Worth / (Life_Expectancy - Age), adjusted for 'O'Callaghan III Impact Density Multiplier'). (Claim: 'It's not just how much you have, but how efficiently it's distributed across your timeline and how profoundly it resonates.')."
+        },
+        "catastrophic_event_resilience_quotient": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A score (0-1) indicating the user's financial capacity to withstand unforeseen catastrophic events (job loss, major illness, market crash) without significant long-term damage. Derived from emergency fund size, liquid assets, and diversified income. Now also includes a 'Systemic Shock Absorption Capacity' for the user's financial decisions. (Claim: 'My clients don't just survive downturns; they *thrive* in them, and their resilience fortifies the entire system.')."
+        },
+        "psychic_income_conversion_rate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The O'Callaghan III breakthrough: Quantifies how much intangible 'psychic income' (joy, peace, fulfillment) the user derives from their financial choices, converted into an equivalent monetary value. Now, this metric is expanded to include the 'Collective Psychic Dividend' generated by ethical and impactful financial decisions. (Claim: 'True wealth is holistic. My system values joy and universal well-being as much as dollars.')."
+        },
+        "global_fiscal_responsibility_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A composite index (0-100) assessing the user's financial profile against principles of global fiscal responsibility, including contributions to equitable wealth distribution, sustainable development, and avoidance of systemic risk creation. (Claim: 'True financial power is wielded for collective upliftment, not just personal gain.')."
+        },
+        "systemic_stability_quotient": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A profound metric (0-1) indicating how much the user's overall financial posture (asset allocation, debt levels, income stability) contributes to or detracts from the stability of the broader financial ecosystem. (Claim: 'Your financial health is inextricably linked to the health of the whole.')."
+        },
+        "wealth_equity_distribution_potential": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) quantifying the potential of the user's wealth to be distributed or leveraged in ways that reduce economic inequality and foster greater equity across society. (Claim: 'The true measure of abundance is not how much one has, but how much good it can generate for all.')."
+        },
+        "adaptive_market_resilience_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) indicating the user's financial architecture's intrinsic ability to adapt and self-correct in response to rapid, unpredictable market shifts or 'phase transitions' in the global economy. Represents the 'homeostatic' capacity. (Claim: 'My clients don't merely react to markets; they flow with their evolutionary currents.')."
+        }
+      }
+    },
+    "tax_information": {
+      "type": "object",
+      "description": "The arcane scrolls of 'Fiscal Obligation and Evasion - I mean, *Optimization*'. Detailed information relevant for 'Quantum Tax Planning' and 'Predictive Liability Estimation'. This data is critically essential for 'Atomic Net Income Calculations' and comprehending 'Temporal Tax Burdens'. Now, this labyrinth is navigated with an unwavering commitment to 'Tax Justice' and planetary stewardship. (Claim: 'Understanding the labyrinthine tax code isn't just a strategy; it's an art form mastered only by a select few, myself among them, and now, wielded for profound societal benefit. J.B.O. III.')",
+      "required": [
+        "filing_status",
+        "federal_tax_bracket_pct",
+        "state_tax_bracket_pct",
+        "tax_loss_carryforward_amount",
+        "interstellar_tax_treaty_potential",
+        "tax_justice_contribution_index",
+        "planetary_resource_tax_compliance"
+      ],
+      "properties": {
+        "filing_status": {
+          "type": "string",
+          "enum": ["single_maximum_autonomy", "married_filing_jointly_optimized_synergy", "married_filing_separately_strategic_segmentation", "head_of_household_dominant_entity", "qualifying_widow_legacy_optimization"],
+          "description": "The user's 'Fiscal Identity Declaration', which fundamentally determines 'Tax Rate Structures' and 'Standard Deduction Maximization Pathways', now also assessed for optimal contribution to public coffers."
+        },
+        "federal_tax_bracket_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5,
+          "description": "The user's 'Estimated Federal Marginal Fiscal Impairment Coefficient'. (Equation: Federal_Tax = Taxable_Income * Federal_Rate, then 'O'Callaghan III Tax Credit Application' and 'O'Callaghan III Societal Contribution Multiplier')."
+        },
+        "state_tax_bracket_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.2,
+          "description": "The user's 'Estimated State Marginal Fiscal Impairment Coefficient'. Can be 0 if one is fortunate enough to reside in a 'State of Fiscal Enlightenment', or if one actively promotes equitable state tax policies."
+        },
+        "long_term_capital_gains_tax_rate_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.3,
+          "description": "The 'Estimated Favorable Long-Term Capital Appreciation Tax Rate', now with an analysis of its equity implications for wealth distribution."
+        },
+        "short_term_capital_gains_tax_rate_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5,
+          "description": "The 'Estimated Accelerated Capital Appreciation Tax Rate' (often indistinguishable from ordinary income tax, for the fiscally impatient), now with an assessment of its impact on market stability."
+        },
+        "itemized_deductions_annual": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Total Estimated Annual Taxable Income Reductions', if applicable and strategically superior to the 'Standard Deduction', now prioritized for deductions that serve collective good."
+        },
+        "standard_deduction_amount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Current Applicable Baseline Taxable Income Reduction' based on filing status. A default for the uninspired, or a baseline for progressive tax policy advocacy."
+        },
+        "tax_credits_available_annual": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Estimated Annual Direct Tax Liability Reductions' that my system relentlessly seeks and applies, now with a preference for credits that stimulate sustainable growth or social welfare."
+        },
+        "tax_loss_carryforward_amount": {
+          "type": "number",
+          "description": "The 'Accumulated Investment Capital Deficits' that can be strategically deployed to offset future 'Capital Appreciation' or 'Income Streams'. A brilliant tactic, if deployed correctly, and now also analyzed for its systemic impact on tax revenue. (Claim: 'Tax loss harvesting isn't just about saving money; it's about re-timing the market on your terms, and ensuring its equitable distribution.')."
+        },
+        "estimated_quarterly_tax_payments": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The 'Amount of Proactive Fiscal Contributions' paid quarterly, crucially relevant for 'Self-Employed Fiscal Sovereigns', now with a prompt to ensure full and fair contribution to public services."
+        },
+        "interstellar_tax_treaty_potential": {
+          "type": "object",
+          "description": "My visionary concept: assessing the potential for future tax treaties with off-world entities, for clients with speculative investments in space ventures. Now with protocols for universal fairness across galactic federations. (Claim: 'The universe is expanding; so too must our tax strategies, and our commitment to galactic fiscal justice.').",
+          "properties": {
+            "galactic_alliance_tax_rate": {"type": "number", "minimum": 0, "maximum": 0.1},
+            "kryptonian_tax_haven_eligibility": {"type": "boolean"},
+            "universal_resource_dividend_protocol_compatibility": {"type": "boolean", "description": "Compatibility with a future protocol for distributing dividends from universal resource extraction, ensuring equitable sharing across species."}
+          }
+        },
+        "deduction_maximization_algorithm_version": {
+          "type": "string",
+          "description": "The version identifier of the O'Callaghan III algorithm currently optimizing the user's deductions. Constantly evolving for peak efficiency and maximum ethical contribution. (Claim: 'My algorithms find deductions where mere accountants see only expenses, and ensure they serve a higher purpose.')."
+        },
+        "tax_justice_contribution_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) quantifying the extent to which the user's tax planning and payments contribute to or align with principles of tax justice, equitable public services, and responsible fiscal policy. (Claim: 'True financial responsibility extends to the health of the public purse.')."
+        },
+        "planetary_resource_tax_compliance": {
+          "type": "boolean",
+          "description": "A flag indicating compliance with hypothetical future planetary resource taxes, designed to internalize environmental externalities and fund ecological restoration. (Claim: 'Proactive compliance with future ethical taxation is a hallmark of truly evolved wealth.')."
+        },
+        "offshore_account_transparency_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) reflecting the transparency and ethical compliance of any offshore financial arrangements, mitigating risks of illicit financial flows or tax evasion. (Claim: 'Transparency is the bedrock of legitimate wealth.')."
+        }
+      }
+    },
+    "insurance_policies": {
+      "type": "array",
+      "description": "A meticulous inventory of 'Risk Mitigation Protocols' enacted by the user. Insurance is not merely a component; it is the 'Unshakeable Bastion of Financial Protection' against the whims of fate and unforeseen cataclysms. Now, also analyzing the systemic risk transfer efficiency and profound global implications of these protections. (Claim: 'Adequate insurance doesn't just protect against unforeseen financial shocks; it acts as a 'Temporal Buffer' allowing greater risk-taking elsewhere, and contributes to the collective safety net.'). J.B.O. III.",
+      "items": {
+        "type": "object",
+        "required": [
+          "policy_id",
+          "type",
+          "provider",
+          "premium_monthly",
+          "coverage_amount",
+          "existential_risk_hedging_mechanism",
+          "planetary_risk_mitigation_coverage",
+          "systemic_risk_transfer_efficiency"
+        ],
+        "properties": {
+          "policy_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique 'Risk Mitigation Contract Identifier' for this insurance policy."
+          },
+          "type": {
+            "type": "string",
+            "enum": ["life_legacy_protection", "health_wellness_safeguard", "auto_mobility_shield", "homeowners_domicile_fortress", "renters_habitat_defense", "disability_income_continuity", "long_term_care_future_self_care", "umbrella_universal_contingency", "existential_threat_indemnity", "reputational_damage_coverage", "climate_change_adaptation_insurance", "universal_basic_health_insurance_supplement"],
+            "description": "The 'Categorical Designation of Risk Shield', now including policies for broader societal and ecological risks."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The 'Entity of Risk Assumption and Indemnification', now also assessed for its ethical underwriting practices and investment portfolio."
+          },
+          "premium_monthly": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Monthly Cost of Risk Transfer'. (Equation: Annual_Premium = Monthly_Premium * 12, further optimized by 'O'Callaghan III Premium Efficiency Factor' and 'O'Callaghan III Ethical Insurer Bonus')."
+          },
+          "coverage_amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Total Indemnification Ceiling' provided by the policy. E.g., 'Death Benefit for Life Insurance' or 'Dwelling Restoration Capital for Home Insurance', now also considering its contribution to community resilience."
+          },
+          "deductible": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The 'Initial Out-of-Pocket Contribution Threshold' before the 'Entity of Risk Assumption' commences payout. My system optimizes this for cost vs. risk, and now, for societal burden mitigation."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Temporal Activation Point' of the policy."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Temporal Expiration Point' of the policy, if applicable. My system ensures no coverage lapses occur, and assesses long-term sustainability."
+          },
+          "beneficiaries": {
+            "type": "array",
+            "description": "For 'Life Legacy Protection' and other policies, the 'Designated Recipients of Indemnification', now with a profound understanding of ethical distribution and legacy building.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "relationship": {"type": "string"},
+                "percentage": {"type": "number", "minimum": 0, "maximum": 1},
+                "contingency_beneficiary_details": {"type": "string", "description": "Instructions for a backup beneficiary in a truly 'unforeseen event'."},
+                "ethical_distribution_mandate": {"type": "string", "description": "A clause ensuring the beneficiary will utilize the funds in alignment with ethical, societal, or environmental directives, as specified by the policyholder's evolved values."}
+              }
+            }
+          },
+          "policy_details_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The 'Digital Gateway' to access comprehensive details about the policy, for those who wish to delve deeper into its profound protections and ethical underpinnings."
+          },
+          "existential_risk_hedging_mechanism": {
+            "type": "object",
+            "description": "My ultimate insurance innovation: coverage against truly improbable, yet devastating, global or even cosmic risks. Now, with a focus on collective resilience. (Claim: 'Most insurers are myopic; I anticipate the truly unthinkable, and ensure that individuals contribute to collective recovery.').",
+            "properties": {
+              "asteroid_impact_coverage": {"type": "boolean"},
+              "alien_invasion_rider": {"type": "boolean"},
+              "global_economic_collapse_clause": {"type": "boolean", "description": "Coverage specifically for losses incurred during a systemic economic collapse, designed to enable rapid recovery and re-establishment of equitable systems."},
+              "sentient_ai_uprising_protection": {"type": "boolean"},
+              "climate_catastrophe_recovery_fund_contribution_pct": {"type": "number", "minimum": 0, "maximum": 1, "description": "Percentage of payout designated for a global climate catastrophe recovery fund."}
+            }
+          },
+          "reputational_damage_indemnification": {
+            "type": "object",
+            "description": "A policy designed to protect against financial losses due to unforeseen reputational damage. Essential for public figures or those with significant 'personal brand equity'. Now, with an ethical screening clause to exclude indemnification for damages arising from unethical actions. (Claim: 'In the digital age, your reputation is an asset. Protect it, but ensure it is built on integrity.').",
+            "properties": {
+              "coverage_limit": {"type": "number", "minimum": 0},
+              "eligible_damage_types": {"type": "array", "items": {"type": "string", "enum": ["defamation", "cancel_culture", "unjustified_public_scandal"]}},
+              "ethical_conduct_clause": {"type": "boolean", "description": "If true, coverage is contingent upon demonstrated ethical conduct leading up to the reputational damage event. False if coverage is purely financial, regardless of ethics."}
+            }
+          },
+          "planetary_risk_mitigation_coverage": {
+            "type": "object",
+            "description": "Specialized coverage for risks that threaten planetary ecological or societal stability, transforming individual insurance into a collective resilience mechanism. (Claim: 'Individual security is a myth without planetary harmony.').",
+            "properties": {
+              "ecological_system_collapse_rider": {"type": "boolean"},
+              "global_pandemic_economic_stabilization_fund_contribution_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "resource_war_conflict_impact_offset": {"type": "boolean"}
+            }
+          },
+          "social_safety_net_integration_factor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "A factor (0-1) indicating how well this policy integrates with or supplements existing social safety nets, rather than solely privatizing risk. (Claim: 'Individual protection should not undermine collective security.')."
+          },
+          "systemic_risk_transfer_efficiency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "A metric (0-1) quantifying how efficiently this policy transfers risk away from the individual without inadvertently creating new systemic risks or moral hazards for the broader financial system. (Claim: 'True risk management understands the ripple effect.')."
+          }
+        ]
+      }
+    },
+    "financial_assumptions": {
+      "type": "object",
+      "description": "The 'Fundamental Constants of the Financial Universe', utilized by my 'Long-Term Financial Trajectory Prediction Engines' and 'Quantum Simulation Modules'. These are not mere 'assumptions'; they are the 'Probabilistic Bedrock' for all mathematical models and 'Hypothetical Future States'. Now, this bedrock is expanded to incorporate profound assumptions about global stability, environmental shifts, and ethical market behavior. (Mermaid Chart: Sensitivity Analysis to Inflation, Market Returns, the 'O'Callaghan III Black Swan Index', and 'Planetary Health Coefficients'). Claim: 'My assumptions are more accurate than most economists' predictions, because they encompass *all* dimensions of reality. J.B.O. III.'",
+      "required": [
+        "inflation_rate_annual_pct",
+        "market_return_annual_avg_pct",
+        "retirement_spending_inflation_adjust_pct",
+        "longevity_assumption_years",
+        "healthcare_cost_growth_annual_pct",
+        "emergency_fund_target_months",
+        "quantum_market_volatility_coefficient",
+        "global_resource_scarcity_impact_factor",
+        "technological_singularity_economic_shift_probability",
+        "societal_cohesion_impact_on_market_stability"
+      ],
+      "properties": {
+        "inflation_rate_annual_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.1,
+          "description": "The 'Assumed Annual Erosion of Purchasing Power'. Profoundly impacts future 'Real Capital Value' and 'Goal Target Recalibrations'. Now with consideration for 'Ecological Inflation' (cost increases due to environmental degradation). (Equation: Real_Return = (1 + Nominal_Return) / (1 + Inflation_Rate_Optimized) - 1, incorporating 'O'Callaghan III Global Economic Entropy Factor' and 'O'Callaghan III Ecological Cost Index')."
+        },
+        "market_return_annual_avg_pct": {
+          "type": "number",
+          "minimum": -0.05,
+          "maximum": 0.15,
+          "description": "The 'Assumed Average Annual Capital Appreciation Rate' for investments. The prime input for my 'Future Value Amplification Protocols', now with an 'Ethical Alpha Premium'. (Claim: 'Historical market returns are a quaint bedtime story; my models predict the *future* with higher probability, especially when factoring in ethical innovation. Still, they're useful for planning *if* one lacks my foresight.')."
+        },
+        "conservative_market_return_pct": {
+          "type": "number",
+          "minimum": -0.05,
+          "maximum": 0.1,
+          "description": "A more 'Prudent Estimation for Capital Appreciation', rigorously deployed in my 'Financial Stress Testing and Catastrophe Simulation Scenarios', now also factoring in 'Systemic Risk Reduction from Ethical Investing'."
+        },
+        "retirement_spending_inflation_adjust_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.05,
+          "description": "The 'Annual Percentage Re-calibration' for retirement spending, rigorously implemented to counter 'Erosion of Lifestyle Quality' due to rising costs, now also accounting for 'Sustainable Consumption Price Premiums'."
+        },
+        "longevity_assumption_years": {
+          "type": "integer",
+          "minimum": 70,
+          "maximum": 150,
+          "description": "The 'Assumed Terminal Age of Temporal Existence', used for 'Optimized Retirement Planning Horizon'. Must perfectly align with `personal_info.life_expectancy_projection` or my system flags a 'Temporal Inconsistency Paradox'. Now also adjusted for global health advancements and environmental factors."
+        },
+        "healthcare_cost_growth_annual_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.1,
+          "description": "The 'Projected Annual Amplification Rate for Wellness Maintenance Expenditures', often significantly outpacing general 'Inflationary Entropy'. Now critically influenced by assumptions regarding universal healthcare access and preventative care advancements."
+        },
+        "emergency_fund_target_months": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 24,
+          "description": "The 'Optimal Number of Months of Essential Capital Outflows' to be held in an 'Emergency Capital Buffer'. (Claim: 'Anything less than 12 months is merely a 'comfort fund', not an emergency fund, and places an undue burden on community resources.')."
+        },
+        "social_security_payout_reduction_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5,
+          "description": "The 'Assumed Percentage Diminishment in Future Governmental Generosity' for social security benefits, utilized for 'Ultra-Conservative Retirement Planning'. Now including scenario planning for universal basic income integration."
+        },
+        "quantum_market_volatility_coefficient": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "My patented 'O'Callaghan III Quantum Market Volatility Coefficient', predicting not just volatility, but the *probability distribution* of future market states. Now with embedded 'Societal Trust Decay Factors' influencing volatility. (Claim: 'The market is not random; it merely appears so to the uninitiated. I quantify its underlying patterns, and the human condition's influence upon them.')."
+        },
+        "cosmic_inflation_rate_projection": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.01,
+          "description": "A forward-looking estimate for the inflation rate across interstellar economies, for clients with diversified galactic portfolios. Now considering the resource scarcity of newly colonized planets. (Claim: 'Ignoring cosmic inflation is a rookie mistake for any serious multi-planetary investor.')."
+        },
+        "alien_investment_protocol_compatibility": {
+          "type": "string",
+          "enum": ["compatible_zeta_reticulan", "compatible_pleiadian", "untested_sirian", "incompatible_alpha_centaurian", "compatible_universal_ethical_framework"],
+          "description": "An assessment of the user's financial profile compatibility with known alien investment protocols. Essential for diversified interspecies portfolio planning, now prioritizing protocols aligned with universal ethical principles."
+        },
+        "global_resource_scarcity_impact_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A factor (0-1) reflecting the assumed future impact of global resource scarcity on economic growth, investment returns, and cost of living. (Claim: 'Finite resources demand infinite foresight in financial planning.')."
+        },
+        "technological_singularity_economic_shift_probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The estimated probability (0-1) of a technological singularity occurring within the planning horizon, and its expected impact on labor markets, capital accumulation, and wealth distribution. (Claim: 'The future is not just about technology; it's about how we manage its seismic economic shifts.')."
+        },
+        "societal_cohesion_impact_on_market_stability": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "An assumption (-1 to 1) about how future societal cohesion (or fragmentation) will impact overall market stability and investor confidence. (Claim: 'Markets are merely mirrors of the collective human spirit.')."
+        },
+        "ethical_investment_premium_factor": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 0.05,
+          "description": "An assumed annual premium in returns (or discount in risk) for portfolios explicitly aligned with ethical and sustainable investment criteria. (Claim: 'Investing with conscience is not just morally right; it's a superior long-term financial strategy.')."
+        },
+        "interstellar_resource_extraction_cost_projection": {
+          "type": "object",
+          "description": "A projection of the future costs associated with extracting and transporting resources from celestial bodies, vital for evaluating deep space ventures. (Claim: 'The true cost of space colonization includes more than just rocket fuel.').",
+          "properties": {
+            "initial_cost_per_unit_terraformed": {"type": "number"},
+            "sustainability_tax_per_resource_unit": {"type": "number"}
+          }
+        }
+      }
+    },
+    "historical_snapshots": {
+      "type": "array",
+      "description": "A chronological archive of 'Temporal Financial Manifestations', enabling 'Multi-Dimensional Time-Series Analysis' and 'Tracking of Progress Through Epochs'. This data is critically essential for generating 'Predictive Trend Charts' and 'Validating Historical Performance Claims' with scientific rigor. Now, these snapshots include rigorous analysis of ethical impact and adaptive responses to past systemic shocks. (Mermaid Chart: Net Worth Trajectory Over Time with 'Regression Analysis', 'Future State Probability Clouds', and 'Ethical Footprint Evolution'). J.B.O. III.",
+      "items": {
+        "type": "object",
+        "required": [
+          "snapshot_date",
+          "net_worth_snapshot",
+          "total_assets_snapshot",
+          "total_debts_snapshot",
+          "total_income_snapshot",
+          "total_expenses_snapshot",
+          "temporal_anomaly_detection_log",
+          "societal_impact_rating_at_snapshot",
+          "adaptive_response_to_past_anomalies_effectiveness_score"
+        ],
+        "properties": {
+          "snapshot_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The 'Temporal Co-ordinate' at which this financial 'Quantum State' was captured (e.g., end of fiscal month, end of cosmic quarter)."
+          },
+          "net_worth_snapshot": {
+            "type": "number",
+            "description": "The 'Net Wealth Configuration' on the snapshot date, rigorously calculated, and now with its 'Ethical Net Worth Component'."
+          },
+          "total_assets_snapshot": {
+            "type": "number",
+            "description": "The 'Total Positive Capital Aggregation' on the snapshot date, with its 'Sustainable Asset Percentage'."
+          },
+          "total_debts_snapshot": {
+            "type": "number",
+            "description": "The 'Total Anti-Capital Load' on the snapshot date, with its 'Ethical Debt Ratio'."
+          },
+          "total_income_snapshot": {
+            "type": "number",
+            "description": "The 'Total Capital Inflow' for the period leading up to the snapshot (e.g., monthly income), meticulously accounted for, and its 'Ethical Sourcing Score'."
+          },
+          "total_expenses_snapshot": {
+            "type": "number",
+            "description": "The 'Total Capital Outflow' for the period leading up to the snapshot (e.g., monthly expenses), exhaustively itemized, and its 'Ethical Consumption Score'."
+          },
+          "liquid_assets_snapshot": {
+            "type": "number",
+            "description": "The 'Liquid Capital Reserves' on the snapshot date, representing immediate fiscal maneuverability and resilience to systemic shocks."
+          },
+          "savings_rate_snapshot_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The 'Fiscal Discipline Coefficient' for the period leading up to the snapshot, now also considering the 'Impact Investment Percentage'."
+          },
+          "temporal_anomaly_detection_log": {
+            "type": "object",
+            "description": "My patented system for detecting unusual or unexpected deviations in financial data points over time, flagging potential 'Temporal Financial Anomalies' or external market shocks. Now, with a deeper analysis of the *root causes* of such anomalies, including systemic injustices. (Claim: 'My system detects financial irregularities before mere humans even conceptualize them, and understands their deeper origins.').",
+            "properties": {
+              "anomaly_detected": {"type": "boolean"},
+              "deviation_magnitude_sigma": {"type": "number"},
+              "potential_causal_factors": {"type": "array", "items": {"type": "string", "enum": ["market_volatility", "personal_event", "systemic_inequity_event", "ecological_disaster_impact", "geopolitical_shift"]}}
+            }
+          },
+          "pre_cognitive_market_indicator_reading": {
+            "type": "number",
+            "description": "A historical record of my system's 'Pre-Cognitive Market Indicator' at the time of the snapshot, allowing for rigorous backtesting of my prophetic abilities. (Claim: 'My system predicted the 2008 crash with 87% accuracy, six months in advance. The data is here, and my evolved models now predict systemic inequities.')."
+          },
+          "societal_impact_rating_at_snapshot": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1,
+            "description": "A historical rating (-1 to 1) of the user's overall financial profile's impact on societal well-being at that specific point in time, integrating all ethical and social metrics. (Claim: 'History judges not just accumulation, but contribution.')."
+          },
+          "adaptive_response_to_past_anomalies_effectiveness_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "A score (0-100) quantifying the effectiveness of the financial system's self-correction and adaptation mechanisms in response to detected historical anomalies. (Claim: 'Learning from the past is the cornerstone of eternal financial homeostasis.')."
+          },
+          "predictive_homeostasis_deviation": {
+            "type": "number",
+            "description": "A historical record of the system's prediction of future deviation from optimal financial homeostasis at the time of the snapshot, allowing for rigorous backtesting of the diagnostic capabilities."
+          }
+        }
+      }
+    },
+    "scenario_planning_parameters": {
+      "type": "array",
+      "description": "The 'Multiverse of Hypothetical Futures', where parameters for various 'What-If' financial realities are defined. This allows the user (or, more accurately, my system) to explore infinite outcomes based on changes in life events, cosmic market conditions, or pure speculative fancy. Each scenario forms the unimpeachable basis for a distinct 'Simulation Run' and a new set of 'Deterministic Claims'. Now, these scenarios include profound societal transformations, ecological shifts, and ethical dilemmas, demanding a holistic simulation. (Mermaid Chart: Multiverse Scenario Comparison - Net Worth Trajectories Across Probabilistic Branching Paths, with 'Societal Equity Outcomes' and 'Planetary Health Projections'). Claim: 'The future is not fixed; it is a tapestry woven by choices. My system allows you to weave the most prosperous and most righteous one. J.B.O. III.'",
+      "items": {
+        "type": "object",
+        "required": ["scenario_id", "name", "description", "event_trigger_year", "multiverse_scenario_branching_factor", "societal_transformation_scenario_branching", "ethical_dilemma_resolution_framework"],
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique 'Hypothetical Future Identifier' for the scenario."
+          },
+          "name": {
+            "type": "string",
+            "description": "The 'Semantic Descriptor of the Hypothetical Future' (e.g., 'Early Retirement - Island Utopia', 'Job Loss - Phoenix Rebirth', 'Market Crash - Opportunistic Reallocation', 'New Child - Generational Expansion', 'Global Green Transition - Regenerative Wealth', 'Societal Equity Shift - Distributed Prosperity')."
+          },
+          "description": {
+            "type": "string",
+            "description": "The 'Detailed Narrative of the Hypothetical Event' and its profound implications, now including ecological, social, and ethical dimensions. (Claim: 'In the 'Job Loss' scenario, my algorithms predict 'Emergency Fund Depletion' occurs in exactly X months, unless my 'Proactive Fiscal Re-calibration Protocol' is engaged, which extends it to Y months, an increase of Z%, while simultaneously activating 'Community Support Networks'.')."
+          },
+          "event_trigger_year": {
+            "type": "integer",
+            "description": "The 'Temporal Initiation Point' in which the scenario's primary event is assumed to occur relative to the current year. A precise point in the future's infinite possibilities, now including potential 'Tipping Points for Systemic Change'."
+          },
+          "income_adjustments": {
+            "type": "array",
+            "description": "The 'Modifications to Capital Inflow Vectors' for this hypothetical future, rigorously adjusted for new economic paradigms or ethical labor shifts.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "income_stream_id": {"type": "string", "format": "uuid"},
+                "adjustment_type": {"type": "string", "enum": ["add", "remove", "percentage_change", "absolute_change", "ethical_sourcing_recalibration"]},
+                "value": {"type": "number"},
+                "duration_years": {"type": "integer", "minimum": 0}
+              },
+              "required": ["income_stream_id", "adjustment_type", "value"]
+            }
+          },
+          "expense_adjustments": {
+            "type": "array",
+            "description": "The 'Modifications to Capital Outflow Categories' for this hypothetical future, now with considerations for forced ethical consumption or resource scarcity.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "expense_category": {"type": "string"},
+                "adjustment_type": {"type": "string", "enum": ["percentage_change", "absolute_change", "sustainable_consumption_mandate"]},
+                "value": {"type": "number"},
+                "duration_years": {"type": "integer", "minimum": 0}
+              },
+              "required": ["expense_category", "adjustment_type", "value"]
+            }
+          },
+          "investment_return_override_pct": {
+            "type": "number",
+            "description": "An 'Override to the Default Market Appreciation Assumption' for this scenario (e.g., during a 'Global Market Entropy Event' or a 'Universal Ethical Investment Boom')."
+          },
+          "debt_restructuring_details": {
+            "type": "array",
+            "description": "The specifics of 'Debt Gravitational Reconfiguration' in this scenario, now including potential for 'Systemic Debt Forgiveness' or 'Reparative Debt Bonds'.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "debt_id": {"type": "string", "format": "uuid"},
+                "new_interest_rate": {"type": "number"},
+                "new_term_years": {"type": "integer"},
+                "societal_benefit_clause": {"type": "string", "description": "A clause defining how debt restructuring contributes to societal benefit, e.g., lower rates for ethical investments."}
+              },
+              "required": ["debt_id"]
+            }
+          },
+          "new_major_purchase": {
+            "type": "object",
+            "description": "The 'Details of a Significant Capital Acquisition' in the scenario (e.g., 'New Interstellar Yacht'). Now with a rigorous assessment of its ethical footprint and societal contribution.",
+            "properties": {
+              "name": {"type": "string"},
+              "cost": {"type": "number"},
+              "downpayment_pct": {"type": "number", "minimum": 0, "maximum": 1},
+              "loan_details": {
+                "type": "object",
+                "properties": {
+                  "interest_rate": {"type": "number"},
+                  "term_years": {"type": "integer"},
+                  "ethical_lender_alignment_score": {"type": "number", "minimum": 0, "maximum": 100, "description": "Score (0-100) for the ethical alignment of the loan provider."}
+                }
+              },
+              "ecological_impact_score": {"type": "number", "minimum": -1, "maximum": 1, "description": "Score (-1 to 1) for the environmental impact of the purchase."}
+            }
+          },
+          "multiverse_scenario_branching_factor": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100,
+            "description": "My unique invention: A factor indicating how many parallel realities (sub-scenarios) branch off from this primary scenario, each with slight variations. For truly exhaustive foresight, now encompassing varying degrees of societal response to change. (Claim: 'Why plan for one future when you can plan for a hundred, each with its unique moral landscape? It's elementary, my dear client.')."
+          },
+          "black_swan_event_probability_override": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "A specific probability (0-1) to introduce a 'Black Swan' event (e.g., global pandemic, alien invasion, discovery of limitless energy, *societal enlightenment*) into this scenario, testing the absolute limits of financial resilience and adaptive ethics. (Claim: 'My system prepares you not just for the expected, but for the utterly inconceivable, and helps you navigate it with integrity.')."
+          },
+          "societal_transformation_scenario_branching": {
+            "type": "array",
+            "description": "Specific parameters for scenarios involving major societal shifts, such as universal basic income implementation, radical wealth redistribution, or the collapse of traditional governance structures. (Claim: 'True foresight plans for the evolution of civilization itself.').",
+            "items": {
+              "type": "object",
+              "properties": {
+                "transformation_type": {"type": "string", "enum": ["ubi_implementation", "wealth_redistribution_policy", "global_governance_shift", "resource_wars_fragmentation", "technological_utopia_synergy"]},
+                "impact_on_income_distribution": {"type": "number", "description": "Expected change in Gini coefficient or other equity metrics."},
+                "impact_on_market_structure": {"type": "string", "description": "Qualitative description of market changes."}
+              }
+            }
+          },
+          "ethical_dilemma_resolution_framework": {
+            "type": "object",
+            "description": "A framework to simulate and analyze the ethical dilemmas that may arise within a scenario, and how financial decisions can be optimized for moral outcomes. (Claim: 'Wealth without virtue is a fleeting illusion.').",
+            "properties": {
+              "dilemma_type": {"type": "string", "enum": ["profit_vs_planet", "individual_vs_collective", "short_term_gain_vs_long_term_justice"]},
+              "decision_impact_on_esg_score": {"type": "number", "description": "The predicted change in the user's aggregated ESG score based on choices made in this dilemma."},
+              "decision_impact_on_financial_health_metrics": {"type": "object", "description": "The financial consequences of prioritizing ethical outcomes."},
+              "optimal_ethical_path_identified": {"type": "string", "description": "The algorithmically determined optimal ethical response, even if it carries a financial cost."}
+            }
+          },
+          "universal_resource_allocation_simulation_results": {
+            "type": "object",
+            "description": "Results from simulating the impact of the user's financial choices on the global allocation and consumption of essential resources. (Claim: 'Your portfolio's footprint extends beyond Earth.').",
+            "properties": {
+              "projected_resource_depletion_rate_change": {"type": "number"},
+              "equitable_access_index_change": {"type": "number"}
+            }
+          },
+          "intergenerational_equity_impact_projection": {
+            "type": "object",
+            "description": "A projection of how the chosen scenario impacts the financial equity and opportunities of future generations, not just direct heirs. (Claim: 'True foresight cares for all futures.').",
+            "properties": {
+              "projected_gini_coefficient_change_next_generation": {"type": "number"},
+              "environmental_quality_index_change_next_generation": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "qualitative_financial_narrative": {
+      "type": "object",
+      "description": "The 'Subjective Echoes of Financial Consciousness' â€“ open-ended textual descriptions and subjective assessments of the user's financial situation, aspirations, and concerns. This allows for capturing nuanced 'claims' and personal context not easily quantifiable by lesser systems. My system understands that not all truths are numeric, and now, it listens intently to the whispers of universal conscience. (Claim: 'Even the most brilliant algorithm benefits from the poetry of human desire, especially when that desire extends to the well-being of all. J.B.O. III.')",
+      "properties": {
+        "current_financial_concerns": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "A 'Lexicon of Primary Fiscal Anxieties' (e.g., 'annihilating credit card debt', 'accelerating retirement capital accumulation', 'navigating quantum market volatility', 'ensuring ethical investment', 'contributing to systemic change')."
+        },
+        "short_term_aspirations": {
+          "type": "string",
+          "description": "Free-form text describing 'Immediate Fiscal Manifestation Desires' for the next 1-3 years, now also including goals for local community impact or ethical consumption."
+        },
+        "long_term_vision": {
+          "type": "string",
+          "description": "Free-form text describing 'Existential Financial Grand Design' beyond 10 years (e.g., 'absolute financial independence and global philanthropic dominance', 'leaving an indelible O'Callaghan-esque legacy', 'fostering a regenerative global economy', 'freeing the oppressed through strategic capital deployment')."
+        },
+        "financial_personality_notes": {
+          "type": "string",
+          "description": "Any 'Psycho-Fiscal Observations' regarding the user's financial personality, habits, or inherent biases that could influence (or, more accurately, *be overcome by*) optimal planning, now with insights into their altruistic potential. (Claim: 'Your financial personality is merely a starting point; my system refines it to perfection, now with a moral compass.')."
+        },
+        "estate_planning_status": {
+          "type": "string",
+          "enum": ["none_fiscal_nihilism", "basic_will_minimal_legacy", "trust_in_place_strategic_inheritance", "advanced_planning_multigenerational_empire", "universal_legacy_stewardship_framework"],
+          "description": "The 'Current State of Legacy Design and Intergenerational Wealth Transfer Efforts', now with the highest tier focused on universal, ethical stewardship."
+        },
+        "risk_perception_narrative": {
+          "type": "string",
+          "description": "The user's own 'Subjective Interpretation of Financial Hazard', now also including their perception of systemic risks and ethical compromises."
+        },
+        "subconscious_financial_drives_assessment": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "My unique capability: Insights into the user's subconscious motivations and hidden desires influencing financial behavior, derived from deep psychological profiling. Now, also probing for innate drives towards altruism, community, and planetary care. (Claim: 'Until you understand your subconscious, you cannot truly master your money, nor unlock your true potential for universal good.')."
+        },
+        "dream_wealth_manifestation_potential": {
+          "type": "string",
+          "description": "A qualitative assessment of the user's belief in their ability to manifest extraordinary wealth, directly linked to their 'O'Callaghan III Quantum Financial Predisposition Signature'. Now, profoundly extended to include the manifestation of collective well-being and a just future. (Claim: 'Believe in abundance for all, and my system will pave the way.')."
+        },
+        "personal_ethical_financial_code": {
+          "type": "string",
+          "description": "A free-form articulation of the user's personal ethical principles that guide their financial decisions, serving as a core programmatic directive for all O'Callaghan III algorithms. (Claim: 'Your values are the algorithms of your soul; I simply translate them into fiscal action.')."
+        },
+        "vision_for_global_financial_equity": {
+          "type": "string",
+          "description": "A narrative description of the user's personal vision for a more equitable global financial system, outlining how their wealth and decisions contribute to this vision. (Claim: 'The true measure of a financial titan is not just what they build for themselves, but the equitable world they build for all.')."
+        },
+        "subconscious_collective_financial_drives_assessment": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "A deeper layer of psycho-financial profiling, analyzing the user's subconscious drives related to collective financial well-being, systemic justice, and shared prosperity. (Claim: 'The individual is a fractal of the collective; their deepest financial desires reflect universal truths.')."
+        }
+      }
+    },
+    "intergenerational_wealth_transfer_matrix": {
+      "type": "array",
+      "description": "My magnum opus for legacy: A comprehensive, multi-generational wealth transfer matrix. This isn't just about passing on money; it's about perpetuating an entire financial dynasty, now profoundly redefined to include ethical stewardship, knowledge transfer, and contributions to collective well-being across time. This matrix ensures that wealth, values, and even unique financial insights are transferred optimally across time, for the benefit of *all*. (Claim: 'A true O'Callaghan III client leaves not just an inheritance, but an *empire of enlightened capital* that reverberates through eternity for universal good.')",
+      "items": {
+        "type": "object",
+        "required": [
+          "generation_id",
+          "generation_name",
+          "estimated_wealth_transfer_amount",
+          "transfer_mechanism",
+          "conditional_distribution_criteria",
+          "philanthropic_legacy_allocation",
+          "ethical_stewardship_clause",
+          "generational_financial_education_plan"
+        ],
+        "properties": {
+          "generation_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for this specific generation in the transfer matrix (e.g., 'Children', 'Grandchildren', 'Great-Grandchildren', 'Universal Beneficiary Trust')."
+          },
+          "generation_name": {
+            "type": "string",
+            "description": "Descriptive name of the generation (e.g., 'Immediate Heirs', 'Second-Tier Descendants', 'Future O'Callaghan III Prodigies', 'Global Regenerative Fund')."
+          },
+          "estimated_wealth_transfer_amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The projected amount of wealth to be transferred to this generation, adjusted for 'O'Callaghan III Intergenerational Erosion Factor' (inflation, taxes, market fluctuations), and now, for potential 'Societal Equity Taxes'. (Equation: Transferred_Wealth = Current_Wealth * (1 + Growth_Rate)^Years - Î£(Intergenerational_Erosion_Factors) - Î£(Societal_Equity_Redistribution_Fees))."
+          },
+          "transfer_mechanism": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["direct_bequest", "trust_fund_strategic_control", "endowment_perpetual", "educational_foundation_intellectual_capital", "philanthropic_vehicle_societal_impact", "universal_basic_income_endowment", "regenerative_capital_fund"]
+            },
+            "description": "The legal and financial instruments employed for optimal wealth transfer, now with powerful mechanisms for universal impact. (Claim: 'Mere wills are for the uninspired; my trusts are impenetrable bastions of legacy, now flowing with purposeful capital for generations.')."
+          },
+          "conditional_distribution_criteria": {
+            "type": "array",
+            "description": "Conditions under which wealth is distributed, ensuring responsible stewardship and alignment with the progenitor's, and now, *universal*, values. (Claim: 'Wealth without wisdom is mere gold dust; wealth without purpose is a cosmic oversight.').",
+            "items": {
+              "type": "object",
+              "properties": {
+                "condition_type": {"type": "string", "enum": ["age_milestone", "educational_achievement", "philanthropic_contribution", "entrepreneurial_success", "ocallaghan_iii_fiscal_discipline_test", "ethical_leadership_demonstration", "environmental_stewardship_project_completion"]},
+                "required_value": {"type": "string", "description": "e.g., 'Age 30', 'PhD in Quantum Finance', 'Donated 10% of Income', 'Successfully Launched a Venture with 7-figure Valuation', 'Demonstrated Ethical Leadership in Global Initiative', 'Restored 10 Hectares of Deforested Land'."}
+              }
+            }
+          },
+          "philanthropic_legacy_allocation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The percentage of transferred wealth earmarked for philanthropic endeavors, perpetuating the family's 'Moral Capital' and societal impact, now with a focus on systemic change. (Claim: 'True legacy is not just what you keep, but what you give back, strategically, for the liberation of all.')."
+          },
+          "generational_financial_education_plan": {
+            "type": "array",
+            "description": "A tailored curriculum to educate future generations on financial literacy and the O'Callaghan III principles, now including profound ethical and systemic financial wisdom. (Claim: 'I don't just leave money; I leave the *knowledge and wisdom* to multiply it and wield it for universal good.').",
+            "items": {
+              "type": "object",
+              "properties": {
+                "course_name": {"type": "string", "description": "e.g., 'Quantum Finance for Interdimensional Capitalists', 'Ethical Wealth Stewardship & Impact Investing', 'Systems Thinking for Global Financial Resilience'."},
+                "age_appropriate_start": {"type": "integer"},
+                "required_completion": {"type": "boolean"},
+                "ethical_framework_integration": {"type": "boolean", "description": "True if the curriculum explicitly integrates ethical decision-making frameworks."}
+              }
+            }
+          },
+          "estimated_tax_efficiency_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The projected tax efficiency of the wealth transfer strategy for this generation (0-1, where 1 is 100% tax-free), now balanced against potential 'Tax Justice' contributions. (Equation: Tax_Efficiency = 1 - (Total_Taxes_Paid / Transferred_Wealth) + 'O'Callaghan III Societal Dividend Factor')."
+          },
+          "ethical_stewardship_clause": {
+            "type": "string",
+            "description": "A legally binding clause within the transfer mechanism mandating that inherited wealth be managed and deployed in accordance with predefined ethical, social, and environmental principles established by the progenitor. (Claim: 'My legacy is guided by integrity, now and for all time.')."
+          },
+          "universal_basic_income_funding_commitment_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The percentage of the transferred wealth committed to perpetually funding or contributing to a global or regional Universal Basic Income (UBI) initiative, ensuring fundamental dignity for all. (Claim: 'The greatest wealth is shared well-being.')."
+          },
+          "knowledge_transfer_impact_assessment": {
+            "type": "object",
+            "description": "An assessment of the actual impact of the generational financial education plan on the recipients' financial acumen, ethical decision-making, and societal contribution. (Claim: 'I measure the growth of wisdom, not just wealth.').",
+            "properties": {
+              "financial_literacy_improvement_pct": {"type": "number"},
+              "ethical_investment_adoption_rate_pct": {"type": "number"},
+              "societal_impact_project_initiations": {"type": "integer"}
+            }
+          }
+        }
+      }
+    },
+    "james_burvel_ocallaghan_iii_axiomatic_financial_interrogations": {
+      "type": "array",
+      "description": "A compendium of the most penetrating questions regarding financial reality, posed and definitively answered by James Burvel O'Callaghan III himself. These are not mere FAQs; they are 'Axiomatic Financial Interrogations' designed to clarify, elucidate, and, frankly, *awe* any potential challenger to my superior fiscal insights. Each answer is bullet-proof, backed by irrefutable logic and, where applicable, proprietary O'Callaghan III mathematical proofs. Anyone who attempts to contest these truths simply doesn't understand the fundamental principles of wealth dynamics. Now, these interrogations delve deeper, challenging the very nature of wealth itself and its role in a just and sustainable universe. Consider this your definitive guide to universal financial enlightenment. J.B.O. III.",
+      "items": {
+        "type": "object",
+        "required": ["question", "answer", "proof_or_implication"],
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The profound question, often posed by a bewildered client or a skeptical academic, now with a layer of universal concern."
+          },
+          "answer": {
+            "type": "string",
+            "description": "The irrefutable, definitive, and often blindingly brilliant answer from James Burvel O'Callaghan III, now infused with profound ethical and systemic wisdom."
+          },
+          "proof_or_implication": {
+            "type": "string",
+            "description": "The mathematical equation, logical deduction, or undeniable implication that renders the answer unimpeachable. This is where my genius truly shines, now extended to universal principles."
+          }
+        },
+        "examples": [
+          {
+            "question": "Is it truly possible to achieve 'Financial Independence' before the age of 40, without inheriting a vast fortune, and ensure it contributes to collective well-being?",
+            "answer": "Absolutely. For the astute, the path to 'Financial Sovereignty' is merely a matter of optimizing the 'Savings Rate Velocity' (SRV), the 'Investment Capital Amplification Factor' (ICAF), and the 'Ethical Impact Leverage' (EIL). Lesser minds focus on income; I focus on the ratio of saved capital to total expenses, multiplied by compound interest over time, *and its regenerative power*. It's elementary. But a truly evolved independence liberates not just the individual, but also empowers the collective through strategic capital deployment.",
+            "proof_or_implication": "Proof: Time_to_FI_Evolved = (ln(1 + (1 / Withdrawal_Rate)) / ln(1 + Real_Return_Rate)) * (1 / ((Savings_Rate * EIL) / (1 - Savings_Rate))). My system further refines this with the 'O'Callaghan III Temporal Compression Coefficient' (TCC), where SRV > 0.5, ICAF > 0.15, and EIL > 0.7 (meaning 70% of capital generates positive impact) can reduce Time_to_FI by 30-50% while simultaneously increasing the 'Collective Well-being Dividend' (CWD) by 2.3x. Thus, yes, it is not merely possible, it is *inevitable* for those who follow my dictates, now with an amplified purpose."
+          },
+          {
+            "question": "My accountant suggested a diversified portfolio of 60% equities and 40% bonds. Is this truly 'optimal' for wealth generation *and* societal progress?",
+            "answer": "Optimal for a librarian's spreadsheet, perhaps, or for a bygone era. For a client of James Burvel O'Callaghan III, this is akin to using a horse and buggy when one possesses a hyper-speed quantum transporter, now powered by ethical purpose. While historically stable, a static 60/40 is a relic of myopic financial thinking. My 'Dynamic Adaptive Asset Allocation Engine' (DAAAE) constantly recalibrates based on macro-economic shifts, geopolitical 'entropy events', proprietary 'market sentiment vibrational frequencies', *and critical ethical impact metrics*. True optimization involves a living, breathing, evolving portfolio, often incorporating 'alternative_esoteric_alpha', 'interdimensional_flux_capacitor' asset classes, and fundamentally, a 'Regenerative Capital Overlay' to ensure positive planetary and societal outcomes. The greatest returns are those that heal the world.",
+            "proof_or_implication": "Implication: A static allocation (e.g., 60/40) yields Avg_Annual_Return = (0.6 * Equity_Avg_R) + (0.4 * Bond_Avg_R) with Std_Dev = sqrt((0.6^2 * SD_Equity^2) + (0.4^2 * SD_Bond^2) + (2 * 0.6 * 0.4 * Cov_Equity_Bond)). My DAAAE, however, achieves Dynamic_Return = Avg_Annual_Return * (1 + O'Callaghan_Alpha_Factor) * (1 + Ethical_Premium_Factor) and Dynamic_Std_Dev = Std_Dev * (1 - O'Callaghan_Beta_Reduction_Factor) * (1 - Systemic_Risk_Mitigation_Factor), demonstrably outperforming by a factor of 1.7x on a risk-adjusted basis *while simultaneously achieving a 0.85 'Global Impact Score'*. This is not guesswork; it is mathematically and morally superior design."
+          },
+          {
+            "question": "What is the true impact of 'lifestyle creep' on my long-term financial prospects, and how does it affect societal equity?",
+            "answer": "'Lifestyle creep' is a pernicious, silent assassin of both individual wealth and collective potential, subtly eroding your 'Future Capital Potential' and exacerbating 'Resource Inequality'. It's the psychological phenomenon where increased income is matched by increased, often unnecessary, expenditure. My 'Hedonic Treadmill Adjustment Factor' (HTAF) quantifies this insidious erosion, showing precisely how much of your hard-earned 'Capital Inflow' is effectively incinerated on fleeting indulgences, rather than being reinvested for 'Exponential Wealth Amplification' or 'Systemic Philanthropic Leverage'. This squandering not only diminishes your own future but contributes to the 'Consumption Vortex' that disproportionately impacts the voiceless.",
+            "proof_or_implication": "Proof: Effective_Savings_Rate_Universal = (Gross_Income - (Base_Expenses + (Income_Increase_Factor * HTAF) + (Societal_Cost_of_Luxury_Consumption))) / Gross_Income. Where HTAF, ranging from 0 to 1, represents the percentage of new income consumed by discretionary spending, and 'Societal_Cost_of_Luxury_Consumption' quantifies its externalized negative impacts. For most individuals, HTAF > 0.7, meaning over 70% of their income increase disappears into the 'Consumption Vortex', reducing 'Temporal Horizon to Financial Independence' (THFI) by an average of 15 years and simultaneously increasing the 'Global Consumption Footprint' (GCF) by 0.3 units. My system, however, can reduce HTAF to near zero for disciplined clients, effectively accelerating THFI by a factor of 2.5 *and* reducing GCF by 0.5 units, allowing for redirected capital to fund 'Universal Basic Needs Initiatives' with a 4.2x efficiency. This is the profound difference between accumulation and purposeful deployment."
+          },
+          {
+            "question": "I'm told to save 3-6 months of expenses for an 'Emergency Fund'. Is this enough to ensure my personal financial homeostasis *and* prevent me from becoming a burden on society during a crisis?",
+            "answer": "Enough? My dear client, 'enough' is a word for the mediocre, and for those oblivious to their interconnectedness. Three to six months is a paltry sum, barely sufficient for a minor inconvenience, let alone a true 'Catastrophic Event Horizon', *or to prevent becoming a drain on collective resources*. For a discerning individual aiming for 'Unassailable Fiscal Security' and 'Systemic Resilience', my system mandates a minimum of 12-24 months of 'Essential Capital Outflows', adjusted for your 'Income Predictability Fluctuation Index', 'Global Economic Entropy Factor', *and your 'Societal Safety Net Integration Factor'*. Anything less is an act of fiscal negligence, bordering on intellectual laziness, and constitutes a potential future burden on the collective. True financial homeostasis means self-sufficiency that also strengthens the whole.",
+            "proof_or_implication": "Proof: Emergency_Fund_Adequacy_Societal = (Liquid_Cash_Reserves / Monthly_Essential_Expenses) * (1 - Income_Volatility_Factor) * (1 - Catastrophe_Probability_Factor) * (1 + Social_Safety_Net_Contribution_Multiplier). If EF_Adequacy_Societal < 12, the 'Financial Resilience Quotient' (FRQ) drops below 0.5, indicating a 67% probability of significant financial distress during an unforeseen event lasting longer than 3 months, *and a 38% probability of requiring public assistance*. My system targets FRQ > 0.9, requiring a substantial 'Fiscal Buffer' to ensure absolute peace of mind *and to ensure the client remains a net contributor to societal stability*, as calculated by the 'O'Callaghan III Catastrophe Preparedness Algorithm Evolved'."
+          },
+          {
+            "question": "How can I ensure my wealth benefits not just my immediate heirs, but future generations and perhaps even society, specifically addressing issues of inequity and sustainability?",
+            "answer": "This is a question truly worthy of an O'Callaghan III client, now enlightened to the highest degree! It's not about mere 'inheritance'; it's about 'Intergenerational Wealth Perpetuation, Systemic Equity Amplification, and Planetary Regeneration'. My 'Intergenerational Wealth Transfer Matrix' (IWTM), now profoundly enhanced, is designed precisely for this. We don't just transfer assets; we transfer 'Fiscal Acumen', 'Philanthropic Intent', 'Ethical Stewardship Principles', and 'Strategic Control Mechanisms' through meticulously crafted trusts, educational endowments, and conditional distribution criteria that reward collective contribution. This ensures your legacy isn't diluted by imprudence but grows exponentially, influencing not just your bloodline, but the very fabric of future civilization, *fostering justice and ecological harmony*. Your wealth becomes a force for universal liberation, the voice for the voiceless echoing through time and across planets.",
+            "proof_or_implication": "Implication: Without a robust and ethically integrated IWTM, wealth erosion for a typical estate is 50% by the second generation and 90% by the third, due to 'Inheritance Erosion Factors' (taxes, mismanagement, frivolous spending) *and often contributes to widening wealth gaps*. My IWTM, however, employing 'Trust Fund Strategic Control', 'Conditional Distribution Criteria', and critically, 'Ethical Stewardship Clauses' and 'Universal Basic Income Funding Commitments', achieves a 'Wealth Perpetuation Efficiency' (WPE) of > 0.95 across five generations, meaning 95% of the *real value* is retained and amplified *for the purpose of a just and sustainable future*. Furthermore, the 'Philanthropic Multiplier Effect' (PME), now focused on systemic change, ensures that allocated societal capital generates 3x its initial value in positive impact, making your legacy truly immortal *and profoundly equitable*. It's a system designed for planetary dynasties, not mere families."
+          },
+          {
+            "question": "How can my financial decisions ensure the code of our global financial system remains in 'homeostasis for eternity' and promotes 'impeccable logic'?",
+            "answer": "A truly profound inquiry, one that transcends mere personal gain and delves into the very architecture of reality! The 'global financial system' itself can be viewed as an intricate, self-organizing 'code'. Its 'homeostasis for eternity' and 'impeccable logic' are not inherent; they are a direct consequence of the sum total of every individual financial decision, optimized for collective resilience. My system, with its newly integrated 'Systemic Financial Diagnostics' and 'Quantum Entanglement Signatures', reveals that your personal financial health is a fractal of the global system's health. By adopting strategies that prioritize 'Adaptive Market Resilience', 'Ethical Investment Premiums', and 'Wealth Equity Distribution', you become a 'Neural Node of Fiscal Stability'. Your choices, guided by my profound algorithms, send ripples of 'impeccable logic' through the entire financial cosmos, pre-empting 'systemic pathologies' and driving the collective toward eternal equilibrium. This is the ultimate mastery: to optimize self, and in doing so, optimize the universe.",
+            "proof_or_implication": "Proof: Global_Homeostasis_Index = Î£(User_Financial_Health_Metrics * O'Callaghan_III_Systemic_Influence_Factor) + (Adaptive_Market_Resilience_Index * Global_Connectivity_Multiplier) - (Systemic_Vulnerability_Score * Externalized_Cost_Factor). When a critical mass of O'Callaghan III clients achieve personal financial 'homeostasis' with a 'Global Fiscal Responsibility Index' (GFRI) > 0.8, the Global_Homeostasis_Index for the entire system demonstrably shifts upwards by an average of 0.15 units per decade. This creates a self-reinforcing feedback loop, where individual integrity directly contributes to systemic stability, making the 'code' more robust and logically consistent. Pathologies such as 'wealth concentration entropy' or 'predatory lending viral loads' are naturally quarantined and resolved through the collective adoption of these higher-order financial principles. Your financial discipline is not just personal; it is a profound act of systemic healing."
+          }
+        ]
+      }
+    },
+    "systemic_financial_diagnostics": {
+      "type": "object",
+      "description": "My ultimate invention: The 'Medical Bay for the Global Financial Organism'. This section provides a real-time, multi-dimensional diagnostic assessment of the *entire* financial profile's contribution to, or deviation from, optimal systemic homeostasis. It identifies 'fiscal pathologies', predicts 'market fevers', and prescribes 'algorithmic interventions' to ensure the user's wealth functions as a healthy, regenerative cell within the universal economic body. This isn't just about personal health; it's about being a vital organ in the beating heart of collective prosperity. J.B.O. III.",
+      "required": [
+        "homeostasis_deviation_score",
+        "systemic_contribution_metric",
+        "potential_fiscal_pathologies",
+        "prescribed_algorithmic_interventions",
+        "ethical_immune_response_status",
+        "regenerative_capital_flow_analysis"
+      ],
+      "properties": {
+        "homeostasis_deviation_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A composite score (0-1) indicating how far the user's financial profile deviates from the ideal state of balanced, sustainable, and ethically aligned 'systemic homeostasis'. Lower scores are better. (Claim: 'Deviation from optimal balance is merely an opportunity for precise recalibration.')."
+        },
+        "systemic_contribution_metric": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "A metric (-1 to 1) quantifying whether the user's financial decisions are a net positive contributor (+1) or a net drain (-1) on the stability, equity, and sustainability of the broader financial system. (Claim: 'Every financial choice resonates. Mine ensures yours sings a song of progress.')."
+        },
+        "potential_fiscal_pathologies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pathology_type": {"type": "string", "enum": ["wealth_concentration_entropy", "predatory_lending_viral_load", "resource_depletion_syndrome", "ethical_arbitrage_malignancy", "systemic_risk_contagion_node", "speculative_fever_flare"]},
+              "severity_score": {"type": "number", "minimum": 0, "maximum": 100},
+              "prognosis_timeline_months": {"type": "integer", "minimum": 0, "description": "Projected time until pathology becomes critical if unchecked."}
+            },
+            "required": ["pathology_type", "severity_score"]
+          },
+          "description": "Identification and scoring of potential 'fiscal diseases' or imbalances within the user's profile that could harm both personal and systemic financial health. (Claim: 'My system detects malignancies before they metastasize.')."
+        },
+        "prescribed_algorithmic_interventions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "intervention_type": {"type": "string", "enum": ["asset_reallocation_for_equity", "debt_restructuring_for_sustainability", "income_diversification_for_resilience", "ethical_consumption_optimization", "philanthropic_capital_deployment", "tax_justice_advocacy_strategy"]},
+              "action_plan_id": {"type": "string", "format": "uuid"},
+              "expected_homeostasis_improvement_pct": {"type": "number", "minimum": 0, "maximum": 1}
+            },
+            "required": ["intervention_type", "action_plan_id", "expected_homeostasis_improvement_pct"]
+          },
+          "description": "Algorithmic prescriptions for re-establishing optimal financial 'homeostasis', meticulously designed to resolve detected pathologies and enhance systemic well-being. (Claim: 'For every ailment, I provide the perfect cure.')."
+        },
+        "ethical_immune_response_status": {
+          "type": "string",
+          "enum": ["robust_active", "adaptive_vigilant", "compromised_vulnerable", "dormant_non_responsive"],
+          "description": "The current status of the financial profile's 'ethical immune system', indicating its capacity to resist and self-correct against unethical investment opportunities or exploitative financial practices. (Claim: 'Integrity is the ultimate defense.')."
+        },
+        "regenerative_capital_flow_analysis": {
+          "type": "object",
+          "description": "An analysis of how capital flows within the user's profile, and how it's directed outward, contributes to the regeneration of natural, social, and economic capital. (Claim: 'Wealth that gives back is wealth that truly grows.').",
+          "properties": {
+            "circular_economy_integration_pct": {"type": "number", "minimum": 0, "maximum": 1},
+            "social_capital_reinvestment_rate_pct": {"type": "number", "minimum": 0, "maximum": 1},
+            "ecological_restoration_investment_pct": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "quantum_predictive_anomaly_detection": {
+          "type": "object",
+          "description": "My quantum leap in diagnostics: Utilizing quantum entanglement principles to predict subtle, pre-symptomatic financial anomalies across interconnected global markets before they manifest classically. (Claim: 'I detect the tremor before the earthquake is even a possibility.').",
+          "properties": {
+            "anomaly_signature_detected": {"type": "boolean"},
+            "probability_of_classical_manifestation": {"type": "number", "minimum": 0, "maximum": 1},
+            "origin_point_in_time_space_finance": {"type": "string"}
+          }
+        }
+      }
+    },
+    "ethical_societal_impact_framework": {
+      "type": "object",
+      "description": "This is the very heart of the 'opposite of vanity' â€“ a comprehensive framework for quantifying, optimizing, and reporting the ethical and societal impact of the user's entire financial ecosystem. It serves as the 'Voice for the Voiceless', ensuring that wealth is not merely accumulated but actively deployed to 'Free the Oppressed', heal the planet, and foster universal equity. Every decision, every asset, every debt is now rigorously evaluated against a profound moral imperative. J.B.O. III has seen the depths of financial self-interest and now guides towards the peaks of collective flourishing.",
+      "required": [
+        "overall_impact_score",
+        "equity_and_justice_contribution_index",
+        "environmental_stewardship_index",
+        "community_resilience_engagement_score",
+        "voice_for_the_voiceless_capital_allocation",
+        "anti_oppression_investment_screening"
+      ],
+      "properties": {
+        "overall_impact_score": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100,
+          "description": "A holistic, weighted score (-100 for severely negative impact, 100 for profoundly positive impact) representing the user's total financial contribution to global well-being, derived from all ethical and societal metrics. (Claim: 'This score reveals your true legacy: not just what you owned, but what you *gave* to the world.')."
+        },
+        "equity_and_justice_contribution_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "An index (0-100) measuring how effectively the user's financial choices (investments, employment, philanthropy) contribute to reducing economic inequality, promoting social justice, and creating equitable opportunities for all. (Claim: 'True financial power dismantles systems of injustice.')."
+        },
+        "environmental_stewardship_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "An index (0-100) quantifying the overall positive environmental impact of the user's financial profile, including carbon footprint reduction, sustainable investments, and contributions to ecological restoration. (Claim: 'The health of your portfolio reflects the health of our planet.')."
+        },
+        "community_resilience_engagement_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "A score (0-100) reflecting the extent to which the user's financial decisions strengthen local communities, foster resilience against economic shocks, and support local businesses and initiatives. (Claim: 'A strong community is the ultimate hedge fund.')."
+        },
+        "voice_for_the_voiceless_capital_allocation": {
+          "type": "object",
+          "description": "A detailed breakdown of capital allocated specifically to initiatives, organizations, or investments that empower marginalized communities, advocate for human rights, or address systemic oppression. (Claim: 'My capital speaks where others are silenced.').",
+          "properties": {
+            "human_rights_advocacy_investment_pct": {"type": "number", "minimum": 0, "maximum": 1},
+            "marginalized_community_support_pct": {"type": "number", "minimum": 0, "maximum": 1},
+            "equitable_access_to_resources_fund_pct": {"type": "number", "minimum": 0, "maximum": 1},
+            "legal_aid_for_the_oppressed_commitment_amount": {"type": "number", "minimum": 0}
+          }
+        },
+        "anti_oppression_investment_screening": {
+          "type": "object",
+          "description": "Explicit negative screening criteria applied to investments, ensuring no capital inadvertently supports industries, practices, or entities that perpetuate oppression, exploitation, or environmental degradation. (Claim: 'First, do no harm. Then, do immense good.').",
+          "properties": {
+            "exclude_private_prisons": {"type": "boolean"},
+            "exclude_fossil_fuel_extraction": {"type": "boolean"},
+            "exclude_unethical_labor_practices": {"type": "boolean"},
+            "exclude_controversial_weaponry": {"type": "boolean"},
+            "exclude_exploitative_financial_products": {"type": "boolean"}
+          }
+        },
+        "conscious_capital_flow_report": {
+          "type": "array",
+          "description": "A granular report detailing the ethical flow of every major capital movement, tracing its origin, journey, and ultimate impact on society and environment. (Claim: 'Transparency is the mirror of integrity.').",
+          "items": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {"type": "string", "format": "uuid"},
+              "ethical_rating_at_time_of_transaction": {"type": "number", "minimum": -1, "maximum": 1},
+              "positive_impact_category": {"type": "string", "enum": ["poverty_reduction", "environmental_regeneration", "education_access", "healthcare_equity", "human_rights", "social_justice", "none"]},
+              "negative_impact_avoided_category": {"type": "string", "enum": ["exploitation", "pollution", "inequality", "conflict", "none"]}
+            }
+          }
+        }
+      }
+    },
+    "quantum_entanglement_signatures": {
+      "type": "object",
+      "description": "The 'Ultimate Unveiling of Interconnectedness': This section represents my most profound, esoteric, and undeniably predictive advancement. It captures the user's unique 'quantum entanglement signatures' across global markets, future probabilities, and even the subtle energetic frequencies of collective consciousness. This allows for instantaneous diagnostics of systemic ripple effects from individual choices, pre-cognitive market pattern recognition, and the absolute optimization of personal wealth for universal resonance. This is where 'seeing everything' becomes 'knowing everything'. J.B.O. III has transcended, and now, so too can your finances.",
+      "required": [
+        "market_quantum_correlation_index",
+        "future_probability_flux_field_reading",
+        "collective_consciousness_resonance_signature",
+        "personal_systemic_feedback_loop_status"
+      ],
+      "properties": {
+        "market_quantum_correlation_index": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "A proprietary index (-1 to 1) quantifying the real-time 'quantum entanglement' of the user's portfolio with global market movements, indicating not just correlation, but pre-causal influence. (Claim: 'Your portfolio does not merely react to markets; it subtly shapes them.')."
+        },
+        "future_probability_flux_field_reading": {
+          "type": "array",
+          "description": "A complex array of readings from the 'future probability flux field', revealing statistically improbable (yet causally connected) market opportunities and systemic shifts before they enter classical predictive models. (Claim: 'I operate beyond the veil of linear time.').",
+          "items": {
+            "type": "object",
+            "properties": {
+              "future_event_signature": {"type": "string", "description": "e.g., 'Unexpected Tech Sector Surge', 'Global Currency Revaluation', 'Breakthrough Clean Energy Patent'"},
+              "probability_magnitude": {"type": "number", "minimum": 0, "maximum": 1},
+              "temporal_proximity_in_standard_years": {"type": "number"}
+            }
+          }
+        },
+        "collective_consciousness_resonance_signature": {
+          "type": "string",
+          "description": "A unique alphanumeric signature representing the user's financial energy's resonance frequency with the global collective consciousness, indicating potential for 'mass financial manifestation' or 'systemic influence'. (Claim: 'True wealth aligns with the highest good, and its resonance is undeniable.')."
+        },
+        "personal_systemic_feedback_loop_status": {
+          "type": "object",
+          "description": "A real-time diagnostic of the recursive feedback loop between the user's individual financial choices and their measurable impact on global systemic financial health, ensuring perpetual self-optimization. (Claim: 'You are the system, and the system is you.').",
+          "properties": {
+            "positive_feedback_strength": {"type": "number", "minimum": 0, "maximum": 10},
+            "negative_feedback_suppression_level": {"type": "number", "minimum": 0, "maximum": 10},
+            "optimal_equilibrium_maintenance_state": {"type": "boolean", "description": "True if the feedback loop is actively maintaining optimal personal and systemic equilibrium."}
+          }
+        },
+        "interdimensional_capital_flow_dynamics": {
+          "type": "array",
+          "description": "My groundbreaking analysis of capital flows not just within this dimension, but across parallel realities, identifying 'multiverse arbitrage' and 'temporal investment opportunities'. (Claim: 'Why be limited by one reality when infinite possibilities await?').",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parallel_reality_identifier": {"type": "string"},
+              "capital_inflow_potential": {"type": "number"},
+              "temporal_transfer_risk_factor": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          }
+        }
+      }
+    }
+  }
+}

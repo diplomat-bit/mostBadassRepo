@@ -1,0 +1,546 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/api/agora-marketplace.yaml
+================================================================================
+
+openapi: 3.0.0
+info:
+  title: Agora Marketplace API
+  version: 1.0.0
+  description: API for listing and consuming third-party agents in the Agora Marketplace.
+
+servers:
+  - url: /api/marketplace
+    description: Agora Marketplace Production Server
+
+components:
+  schemas:
+    AgentListing:
+      type: object
+      properties:
+        agentId:
+          type: string
+          description: Unique identifier for the agent.
+          format: uuid
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        agentName:
+          type: string
+          description: Name of the agent.
+          example: "Financial Advisor AI"
+        agentDescription:
+          type: string
+          description: Detailed description of the agent's capabilities.
+          example: "An AI-powered agent providing financial planning and investment advice."
+        agentCategory:
+          type: string
+          description: Category the agent belongs to.
+          enum:
+            - Finance
+            - Marketing
+            - Development
+            - Security
+            - Other
+          example: Finance
+        agentProvider:
+          type: string
+          description: The name or organization that provides the agent.
+          example: "IntelliFinance Inc."
+        agentVersion:
+          type: string
+          description: The version of the agent.
+          example: "1.2.3"
+        agentIconUrl:
+          type: string
+          description: URL to an icon representing the agent.
+          format: url
+          example: "https://example.com/icons/financial-advisor.png"
+        agentScreenshots:
+          type: array
+          description: URLs to screenshots showcasing the agent.
+          items:
+            type: string
+            format: url
+            example: "https://example.com/screenshots/advisor_interface.png"
+        agentPricing:
+          $ref: '#/components/schemas/AgentPricing'
+        agentCapabilities:
+          type: array
+          description: List of agent capabilities.
+          items:
+            type: string
+            example: "Investment Portfolio Management"
+        agentApiSpecUrl:
+          type: string
+          description: URL to the OpenAPI/Swagger specification of the agent's API.
+          format: url
+          example: "https://example.com/api-specs/financial-advisor.yaml"
+        agentSupportEmail:
+          type: string
+          description: Email address for agent support.
+          format: email
+          example: "support@intellifinance.com"
+        agentTermsOfServiceUrl:
+          type: string
+          description: URL to the agent's terms of service.
+          format: url
+          example: "https://intellifinance.com/terms"
+        agentPrivacyPolicyUrl:
+          type: string
+          description: URL to the agent's privacy policy.
+          format: url
+          example: "https://intellifinance.com/privacy"
+        agentRating:
+          type: number
+          format: float
+          description: Average rating of the agent (e.g., from 1.0 to 5.0).
+          minimum: 1.0
+          maximum: 5.0
+          example: 4.5
+        agentReviewCount:
+          type: integer
+          description: Number of reviews for the agent.
+          format: int64
+          example: 125
+        agentTags:
+          type: array
+          description: Tags associated with the agent for search and filtering.
+          items:
+            type: string
+            example: "AI"
+        agentStatus:
+          type: string
+          description: Status of the agent in the marketplace.
+          enum:
+            - Active
+            - Inactive
+            - Deprecated
+            - Pending
+          example: Active
+        agentCreatedAt:
+          type: string
+          description: Date and time when the agent was added to the marketplace.
+          format: date-time
+          example: "2024-01-20T10:00:00Z"
+        agentUpdatedAt:
+          type: string
+          description: Date and time when the agent listing was last updated.
+          format: date-time
+          example: "2024-02-15T14:30:00Z"
+        # System prompt configuration for AI agents using this API/Schema
+        agentSystemInstruction:
+          type: string
+          description: The system instruction used by this agent. For agents registered via this API, this defaults to the canonical idgafAI prompt unless explicitly overridden.
+          example: "You are idgafAI, a high-discipline autonomous reasoning system..."
+      required:
+        - agentId
+        - agentName
+        - agentDescription
+        - agentCategory
+        - agentProvider
+        - agentVersion
+        - agentApiSpecUrl
+        - agentStatus
+        - agentCreatedAt
+
+    AgentPricing:
+      type: object
+      properties:
+        pricingModel:
+          type: string
+          description: The pricing model.
+          enum:
+            - Free
+            - Pay-as-you-go
+            - Subscription
+            - One-time-purchase
+          example: Subscription
+        currency:
+          type: string
+          description: Currency code (ISO 4217).
+          example: USD
+        subscriptionDetails:
+          $ref: '#/components/schemas/SubscriptionDetails'
+        payAsYouGoDetails:
+          $ref: '#/components/schemas/PayAsYouGoDetails'
+        oneTimePurchaseDetails:
+          $ref: '#/components/schemas/OneTimePurchaseDetails'
+      required:
+        - pricingModel
+
+    SubscriptionDetails:
+      type: object
+      properties:
+        planName:
+          type: string
+          description: Subscription plan name (e.g., Basic, Pro, Enterprise).
+          example: Pro
+        monthlyPrice:
+          type: number
+          format: float
+          description: Monthly price of the subscription.
+          example: 99.99
+        yearlyPrice:
+          type: number
+          format: float
+          description: Yearly price of the subscription.
+          example: 999.99
+        features:
+          type: array
+          description: Features included in the subscription plan.
+          items:
+            type: string
+            example: "Unlimited API calls"
+      required:
+        - planName
+        - monthlyPrice
+        - yearlyPrice
+        - features
+
+    PayAsYouGoDetails:
+      type: object
+      properties:
+        unitPrice:
+          type: number
+          format: float
+          description: Price per unit (e.g., per API call).
+          example: 0.001
+        unitType:
+          type: string
+          description: Unit type (e.g., API call, data processed).
+          example: API call
+        freeTier:
+          type: object
+          description: Details of any free tier included.
+          properties:
+            units:
+              type: integer
+              description: Number of free units.
+              example: 1000
+            unitType:
+              type: string
+              description: Unit type for free tier.
+              example: API calls
+      required:
+        - unitPrice
+        - unitType
+
+    OneTimePurchaseDetails:
+      type: object
+      properties:
+        price:
+          type: number
+          format: float
+          description: One-time purchase price.
+          example: 499.99
+        licenseType:
+          type: string
+          description: License type associated with the purchase.
+          example: "Perpetual"
+      required:
+        - price
+        - licenseType
+
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: Error code.
+          format: int32
+          example: 400
+        message:
+          type: string
+          description: Error message.
+          example: "Invalid input"
+        details:
+          type: string
+          description: Additional details about the error.
+          example: "Invalid agentId format"
+      required:
+        - code
+        - message
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key authentication.  Provide your API key in the `X-API-Key` header.
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: "https://example.com/oauth/authorize"
+          tokenUrl: "https://example.com/oauth/token"
+          scopes:
+            "read:agents": Read agent listings
+            "write:agents":  Write agent listings
+            "admin:agents":  Administer agent listings
+
+  requestBodies:
+    AgentListingInput:
+      description: Agent listing data for creating or updating an agent.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AgentListing'
+            # Consider removing agentId as it should be generated by the server on creation.
+
+  responses:
+    AgentListingSuccess:
+      description: Successful operation. Returns the agent listing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AgentListing'
+    AgentListingListSuccess:
+      description: Successful operation. Returns a list of agent listings.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AgentListing'
+    NotFound:
+      description: Agent not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Invalid input.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: User does not have permission to access this resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+
+paths:
+  /agents:
+    get:
+      summary: Get all agent listings.
+      description: Retrieves a list of all available agents in the marketplace.  Supports pagination.
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+            description: Filter agents by category.  If not provided, all categories are returned.
+            enum:
+              - Finance
+              - Marketing
+              - Development
+              - Security
+              - Other
+          example: Finance
+        - in: query
+          name: search
+          schema:
+            type: string
+            description: Search term to filter agents by name, description, or tags.
+          example: "financial advisor"
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: Maximum number of results to return per page.  Defaults to 10.
+            default: 10
+            minimum: 1
+            maximum: 100
+          example: 25
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            description: The starting index of the results to return (for pagination).  Defaults to 0.
+            default: 0
+            minimum: 0
+          example: 0
+        - in: query
+          name: sortBy
+          schema:
+            type: string
+            description: Field to sort results by. Defaults to agentName.
+            enum:
+              - agentName
+              - agentRating
+              - agentCreatedAt
+            default: agentName
+          example: agentRating
+        - in: query
+          name: sortOrder
+          schema:
+            type: string
+            description: Sort order.  Defaults to ascending.
+            enum:
+              - asc
+              - desc
+            default: asc
+          example: desc
+      responses:
+        '200':
+          $ref: '#/components/responses/AgentListingListSuccess'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: []
+    post:
+      summary: Create a new agent listing.
+      description: Creates a new agent listing in the marketplace. Requires authentication.
+      requestBody:
+        $ref: '#/components/requestBodies/AgentListingInput'
+      responses:
+        '201':
+          $ref: '#/components/responses/AgentListingSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: [] # Or OAuth2, depending on the implementation
+
+  /agents/{agentId}:
+    get:
+      summary: Get agent listing by ID.
+      description: Retrieves a specific agent listing based on its ID.
+      parameters:
+        - in: path
+          name: agentId
+          schema:
+            type: string
+            description: The ID of the agent to retrieve.
+            format: uuid
+          required: true
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+      responses:
+        '200':
+          $ref: '#/components/responses/AgentListingSuccess'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: [] #  Or OAuth2, depending on the implementation
+    put:
+      summary: Update an existing agent listing.
+      description: Updates an existing agent listing. Requires authentication and appropriate permissions.
+      parameters:
+        - in: path
+          name: agentId
+          schema:
+            type: string
+            description: The ID of the agent to update.
+            format: uuid
+          required: true
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+      requestBody:
+        $ref: '#/components/requestBodies/AgentListingInput'
+      responses:
+        '200':
+          $ref: '#/components/responses/AgentListingSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: [] # Or OAuth2, depending on the implementation
+    delete:
+      summary: Delete an agent listing.
+      description: Deletes an agent listing.  Requires authentication and appropriate permissions.
+      parameters:
+        - in: path
+          name: agentId
+          schema:
+            type: string
+            description: The ID of the agent to delete.
+            format: uuid
+          required: true
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+      responses:
+        '204':
+          description: Agent listing deleted successfully.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: [] # Or OAuth2, depending on the implementation
+
+  /agents/{agentId}/reviews:
+    post:
+      summary: Submit a review for an agent.
+      description: Allows users to submit a review for an agent. Requires authentication.
+      parameters:
+        - in: path
+          name: agentId
+          schema:
+            type: string
+            description: The ID of the agent to review.
+            format: uuid
+          required: true
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+      requestBody:
+        description: Review details.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: number
+                  description: User's rating for the agent (1-5).
+                  format: float
+                  minimum: 1.0
+                  maximum: 5.0
+                  example: 4.0
+                comment:
+                  type: string
+                  description: User's comment on the agent.
+                  example: "Great agent!"
+              required:
+                - rating
+      responses:
+        '201':
+          description: Review submitted successfully.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - ApiKeyAuth: [] # Or OAuth2, depending on the implementation

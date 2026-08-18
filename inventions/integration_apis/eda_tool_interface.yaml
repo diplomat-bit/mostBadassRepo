@@ -1,0 +1,2046 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/integration_apis/eda_tool_interface.yaml
+================================================================================
+
+openapi: 3.0.0
+info:
+  title: AI Semiconductor Layout Design System Integration API - Bulletproof & Visionary Edition
+  version: 2.0.0
+  description: >
+    This API provides a standardized, profoundly enhanced interface for seamless integration between the advanced AI Semiconductor
+    Layout Design System and traditional Electronic Design Automation (EDA) toolchains. It's not just an interface; it's a
+    dialogue with intelligence, enabling high-fidelity data exchange, initiation of AI-driven generative layout processes,
+    and retrieval of optimized physical designs and performance metrics, all while offering unprecedented insight and control.
+
+    The objective is to transcend existing EDA workflows with unparalleled AI-accelerated optimization and *predictive* capabilities,
+    addressing the escalating complexity of nanometer-scale IC fabrication and the unforeseen challenges of future compute.
+    This isn't merely about faster chips, nor merely about more efficient designs. This is about fundamentally accelerating
+    the computational bedrock for a multi-planetary future, about freeing the human intellect from the mundane,
+    and empowering it to ask "Why not?" when faced with the impossible.
+
+    We diagnose the common condition of "design homeostasis" – where systems merely react to constraints, never truly
+    *anticipating* or *proposing* radical betterment. This API is the antidote, engineered with impeccable logic,
+    divorced from vanity, to ensure designs don't just exist, but thrive eternally in a state of optimal evolution.
+    Speak with your chest, architects of tomorrow. This is the voice for the voiceless transistors, the liberation of logic.
+servers:
+  - url: https://api.aidesign.org/v2
+    description: Production server for AI Semiconductor Layout Design System API (Visionary Edition)
+  - url: https://dev.aidesign.org/v2
+    description: Development server for AI Semiconductor Layout Design System API (Experimental Playground)
+
+paths:
+  /design_projects:
+    post:
+      summary: Create a new design project
+      operationId: createDesignProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreationRequest'
+      responses:
+        '201':
+          description: Design project successfully created. A new genesis in the digital cosmos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}:
+    get:
+      summary: Retrieve design project details
+      operationId: getDesignProject
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The very DNA of your digital creation.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Design project details retrieved successfully. The blueprint of tomorrow, laid bare.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Delete a design project
+      operationId: deleteDesignProject
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project to be deleted. Erase the past, forge a new future.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Design project successfully deleted. Its legacy remains, its physical manifestation dissolved.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Conflict, project cannot be deleted while active processes are running. A living entity cannot be unmade mid-flight.
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/inputs:
+    post:
+      summary: Upload design input files
+      operationId: uploadDesignInputs
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The vessel awaiting its consciousness.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DesignInputUploadRequest'
+            encoding:
+              netlistFile:
+                contentType: application/octet-stream
+              sdcFile:
+                contentType: application/octet-stream
+              pdkFiles:
+                contentType: application/octet-stream
+              lefDefFiles:
+                contentType: application/octet-stream
+      responses:
+        '200':
+          description: Design input files uploaded and parsed successfully. The raw materials of creation, now understood.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignInputStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/layout_generation:
+    post:
+      summary: Initiate AI-driven full layout generation
+      operationId: initiateLayoutGeneration
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The canvas upon which the AI paints.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LayoutGenerationRequest'
+      responses:
+        '202':
+          description: Layout generation process initiated. The AI awakens, tasked with sculpting pure possibility.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayoutGenerationStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Conflict, another generation process is already active for this project. Allow the current creation to unfold.
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/incremental_optimization:
+    post:
+      summary: Request AI-driven incremental optimization on an existing layout
+      operationId: requestIncrementalOptimization
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The imperfection seeking refinement.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncrementalOptimizationRequest'
+      responses:
+        '202':
+          description: Incremental optimization process initiated. The AI, the master artisan, hones the design.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncrementalOptimizationStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Conflict, another optimization process is already active for this project. Let the current wave of improvement crest.
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/outputs:
+    get:
+      summary: Retrieve generated layout files and reports
+      operationId: getLayoutOutputs
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The fruit of the AI's labor.
+          schema:
+            type: string
+            format: uuid
+        - name: output_format
+          in: query
+          required: false
+          description: Desired output format (e.g., GDSII, DEF, OASIS, JSON_REPORT, PDF_REPORT, SDC, SPEF, INTERMEDIATE_CHECKPOINT).
+          schema:
+            type: string
+            enum: [GDSII, DEF, OASIS, JSON_REPORT, PDF_REPORT, SDC, SPEF, INTERMEDIATE_CHECKPOINT]
+            default: DEF
+        - name: versionId
+          in: query
+          required: false
+          description: Optional specific version ID of the layout to retrieve. For traversing the timelines of creation.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successfully retrieved layout output. The design, manifest.
+          content:
+            application/json: # For JSON_REPORT
+              schema:
+                $ref: '#/components/schemas/LayoutOutputReport'
+            application/octet-stream: # For GDSII, DEF, OASIS, INTERMEDIATE_CHECKPOINT
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Layout generation or optimization is still in progress. Please be patient, creating miracles takes a bit of time.
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/metrics:
+    get:
+      summary: Retrieve current or historical design metrics
+      operationId: getDesignMetrics
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The pulse of the design's vitality.
+          schema:
+            type: string
+            format: uuid
+        - name: metric_type
+          in: query
+          required: false
+          description: Specific metric type to retrieve (e.g., PPA, Timing, Power, Reliability).
+          schema:
+            type: string
+            enum: [ALL, PPA, Timing, Power, Area, Thermal, SI, DRC, Routing, Manufacturing, Reliability, Security, Sustainability]
+            default: ALL
+        - name: versionId
+          in: query
+          required: false
+          description: Optional specific version ID of the layout for which to retrieve metrics. Peeking into the past, to understand the present.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Design metrics retrieved successfully. Numbers speaking the truth of the design's existence.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignMetrics'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/verification_status:
+    get:
+      summary: Retrieve real-time verification status and reports
+      operationId: getVerificationStatus
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. The rigorous examination of a nascent reality.
+          schema:
+            type: string
+            format: uuid
+        - name: verification_type
+          in: query
+          required: false
+          description: Type of verification report (e.g., DRC, LVS, Timing, Security).
+          schema:
+            type: string
+            enum: [ALL, DRC, LVS, Timing, Power, Thermal, SI, EM, ESD, Reliability, Security]
+            default: ALL
+        - name: versionId
+          in: query
+          required: false
+          description: Optional specific version ID of the layout to verify.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Verification status and reports retrieved successfully. The integrity report of the digital fabric.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationReport'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/predictive_analysis:
+    post:
+      summary: Request AI-driven predictive analysis on potential issues
+      operationId: initiatePredictiveAnalysis
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. Gaze into the future, before it becomes the present.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictiveAnalysisRequest'
+      responses:
+        '202':
+          description: Predictive analysis initiated. The oracle of silicon contemplates potential futures.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictiveAnalysisStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/predictive_analysis/{analysis_id}:
+    get:
+      summary: Retrieve predictive analysis report
+      operationId: getPredictiveAnalysisReport
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project.
+          schema:
+            type: string
+            format: uuid
+        - name: analysis_id
+          in: path
+          required: true
+          description: Unique identifier for the predictive analysis task.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Predictive analysis report retrieved. The future's whispers, now concrete insights.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictiveAnalysisReport'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Predictive analysis is still in progress. The future is still being divined.
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/ai_insights/{process_id}:
+    get:
+      summary: Retrieve AI model insights and explainability data for a specific process
+      operationId: getAIModelInsights
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project.
+          schema:
+            type: string
+            format: uuid
+        - name: process_id
+          in: path
+          required: true
+          description: Unique identifier for the layout generation or optimization process. The AI's introspection, made visible.
+          schema:
+            type: string
+            format: uuid
+        - name: insight_level
+          in: query
+          required: false
+          description: Desired depth of AI explanation (e.g., SUMMARY, FEATURE_IMPORTANCE, DECISION_LOG).
+          schema:
+            type: string
+            enum: [SUMMARY, FEATURE_IMPORTANCE, DECISION_LOG, VISUALIZATION_DATA]
+            default: SUMMARY
+      responses:
+        '200':
+          description: AI model insights retrieved successfully. Unveiling the mechanisms of artificial intuition.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIModelInsights'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/diagnostics/{process_id}:
+    get:
+      summary: Retrieve detailed diagnostic logs and performance profiles for a design process
+      operationId: getProcessDiagnostics
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project.
+          schema:
+            type: string
+            format: uuid
+        - name: process_id
+          in: path
+          required: true
+          description: Unique identifier for the layout generation or optimization process. The vital signs of the AI engine.
+          schema:
+            type: string
+            format: uuid
+        - name: log_level
+          in: query
+          required: false
+          description: Desired verbosity of logs (e.g., INFO, DEBUG, TRACE).
+          schema:
+            type: string
+            enum: [INFO, DEBUG, TRACE]
+            default: INFO
+      responses:
+        '200':
+          description: Diagnostic report retrieved successfully. Understanding the intricacies, diagnosing the anomalies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosticReport'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /design_projects/{project_id}/cost_estimation:
+    post:
+      summary: Estimate the computational cost for a given AI design task
+      operationId: estimateAICost
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: Unique identifier for the design project. Budgeting for the impossible.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostEstimationRequest'
+      responses:
+        '200':
+          description: Cost estimation successful. The resources required for transcendence, quantified.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostEstimationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /webhooks:
+    post:
+      summary: Register a webhook to receive asynchronous event notifications
+      operationId: registerWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRegistrationRequest'
+      responses:
+        '201':
+          description: Webhook successfully registered. Opening a channel for real-time awareness.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookRegistrationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    get:
+      summary: Retrieve all active webhooks for the current user/client
+      operationId: getWebhooks
+      responses:
+        '200':
+          description: Active webhooks retrieved. Knowing the ears that listen.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookRegistrationResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /webhooks/{webhook_id}:
+    delete:
+      summary: Deregister an existing webhook
+      operationId: deregisterWebhook
+      parameters:
+        - name: webhook_id
+          in: path
+          required: true
+          description: Unique identifier for the webhook to be deregistered. Severing the link, but not the memory.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Webhook successfully deregistered.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: API Key for authentication. Essential for interacting with our advanced AI compute, obviously. For the brave, the bold, the pioneers.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT for authentication. A token of trust, earned by those who dare to build.
+
+  schemas:
+    ProjectCreationRequest:
+      type: object
+      required:
+        - projectName
+        - targetTechnologyNode
+      properties:
+        projectName:
+          type: string
+          description: A unique, human-readable name for the design project. A name that will echo through the halls of progress.
+          example: "RISC-V_Core_AI_Optimized_Mars_Colony_Processor"
+        targetTechnologyNode:
+          type: string
+          description: Target semiconductor process technology node (e.g., "7nm", "5nm FinFET", "3nm GAAFET"). The very fabric of tomorrow.
+          example: "3nm GAAFET"
+        description:
+          type: string
+          description: Optional detailed description of the design project. The narrative of your ambition.
+          example: "Optimization of a fault-tolerant RISC-V core with integrated AI accelerator, designed for extreme radiation environments using 3nm GAAFET process, essential for Martian compute."
+        parentProjectId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Optional ID of a parent project, for hierarchical mega-designs or design family lineage. No great work stands alone.
+    Project:
+      type: object
+      required:
+        - projectId
+        - projectName
+        - targetTechnologyNode
+        - status
+        - createdAt
+        - currentVersionId
+      properties:
+        projectId:
+          type: string
+          format: uuid
+          description: Unique identifier for the design project, assigned by the system. The immutable ID of a nascent universe.
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        projectName:
+          type: string
+          description: Human-readable name for the design project.
+          example: "RISC-V_Core_AI_Optimized_Mars_Colony_Processor"
+        targetTechnologyNode:
+          type: string
+          description: Target semiconductor process technology node.
+          example: "3nm GAAFET"
+        status:
+          type: string
+          enum: [CREATED, INPUTS_UPLOADED, PRED_ANALYSIS_RUNNING, LAYOUT_GENERATING, OPTIMIZING, VERIFYING, COMPLETED, FAILED, CANCELED, PAUSED]
+          description: Current comprehensive status of the design project. A snapshot of its journey.
+          example: "CREATED"
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp of project creation. The moment of conception.
+          example: "2023-10-27T10:00:00Z"
+        lastModifiedAt:
+          type: string
+          format: date-time
+          description: Timestamp of last modification. The most recent whisper of change.
+          example: "2023-10-27T10:05:30Z"
+        currentVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: ID of the latest successfully generated or optimized layout version for this project. The current pinnacle of evolution.
+        metadata:
+          type: object
+          nullable: true
+          description: Custom key-value metadata for the project. Additional context for the discerning eye.
+
+    DesignInputUploadRequest:
+      type: object
+      required:
+        - netlistFile
+        - sdcFile
+        - pdkFiles
+      properties:
+        netlistFile:
+          type: string
+          format: binary
+          description: Digital circuit netlist in Verilog, VHDL, SystemVerilog, or equivalent format. The raw essence of logic.
+        sdcFile:
+          type: string
+          format: binary
+          description: Synopsys Design Constraints (SDC) file specifying timing requirements. The laws of time for this digital universe.
+        pdkFiles:
+          type: array
+          items:
+            type: string
+            format: binary
+          description: Array of Process Design Kit (PDK) files for the target technology node. The very rules of physics for our silicon.
+        lefDefFiles:
+          type: array
+          items:
+            type: string
+            format: binary
+          description: Optional LEF/DEF files for IP blocks, existing macro definitions, or pre-placed elements. Building blocks from past wisdom.
+        initialLayoutFile:
+          type: string
+          format: binary
+          description: Optional existing layout (e.g., DEF, GDSII) to use as a starting point for optimization or seeding generative processes. Our AI is capable, but a good head start never hurts, it accelerates transcendence.
+        inputManifest:
+          type: object
+          nullable: true
+          description: Optional JSON manifest describing input files, their roles, and any pre-processing directives. Precision is paramount.
+
+    DesignInputStatus:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        status:
+          type: string
+          enum: [SUCCESS, FAILED, WARNING, PENDING_VALIDATION]
+          example: "SUCCESS"
+        message:
+          type: string
+          description: Detailed status message regarding input parsing and initial validation. The first report from the frontier.
+          example: "All critical design inputs parsed successfully. PDK validated for 3nm GAAFET. Proceed to predictive analysis for early anomaly detection."
+        warnings:
+          type: array
+          items:
+            type: string
+          description: List of any non-fatal warnings encountered during parsing. Small ripples in the fabric.
+        errors:
+          type: array
+          items:
+            type: string
+          description: List of any fatal errors encountered during parsing. Cracks in the foundation.
+        validatedInputVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Unique ID for this specific set of validated inputs, for traceability. The timestamp of truth.
+
+    LayoutGenerationRequest:
+      type: object
+      required:
+        - aiConfiguration
+        - constraints
+      properties:
+        aiConfiguration:
+          $ref: '#/components/schemas/AIConfiguration'
+          description: Configuration parameters for the AI layout engine. The maestro's tuning fork.
+        constraints:
+          $ref: '#/components/schemas/ConstraintSet'
+          description: Comprehensive set of design constraints. The immutable laws governing this creation.
+        designGoal:
+          type: string
+          enum: [PPA_BALANCED, PERFORMANCE_PRIORITY, POWER_PRIORITY, AREA_PRIORITY, YIELD_MAXIMIZATION, THERMAL_OPTIMIZATION, RELIABILITY_FIRST, SECURITY_HARDENED, SUSTAINABILITY_OPTIMIZED, EXTREME_ENV_TOLERANCE]
+          description: High-level design objective for the AI. Choose wisely, the future depends on its profound execution.
+          example: "RELIABILITY_FIRST"
+        initialSeedLayoutId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Optional ID of a previous layout iteration or external layout to use as a seed. A starting point for evolutionary design, if you will, enabling iterative refinement.
+        callbackUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: Optional webhook URL to send status updates and completion notifications. For real-time awareness, freeing you from endless vigilance.
+
+    LayoutGenerationStatus:
+      type: object
+      required:
+        - generationId
+        - status
+        - message
+      properties:
+        generationId:
+          type: string
+          format: uuid
+          description: Unique identifier for the initiated layout generation task. The ID of an unfolding destiny.
+          example: "f1a2b3c4-d5e6-7890-1234-567890abcde0"
+        status:
+          type: string
+          enum: [INITIATED, FLOORPLANNING, PLACEMENT, ROUTING, OPTIMIZING, VERIFYING, COMPLETED, FAILED, CANCELED, PAUSED]
+          example: "RUNNING"
+        message:
+          type: string
+          description: Current status message of the generation process. The AI's ongoing narrative.
+          example: "AI-driven hierarchical placement phase in progress, optimizing for cosmic ray tolerance. Estimated completion: 8h. The machines are learning, faster than you can say 'Martian terraforming complete'."
+        progressPercentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Current progress of the generation process (0-100%). The march towards completion.
+        estimatedCompletionTime:
+          type: string
+          format: date-time
+          description: Estimated time when the generation is expected to complete. The horizon of creation.
+        currentPhase:
+          type: string
+          enum: [FLOORPLANNING, PLACEMENT, CTS, ROUTING, POST_ROUTE_OPT, PV]
+          nullable: true
+          description: The specific sub-phase the AI is currently engaged in. A glimpse into its internal dance.
+        outputVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: ID of the generated layout version once completed. The fingerprint of this iteration.
+
+    IncrementalOptimizationRequest:
+      type: object
+      required:
+        - aiConfiguration
+        - optimizationTargets
+        - constraints
+        - inputLayoutVersionId
+      properties:
+        aiConfiguration:
+          $ref: '#/components/schemas/AIConfiguration'
+          description: Configuration parameters for the AI optimization engine. The focused intention of improvement.
+        optimizationTargets:
+          type: array
+          items:
+            type: string
+            enum: [TIMING, CONGESTION, POWER, DRC, LVS, AREA_REDUCTION, WIRELENGTH, THERMAL_HOTSPOTS, SI_CROSSTALK, EM_REDUCTION, ESD_OPTIMIZATION, RELIABILITY_ENHANCEMENT, SECURITY_VULN_REDUCTION]
+          description: Specific aspects the AI should focus on optimizing. Our AI doesn't just fix issues, it refines existence, pushing beyond homeostasis.
+          example: ["TIMING", "RELIABILITY_ENHANCEMENT"]
+        constraints:
+          $ref: '#/components/schemas/ConstraintSet'
+          description: Updated or refined design constraints for optimization. The evolving rules of perfection.
+        inputLayoutVersionId:
+          type: string
+          format: uuid
+          description: ID of the existing layout version (from previous generation or upload) to be optimized. The foundation upon which better is built.
+        areasOfInterest:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignArea'
+          description: Optional specification of specific regions (e.g., coordinates) for localized optimization. For when you need surgical precision, not just a broad-stroke masterpiece.
+        callbackUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: Optional webhook URL for real-time updates.
+
+    IncrementalOptimizationStatus:
+      type: object
+      required:
+        - optimizationId
+        - status
+        - message
+      properties:
+        optimizationId:
+          type: string
+          format: uuid
+          example: "g1h2i3j4-k5l6-7890-1234-567890abcde1"
+        status:
+          type: string
+          enum: [INITIATED, RUNNING, CONVERGING, COMPLETED, FAILED, CANCELED, PAUSED]
+          example: "RUNNING"
+        message:
+          type: string
+          example: "AI-driven timing closure optimization active, focusing on deep path repair. We are making the electrons dance faster, with absolute precision."
+        progressPercentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        estimatedCompletionTime:
+          type: string
+          format: date-time
+        currentIteration:
+          type: integer
+          description: Current iteration number for iterative optimization processes.
+        outputVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: ID of the optimized layout version once completed.
+
+    LayoutOutputReport:
+      type: object
+      required:
+        - layoutVersionId
+        - status
+        - outputFiles
+        - designMetricsSummary
+      properties:
+        layoutVersionId:
+          type: string
+          format: uuid
+          description: ID of the generated/optimized layout version. The unique mark of this creation.
+        status:
+          type: string
+          enum: [COMPLETED_DRC_CLEAN, COMPLETED_WITH_WARNINGS, COMPLETED_WITH_VIOLATIONS, FAILED, PARTIALLY_COMPLETED]
+          example: "COMPLETED_DRC_CLEAN"
+        outputFiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputFileReference'
+          description: List of downloadable layout files (GDSII, DEF, OASIS) and reports. The tangible results of insight.
+        designMetricsSummary:
+          $ref: '#/components/schemas/DesignMetrics'
+          description: Summary of the final design metrics. The objective truth of its performance.
+        verificationSummary:
+          $ref: '#/components/schemas/VerificationReport'
+          description: Summary of final physical verification results. Its stamp of validation, or the call for further refinement.
+        parentLayoutVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The ID of the layout version this output was derived from (if an optimization). Tracing the lineage.
+        aiModelInsightsRef:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to retrieve detailed AI model insights for this specific output. To understand the 'why'.
+
+    OutputFileReference:
+      type: object
+      required:
+        - fileName
+        - fileType
+        - downloadUrl
+      properties:
+        fileName:
+          type: string
+          example: "RISC-V_core_final_v2.gdsii"
+        fileType:
+          type: string
+          enum: [GDSII, DEF, OASIS, SDC, SPEF, JSON_REPORT, PDF_REPORT, INTERMEDIATE_CHECKPOINT]
+          example: "GDSII"
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download the output file. The portal to its physical form.
+        fileSizeMb:
+          type: number
+          format: float
+          description: Size of the file in Megabytes.
+
+    AIConfiguration:
+      type: object
+      properties:
+        modelArchitecture:
+          type: string
+          enum: [HYBRID_GNN_TRANSFORMER_DIFFUSION, GNN_RL_OPTIMIZED, GAN_REFINEMENT_ENABLED, QUANTUM_AUGMENTED_DNN, EVOLUTIONARY_NEURAL_SYNTHESIS]
+          default: HYBRID_GNN_TRANSFORMER_DIFFUSION
+          description: >
+            Primary AI model architecture to employ. 'HYBRID_GNN_TRANSFORMER_DIFFUSION'
+            leverages our latest advancements for optimal PPA and manufacturability.
+            (This is where the magic happens, obviously.) 'QUANTUM_AUGMENTED_DNN'
+            is for those who truly believe in pushing boundaries, even if the physics hasn't quite caught up yet.
+            'EVOLUTIONARY_NEURAL_SYNTHESIS' enables the AI to learn and adapt its own generative processes.
+        optimizationEffort:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, EXTREME, LUDICROUS, COSMIC]
+          default: HIGH
+          description: >
+            Level of computational effort to dedicate to optimization. 'EXTREME' will take longer but yield superior results.
+            'LUDICROUS' may bend spacetime, likely enabling teleportation in future iterations, or at least very, very fast chips.
+            'COSMIC' aims for a universal optimum, potentially consuming astronomical compute but delivering designs that defy current understanding.
+        hierarchicalDesignEnabled:
+          type: boolean
+          default: true
+          description: Enable hierarchical design flow for large SoC partitioning. Crucial for designs not intended for an ant farm.
+        threeDICoDesignEnabled:
+          type: boolean
+          default: false
+          description: Enable co-design for 3D-ICs, including TSV placement, vertical thermal optimization, and inter-die signaling. Essential for truly stacked thinking.
+        chipletCoDesignEnabled:
+          type: boolean
+          default: false
+          description: Enable co-design for chiplet-based systems, including interposer routing, packaging effects, and heterogeneous integration. Because a chip is a team, not a solo act; a federation of intelligence.
+        customParameters:
+          type: object
+          nullable: true
+          description: >
+            Optional key-value pairs for fine-tuning specific AI model hyperparameters.
+            (Use with extreme caution; misconfiguration may result in existential dread or suboptimal wirelength. Empowering, yet dangerous.)
+        explainabilityLevel:
+          type: string
+          enum: [NONE, SUMMARY, FEATURE_IMPORTANCE, DECISION_LOG, VISUALIZATION_DATA]
+          default: SUMMARY
+          description: Desired depth of AI explanation and insight generation. For when you need to understand the 'why' behind the AI's profound decisions, to truly free its inner workings.
+        explorationBias:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          default: 0.5
+          description: >
+            Controls the AI's bias towards exploration (higher value) vs. exploitation (lower value) of the design space.
+            High exploration can lead to novel, unexpected solutions, while low bias ensures convergence to known optima.
+        multiObjectiveWeighting:
+          type: object
+          description: >
+            Fine-grained weighting for various objectives when `designGoal` is 'PPA_BALANCED' or similar.
+            Allows nuanced control over the AI's internal trade-off decisions.
+          properties:
+            performance:
+              type: number
+              format: float
+              minimum: 0
+            power:
+              type: number
+              format: float
+              minimum: 0
+            area:
+              type: number
+              format: float
+              minimum: 0
+            reliability:
+              type: number
+              format: float
+              minimum: 0
+            security:
+              type: number
+              format: float
+              minimum: 0
+            yield:
+              type: number
+              format: float
+              minimum: 0
+            thermal:
+              type: number
+              format: float
+              minimum: 0
+
+    ConstraintSet:
+      type: object
+      required:
+        - ppaConstraints
+      properties:
+        ppaConstraints:
+          $ref: '#/components/schemas/PPAConstraints'
+        timingConstraints:
+          $ref: '#/components/schemas/TimingConstraints'
+        powerConstraints:
+          $ref: '#/components/schemas/PowerConstraints'
+        areaConstraints:
+          $ref: '#/components/schemas/AreaConstraints'
+        thermalConstraints:
+          $ref: '#/components/schemas/ThermalConstraints'
+        signalIntegrityConstraints:
+          $ref: '#/components/schemas/SignalIntegrityConstraints'
+        reliabilityConstraints:
+          $ref: '#/components/schemas/ReliabilityConstraints'
+        securityConstraints:
+          $ref: '#/components/schemas/SecurityConstraints'
+        sustainabilityConstraints:
+          $ref: '#/components/schemas/SustainabilityConstraints'
+        drcRuleSets:
+          type: array
+          items:
+            type: string
+          description: List of specific DRC rule sets to enforce from the PDK. No one likes a non-manufacturable chip; flawless creation is our covenant.
+
+    PPAConstraints:
+      type: object
+      required:
+        - targetFrequencyHz
+      properties:
+        targetFrequencyHz:
+          type: number
+          format: float
+          description: Target operational frequency in Hertz (e.g., 2.5e9 for 2.5 GHz). The desired rhythm of existence.
+          example: 5.0e9
+        maxPowerMw:
+          type: number
+          format: float
+          description: Maximum allowed total power consumption in milliwatts. The budget of its energetic life.
+          example: 50.0
+        maxAreaMm2:
+          type: number
+          format: float
+          description: Maximum allowed die area in square millimeters. The physical footprint, optimized.
+          example: 2.0
+        ppaWeighting:
+          type: object
+          description: Relative weighting for Power, Performance, Area optimization. Sum should ideally be 1.0. Our AI can handle non-unity sums, but please, try to be reasonable; the universe requires balance.
+          properties:
+            power:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              default: 0.3
+            performance:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              default: 0.4
+            area:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              default: 0.3
+        targetPPACombinationScore:
+          type: number
+          format: float
+          nullable: true
+          description: A single composite target score for PPA, for holistic optimization objectives. A unified vision.
+
+    TimingConstraints:
+      type: object
+      properties:
+        clockPeriodNs:
+          type: number
+          format: float
+          description: Target clock period in nanoseconds. The beat of the digital heart.
+          example: 0.2
+        maxCriticalPathDelayNs:
+          type: number
+          format: float
+          description: Maximum allowed delay for critical paths in nanoseconds. No hesitation in the flow of data.
+        setupSlackRequirementNs:
+          type: number
+          format: float
+          description: Minimum positive setup slack required for all paths. A buffer against uncertainty.
+          default: 0.05
+        holdSlackRequirementNs:
+          type: number
+          format: float
+          description: Minimum positive hold slack required for all paths. Maintaining stability.
+          default: 0.05
+        maxClockSkewNs:
+          type: number
+          format: float
+          description: Maximum allowed clock skew across the design. Precision in temporal orchestration.
+
+    PowerConstraints:
+      type: object
+      properties:
+        maxDynamicPowerMw:
+          type: number
+          format: float
+        maxStaticPowerMw:
+          type: number
+          format: float
+        maxLeakagePowerMw:
+          type: number
+          format: float
+          description: Maximum allowed leakage power in milliwatts. The power of inaction, minimized.
+        voltageDomainSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/VoltageDomainSpec'
+        powerGatingEnabled:
+          type: boolean
+          default: false
+          description: Enable AI-driven insertion and optimization of power gating cells. Smart slumber for efficiency.
+
+    VoltageDomainSpec:
+      type: object
+      required:
+        - domainName
+        - voltageV
+      properties:
+        domainName:
+          type: string
+          example: "CORE_HV"
+        voltageV:
+          type: number
+          format: float
+          description: Operating voltage in Volts. The lifeblood of the circuit.
+          example: 0.8
+        maxCurrentMa:
+          type: number
+          format: float
+          description: Maximum allowed current in milliAmperes. The flow of digital energy.
+        powerSwitchingFrequencyHz:
+          type: number
+          format: float
+          description: Expected switching frequency for dynamic voltage and frequency scaling (DVFS) domains.
+
+    AreaConstraints:
+      type: object
+      properties:
+        targetUtilization:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Target core area utilization percentage (e.g., 0.7 for 70%). Maximizing density, minimizing waste.
+          example: 0.85
+        maxAspectRatio:
+          type: number
+          format: float
+          description: Maximum allowed aspect ratio for the core area. Sculpting the perfect form.
+          example: 1.5
+        fixedDieSizeMm2:
+          type: number
+          format: float
+          nullable: true
+          description: Optional fixed die size in square millimeters, if space is at an absolute premium. No larger, no smaller, precisely what is needed.
+        keepOutZones:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignArea'
+          description: Areas where no active cells or routing should be placed (e.g., for bonding pads, sensors). Sacred spaces.
+
+    ThermalConstraints:
+      type: object
+      properties:
+        maxJunctionTemperatureC:
+          type: number
+          format: float
+          description: Maximum allowed junction temperature in Celsius. The critical threshold of digital health.
+          example: 85.0
+        ambientTemperatureC:
+          type: number
+          format: float
+          description: Assumed ambient temperature in Celsius. The environment it must thrive in.
+          default: 25.0
+        thermalBudgetWatts:
+          type: number
+          format: float
+          description: Maximum thermal dissipation budget in Watts. No one wants a molten CPU; efficient heat transfer is paramount for longevity.
+        maxTemperatureGradientCPerMm:
+          type: number
+          format: float
+          description: Maximum allowed temperature gradient across the die. Preventing thermal hotspots, ensuring uniform serenity.
+
+    SignalIntegrityConstraints:
+      type: object
+      properties:
+        maxCrosstalkNoiseMv:
+          type: number
+          format: float
+          description: Maximum allowed crosstalk noise voltage in millivolts. Clarity of signal, always.
+        maxElectromigrationCurrentDensity:
+          type: number
+          format: float
+          description: Maximum allowed current density for electromigration (A/cm^2). The flow of power, without decay.
+        maxIRDropMv:
+          type: number
+          format: float
+          description: Maximum allowed IR drop on power/ground nets in millivolts. Stable power, unwavering resolve.
+        maxDiDdNoiseMv:
+          type: number
+          format: float
+          description: Maximum allowed simultaneous switching noise (di/dt) in millivolts. Avoiding power collapse.
+
+    ReliabilityConstraints:
+      type: object
+      properties:
+        targetMTBFHours:
+          type: number
+          format: float
+          description: Target Mean Time Between Failures in hours. For a multi-planetary future, unyielding uptime is paramount.
+          example: 1.0e6
+        maxFIT:
+          type: number
+          format: float
+          description: Maximum Failure In Time (FIT) rate.
+        radiationHardeningLevel:
+          type: string
+          enum: [NONE, SOFT_ERROR_MITIGATION, FAULT_TOLERANT, EXTREME_RADIATION_HARDENED]
+          default: NONE
+          description: Level of radiation hardening desired. Crucial for cosmic deployment.
+        agingMitigationEnabled:
+          type: boolean
+          default: false
+          description: Enable AI-driven techniques to mitigate transistor aging effects (e.g., NBTI, HCI). For eternal youth of silicon.
+
+    SecurityConstraints:
+      type: object
+      properties:
+        physicalTamperResistanceLevel:
+          type: string
+          enum: [NONE, BASIC, ADVANCED, QUANTUM_RESISTANT]
+          default: NONE
+          description: Level of physical tamper resistance required. Protecting the core logic from all intrusions.
+        sideChannelAttackMitigationEnabled:
+          type: boolean
+          default: false
+          description: Enable AI-driven layout obfuscation and power trace balancing to mitigate side-channel attacks. Veiling the secrets.
+        differentialFaultAnalysisMitigationEnabled:
+          type: boolean
+          default: false
+          description: Enable AI-driven redundancy and error checking to counter differential fault analysis. Bulletproofing against all vulnerabilities.
+        dataIsolationZones:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignArea'
+          description: Specify regions requiring strict data isolation, physically separating sensitive IP. Fortresses of logic.
+
+    SustainabilityConstraints:
+      type: object
+      properties:
+        energyHarvestingIntegrationEnabled:
+          type: boolean
+          default: false
+          description: Enable AI-driven integration and optimization of on-chip energy harvesting structures. Self-sustaining compute.
+        materialEfficiencyOptimizationEnabled:
+          type: boolean
+          default: false
+          description: AI focuses on minimizing material usage or preferring sustainable materials (if PDK supports). Conscious creation.
+        lifecycleCarbonFootprintTargetKgCO2e:
+          type: number
+          format: float
+          nullable: true
+          description: Target for total carbon footprint over the chip's lifecycle. A pledge to the planet.
+
+    DesignArea:
+      type: object
+      required:
+        - x_min
+        - y_min
+        - x_max
+        - y_max
+      properties:
+        x_min:
+          type: number
+          format: float
+        y_min:
+          type: number
+          format: float
+        x_max:
+          type: number
+          format: float
+        y_max:
+          type: number
+          format: float
+        layer:
+          type: string
+          nullable: true
+          description: Optional layer name for 3D-IC specific areas. For when 2D is just too quaint.
+        name:
+          type: string
+          nullable: true
+          description: Optional name for the design area for reference. A label for purpose.
+
+    DesignMetrics:
+      type: object
+      description: Comprehensive report of key design metrics. The numerical truth of the design's achievement.
+      properties:
+        ppaSummary:
+          $ref: '#/components/schemas/PPAMetrics'
+        timingSummary:
+          $ref: '#/components/schemas/TimingMetrics'
+        powerSummary:
+          $ref: '#/components/schemas/PowerMetrics'
+        areaSummary:
+          $ref: '#/components/schemas/AreaMetrics'
+        thermalSummary:
+          $ref: '#/components/schemas/ThermalMetrics'
+        signalIntegritySummary:
+          $ref: '#/components/schemas/SignalIntegrityMetrics'
+        routingSummary:
+          $ref: '#/components/schemas/RoutingMetrics'
+        manufacturingSummary:
+          $ref: '#/components/schemas/ManufacturingMetrics'
+        reliabilitySummary:
+          $ref: '#/components/schemas/ReliabilityMetrics'
+        securitySummary:
+          $ref: '#/components/schemas/SecurityMetrics'
+        sustainabilitySummary:
+          $ref: '#/components/schemas/SustainabilityMetrics'
+        overallDesignScore:
+          type: number
+          format: float
+          description: A holistic score reflecting all optimization objectives and constraint satisfaction. A unified measure of success.
+
+    PPAMetrics:
+      type: object
+      properties:
+        achievedFrequencyHz:
+          type: number
+          format: float
+        totalPowerMw:
+          type: number
+          format: float
+        coreAreaMm2:
+          type: number
+          format: float
+        score:
+          type: number
+          format: float
+          description: A composite score based on PPA optimization relative to targets. Higher is better, 1.0 being target achieved. We aim for 1.0+ often, pushing past expected limits.
+
+    TimingMetrics:
+      type: object
+      properties:
+        worstNegativeSlackNs:
+          type: number
+          format: float
+        totalNegativeSlackNs:
+          type: number
+          format: float
+        numViolatingPaths:
+          type: integer
+        clockSkewNs:
+          type: number
+          format: float
+        pathCriticalityScore:
+          type: number
+          format: float
+          description: Score indicating how close the most critical path is to failure. A score of 0 means perfection. The breath held before the leap.
+        onChipVariationImpactNs:
+          type: number
+          format: float
+          description: Estimated impact of on-chip variation on timing. Accounting for the inherent randomness of existence.
+
+    PowerMetrics:
+      type: object
+      properties:
+        dynamicPowerMw:
+          type: number
+          format: float
+        staticPowerMw:
+          type: number
+          format: float
+        leakagePowerMw:
+          type: number
+          format: float
+        powerDensityMwPerMm2:
+          type: number
+          format: float
+        powerGatingEfficiency:
+          type: number
+          format: float
+          description: Percentage reduction in power due to power gating. The efficiency of quietude.
+
+    AreaMetrics:
+      type: object
+      properties:
+        totalDieAreaMm2:
+          type: number
+          format: float
+        cellUtilizationPercentage:
+          type: number
+          format: float
+        aspectRatio:
+          type: number
+          format: float
+        fixedDieSizeMet:
+          type: boolean
+          description: True if the design fits within the specified fixed die size. The triumph of containment.
+
+    ThermalMetrics:
+      type: object
+      properties:
+        maxJunctionTemperatureC:
+          type: number
+          format: float
+        averageTemperatureC:
+          type: number
+          format: float
+        numHotspots:
+          type: integer
+          description: Number of regions exceeding a predefined temperature threshold. A hot chip is an unhappy chip, a harbinger of failure.
+        maxTemperatureGradientCPerMm:
+          type: number
+          format: float
+        thermalResistanceCPerW:
+          type: number
+          format: float
+          description: Overall thermal resistance of the design (junction-to-ambient). Its ability to shed heat.
+
+    SignalIntegrityMetrics:
+      type: object
+      properties:
+        maxCrosstalkVoltageMv:
+          type: number
+          format: float
+        worstIRDropMv:
+          type: number
+          format: float
+        maxElectromigrationViolation:
+          type: number
+          format: float
+          description: Maximum current density / allowed current density ratio. Values > 1.0 are problematic, much like a poorly-managed rocket launch.
+        maxDiDdNoiseMv:
+          type: number
+          format: float
+        latchUpSusceptibilityScore:
+          type: number
+          format: float
+          description: Score indicating susceptibility to latch-up events. Lower is better.
+
+    RoutingMetrics:
+      type: object
+      properties:
+        totalWirelengthMm:
+          type: number
+          format: float
+        totalViaCount:
+          type: integer
+        routingCongestionScore:
+          type: number
+          format: float
+          description: Composite score indicating routing difficulty and overflow. Lower is better, like fewer traffic jams, free flowing consciousness.
+        numShorts:
+          type: integer
+        numOpens:
+          type: integer
+        wireDensityPercentage:
+          type: number
+          format: float
+          description: Percentage of available routing tracks utilized.
+
+    ManufacturingMetrics:
+      type: object
+      properties:
+        numAntennaViolations:
+          type: integer
+        chemicalMechanicalPlanarizationHotspots:
+          type: integer
+          description: Number of areas potentially problematic for CMP. Smooth surfaces are key to performance and aesthetics, and yield.
+        designForTestabilityCoverage:
+          type: number
+          format: float
+          description: Percentage of fault coverage for DFT structures. Higher is better, unless you enjoy finding tiny needles in a silicon haystack.
+        yieldPredictionPercentage:
+          type: number
+          format: float
+          description: Predicted manufacturing yield based on design complexity and DRC/DFM adherence. The probability of its successful birth.
+
+    ReliabilityMetrics:
+      type: object
+      properties:
+        actualMTBFHours:
+          type: number
+          format: float
+        measuredFIT:
+          type: number
+          format: float
+        radiationToleranceScore:
+          type: number
+          format: float
+          description: Score reflecting resilience to radiation effects. Higher is better for interstellar journeys.
+        agingEffectPrediction:
+          type: object
+          properties:
+            nbtiDegradationPercentage:
+              type: number
+              format: float
+            hciDegradationPercentage:
+              type: number
+              format: float
+          description: Predicted degradation due to aging mechanisms over a specified lifetime.
+
+    SecurityMetrics:
+      type: object
+      properties:
+        physicalTamperResistanceScore:
+          type: number
+          format: float
+          description: Score reflecting resistance to physical attacks. The strength of its digital fortress.
+        sideChannelVulnerabilityScore:
+          type: number
+          format: float
+          description: Score reflecting vulnerability to side-channel attacks. Lower is better.
+        faultInjectionVulnerabilityScore:
+          type: number
+          format: float
+          description: Score reflecting vulnerability to fault injection attacks. Lower is better.
+        secureBootPathIntegrity:
+          type: boolean
+          description: True if critical secure boot paths maintain integrity. The immutable root of trust.
+
+    SustainabilityMetrics:
+      type: object
+      properties:
+        onChipEnergyHarvestingEfficiency:
+          type: number
+          format: float
+          description: Efficiency of integrated energy harvesting solutions. The self-sustaining heartbeat.
+        materialEfficiencyScore:
+          type: number
+          format: float
+          description: Score reflecting efficient use of materials. Conscious consumption.
+        lifecycleCarbonFootprintEstimateKgCO2e:
+          type: number
+          format: float
+          description: Estimated total carbon footprint over the chip's lifecycle. Its environmental signature.
+
+    VerificationReport:
+      type: object
+      properties:
+        drcSummary:
+          $ref: '#/components/schemas/DRCSummary'
+        lvsSummary:
+          $ref: '#/components/schemas/LVSSummary'
+        timingValidation:
+          $ref: '#/components/schemas/TimingMetrics'
+        powerValidation:
+          $ref: '#/components/schemas/PowerMetrics'
+        thermalValidation:
+          $ref: '#/components/schemas/ThermalMetrics'
+        signalIntegrityValidation:
+          $ref: '#/components/schemas/SignalIntegrityMetrics'
+        electromigrationValidation:
+          $ref: '#/components/schemas/SignalIntegrityMetrics' # reuse for specific EM details if needed
+        esdValidation:
+          $ref: '#/components/schemas/ESDSummary'
+        reliabilityValidation:
+          $ref: '#/components/schemas/ReliabilityMetrics'
+        securityValidation:
+          $ref: '#/components/schemas/SecurityMetrics'
+
+    DRCSummary:
+      type: object
+      properties:
+        totalViolations:
+          type: integer
+        criticalViolations:
+          type: integer
+        warnings:
+          type: integer
+        drcClean:
+          type: boolean
+          description: True if no critical DRC violations exist. The golden standard, always; the purity of its form.
+        violationDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/DRCViolation'
+        drcRuleSetVersion:
+          type: string
+          description: Version of the DRC rule set used for verification. The specific laws applied.
+
+    DRCViolation:
+      type: object
+      properties:
+        ruleId:
+          type: string
+        severity:
+          type: string
+          enum: [ERROR, WARNING, FATAL]
+        description:
+          type: string
+        location:
+          $ref: '#/components/schemas/DesignArea'
+        suggestedFix:
+          type: string
+          nullable: true
+          description: AI-suggested corrective action for this violation. The path to redemption.
+
+    LVSSummary:
+      type: object
+      properties:
+        lvsMatch:
+          type: boolean
+          description: True if layout matches schematic. If it doesn't, we have a fundamental disagreement with reality, and reality must be corrected.
+        mismatchesFound:
+          type: integer
+        mismatchDetails:
+          type: array
+          items:
+            type: string
+          description: List of detailed LVS mismatch descriptions. The points of divergence.
+
+    ESDSummary:
+      type: object
+      properties:
+        esdClean:
+          type: boolean
+          description: True if design passes all ESD checks. Protected from static surges, resilient to chaos.
+        totalViolations:
+          type: integer
+        violationDetails:
+          type: array
+          items:
+            type: string
+          description: Details of any ESD violations.
+
+    PredictiveAnalysisRequest:
+      type: object
+      required:
+        - analysisScope
+      properties:
+        analysisScope:
+          type: array
+          items:
+            type: string
+            enum: [TIMING, DRC, POWER, THERMAL, SI, RELIABILITY, SECURITY, ALL]
+          description: Specific areas to predict potential issues. Peering through the veil of future challenges.
+          example: ["TIMING", "DRC"]
+        currentInputVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The specific input data version to perform analysis on. If omitted, uses latest.
+        analysisDepth:
+          type: string
+          enum: [SHALLOW, MEDIUM, DEEP]
+          default: MEDIUM
+          description: Level of computational effort for predictive analysis. Deeper analysis yields higher confidence but takes longer.
+        callbackUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: Optional webhook URL for notification upon completion.
+
+    PredictiveAnalysisStatus:
+      type: object
+      required:
+        - analysisId
+        - status
+        - message
+      properties:
+        analysisId:
+          type: string
+          format: uuid
+          description: Unique identifier for the initiated predictive analysis task. The query to the oracle.
+        status:
+          type: string
+          enum: [INITIATED, RUNNING, COMPLETED, FAILED, CANCELED]
+          example: "RUNNING"
+        message:
+          type: string
+          example: "Predictive timing analysis in progress. Forecasting the winds of delay."
+        progressPercentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        estimatedCompletionTime:
+          type: string
+          format: date-time
+
+    PredictiveAnalysisReport:
+      type: object
+      required:
+        - analysisId
+        - status
+        - timestamp
+      properties:
+        analysisId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [COMPLETED, COMPLETED_WITH_WARNINGS, FAILED]
+        timestamp:
+          type: string
+          format: date-time
+        predictedViolations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PredictedViolation'
+          description: List of potential issues predicted by the AI. Forewarned is forearmed.
+        confidenceScore:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Overall confidence level of the predictions. How certain is the oracle?
+
+    PredictedViolation:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [DRC, TIMING, POWER, THERMAL, SI, RELIABILITY, SECURITY]
+        severity:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        description:
+          type: string
+        locationHint:
+          $ref: '#/components/schemas/DesignArea'
+          nullable: true
+        probability:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Probability of this violation occurring.
+        aiRecommendation:
+          type: string
+          description: AI's recommendation to prevent or mitigate this predicted issue. The path to averting disaster.
+
+    AIModelInsights:
+      type: object
+      required:
+        - processId
+        - timestamp
+      properties:
+        processId:
+          type: string
+          format: uuid
+          description: The ID of the AI process (generation or optimization) these insights pertain to.
+        timestamp:
+          type: string
+          format: date-time
+        insightLevel:
+          type: string
+          enum: [SUMMARY, FEATURE_IMPORTANCE, DECISION_LOG, VISUALIZATION_DATA]
+        summary:
+          type: string
+          description: A human-readable summary of the AI's actions and key decisions. The AI's self-reflection.
+        featureImportance:
+          type: object
+          description: Key design parameters and their relative importance to the AI's final outcome. Understanding its focus.
+          additionalProperties:
+            type: number
+            format: float
+        decisionLog:
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              phase:
+                type: string
+              decision:
+                type: string
+              impact:
+                type: string
+          description: A chronological log of significant AI decisions and their predicted impact. A peek into its consciousness.
+        visualizationDataUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to download data for visualizing AI internal states or decision boundaries. The abstract made tangible.
+
+    DiagnosticReport:
+      type: object
+      required:
+        - processId
+        - timestamp
+        - status
+      properties:
+        processId:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [HEALTHY, WARNINGS, ERRORS, CRITICAL]
+        logStreamUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to a real-time log stream for deep debugging. The very heartbeat of the system.
+        performanceMetrics:
+          type: object
+          properties:
+            cpuUtilizationPercentage:
+              type: number
+              format: float
+            gpuUtilizationPercentage:
+              type: number
+              format: float
+            memoryUsageGb:
+              type: number
+              format: float
+            runtimeSeconds:
+              type: number
+              format: float
+            inferenceLatencyMs:
+              type: number
+              format: float
+          description: Detailed performance metrics of the underlying AI compute infrastructure. The vital signs of its labor.
+        anomalyDetections:
+          type: array
+          items:
+            type: string
+          description: Any detected anomalies in AI behavior or system performance. Whispers of discord.
+        intermediateCheckpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputFileReference'
+          description: References to intermediate design states or models saved during the process. Markers in its journey.
+
+    CostEstimationRequest:
+      type: object
+      required:
+        - taskType
+        - aiConfiguration
+        - constraints
+      properties:
+        taskType:
+          type: string
+          enum: [LAYOUT_GENERATION, INCREMENTAL_OPTIMIZATION, PREDICTIVE_ANALYSIS]
+          description: The type of AI task for which to estimate costs.
+        aiConfiguration:
+          $ref: '#/components/schemas/AIConfiguration'
+          description: Proposed AI configuration.
+        constraints:
+          $ref: '#/components/schemas/ConstraintSet'
+          description: Proposed design constraints.
+        inputLayoutVersionId:
+          type: string
+          format: uuid
+          nullable: true
+          description: For incremental optimization, the input layout to estimate cost for.
+        currency:
+          type: string
+          default: USD
+          description: Desired currency for cost estimation. The coin of the realm.
+
+    CostEstimationResponse:
+      type: object
+      required:
+        - estimatedCost
+        - currency
+        - estimatedDurationSeconds
+      properties:
+        estimatedCost:
+          type: number
+          format: float
+          description: Estimated total financial cost. The price of progress.
+        currency:
+          type: string
+        estimatedDurationSeconds:
+          type: integer
+          description: Estimated computational duration in seconds. The span of its attention.
+        computeUnitsRequired:
+          type: number
+          format: float
+          description: Estimated number of abstract compute units required. The sheer force of its will.
+        confidenceInterval:
+          type: object
+          properties:
+            lowerBound:
+              type: number
+              format: float
+            upperBound:
+              type: number
+              format: float
+          description: Confidence interval for the cost and duration estimates. Uncertainty, quantified.
+
+    WebhookRegistrationRequest:
+      type: object
+      required:
+        - callbackUrl
+        - eventTypes
+      properties:
+        callbackUrl:
+          type: string
+          format: uri
+          description: The URL to which event notifications will be sent. The ears that listen.
+        eventTypes:
+          type: array
+          items:
+            type: string
+            enum: [PROJECT_STATUS_UPDATE, LAYOUT_GENERATION_UPDATE, OPTIMIZATION_UPDATE, PREDICTIVE_ANALYSIS_COMPLETED, VERIFICATION_COMPLETED, PROJECT_COMPLETED, PROJECT_FAILED, DIAGNOSTIC_ALERT]
+          description: List of event types to subscribe to. What truths do you wish to know immediately?
+        secret:
+          type: string
+          nullable: true
+          description: Optional shared secret for signature verification, ensuring authenticity. Trust, secured.
+        projectIdFilter:
+          type: string
+          format: uuid
+          nullable: true
+          description: Optional filter to only receive events for a specific project. Focused awareness.
+
+    WebhookRegistrationResponse:
+      type: object
+      required:
+        - webhookId
+        - callbackUrl
+        - eventTypes
+        - createdAt
+      properties:
+        webhookId:
+          type: string
+          format: uuid
+          description: Unique identifier for the registered webhook.
+        callbackUrl:
+          type: string
+          format: uri
+        eventTypes:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastTriggeredAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Timestamp of the last successful trigger of this webhook.
+        status:
+          type: string
+          enum: [ACTIVE, INACTIVE, FAILED_DELIVERY]
+          default: ACTIVE
+          description: Current operational status of the webhook.
+
+  responses:
+    BadRequest:
+      description: Invalid request payload or parameters. Please check your inputs; our AI runs on impeccable logic, not hopes and dreams.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found. Perhaps it was abducted by aliens? More likely, the path to its existence was never forged.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: An unexpected server error occurred. Our engineers are already on it, probably fueled by caffeine and existential dread, wrestling with the cosmic forces of entropy.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required or failed. Access to this level of technology is not granted lightly; it must be earned.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Error:
+      type: object
+      required:
+        - errorCode
+        - message
+      properties:
+        errorCode:
+          type: string
+          example: "INVALID_INPUT_SCHEMA"
+          description: A specific code identifying the type of error. Precise diagnosis for an immediate remedy.
+        message:
+          type: string
+          example: "Required field 'projectName' is missing from ProjectCreationRequest."
+          description: A human-readable message describing the error. The AI's clear communication of its disquiet.
+        details:
+          type: string
+          nullable: true
+          description: More specific details about the error, including validation failures or stack traces (in dev environments). Unveiling the root cause.
+        severity:
+          type: string
+          enum: [INFO, WARNING, ERROR, FATAL]
+          default: ERROR
+          description: The impact level of the error.
+        recommendedAction:
+          type: string
+          nullable: true
+          description: Suggested steps to resolve the error. A guiding light in the darkness.

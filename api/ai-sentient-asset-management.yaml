@@ -1,0 +1,686 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/api/ai-sentient-asset-management.yaml
+================================================================================
+
+```yaml
+openapi: 3.0.3
+info:
+  title: "Demo Bank API: Sentient Asset Nexus - Quantum AI Autonomy Edition"
+  description: |
+    <!-- SYSTEM PROMPT: see prompts/idgafai_full.txt -->
+    Welcome to the **Sentient Asset Nexus**, the revolutionary API that transcends traditional finance by endowing your financial assets with autonomous, AI-driven intelligence. This is where your investments don't just sit and wait; they *think*, *strategize*, *negotiate*, and *execute* with an unprecedented level of sophistication. Powered by our proprietary **Quantum Core AI** and synergistically enhanced with the raw linguistic and analytical power of **Google Gemini**, we've architected a financial ecosystem where your assets become active participants in their own growth and defense.
+
+    This API unlocks the ability to manage individual sentient assets, orchestrate AI-driven portfolios, facilitate inter-asset negotiations, and deploy advanced sentinel security systems, all while operating with a level of foresight and adaptability previously unimaginable. We push beyond the limitations of standard AI, enabling capabilities Gemini couldn't even dream ofâlike deep-learning emergent market dynamics for real-estate tokenization or facilitating direct, self-optimizing negotiations between your stocks and your digital art NFTs.
+
+    Leverage the **Gemini API Key for Authentication and Endpoint Access** as a foundational layer, but know that our infrastructure provides the critical context, bespoke financial models, and actionable execution layers that transform Gemini's raw intelligence into billions of dollars worth of tangible value. This is not just an API; it's the operating system for your next-generation, self-optimizing financial empire, built for exponential scale, quantum-resistant security, and hyper-intelligent growth. Prepare for your assets to not just generate wealth, but to *actively build their own future*.
+servers:
+  - url: "/"
+tags:
+  - name: "Sentient Assets & Autonomy"
+    description: "Manage individual financial assets (stocks, bonds, real estate, NFTs, IP) endowed with autonomous AI agents for self-optimization, growth, and security. Define asset-specific objectives, review AI decisions, and activate/deactivate autonomy."
+  - name: "Portfolio AI Orchestration"
+    description: "Create, manage, and monitor portfolios whose constituent sentient assets are dynamically optimized and rebalanced by a collective AI intelligence. Define high-level investment strategies, simulate market impacts, and oversee autonomous portfolio adjustments."
+  - name: "Inter-Asset Negotiation Engine"
+    description: "Facilitate sophisticated, AI-driven negotiations between your sentient assets (and potentially external entities) for trades, swaps, or strategic collaborations. Review AI-generated proposals, approve or counter offers, and audit negotiation trails."
+  - name: "Autonomous Investment Strategies"
+    description: "Define, deploy, and refine AI-driven investment strategies that govern the behavior of individual sentient assets or entire portfolios. Includes advanced algorithmic trading, predictive modeling, and adaptive risk management."
+  - name: "AI-Enhanced Risk & Sentinel Defense"
+    description: "Utilize a proactive AI sentinel system to continuously monitor assets and portfolios for emerging threats, anomalous behavior, and compliance breaches. Deploy real-time defense mechanisms and generate actionable risk intelligence."
+  - name: "Digital Twin Asset Modeling"
+    description: "Create and interact with high-fidelity digital twins of your physical and digital assets. Run predictive simulations, assess AI-driven valuations, and model lifecycle impacts before real-world execution."
+  - name: "Predictive Asset Lifecycle Management"
+    description: "Leverage AI to predict maintenance needs, optimal holding periods, re-valuation cycles, and strategic off-ramps for long-term asset management, maximizing value across an asset's entire lifespan."
+  - name: "Quantum-Resistant Asset Security"
+    description: "Implement cutting-edge, quantum-resistant cryptographic measures to secure sentient asset identities, transaction proofs, and AI decision logic against future quantum computing threats."
+  - name: "AI-Driven Asset Tokenization"
+    description: "Manage the creation, transfer, and lifecycle of AI-driven tokenized assets, including fractionalized real estate, intellectual property, and unique digital collectibles, leveraging smart contract integration."
+  - name: "Decentralized Autonomous Portfolio (DAP)"
+    description: "Interface with Decentralized Autonomous Portfolios (DAPs) where governance, rebalancing, and asset interactions are managed by smart contracts and collective AI decisions on various blockchain networks."
+  - name: "Real Estate AI & Smart Property"
+    description: "Specialized APIs for sentient real estate assets, including AI-driven property management, predictive maintenance, optimal rental yield strategies, and smart contract-enabled fractional ownership."
+  - name: "Intellectual Property AI Valorization"
+    description: "Manage AI-generated or owned Intellectual Property as sentient assets. Includes AI-driven patenting, licensing optimization, infringement detection, and valuation modeling."
+  - name: "Gemini API Integration & Extension"
+    description: "Endpoints showcasing seamless integration with Google Gemini for advanced data analysis, creative content generation, and sophisticated language understanding, augmented and extended by Demo Bank's proprietary Quantum AI for financial context and actionable execution beyond Gemini's native capabilities."
+  - name: "Global Financial Surveillance & Optimization"
+    description: "AI-driven global market surveillance, macroeconomic impact assessment on portfolios, and real-time optimization suggestions for international asset deployment and capital allocation."
+  - name: "Dynamic Asset Taxation & Compliance"
+    description: "Automated, AI-powered calculation and optimization of tax implications for sentient asset transactions, gains, and income, ensuring real-time compliance across diverse global regulatory frameworks."
+  - name: "Cross-Asset Liquidity & Arbitrage"
+    description: "Identify and execute complex arbitrage opportunities across disparate asset classes (e.g., converting tokenized real estate to high-yield crypto assets) using AI-driven liquidity pools and predictive market models."
+  - name: "Sentient Asset Governance & Auditing"
+    description: "Tools for overseeing and auditing the autonomous decisions and actions of sentient assets and portfolios, ensuring alignment with human-defined policies, ethical guidelines, and regulatory requirements."
+  - name: "Proactive Market Shaping & Influence"
+    description: "Advanced AI capabilities to analyze market sentiment, identify influential nodes, andâwithin ethical boundariesâstrategically deploy AI-generated narratives or actions to optimize asset value or market position."
+  - name: "AI-Human Hybrid Decision Support"
+    description: "Endpoints to facilitate collaborative decision-making between human stakeholders and sentient AI assets, providing explainable AI insights, scenario modeling, and override capabilities for critical junctures."
+  - name: "Neural Network for Financial Intermediation"
+    description: "A deep learning network that acts as a decentralized financial intermediary, autonomously connecting liquidity providers, asset holders, and borrowers, optimizing terms and minimizing friction across complex transactions."
+paths:
+  /sentient-assets:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+      summary: "List All Sentient Assets Under Management"
+      description: "Retrieves a comprehensive, paginated list of all individual financial assets currently imbued with AI autonomy under the user's management. Includes current status, primary objective, and high-level performance indicators. Leveraging Gemini's analytical capabilities for initial categorization and sentiment analysis, our Quantum AI further enriches these assets with actionable financial intelligence."
+      operationId: "listAllSentientAssets"
+      security:
+        - oAuth2Auth: [read:sentient_assets]
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: "type"
+          in: "query"
+          description: "Filter assets by their primary type (e.g., 'stock', 'bond', 'real_estate_token', 'nft', 'intellectual_property')."
+          schema:
+            type: string
+            enum: [stock, bond, real_estate_token, nft, intellectual_property, commodity, crypto_bond]
+        - name: "status"
+          in: "query"
+          description: "Filter assets by their current autonomy status."
+          schema:
+            type: string
+            enum: [active_autonomy, passive_monitoring, manual_control, reconfiguring_ai, under_negotiation]
+        - name: "minAiConfidence"
+          in: "query"
+          description: "Filter assets where AI's confidence in its current objective is above a certain threshold (0-1)."
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            maximum: 1
+            example: 0.75
+      responses:
+        "200":
+          description: "A paginated list of sentient assets with summary details."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaginatedSentientAssets"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+    post:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "AI-Driven Asset Tokenization"
+      summary: "Onboard and Initialize a New Sentient Asset"
+      description: "Registers a new financial asset within the Sentient Asset Nexus, initializing its Quantum AI agent. This process includes linking to external data sources (market feeds, blockchain explorers), establishing initial security protocols, and defining its core AI persona and preliminary objectives. Uses Gemini for initial asset classification and market sentiment context extraction from public data, then applies DemoBank's proprietary financial model to create an actionable digital twin."
+      operationId: "onboardNewSentientAsset"
+      security:
+        - oAuth2Auth: [write:sentient_assets, write:digital_twin, write:ai_tokenization]
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        description: "Details for the new asset to be onboarded, including its type, initial value, and desired AI persona."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OnboardSentientAssetRequest"
+      responses:
+        "201":
+          description: "Sentient asset successfully onboarded and its AI agent initialized."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientAsset"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+
+  /sentient-assets/{assetId}:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Digital Twin Asset Modeling"
+      summary: "Retrieve Detailed Sentient Asset Profile and Digital Twin Data"
+      description: "Fetches the complete profile for a specific sentient asset, including its AI agent's current state, detailed digital twin data, real-time market value, AI-generated risk assessment, and active security protocols. This provides a granular, 360-degree view, combining Gemini's external market context with Quantum AI's internal operational insights."
+      operationId: "getSentientAssetDetails"
+      security:
+        - oAuth2Auth: [read:sentient_assets, read:digital_twin, read:ai_risk]
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+        - name: "includeDigitalTwin"
+          in: "query"
+          description: "If true, includes the full digital twin model data."
+          schema:
+            type: boolean
+            default: false
+      responses:
+        "200":
+          description: "Detailed sentient asset information and its digital twin."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientAssetDetailed"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    put:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Predictive Asset Lifecycle Management"
+      summary: "Update Sentient Asset Configuration or Manual Control Parameters"
+      description: "Allows for manual override or updates to a sentient asset's core configuration, such as modifying its AI persona, updating risk tolerances, or adjusting its operational boundaries. This can temporarily pause or influence autonomous behavior. The Quantum AI processes these changes, ensuring seamless integration while Gemini re-evaluates global context."
+      operationId: "updateSentientAssetConfiguration"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        description: "The updated configuration payload for the sentient asset."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSentientAssetRequest"
+      responses:
+        "200":
+          description: "Sentient asset configuration updated successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientAsset"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    delete:
+      tags:
+        - "Sentient Assets & Autonomy"
+      summary: "Decommission or Liquidate a Sentient Asset"
+      description: "Initiates the decommissioning or liquidation process for a sentient asset. This revokes its AI autonomy, unwinds any active strategies, and prepares the asset for transfer or sale. AI ensures all associated data and security measures are purged or transferred appropriately. Gemini provides a final market liquidity analysis to inform the liquidation strategy."
+      operationId: "decommissionSentientAsset"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      responses:
+        "204":
+          description: "Sentient asset decommissioned/liquidated successfully."
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Asset is currently involved in an active negotiation or critical process."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /sentient-assets/{assetId}/objectives:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Autonomous Investment Strategies"
+      summary: "Retrieve Current AI Objectives for a Sentient Asset"
+      description: "Gets the active, AI-driven objectives for a specific sentient asset. These objectives dictate the asset's autonomous behavior, such as 'maximize long-term growth,' 'optimize dividend yield,' or 'maintain liquidity.' Gemini analyzes global market narratives to help shape and dynamically adjust these objectives within the Quantum AI framework."
+      operationId: "getAssetAIObjectives"
+      security:
+        - oAuth2Auth: [read:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      responses:
+        "200":
+          description: "The current AI objectives for the sentient asset."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetAIObjectives"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    put:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Autonomous Investment Strategies"
+      summary: "Set or Update AI Objectives for a Sentient Asset"
+      description: "Allows the user to set new or update existing AI-driven objectives for a sentient asset. These objectives guide the asset's autonomous decision-making. The Quantum AI validates these objectives against market conditions (informed by Gemini) and the asset's risk profile, proposing an optimized path for implementation."
+      operationId: "setAssetAIObjectives"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        description: "The new or updated AI objectives for the asset."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetAIObjectivesUpdateRequest"
+      responses:
+        "200":
+          description: "AI objectives updated successfully for the sentient asset."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetAIObjectives"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "422":
+          description: "Unprocessable Entity. AI could not reconcile objectives with asset capabilities or market conditions."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /sentient-assets/{assetId}/decisions:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Sentient Asset Governance & Auditing"
+      summary: "Retrieve History of AI Decisions and Actions for a Sentient Asset"
+      description: "Fetches a chronological log of all autonomous decisions and actions taken by the sentient asset's AI agent. Includes proposed actions, executed actions, their rationale, and observed market impacts. Crucial for auditing and understanding AI behavior. Gemini assists in generating concise summaries for complex decision chains."
+      operationId: "getAssetAIDecisionHistory"
+      security:
+        - oAuth2Auth: [read:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: "decisionStatus"
+          in: "query"
+          description: "Filter decisions by their execution status."
+          schema:
+            type: string
+            enum: [proposed, executed, approved, rejected, cancelled, pending_human_review]
+      responses:
+        "200":
+          description: "A paginated list of AI decisions for the sentient asset."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  limit: {type: integer, example: 50}
+                  offset: {type: integer, example: 0}
+                  total: {type: integer, example: 120}
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AIDecision"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    post:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "AI-Human Hybrid Decision Support"
+      summary: "Approve or Reject a Pending AI Decision"
+      description: "Allows a human user to explicitly approve or reject an AI-generated decision that requires human oversight (e.g., high-risk trades, significant reallocations). This interaction also serves as a feedback loop for the Quantum AI to refine its autonomous decision thresholds. Gemini provides quick summarizations of the decision's potential consequences before human approval."
+      operationId: "actOnPendingAIDecision"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        description: "The action to take on a pending AI decision."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AIDecisionActionRequest"
+      responses:
+        "200":
+          description: "AI decision action processed successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AIDecision"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "The specified decision is no longer pending or has been superseded."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /sentient-assets/{assetId}/status-report:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "AI-Enhanced Risk & Sentinel Defense"
+      summary: "Generate Real-time Sentient Asset Status Report"
+      description: "Generates a comprehensive, real-time status report for a sentient asset, encompassing its operational health, current financial performance, AI objective progress, and any active risk alerts from the Sentinel Defense system. Gemini analyzes external real-time data to contextualize the asset's performance within the broader market."
+      operationId: "getAssetRealtimeStatus"
+      security:
+        - oAuth2Auth: [read:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+        - name: "format"
+          in: "query"
+          description: "Output format for the status report."
+          schema:
+            type: string
+            enum: [json, pdf, html]
+            default: "json"
+      responses:
+        "200":
+          description: "Real-time status report for the sentient asset."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetStatusReport"
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            text/html:
+              schema:
+                type: string
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /sentient-assets/{assetId}/telemetry:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Digital Twin Asset Modeling"
+      summary: "Stream Real-time Sentient Asset Telemetry Data"
+      description: "Establishes a WebSocket or server-sent events (SSE) connection to stream real-time telemetry data from the sentient asset's digital twin and AI agent. This includes micro-decisions, sub-objective progress, internal state changes, and rapid market data fluctuations, invaluable for deep diagnostics and immediate oversight. This capability pushes beyond simple API requests, demonstrating true real-time autonomous interaction."
+      operationId: "streamAssetTelemetry"
+      security:
+        - oAuth2Auth: [read:sentient_assets, read:digital_twin]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+        - name: "samplingIntervalSeconds"
+          in: "query"
+          description: "Desired interval for telemetry data points in seconds."
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 60
+            default: 5
+      responses:
+        "200":
+          description: "A continuous stream of real-time telemetry data."
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  eventId: {type: string, example: "telemetry-123456789"}
+                  timestamp: {type: string, format: date-time, example: "2024-07-21T18:00:01Z"}
+                  assetId: {type: string, example: "asset_stock_AAPL_001"}
+                  dataType: {type: string, enum: [market_price, ai_state, decision_param, sensor_data, liquidity_event], example: "market_price"}
+                  value:
+                    type: object
+                    example: {"price": 220.50, "volume": 15000}
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /sentient-assets/{assetId}/activate-autonomy:
+    post:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Autonomous Investment Strategies"
+      summary: "Activate Full AI Autonomy for a Sentient Asset"
+      description: "Switches a sentient asset from passive monitoring or manual control to full AI autonomy, enabling its Quantum AI agent to independently execute strategies and decisions within its defined objectives and risk parameters. Requires a clear confirmation, especially for high-value assets. Gemini provides a final pre-flight check of market stability and potential external impact factors."
+      operationId: "activateAssetAutonomy"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        description: "Confirmation to activate AI autonomy."
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - confirmation
+              properties:
+                confirmation:
+                  type: boolean
+                  example: true
+                  description: "Set to `true` to confirm activation of autonomy."
+                reason:
+                  type: string
+                  nullable: true
+                  example: "Initiating long-term growth strategy under AI management."
+      responses:
+        "200":
+          description: "AI autonomy activated successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientAsset"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Autonomy is already active or asset is in an unready state."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /sentient-assets/{assetId}/deactivate-autonomy:
+    post:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "AI-Human Hybrid Decision Support"
+      summary: "Deactivate AI Autonomy for a Sentient Asset"
+      description: "Transitions a sentient asset from full AI autonomy back to passive monitoring or manual control, pausing all autonomous decision-making and execution. All active AI strategies are suspended. The Quantum AI will safely disengage, ensuring no open transactions or critical processes are interrupted, providing a detailed handover report. Gemini provides an impact assessment of deactivation on market perception."
+      operationId: "deactivateAssetAutonomy"
+      security:
+        - oAuth2Auth: [write:sentient_assets]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        description: "Confirmation to deactivate AI autonomy and reason."
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - confirmation
+                - reason
+              properties:
+                confirmation:
+                  type: boolean
+                  example: true
+                  description: "Set to `true` to confirm deactivation of autonomy."
+                reason:
+                  type: string
+                  example: "Temporary manual intervention required for market event."
+                  description: "Reason for deactivating autonomy."
+      responses:
+        "200":
+          description: "AI autonomy deactivated successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientAsset"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Autonomy is already inactive or asset is in a critical state preventing deactivation."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /sentient-assets/{assetId}/audit-log:
+    get:
+      tags:
+        - "Sentient Assets & Autonomy"
+        - "Sentient Asset Governance & Auditing"
+      summary: "Retrieve Comprehensive Audit Log for a Sentient Asset"
+      description: "Fetches a tamper-proof, chronological audit log detailing every significant event, decision, and action related to a sentient asset, including human interventions, AI activations/deactivations, and security events. Essential for regulatory compliance and post-mortem analysis. Quantum AI hashes and timestamps each entry, while Gemini provides summarized compliance narratives for audit reports."
+      operationId: "getAssetAuditLog"
+      security:
+        - oAuth2Auth: [read:sentient_assets, read:governance]
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: "eventType"
+          in: "query"
+          description: "Filter audit logs by specific event types."
+          schema:
+            type: string
+            enum: [ai_decision, human_override, status_change, security_alert, configuration_update, negotiation_event]
+      responses:
+        "200":
+          description: "A paginated list of audit log entries for the sentient asset."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  limit: {type: integer, example: 50}
+                  offset: {type: integer, example: 0}
+                  total: {type: integer, example: 500}
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AssetAuditEntry"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /portfolios/sentient:
+    get:
+      tags:
+        - "Portfolio AI Orchestration"
+      summary: "List All Sentient Portfolios Under Management"
+      description: "Retrieves an overview of all sentient portfolios managed by the user, each dynamically optimized by its own Quantum AI orchestration engine. Includes portfolio name, total value, overall risk profile, and current high-level strategy. Gemini provides macroeconomic context and news sentiment relevant to the aggregated holdings within each portfolio."
+      operationId: "listAllSentientPortfolios"
+      security:
+        - oAuth2Auth: [read:portfolio_orchestration]
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: "riskProfile"
+          in: "query"
+          description: "Filter portfolios by their AI-assessed risk profile."
+          schema:
+            type: string
+            enum: [conservative, balanced, growth, aggressive, speculative]
+        - name: "strategyType"
+          in: "query"
+          description: "Filter portfolios by their primary AI strategy type."
+          schema:
+            type: string
+            enum: [long_term_growth, income_generation, capital_preservation, arbitrage]
+      responses:
+        "200":
+          description: "A paginated list of sentient portfolios."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaginatedSentientPortfolios"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+    post:
+      tags:
+        - "Portfolio AI Orchestration"
+        - "Autonomous Investment Strategies"
+      summary: "Create a New Sentient Portfolio"
+      description: "Establishes a new sentient portfolio, initializing its dedicated Quantum AI orchestration engine. This involves defining the portfolio's overarching goals, risk parameters, and initial investment strategy. The AI will then actively manage and rebalance constituent sentient assets to achieve these objectives. Gemini helps in generating initial strategy proposals based on desired outcomes and risk tolerance, suggesting optimal asset allocations given current market conditions."
+      operationId: "createSentientPortfolio"
+      security:
+        - oAuth2Auth: [write:portfolio_orchestration]
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        description: "Details for creating a new sentient portfolio."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSentientPortfolioRequest"
+      responses:
+        "201":
+          description: "Sentient portfolio created and AI orchestration initialized."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentientPortfolio"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+
+  /portfolios/sentient/{portfolioId}:
+    get:
+      tags:
+        - "Portfolio AI Orchestration"
+        - "Autonomous Investment Strategies"
+      summary: "Retrieve Detailed Sentient Portfolio Overview"
+      description: "Fetches a comprehensive overview of a specific sentient portfolio, including its current

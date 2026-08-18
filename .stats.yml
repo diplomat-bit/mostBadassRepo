@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/.stats.yml
+================================================================================
+
+configured_endpoints: 152
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fjocall3-a365f63bf1cdb6a64d85c938354523e3767b02f5e8ed19154ff49c04d748569d.yml
+openapi_spec_hash: 39969f7004d7560e9e4365609b929e51
+config_hash: fceffd37c5d51a53489b142a0e8e8e2b
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/.stats.yml
+================================================================================
+
+configured_endpoints: 152
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fgarbage-18eac09dbbd8688f13cdf64752aede763b50a60ffbb8ce1cf5238fda805d89d1.yml
+openapi_spec_hash: 7ac6751bf85c0e2983c3bcda639e9953
+config_hash: 214a3c49c09c931b0fac05109e397c3a
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-go | ORIGINAL PATH: diplomat-bit-jocall3-go-7054919/.stats.yml
+================================================================================
+
+configured_endpoints: 40
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fjocall3-a822f8eb3bd0029a5ffa38a32d85c4eea2f98f8fb0b7d4889cee4f3002ae9d0d.yml
+openapi_spec_hash: 55d7f1dac2bfa3c1bee4c2b89d5c78f1
+config_hash: a78ef6340348fa061a1bb6056f8eaca6
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/.stats.yml
+================================================================================
+
+configured_endpoints: 40
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fjocall3-a822f8eb3bd0029a5ffa38a32d85c4eea2f98f8fb0b7d4889cee4f3002ae9d0d.yml
+openapi_spec_hash: 55d7f1dac2bfa3c1bee4c2b89d5c78f1
+config_hash: 53cfe6e80cf8fd9b0b61d4ddb4fd4ef9
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/.stats.yml
+================================================================================
+
+configured_endpoints: 70
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fjocall3-785f1453747d444bf659d30c7132521b80f35542de39234b5fbf76db1d8d3f39.yml
+openapi_spec_hash: 9d26f30e0f53e2667b4f6390c8c9775d
+config_hash: 41c883add8aeb22ea97ee35aa3753d45
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/.stats.yml
+================================================================================
+
+configured_endpoints: 64
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/citibank-demo-business-inc-diplomat-bit%2Fjocall3-04fba4df0567e24837177698460ecb8dcd3c622a8ae3beb385dd63da5e7225f8.yml
+openapi_spec_hash: a5277d756d82fa311576b59d51813745
+config_hash: 230fa25dd5b97b9011033420c00e53db

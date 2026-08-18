@@ -1,0 +1,10 @@
+// REPOSITORY SOURCE: diplomat-bit/jocall3-node | PATH: diplomat-bit-jocall3-node-fae6abf/packages/mcp-server/tsc-multi.json
+================================================================================
+
+{
+  "targets": [
+    { "extname": ".js", "module": "commonjs" },
+    { "extname": ".mjs", "module": "esnext" }
+  ],
+  "projects": ["tsconfig.build.json"]
+}

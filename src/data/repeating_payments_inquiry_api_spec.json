@@ -1,0 +1,107 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/repeating_payments_inquiry_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_Digital_Domain_OpenAPI",
+    "description": "This API contains endpoints related to repeating payments.",
+    "version": "1.2.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/repeatingPayments"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Standing Instruction Inquiry for Specific Payment Type",
+        "operationId": "RetrieveRepeatingPayments"
+      },
+      "put": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Update Standing Instruction for Specific Transfer Type",
+        "operationId": "UpdateRepeatingPayments"
+      }
+    },
+    "/confirmation": {
+      "put": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Update Standing Instruction Confirmation",
+        "operationId": "ConfirmRepeatingPaymentsUpdate"
+      }
+    },
+    "/preprocess": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Pre Process for Standing Instruction Update",
+        "operationId": "PreprocessRepeatingPaymentsUpdate"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/repeating_payments_inquiry_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovement_InterInstitutionPTPTransfer_Digital_Domain_OpenAPI",
+    "description": "This API contains endpoints related to repeating payments.",
+    "version": "1.2.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/paymentInitiation/repeatingPayments"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Standing Instruction Inquiry for Specific Payment Type",
+        "operationId": "RetrieveRepeatingPayments"
+      },
+      "put": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Update Standing Instruction for Specific Transfer Type",
+        "operationId": "UpdateRepeatingPayments"
+      }
+    },
+    "/confirmation": {
+      "put": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Update Standing Instruction Confirmation",
+        "operationId": "ConfirmRepeatingPaymentsUpdate"
+      }
+    },
+    "/preprocess": {
+      "post": {
+        "tags": [
+          "Money Movement_Transfers_Inter Institution PTP Transfer"
+        ],
+        "summary": "Pre Process for Standing Instruction Update",
+        "operationId": "PreprocessRepeatingPaymentsUpdate"
+      }
+    }
+  }
+}

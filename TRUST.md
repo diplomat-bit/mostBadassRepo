@@ -1,0 +1,4 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/TRUST.md
+================================================================================
+
+no one trusts any of you y'all steal people's work you claim it as yours and you try to not give anybody any of the things you make off of it that's the reason this is public because you didn't do none of this f****** work this ain't your property

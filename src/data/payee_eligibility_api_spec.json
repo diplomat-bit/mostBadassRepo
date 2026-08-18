@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/payee_eligibility_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovementAllAccountPayeeEligibility_OpenAPI",
+    "description": "This API is used to retrieve the combination of valid destination and source accounts of all payment types for an authenticated Citi customer.",
+    "version": "1.16.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/moneyMovement/payees/sourceAccounts"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Money Movement_Counterparty Management_Funding Account Management"
+        ],
+        "summary": "Valid destination-source account combinations for the payment type.",
+        "operationId": "RetrievePayeeEligibility"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/payee_eligibility_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MoneyMovementAllAccountPayeeEligibility_OpenAPI",
+    "description": "This API is used to retrieve the combination of valid destination and source accounts of all payment types for an authenticated Citi customer.",
+    "version": "1.16.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/moneyMovement/payees/sourceAccounts"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Money Movement_Counterparty Management_Funding Account Management"
+        ],
+        "summary": "Valid destination-source account combinations for the payment type.",
+        "operationId": "RetrievePayeeEligibility"
+      }
+    }
+  }
+}

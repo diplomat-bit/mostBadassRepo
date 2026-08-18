@@ -1,0 +1,11 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/components/Loading (1)_1.tsx
+================================================================================
+
+
+import React from 'react';
+
+export const Loading: React.FC = () => (
+  <div className="flex items-center justify-center p-2">
+    <div className="animate-spin h-5 w-5 border-t-2 border-b-2 border-current rounded-full"></div>
+  </div>
+);

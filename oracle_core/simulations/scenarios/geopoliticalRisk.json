@@ -1,0 +1,230 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/oracle_core/simulations/scenarios/geopoliticalRisk.json
+================================================================================
+
+```json
+{
+  "scenarioId": "GP-RISK-SCS-2024-001",
+  "scenarioName": "South China Sea Semiconductor Supply Chain Disruption",
+  "scenarioDescription": "A multi-phase simulation of escalating geopolitical tensions in the South China Sea, initiated by a naval blockade of key shipping lanes near Taiwan. This scenario models the cascading impact on global semiconductor supply chains, financial markets, and corporate operations for multinational firms dependent on East Asian manufacturing and logistics.",
+  "version": "1.2.0",
+  "author": "Quantum Oracle Strategic Risk Division",
+  "createdAt": "2024-07-21T10:00:00Z",
+  "tags": [
+    "geopolitical",
+    "supply chain",
+    "semiconductor",
+    "maritime security",
+    "trade conflict",
+    "sanctions",
+    "crisis simulation",
+    "Taiwan",
+    "South China Sea"
+  ],
+  "severity": "Critical",
+  "probability": "Medium",
+  "timeframe": "18 Months",
+  "keyActors": [
+    {
+      "id": "ACT-CN-01",
+      "name": "People's Republic of China",
+      "type": "Nation-State",
+      "stance": "Protagonist",
+      "motivations": "Assert territorial claims, control strategic waterways, pressure Taiwan, and demonstrate regional dominance. Test international response, particularly from the US.",
+      "capabilities": {
+        "economic": "Vast manufacturing base, significant holdings of foreign currency reserves, control over critical raw materials (rare earths).",
+        "military": "Large naval presence (PLAN), advanced anti-ship missile systems, significant cyber warfare capabilities.",
+        "diplomatic": "UN Security Council veto, strong influence in developing nations through BRI.",
+        "technological": "Growing domestic semiconductor industry, leadership in 5G and AI."
+      }
+    },
+    {
+      "id": "ACT-TW-02",
+      "name": "Taiwan (Republic of China)",
+      "type": "Nation-State",
+      "stance": "Primary Target",
+      "motivations": "Maintain sovereignty, protect democratic governance, and secure international support. Keep its economy and critical industries (especially TSMC) operational.",
+      "capabilities": {
+        "economic": "Dominant global position in advanced semiconductor manufacturing.",
+        "military": "Well-trained, technologically advanced defensive military force.",
+        "diplomatic": "Strong informal ties with the US, Japan, and European nations.",
+        "technological": "World-leading semiconductor fabrication technology and talent."
+      }
+    },
+    {
+      "id": "ACT-US-03",
+      "name": "United States of America",
+      "type": "Nation-State",
+      "stance": "Antagonist",
+      "motivations": "Uphold freedom of navigation, deter aggression against allies, protect strategic interests and technology leadership, and maintain the existing international order.",
+      "capabilities": {
+        "economic": "World's largest economy, control over global financial systems (USD).",
+        "military": "Unmatched global power projection capabilities, carrier strike groups, advanced intelligence networks.",
+        "diplomatic": "Extensive network of formal alliances (NATO, Japan, South Korea, etc.).",
+        "technological": "Leadership in chip design, software, and advanced R&D."
+      }
+    },
+    {
+      "id": "ACT-CORP-TSMC-04",
+      "name": "Taiwan Semiconductor Manufacturing Company (TSMC)",
+      "type": "Corporation",
+      "stance": "Critical Asset",
+      "motivations": "Ensure business continuity, protect employees and intellectual property, fulfill contractual obligations to global clients (Apple, Nvidia, etc.).",
+      "capabilities": {
+        "economic": "Market capitalization in the hundreds of billions, systemically important to the global tech industry.",
+        "technological": "Monopoly on the most advanced semiconductor process nodes (<5nm)."
+      }
+    },
+    {
+      "id": "ACT-INTL-UN-05",
+      "name": "United Nations",
+      "type": "International Body",
+      "stance": "Neutral Mediator",
+      "motivations": "De-escalate conflict, call for diplomatic solutions, prevent humanitarian crisis.",
+      "capabilities": {
+        "diplomatic": "Forum for international dialogue, but limited enforcement power due to Security Council structure."
+      }
+    }
+  ],
+  "eventSequence": [
+    {
+      "eventId": "EVT-001",
+      "phase": "Initial Tensions",
+      "timestamp": "T+0 weeks",
+      "eventName": "Naval 'Exercises' and EEZ Declaration",
+      "description": "China announces extended live-fire naval exercises encircling key Taiwanese ports, effectively creating a temporary quarantine zone. A new Exclusive Economic Zone (EEZ) is declared, overlapping with international shipping lanes.",
+      "actorsInvolved": ["ACT-CN-01", "ACT-TW-02"],
+      "directImpacts": {
+        "economic": "Immediate spike in shipping insurance premiums (+500%) for the region. Minor dip in global stock markets.",
+        "supplyChain": "Commercial shipping lines begin rerouting around the exercise zone, adding 3-5 days to transit times. Some port operations in Kaohsiung are delayed.",
+        "reputational": "Global condemnation from G7 nations, but no immediate coordinated action."
+      }
+    },
+    {
+      "eventId": "EVT-002",
+      "phase": "Escalation",
+      "timestamp": "T+2 weeks",
+      "eventName": "Enforced Blockade and US Response",
+      "description": "The 'exercises' are indefinitely extended. A Chinese coast guard vessel collides with a container ship attempting to enter the zone. The US dispatches a carrier strike group to the Philippine Sea to conduct 'freedom of navigation' operations.",
+      "actorsInvolved": ["ACT-CN-01", "ACT-US-03"],
+      "directImpacts": {
+        "economic": "Nasdaq drops 5%. Semiconductor stocks (Nvidia, AMD, Qualcomm) fall over 10%. Oil prices jump 15% on fears of wider conflict.",
+        "supplyChain": "All major shipping carriers suspend routes to Taiwan. Air freight capacity becomes critically constrained, with costs increasing tenfold. TSMC announces potential delays in Q4 wafer starts.",
+        "cybersecurity": "Massive increase in cyber-attacks targeting Taiwanese government and infrastructure, and US defense contractors. Suspected state-sponsorship.",
+        "personnel": "Multinational corporations activate emergency plans to evacuate non-essential personnel and dependents from Taiwan."
+      }
+    },
+    {
+      "eventId": "EVT-003",
+      "phase": "Crisis Point",
+      "timestamp": "T+6 weeks",
+      "eventName": "Targeted Sanctions and Tech Export Ban",
+      "description": "The US and EU impose severe sanctions on Chinese financial institutions linked to the blockade. A full ban on exporting advanced semiconductor manufacturing equipment and software (EDA tools) to China is enacted. China retaliates by halting exports of rare earth minerals.",
+      "actorsInvolved": ["ACT-CN-01", "ACT-US-03"],
+      "directImpacts": {
+        "economic": "Global markets enter a bear market. Credit markets freeze. A global recession is declared highly likely.",
+        "supplyChain": "Production halts at major electronics assemblers (Foxconn, etc.) due to chip shortages. Automotive and industrial sectors announce factory shutdowns. The rare earth ban impacts defense, green energy, and electronics manufacturing globally.",
+        "legalAndRegulatory": "Companies must navigate conflicting US, EU, and Chinese regulations, facing massive compliance costs and legal risks. Assets of some companies are seized in China.",
+        "reputational": "Corporations are forced to publicly pick sides, leading to consumer boycotts and immense brand damage in opposing markets."
+      }
+    },
+    {
+      "eventId": "EVT-004",
+      "phase": "Stalemate / De-escalation",
+      "timestamp": "T+12 weeks",
+      "eventName": "UN-Brokered Diplomatic Off-ramp",
+      "description": "Facing catastrophic economic consequences, back-channel diplomacy intensifies. A UN-brokered deal leads to China 'concluding' its exercises in exchange for a G7 statement acknowledging the 'One China Policy' and a new forum for regional security talks. The blockade is lifted, but tensions remain high.",
+      "actorsInvolved": ["ACT-CN-01", "ACT-US-03", "ACT-INTL-UN-05"],
+      "directImpacts": {
+        "economic": "Markets partially recover, but remain volatile. A 'geopolitical risk premium' is now permanently priced into global assets.",
+        "supplyChain": "Shipping slowly resumes, but with massive backlogs. It's estimated to take 6-9 months for supply chains to normalize. Companies accelerate plans for supply chain diversification ('China+1', on-shoring).",
+        "legalAndRegulatory": "Many sanctions and export controls remain in place, creating a new, fragmented global technology landscape ('tech decoupling')."
+      }
+    }
+  ],
+  "impactVectors": {
+    "finance": {
+      "revenueForecast": { "min": "-25%", "max": "-40%", "mostLikely": "-30%" },
+      "operatingCosts": { "min": "+15%", "max": "+50%", "mostLikely": "+25%" },
+      "fxExposure": ["USD/CNY", "USD/TWD", "EUR/USD"],
+      "creditRisk": "Significant increase in default risk for suppliers and customers in the APAC region.",
+      "capitalExpenditure": "Indefinite delay on all planned expansions in Greater China. Reallocation of capital to North American and European projects."
+    },
+    "operations": {
+      "productionOutput": { "min": "-30%", "max": "-60%", "mostLikely": "-50%" },
+      "logisticsCosts": { "min": "+200%", "max": "+1000%", "mostLikely": "+400%" },
+      "inventoryLevels": "Critical stockouts of key components within 4-6 weeks. Buffer stock exhausted.",
+      "facilitySecurity": "Threat level elevated to 'High' for all facilities in the APAC region, requiring increased security personnel and hardening."
+    },
+    "salesAndMarketing": {
+      "marketAccess": "Near-total loss of access to Taiwanese market during blockade. Severe disruption and potential loss of access to Chinese market due to retaliatory measures.",
+      "consumerDemand": "Sharp global decline in demand for high-end electronics and durable goods due to recessionary fears.",
+      "brandSentiment": "-7.5 score on a 10-point scale in Chinese market if aligned with Western sanctions. -4.0 in Western markets if perceived as compliant with Chinese demands."
+    },
+    "humanResources": {
+      "employeeSafety": "Immediate and critical risk to employees in Taiwan. High stress and potential danger for employees in mainland China.",
+      "workforceAvailability": "100% unavailability of Taiwan-based teams during evacuation. Long-term reduction in talent pool willing to relocate to the region.",
+      "recruitmentChallenges": "Extreme difficulty in filling key technical and leadership roles for APAC operations."
+    },
+    "technology": {
+      "itInfrastructure": "High risk of service disruption from cyberattacks on data centers and undersea communication cables in the region.",
+      "dataSovereignty": "Forced data localization requirements imposed by China, conflicting with GDPR and US privacy laws.",
+      "cyberThreatLevel": "Critical. Active targeting by state-sponsored APTs is expected."
+    }
+  },
+  "mitigationStrategies": [
+    {
+      "strategyId": "MIT-SC-01",
+      "strategyName": "Supply Chain Redundancy Activation",
+      "description": "Activate pre-qualified secondary and tertiary suppliers for critical components in Malaysia, Vietnam, and Mexico. Pre-book air freight capacity on alternative routes.",
+      "costToImplement": { "min": 50000000, "max": 150000000, "currency": "USD" },
+      "timeToImplement": "3-6 Months for full ramp-up",
+      "effectivenessScore": 7,
+      "associatedRisks": "Lower yields and quality from secondary suppliers. IP security risks with new partners.",
+      "triggers": ["EVT-001"]
+    },
+    {
+      "strategyId": "MIT-FIN-02",
+      "strategyName": "Financial Hedging and Capital Preservation",
+      "description": "Execute currency hedges for CNY and TWD exposure. Draw down revolving credit facilities to increase cash on hand. Suspend stock buyback programs.",
+      "costToImplement": { "min": 5000000, "max": 20000000, "currency": "USD", "note": "Mainly transaction costs" },
+      "timeToImplement": "Immediate (< 48 hours)",
+      "effectivenessScore": 8,
+      "associatedRisks": "Opportunity cost if the crisis de-escalates quickly. Negative signal to the market.",
+      "triggers": ["EVT-001"]
+    },
+    {
+      "strategyId": "MIT-HR-03",
+      "strategyName": "Personnel Evacuation and Remote Work Protocol",
+      "description": "Activate Tier-1 emergency evacuation plan for all expatriate staff and their families in Taiwan. Shift all possible regional operations to remote work, with critical functions relocated to Singapore or Tokyo.",
+      "costToImplement": { "min": 10000000, "max": 25000000, "currency": "USD" },
+      "timeToImplement": "72 hours",
+      "effectivenessScore": 9,
+      "associatedRisks": "Complete loss of on-site productivity in Taiwan. Potential for government obstruction of evacuation.",
+      "triggers": ["EVT-002"]
+    },
+    {
+      "strategyId": "MIT-PR-04",
+      "strategyName": "Geopolitical Neutrality Communications Strategy",
+      "description": "Prepare and deploy a carefully worded communications strategy emphasizing commitment to all customers and employees, while avoiding taking a political stance. Focus messaging on business continuity and de-escalation.",
+      "costToImplement": { "min": 1000000, "max": 5000000, "currency": "USD" },
+      "timeToImplement": "Pre-prepared; execution is immediate",
+      "effectivenessScore": 5,
+      "associatedRisks": "Strategy may fail, being perceived as weak or amoral by all sides, leading to multi-market backlash.",
+      "triggers": ["EVT-003"]
+    }
+  ],
+  "simulationParameters": {
+    "escalationLikelihood": { "defaultValue": 1.0, "min": 0.5, "max": 2.0, "description": "Multiplier for the probability of moving from one event phase to the next." },
+    "economicResilienceFactor": { "defaultValue": 0.8, "min": 0.2, "max": 1.2, "description": "Global economy's ability to absorb the shock. Higher is more resilient." },
+    "diplomaticInterventionEffectiveness": { "defaultValue": 0.6, "min": 0.1, "max": 1.0, "description": "Likelihood that third-party diplomacy can achieve a breakthrough." },
+    "supplyChainElasticity": { "defaultValue": 0.4, "min": 0.1, "max": 1.0, "description": "Speed at which alternative supply sources can be brought online." }
+  },
+  "aiPrompts": {
+    "executiveSummary": "Generate a one-page executive briefing for the board of directors on the '{scenarioName}' scenario. Highlight the most severe potential impacts on our Q3/Q4 revenue, supply chain continuity, and market position, based on the provided event sequence and impact vectors.",
+    "strategicRecommendation": "Analyze the mitigation strategies provided for the '{scenarioName}' scenario. Given a budget constraint of $100M, which combination of strategies offers the best risk-adjusted return? Justify your recommendation by referencing specific event triggers and effectiveness scores.",
+    "communicationsPlan": "Draft a multi-phase crisis communications plan for the '{scenarioName}' scenario. Create distinct messaging for internal employees (global), institutional investors, and key customers for each phase: 'Initial Tensions', 'Escalation', and 'Crisis Point'.",
+    "financialStressTest": "Using the financial impact vectors (revenue, operating costs) as baseline shocks, model the potential impact on our company's EBITDA and free cash flow over the next 18 months. Run a Monte Carlo simulation (N=1000) using the min/max/mostLikely values and the 'economicResilienceFactor' parameter. Present the results as a probability distribution.",
+    "counterpartyRiskAnalysis": "Identify all of our Tier-1 and Tier-2 suppliers with significant operational presence in Taiwan and mainland China. Based on the '{scenarioName}' event sequence, develop a risk score for each supplier and suggest immediate actions to de-risk."
+  }
+}
+```

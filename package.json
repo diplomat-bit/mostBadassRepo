@@ -1,0 +1,1826 @@
+// REPOSITORY SOURCE: diplomat-bit/ai-banking-swarm-roster | PATH: diplomat-bit-ai-banking-swarm-roster-20297ff/package.json
+================================================================================
+
+{
+  "name": "the-architect:-ai-swarm",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "@google/genai": "^1.21.0",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-executive-magazine-maker | ORIGINAL PATH: diplomat-bit-ai-executive-magazine-maker-45e4d2f/package.json
+================================================================================
+
+{
+  "name": "executive-lookbook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "@google/genai": "^1.27.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.3.0",
+    "jspdf": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-news | ORIGINAL PATH: diplomat-bit-ai-news-cd09a75/package.json
+================================================================================
+
+{
+  "name": "autonomous-ai-news-nexus",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "recharts": "^3.6.0",
+    "react": "^19.2.3",
+    "@google/genai": "^1.35.0",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ai-powe3red-chromos-file-manager- | ORIGINAL PATH: diplomat-bit-ai-powe3red-chromos-file-manager--4e3b7ea/package.json
+================================================================================
+
+{
+  "name": "chromeos-file-explorer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "@google/genai": "^1.35.0",
+    "lucide-react": "^0.562.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-demai-jocalll3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-demai-jocalll3-f8b6983/package.json
+================================================================================
+
+{
+  "name": "copy-of-demai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recharts": "^3.3.0",
+    "@google/genai": "^1.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3 | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-91b6490/package.json
+================================================================================
+
+{
+  "name": "plaid-nexus---fintech-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "lucide-react": "^0.563.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibanking.dev-jocall3-new | ORIGINAL PATH: diplomat-bit-aibanking.dev-jocall3-new-84d7a30/package.json
+================================================================================
+
+{
+  "name": "jamesburvelocallaghaniiiand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "@auth0/auth0-react": "^2.2.4",
+    "@datadog/browser-rum": "^5.33.0",
+    "@datadog/browser-rum-react": "^5.33.0",
+    "@datadog/browser-logs": "^5.33.0",
+    "modern-treasury": "^3.3.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.3.0",
+    "@google/genai": "^1.19.0",
+    "chart.js": "^4.5.1",
+    "react-chartjs-2": "^5.3.1",
+    "@tanstack/react-query": "^5.90.10",
+    "uuid": "^13.0.0",
+    "react-icons": "^5.5.0",
+    "vite": "^7.2.4",
+    "lucide-react": "^0.555.0",
+    "path": "^0.12.7",
+    "plaid": "^20.0.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@mui/x-data-grid": "^8.20.0",
+    "@mui/material": "^7.3.6",
+    "@google/generative-ai": "^0.24.1",
+    "react-router-dom": "^7.10.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.12.1",
+    "@emotion/styled": "^11.12.0",
+    "class-variance-authority": "^0.7.1",
+    "tailwind-merge": "^3.4.0",
+    "clsx": "^2.1.1",
+    "@nestjs/common": "^11.1.9",
+    "xml2js": "^0.6.2",
+    "axios": "^1.13.2",
+    "@mui/icons-material": "^7.3.6",
+    "primereact": "^10.9.7",
+    "zustand": "^5.0.9",
+    "@hello-pangea/dnd": "18.0.1",
+    "react-hook-form": "^7.67.0",
+    "inversify": "^7.10.5",
+    "react-bootstrap": "^2.10.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@stripe/stripe-js": "^8.5.3",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.13",
+    "fs": "^0.0.1-security",
+    "framer-motion": "^12.23.25",
+    "notistack": "^3.0.2",
+    "date-fns": "^4.1.0",
+    "fast-xml-parser": "^5.3.2",
+    "react-plaid-link": "^4.1.1",
+    "js-yaml": "^4.1.1",
+    "react-leaflet": "^5.0.0",
+    "leaflet": "^1.9.4",
+    "styled-components": "^6.1.19",
+    "antd": "^6.0.1",
+    "@ant-design/icons": "^6.1.0",
+    "@radix-ui/react-progress": "^1.1.8",
+    "cmdk": "^1.1.1",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-label": "^2.1.8",
+    "jspdf-autotable": "^5.0.2",
+    "jspdf": "^3.0.4",
+    "@heroicons/react": "^2.2.0",
+    "express": "^5.2.1",
+    "url": "^0.11.4",
+    "reactflow": "^11.11.4",
+    "@hookform/resolvers": "^5.2.2",
+    "sonner": "^2.0.7",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "stripe": "^20.0.0",
+    "react-dropzone": "^14.3.8",
+    "react-circular-progressbar": "^2.2.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "react-select": "^5.10.2",
+    "@rjsf/core": "^6.1.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "json-schema": "^0.4.0",
+    "@radix-ui/react-popover": "^1.1.15", 
+    "@rjsf/validator-ajv8": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingmtls | ORIGINAL PATH: diplomat-bit-aibankingmtls-6a06a68/package.json
+================================================================================
+
+{
+  "name": "aura-ai-bank",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.3.0",
+    "axios": "^1.16.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "esbuild": "^0.28.0",
+    "express": "^4.21.2",
+    "firebase": "^11.1.0",
+    "lucide-react": "^0.469.0",
+    "motion": "^12.0.0-alpha.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.0.0-alpha.33",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingnew | ORIGINAL PATH: diplomat-bit-aibankingnew-a0c4868/package.json
+================================================================================
+
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.29.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.8.1",
+    "tailwind-merge": "^3.5.0",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/package.json
+================================================================================
+
+{
+  "name": "jamesburvelocallaghaniiiand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "overrides": {
+    "ajv": "^8.12.0",
+    "qs": "^6.14.1",
+    "path-to-regexp": "^6.2.1",
+    "undici": "^6.23.0"
+  },
+  "scripts": {
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@auth0/auth0-react": "2.11.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@datadog/browser-logs": "^5.33.0",
+    "@datadog/browser-rum": "^5.33.0",
+    "@datadog/browser-rum-react": "^5.33.0",
+    "@emotion/react": "^11.12.1",
+    "@emotion/styled": "^11.12.0",
+    "@google/genai": "^1.19.0",
+    "@google/generative-ai": "^0.24.1",
+    "@hello-pangea/dnd": "18.0.1",
+    "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
+    "@mui/x-data-grid": "^8.20.0",
+    "@nestjs/common": "^11.1.9",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@rjsf/core": "^6.1.2",
+    "@rjsf/validator-ajv8": "^6.1.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.5.3",
+    "@tanstack/react-query": "^5.90.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/node": "5.5.26",
+    "@vercel/speed-insights": "^1.3.1",
+    "antd": "^6.0.1",
+    "axios": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-oauth2-jwt-bearer": "^1.7.4",
+    "express-openid-connect": "^2.19.4",
+    "express-session": "^1.19.0",
+    "fast-xml-parser": "^5.3.2",
+    "framer-motion": "^12.23.25",
+    "inversify": "^7.10.5",
+    "js-yaml": "^4.1.1",
+    "json-schema": "^0.4.0",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.555.0",
+    "modern-treasury": "^3.3.0",
+    "notistack": "^3.0.2",
+    "plaid": "^20.0.0",
+    "primereact": "^10.9.7",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-chartjs-2": "^5.3.1",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.67.0",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.0.0",
+    "react-plaid-link": "^4.1.1",
+    "react-router-dom": "6.30.3",
+    "react-select": "^5.10.2",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.3.0",
+    "sonner": "^2.0.7",
+    "stripe": "^20.0.0",
+    "styled-components": "^6.1.19",
+    "tailwind-merge": "^3.4.0",
+    "uuid": "^13.0.0",
+    "xml2js": "^0.6.2",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "jq": "npm:node-jq@^6.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4",
+    "xmlhttprequest": "1.7.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/autoomousai | ORIGINAL PATH: diplomat-bit-autoomousai-f4d320c/package.json
+================================================================================
+
+{
+  "name": "copy-of-copy-of-copy-of-copy-of-copy-of-workflow-of-autonomous-of-infiniteai-expandai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "@google/genai": "^1.21.0",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/book-writer-think-As-for-everyone | ORIGINAL PATH: diplomat-bit-book-writer-think-As-for-everyone-3ab455c/package.json
+================================================================================
+
+{
+  "name": "aethelgard-codex",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "@google/genai": "1.38.0",
+    "lucide-react": "0.463.0",
+    "framer-motion": "11.11.17"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprises | ORIGINAL PATH: diplomat-bit-ci-connect-enterprises-4cf6219/package.json
+================================================================================
+
+{
+  "name": "quantum-ledger-intelligence",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.ts",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.41.0",
+    "axios": "^1.15.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0",
+    "recharts": "^3.7.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.7.3",
+    "vite": "^7.3.1"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/ci-connect-enterprisesnb | ORIGINAL PATH: diplomat-bit-ci-connect-enterprisesnb-634c26e/package.json
+================================================================================
+
+{
+  "name": "quantum-ledger-intelligence",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview --port 7860 --host 0.0.0.0",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0",
+    "recharts": "^3.7.0",
+    "@google/genai": "^1.41.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.7.3",
+    "vite": "^7.3.1"
+  }
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/citi-connect-enterprise | ORIGINAL PATH: diplomat-bit-citi-connect-enterprise-0d00736/package.json
+================================================================================
+
+{
+  "name": "quantum-ledger-intelligence",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview --port 7860 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0",
+    "recharts": "^3.7.0",
+    "@google/genai": "^1.41.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.7.3",
+    "vite": "^7.3.1"
+  }
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | ORIGINAL PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/package.json
+================================================================================
+
+{
+  "name": "demo-bank-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "^0.12.0",
+    "express": "^4.19.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.4.5",
+    "vite": "^7.2.4"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/connect-api | ORIGINAL PATH: diplomat-bit-connect-api-352979a/package.json
+================================================================================
+
+{
+  "name": "nexus-terminal---plaid-x-marqeta",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "lucide-react": "^0.563.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/diplomat-bit-book-icewall | ORIGINAL PATH: diplomat-bit-diplomat-bit-book-icewall-23638b5/package.json
+================================================================================
+
+{
+  "name": "the-ice-wall-expedition:-archetypes-of-the-unknown",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "@google/genai": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/package.json
+================================================================================
+
+{
+  "name": "jamesburvelocallaghaniiiand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "overrides": {
+    "qs": "^6.14.1",
+    "path-to-regexp": "^6.3.0",
+    "undici": "^6.23.0"
+  },
+  "scripts": {
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@auth0/auth0-react": "2.11.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@datadog/browser-logs": "^5.33.0",
+    "@datadog/browser-rum": "^5.33.0",
+    "@datadog/browser-rum-react": "^5.33.0",
+    "@emotion/react": "^11.12.1",
+    "@emotion/styled": "^11.12.0",
+    "@google/genai": "^1.19.0",
+    "@google/generative-ai": "^0.24.1",
+    "@hello-pangea/dnd": "18.0.1",
+    "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@inquirer/ansi": "^2.0.7",
+    "@inquirer/confirm": "^6.1.1",
+    "@inquirer/core": "^11.2.1",
+    "@inquirer/figures": "^2.0.7",
+    "@inquirer/type": "^4.0.7",
+    "@mswjs/interceptors": "^0.41.9",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
+    "@mui/x-data-grid": "^8.20.0",
+    "@nestjs/common": "^11.1.9",
+    "@open-draft/deferred-promise": "^3.0.0",
+    "@open-draft/logger": "^0.3.0",
+    "@open-draft/until": "^2.1.0",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@rjsf/core": "^6.1.2",
+    "@rjsf/validator-ajv8": "^6.1.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.5.3",
+    "@tanstack/react-query": "^5.90.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@types/set-cookie-parser": "^2.4.10",
+    "@types/statuses": "^2.0.6",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/node": "5.5.26",
+    "@vercel/speed-insights": "^1.3.1",
+    "ansi-regex": "^5.0.1",
+    "antd": "^6.0.1",
+    "axios": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "class-variance-authority": "^0.7.1",
+    "cli-width": "^4.1.0",
+    "cliui": "^8.0.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "cookie": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "emoji-regex": "^8.0.0",
+    "express": "^5.2.1",
+    "fast-string-truncated-width": "^3.0.3",
+    "fast-string-width": "^3.0.2",
+    "fast-wrap-ansi": "^0.2.2",
+    "fast-xml-parser": "^5.3.2",
+    "framer-motion": "^12.23.25",
+    "fs": "^0.0.1-security",
+    "get-caller-file": "^2.0.5",
+    "graphql": "^16.14.1",
+    "headers-polyfill": "^5.0.1",
+    "inversify": "^7.10.5",
+    "is-node-process": "^1.2.0",
+    "js-yaml": "^4.1.1",
+    "json-schema": "^0.4.0",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.555.0",
+    "modern-treasury": "^3.3.0",
+    "msw": "^2.14.6",
+    "mute-stream": "^3.0.0",
+    "notistack": "^3.0.2",
+    "outvariant": "^1.4.3",
+    "path": "^0.12.7",
+    "plaid": "^20.0.0",
+    "primereact": "^10.9.7",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-chartjs-2": "^5.3.1",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.67.0",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.0.0",
+    "react-plaid-link": "^4.1.1",
+    "react-router-dom": "6.30.3",
+    "react-select": "^5.10.2",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.3.0",
+    "require-directory": "^2.1.1",
+    "rettime": "^0.11.11",
+    "set-cookie-parser": "^3.1.0",
+    "signal-exit": "^4.1.0",
+    "sonner": "^2.0.7",
+    "strict-event-emitter": "^0.5.1",
+    "string-width": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "stripe": "^20.0.0",
+    "styled-components": "^6.1.19",
+    "tagged-tag": "^1.0.0",
+    "tailwind-merge": "^3.4.0",
+    "tldts": "^7.4.2",
+    "tldts-core": "^7.4.2",
+    "tough-cookie": "^6.0.1",
+    "type-fest": "^5.7.0",
+    "until-async": "^3.0.2",
+    "url": "^0.11.4",
+    "uuid": "^13.0.0",
+    "wrap-ansi": "^7.0.0",
+    "xml2js": "^0.6.2",
+    "y18n": "^5.0.8",
+    "yargs": "^17.7.2",
+    "yargs-parser": "^21.1.1",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "jq": "npm:node-jq@^6.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^6.2.0",
+    "xmlhttprequest": "1.7.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/G20 | ORIGINAL PATH: diplomat-bit-G20-0199fa7/package.json
+================================================================================
+
+{
+  "name": "demai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@apollo/client": "^4.1.2",
+    "@coinbase/wallet-sdk": "^4.3.6",
+    "@google/genai": "^1.19.0",
+    "@reown/appkit": "^1.1.8",
+    "@reown/appkit-adapter-wagmi": "^1.8.17",
+    "@tanstack/react-query": "^5.56.2",
+    "autoprefixer": "^10.4.27",
+    "graphql": "^16.12.0",
+    "postcss": "^8.5.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.7.0",
+    "tailwindcss": "^4.2.2",
+    "viem": "^2.44.2",
+    "wagmi": "^2.19.5"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.4.1",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "typescript": "~5.8.2",
+    "vite": "^7.3.1"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/package.json
+================================================================================
+
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.29.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.8.1",
+    "tailwind-merge": "^3.5.0",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/package.json
+================================================================================
+
+{
+  "name": "garbage",
+  "version": "0.0.2",
+  "description": "The official TypeScript library for the Garbage API",
+  "author": "Garbage <>",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "repository": "github:diplomat-bit/garbage-typescript",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.24.0",
+  "files": [
+    "**/*"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "./scripts/test",
+    "build": "./scripts/build",
+    "prepublishOnly": "echo 'to publish, run pnpm build && (cd dist; pnpm publish)' && exit 1",
+    "format": "./scripts/format",
+    "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build && ./scripts/utils/git-swap.sh; fi",
+    "tsn": "ts-node -r tsconfig-paths/register",
+    "lint": "./scripts/lint",
+    "fix": "./scripts/format"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.0",
+    "@swc/core": "^1.3.102",
+    "@swc/jest": "^0.2.29",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^20.17.6",
+    "@typescript-eslint/eslint-plugin": "8.31.1",
+    "@typescript-eslint/parser": "8.31.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "iconv-lite": "^0.6.3",
+    "jest": "^29.4.0",
+    "prettier": "^3.0.0",
+    "publint": "^0.2.12",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.5.0",
+    "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.9/tsc-multi.tgz",
+    "tsconfig-paths": "^4.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.31.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./*.mjs": {
+      "default": "./dist/*.mjs"
+    },
+    "./*.js": {
+      "default": "./dist/*.js"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gatekeeper-bank-verification-ModernTreasury | ORIGINAL PATH: diplomat-bit-gatekeeper-bank-verification-ModernTreasury-c0701fa/package.json
+================================================================================
+
+{
+  "name": "gatekeeper-|-modern-treasury-verification",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react-dom": "^19.2.4",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Gmail-ai-loan-over-writer- | ORIGINAL PATH: diplomat-bit-Gmail-ai-loan-over-writer--b3dc614/package.json
+================================================================================
+
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "lucide-react": "^0.546.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3",
+    "express": "^4.21.2",
+    "dotenv": "^17.2.3",
+    "motion": "^12.23.24"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3",
+    "@types/express": "^4.17.21"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/illi | ORIGINAL PATH: diplomat-bit-illi-d81a5ee/package.json
+================================================================================
+
+{
+  "name": "aibanking.dev-demobank",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "@google/genai": "^1.35.0",
+    "recharts": "^3.6.0",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jamesburvelocallaghaniiiand | ORIGINAL PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/package.json
+================================================================================
+
+{
+  "name": "jamesburvelocallaghaniiiand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "modern-treasury": "^3.3.0",
+    "react-dom": "^19.1.1",
+    "recharts": "^3.3.0",
+    "@google/genai": "^1.19.0",
+    "chart.js": "^4.5.1",
+    "react-chartjs-2": "^5.3.1",
+    "@tanstack/react-query": "^5.90.10",
+    "uuid": "^13.0.0",
+    "react-icons": "^5.5.0",
+    "vite": "^7.2.4",
+    "lucide-react": "^0.555.0",
+    "path": "^0.12.7",
+    "plaid": "^20.0.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@mui/x-data-grid": "^8.20.0",
+    "@mui/material": "^7.3.6",
+    "@google/generative-ai": "^0.24.1",
+    "react-router-dom": "^7.10.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.12.1",
+    "@emotion/styled": "^11.12.0",
+    "class-variance-authority": "^0.7.1",
+    "tailwind-merge": "^3.4.0",
+    "clsx": "^2.1.1",
+    "@nestjs/common": "^11.1.9",
+    "xml2js": "^0.6.2",
+    "axios": "^1.13.2",
+    "@mui/icons-material": "^7.3.6",
+    "primereact": "^10.9.7",
+    "zustand": "^5.0.9",
+    "@hello-pangea/dnd": "18.0.1",
+    "react-hook-form": "^7.67.0",
+    "inversify": "^7.10.5",
+    "react-bootstrap": "^2.10.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@stripe/stripe-js": "^8.5.3",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.13",
+    "fs": "^0.0.1-security",
+    "framer-motion": "^12.23.25",
+    "notistack": "^3.0.2",
+    "date-fns": "^4.1.0",
+    "fast-xml-parser": "^5.3.2",
+    "react-plaid-link": "^4.1.1",
+    "js-yaml": "^4.1.1",
+    "react-leaflet": "^5.0.0",
+    "leaflet": "^1.9.4",
+    "styled-components": "^6.1.19",
+    "antd": "^6.0.1",
+    "@ant-design/icons": "^6.1.0",
+    "@radix-ui/react-progress": "^1.1.8",
+    "cmdk": "^1.1.1",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-label": "^2.1.8",
+    "jspdf-autotable": "^5.0.2",
+    "jspdf": "^3.0.4",
+    "@heroicons/react": "^2.2.0",
+    "express": "^5.2.1",
+    "url": "^0.11.4",
+    "reactflow": "^11.11.4",
+    "@hookform/resolvers": "^5.2.2",
+    "sonner": "^2.0.7",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "stripe": "^20.0.0",
+    "react-dropzone": "^14.3.8",
+    "react-circular-progressbar": "^2.2.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "react-select": "^5.10.2",
+    "@rjsf/core": "^6.1.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "json-schema": "^0.4.0",
+    "@radix-ui/react-popover": "^1.1.15", 
+    "@rjsf/validator-ajv8": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller | ORIGINAL PATH: diplomat-bit-jocall3-custom-GitHub-repo-transformer-into-New-York-times-best-seller-5617407/package.json
+================================================================================
+
+{
+  "name": "copy-of-the-arcane-node-|-portfolio-explorer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "^1.34.0",
+    "react-dom": "^19.2.4",
+    "react": "^19.2.4",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "mermaid": "^11.4.0",
+    "react-syntax-highlighter": "^16.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/package.json
+================================================================================
+
+{
+  "name": "jocall3-node",
+  "version": "0.0.1",
+  "description": "The official TypeScript library for the Jocall3 API",
+  "author": "Jocall3 <diplomat@citibankdemobusiness.dev>",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "repository": "github:stainless-sdks/jocall3-node",
+  "license": "Apache-2.0",
+  "packageManager": "yarn@1.22.22",
+  "files": [
+    "**/*"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "./scripts/test",
+    "build": "./scripts/build",
+    "prepublishOnly": "echo 'to publish, run yarn build && (cd dist; yarn publish)' && exit 1",
+    "format": "prettier --write --cache --cache-strategy metadata . !dist",
+    "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build && ./scripts/utils/git-swap.sh; fi",
+    "tsn": "ts-node -r tsconfig-paths/register",
+    "lint": "./scripts/lint",
+    "fix": "./scripts/format"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "@types/node-fetch": "^2.6.4",
+    "abort-controller": "^3.0.0",
+    "agentkeepalive": "^4.2.1",
+    "form-data-encoder": "1.7.2",
+    "formdata-node": "^4.3.2",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.3.102",
+    "@swc/jest": "^0.2.29",
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "iconv-lite": "^0.6.3",
+    "jest": "^29.4.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.5.0",
+    "tsc-multi": "^1.1.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.8.2"
+  },
+  "sideEffects": [
+    "./_shims/index.js",
+    "./_shims/index.mjs",
+    "./shims/node.js",
+    "./shims/node.mjs",
+    "./shims/web.js",
+    "./shims/web.mjs"
+  ],
+  "exports": {
+    "./_shims/auto/*": {
+      "deno": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "bun": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*-bun.js",
+        "default": "./dist/_shims/auto/*-bun.mjs"
+      },
+      "browser": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "worker": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "workerd": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "node": {
+        "types": "./dist/_shims/auto/*-node.d.ts",
+        "require": "./dist/_shims/auto/*-node.js",
+        "default": "./dist/_shims/auto/*-node.mjs"
+      },
+      "types": "./dist/_shims/auto/*.d.ts",
+      "require": "./dist/_shims/auto/*.js",
+      "default": "./dist/_shims/auto/*.mjs"
+    },
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./*.mjs": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.mjs"
+    },
+    "./*.js": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "require": "./dist/*.js",
+      "default": "./dist/*.mjs"
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-plaid-marqeta-modern-Treasury-aibanking.dev- | ORIGINAL PATH: diplomat-bit-jocall3-plaid-marqeta-modern-Treasury-aibanking.dev--44f28d7/package.json
+================================================================================
+
+{
+  "name": "aaacopy-of-nexus-terminal---plaid-x-marqeta",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "lucide-react": "^0.563.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/package.json
+================================================================================
+
+{
+  "name": "jocall3-node",
+  "version": "0.2.0",
+  "description": "The official TypeScript library for the Jocall3 API",
+  "author": "Jocall3 <diplomat@citibankdemobusiness.dev>",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "repository": "github:diplomat-bit/jocall3-typescript",
+  "license": "Apache-2.0",
+  "packageManager": "yarn@1.22.22",
+  "files": [
+    "**/*"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "./scripts/test",
+    "build": "./scripts/build",
+    "prepublishOnly": "echo 'to publish, run yarn build && (cd dist; yarn publish)' && exit 1",
+    "format": "./scripts/format",
+    "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build && ./scripts/utils/git-swap.sh; fi",
+    "tsn": "ts-node -r tsconfig-paths/register",
+    "lint": "./scripts/lint",
+    "fix": "./scripts/format"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.0",
+    "@swc/core": "^1.3.102",
+    "@swc/jest": "^0.2.29",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^20.17.6",
+    "@typescript-eslint/eslint-plugin": "8.31.1",
+    "@typescript-eslint/parser": "8.31.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "iconv-lite": "^0.6.3",
+    "jest": "^29.4.0",
+    "prettier": "^3.0.0",
+    "publint": "^0.2.12",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.5.0",
+    "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.9/tsc-multi.tgz",
+    "tsconfig-paths": "^4.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.31.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./*.mjs": {
+      "default": "./dist/*.mjs"
+    },
+    "./*.js": {
+      "default": "./dist/*.js"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/package.json
+================================================================================
+
+{
+  "name": "jamesburvelocallaghaniiiand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "overrides": {
+    "qs": "^6.14.1",
+    "path-to-regexp": "^6.3.0",
+    "undici": "^6.23.0"
+  },
+  "scripts": {
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@auth0/auth0-react": "2.11.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@datadog/browser-logs": "^5.33.0",
+    "@datadog/browser-rum": "^5.33.0",
+    "@datadog/browser-rum-react": "^5.33.0",
+    "@emotion/react": "^11.12.1",
+    "@emotion/styled": "^11.12.0",
+    "@google/genai": "^1.19.0",
+    "@google/generative-ai": "^0.24.1",
+    "@hello-pangea/dnd": "18.0.1",
+    "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@inquirer/ansi": "^2.0.7",
+    "@inquirer/confirm": "^6.1.1",
+    "@inquirer/core": "^11.2.1",
+    "@inquirer/figures": "^2.0.7",
+    "@inquirer/type": "^4.0.7",
+    "@mswjs/interceptors": "^0.41.9",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
+    "@mui/x-data-grid": "^8.20.0",
+    "@nestjs/common": "^11.1.9",
+    "@open-draft/deferred-promise": "^3.0.0",
+    "@open-draft/logger": "^0.3.0",
+    "@open-draft/until": "^2.1.0",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@rjsf/core": "^6.1.2",
+    "@rjsf/validator-ajv8": "^6.1.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.5.3",
+    "@tanstack/react-query": "^5.90.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@types/set-cookie-parser": "^2.4.10",
+    "@types/statuses": "^2.0.6",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/node": "5.5.26",
+    "@vercel/speed-insights": "^1.3.1",
+    "ansi-regex": "^5.0.1",
+    "antd": "^6.0.1",
+    "axios": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "class-variance-authority": "^0.7.1",
+    "cli-width": "^4.1.0",
+    "cliui": "^8.0.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "cookie": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "emoji-regex": "^8.0.0",
+    "express": "^5.2.1",
+    "fast-string-truncated-width": "^3.0.3",
+    "fast-string-width": "^3.0.2",
+    "fast-wrap-ansi": "^0.2.2",
+    "fast-xml-parser": "^5.3.2",
+    "framer-motion": "^12.23.25",
+    "fs": "^0.0.1-security",
+    "get-caller-file": "^2.0.5",
+    "graphql": "^16.14.1",
+    "headers-polyfill": "^5.0.1",
+    "inversify": "^7.10.5",
+    "is-node-process": "^1.2.0",
+    "js-yaml": "^4.1.1",
+    "json-schema": "^0.4.0",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.555.0",
+    "modern-treasury": "^3.3.0",
+    "msw": "^2.14.6",
+    "mute-stream": "^3.0.0",
+    "notistack": "^3.0.2",
+    "outvariant": "^1.4.3",
+    "path": "^0.12.7",
+    "plaid": "^20.0.0",
+    "primereact": "^10.9.7",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-chartjs-2": "^5.3.1",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.67.0",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.0.0",
+    "react-plaid-link": "^4.1.1",
+    "react-router-dom": "6.30.3",
+    "react-select": "^5.10.2",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.3.0",
+    "require-directory": "^2.1.1",
+    "rettime": "^0.11.11",
+    "set-cookie-parser": "^3.1.0",
+    "signal-exit": "^4.1.0",
+    "sonner": "^2.0.7",
+    "strict-event-emitter": "^0.5.1",
+    "string-width": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "stripe": "^20.0.0",
+    "styled-components": "^6.1.19",
+    "tagged-tag": "^1.0.0",
+    "tailwind-merge": "^3.4.0",
+    "tldts": "^7.4.2",
+    "tldts-core": "^7.4.2",
+    "tough-cookie": "^6.0.1",
+    "type-fest": "^5.7.0",
+    "until-async": "^3.0.2",
+    "url": "^0.11.4",
+    "uuid": "^13.0.0",
+    "wrap-ansi": "^7.0.0",
+    "xml2js": "^0.6.2",
+    "y18n": "^5.0.8",
+    "yargs": "^17.7.2",
+    "yargs-parser": "^21.1.1",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "jq": "npm:node-jq@^6.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^6.2.0",
+    "xmlhttprequest": "1.7.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/my-appaibanking | ORIGINAL PATH: diplomat-bit-my-appaibanking-43962ef/package.json
+================================================================================
+
+{
+  "name": "dononeaibankingconsortium",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "@google/genai": "^1.42.0",
+    "uuid": "^13.0.0",
+    "path": "^0.12.7",
+    "vite": "^7.3.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "express": "^5.2.1",
+    "url": "^0.11.4",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.5.0",
+    "reactflow": "^11.11.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/partnerportal-microsoft | ORIGINAL PATH: diplomat-bit-partnerportal-microsoft-81d9840/package.json
+================================================================================
+
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.29.0",
+    "@octokit/webhooks": "^14.2.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "firebase": "^12.11.0",
+    "firebase-admin": "^13.7.0",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "plaid": "^41.4.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-plaid-link": "^4.1.1",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/tts-ai-book-reader-it-can-read-entire-books | ORIGINAL PATH: diplomat-bit-tts-ai-book-reader-it-can-read-entire-books-128ebf1/package.json
+================================================================================
+
+{
+  "name": "voxgemini-tts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "@google/genai": "^1.41.0",
+    "lucide-react": "^0.563.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/usa | ORIGINAL PATH: diplomat-bit-usa-d72fd59/package.json
+================================================================================
+
+{
+  "name": "copy-of-copy-of-copy-of-copy-of-workflow-of-autonomous-of-infiniteai-expandai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.21.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase": "^12.11.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "esbuild": "^0.28.0",
+    "tsx": "^4.22.4",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

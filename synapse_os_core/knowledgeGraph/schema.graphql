@@ -1,0 +1,1515 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/synapse_os_core/knowledgeGraph/schema.graphql
+================================================================================
+
+#
+# Synapse OS - Universal Knowledge Graph Schema
+# Version: 1.0.0
+# This schema defines the federated data graph for all entities, concepts,
+# and processes within the Synapse Operating System. It is designed to be
+# the single source of truth for querying interconnected data across financial,
+
+# AI, quantum, corporate, and personal domains.
+#
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+# -------------------------------------------------------------------------
+# Custom Scalars
+# -------------------------------------------------------------------------
+
+"""
+A custom scalar for representing a date-time string in ISO 8601 format.
+"""
+scalar DateTime
+
+"""
+A custom scalar for arbitrary JSON data.
+"""
+scalar JSONObject
+
+"""
+A custom scalar representing a large integer value, exceeding the standard Int size.
+"""
+scalar BigInt
+
+"""
+A custom scalar representing a vector of complex numbers defining a quantum state.
+Typically represented as an array of arrays, e.g., [[real, imag], [real, imag], ...].
+"""
+scalar QuantumStateVector
+
+"""
+A universally unique identifier, compliant with the UUID specification.
+"""
+scalar UUID
+
+"""
+A Cypher query string, used for graph database interactions.
+"""
+scalar Cypher
+
+# -------------------------------------------------------------------------
+# Global Interfaces & Enums
+# -------------------------------------------------------------------------
+
+"""
+An interface for all objects that can be uniquely identified.
+Enables a global `node(id: ID!)` query for direct fetching.
+"""
+interface Node {
+  """A globally unique identifier."""
+  id: ID!
+  """The timestamp of when the node was created."""
+  createdAt: DateTime!
+  """The timestamp of the last update to the node."""
+  updatedAt: DateTime!
+}
+
+"""
+Represents a generic connection in a paginated list, as per the Relay specification.
+"""
+type PageInfo {
+  """Indicates if there are more pages to fetch."""
+  hasNextPage: Boolean!
+  """Indicates if there are previous pages to fetch."""
+  hasPreviousPage: Boolean!
+  """The cursor for the first item in the list."""
+  startCursor: String
+  """The cursor for the last item in the list."""
+  endCursor: String
+}
+
+"""
+The status of an asynchronous operation or task.
+"""
+enum TaskStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+"""
+The priority level for tasks, alerts, or notifications.
+"""
+enum PriorityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+"""
+The type of entity being referenced in a polymorphic relationship.
+"""
+enum EntityType {
+  USER
+  COMPANY
+  ACCOUNT
+  TRANSACTION
+  PORTFOLIO
+  INVESTMENT
+  AI_MODEL
+  AI_AGENT
+  KPI
+  AUDIT_LOG
+  LEGAL_DOCUMENT
+  SMART_CONTRACT
+  NFT
+  DAO
+}
+
+# -------------------------------------------------------------------------
+# User and Identity Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents a user of the Synapse OS platform.
+"""
+type User implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  """The user's primary email address (verified)."""
+  email: String!
+
+  """Personal profile information for the user."""
+  profile: UserProfile!
+
+  """Authentication and security settings."""
+  security: UserSecurity!
+
+  """User-specific application preferences."""
+  preferences: UserPreferences!
+
+  """Financial accounts associated with this user."""
+  accounts(first: Int = 25, after: String): AccountConnection!
+
+  """Investment portfolios managed by the user."""
+  portfolios(first: Int = 25, after: String): PortfolioConnection!
+
+  """Digital asset vaults owned by the user."""
+  nftVaults(first: Int = 25, after: String): NftVaultConnection!
+
+  """Financial goals set by the user."""
+  financialGoals(first: Int = 25, after: String): FinancialGoalConnection!
+
+  """Budgets created by the user."""
+  budgets(first: Int = 25, after: String): BudgetConnection!
+
+  """AI agents deployed or managed by the user."""
+  aiAgents(first: Int = 25, after: String): AIAgentConnection!
+
+  """A stream of notifications for the user."""
+  notifications(first: Int = 10, unreadOnly: Boolean): NotificationConnection!
+
+  """Roles and permissions assigned to the user."""
+  roles: [Role!]!
+
+  """Companies the user is associated with (as employee, owner, etc.)."""
+  companyAffiliations: [CompanyAffiliation!]!
+
+  """Audit trail of actions performed by this user."""
+  activityHistory(first: Int = 50, after: String): AuditLogConnection!
+}
+
+"""
+Detailed personal information for a user.
+"""
+type UserProfile {
+  firstName: String
+  lastName: String
+  fullName: String
+  avatarUrl: String
+  bio: String
+  location: Location
+  contactInfo: [ContactInfo!]
+}
+
+"""
+Represents a user's security settings and status.
+"""
+type UserSecurity {
+  mfaEnabled: Boolean!
+  biometricAuthStatus: BiometricAuthenticationStatus!
+  lastLogin: DateTime
+  activeSessions: [UserSession!]
+  quantumShieldLevel: QuantumSecurityLevel!
+}
+
+"""
+Defines the user's preferences for the application UI and behavior.
+"""
+type UserPreferences {
+  theme: String!
+  language: String!
+  timezone: String!
+  """AI-driven UI adaptations for this user."""
+  adaptiveUIProfile: JSONObject
+  """Settings for AI-powered notifications."""
+  smartNotificationSettings: JSONObject
+}
+
+"""
+Represents a geographic location.
+"""
+type Location {
+  addressLine1: String
+  city: String
+  stateOrProvince: String
+  postalCode: String
+  country: String
+  latitude: Float
+  longitude: Float
+}
+
+"""
+A piece of contact information for a user.
+"""
+type ContactInfo {
+  type: String! # e.g., 'PhoneNumber', 'LinkedIn'
+  value: String!
+  isPrimary: Boolean!
+}
+
+"""
+The status of a user's biometric authentication setup.
+"""
+enum BiometricAuthenticationStatus {
+  NOT_ENROLLED
+  PENDING_VERIFICATION
+  ACTIVE
+  LOCKED
+}
+
+"""
+Represents an active user session.
+"""
+type UserSession {
+  id: ID!
+  ipAddress: String!
+  userAgent: String!
+  lastActivity: DateTime!
+  location: Location
+}
+
+"""
+Defines the level of quantum-resistant cryptography applied.
+"""
+enum QuantumSecurityLevel {
+  STANDARD_ECC
+  LEVEL_1_POST_QUANTUM
+  LEVEL_3_POST_QUANTUM
+  LEVEL_5_POST_QUANTUM
+  QUANTUM_ENTANGLEMENT_KEY_DISTRIBUTION
+}
+
+# -------------------------------------------------------------------------
+# Corporate Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents a corporate entity or business.
+"""
+type Company implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  legalName: String
+  taxId: String
+  industry: String
+  headquarters: Location
+
+  """Employees affiliated with this company."""
+  employees(first: Int = 100, after: String): CompanyAffiliationConnection!
+
+  """Corporate bank accounts."""
+  corporateAccounts(first: Int = 25, after: String): AccountConnection!
+
+  """Corporate investment portfolios."""
+  corporatePortfolios(first: Int = 25, after: String): PortfolioConnection!
+
+  """Payroll management information."""
+  payroll: Payroll!
+
+  """Invoices issued or received by the company."""
+  invoices(first: Int = 50, after: String, status: InvoiceStatus): InvoiceConnection!
+
+  """Compliance cases related to the company."""
+  complianceCases(first: Int = 25, after: String): ComplianceCaseConnection!
+
+  """Key performance indicators for the company."""
+  kpis(first: Int = 50, after: String): KpiConnection!
+
+  """The company's position within the economic knowledge graph."""
+  economicGraphNode: EconomicGraphNode!
+}
+
+"""
+Links a User to a Company with a specific role.
+"""
+type CompanyAffiliation {
+  id: ID!
+  user: User!
+  company: Company!
+  role: String! # e.g., 'CEO', 'Software Engineer', 'Auditor'
+  startDate: DateTime!
+  endDate: DateTime
+  isActive: Boolean!
+}
+
+"""
+Payroll information and processing for a company.
+"""
+type Payroll {
+  id: ID!
+  nextRunDate: DateTime!
+  payFrequency: String! # e.g., 'Bi-weekly'
+  paymentOrders(first: Int = 100, after: String): PaymentOrderConnection!
+}
+
+"""
+A specific payment to be executed in a payroll run.
+"""
+type PaymentOrder {
+  id: ID!
+  employee: User!
+  amount: MonetaryAmount!
+  status: PaymentStatus!
+  executionDate: DateTime
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  PAID
+  FAILED
+}
+
+"""
+Represents a financial invoice.
+"""
+type Invoice {
+  id: ID!
+  issuer: Company!
+  recipient: Company!
+  amount: MonetaryAmount!
+  issueDate: DateTime!
+  dueDate: DateTime!
+  status: InvoiceStatus!
+  lineItems: [InvoiceLineItem!]!
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  VOID
+}
+
+type InvoiceLineItem {
+  description: String!
+  quantity: Float!
+  unitPrice: MonetaryAmount!
+  total: MonetaryAmount!
+}
+
+# -------------------------------------------------------------------------
+# Financial Domain
+# -------------------------------------------------------------------------
+
+"""
+An interface representing any type of financial account.
+"""
+interface Account implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  accountNumber: String
+  balance: MonetaryAmount!
+  owner: AccountOwner!
+  transactions(first: Int = 50, after: String): TransactionConnection!
+}
+
+"""
+A union type for the owner of an account, which can be a User or a Company.
+"""
+union AccountOwner = User | Company
+
+"""
+A traditional bank account.
+"""
+type BankAccount implements Node & Account @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  accountNumber: String
+  balance: MonetaryAmount!
+  owner: AccountOwner!
+  transactions(first: Int = 50, after: String): TransactionConnection!
+
+  institution: String!
+  accountType: String! # e.g., 'Checking', 'Savings'
+  routingNumber: String
+}
+
+"""
+An account holding cryptocurrency assets.
+"""
+type CryptoWallet implements Node & Account @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  accountNumber: String @deprecated(reason: "Use 'address' instead.")
+  balance: MonetaryAmount!
+  owner: AccountOwner!
+  transactions(first: Int = 50, after: String): TransactionConnection!
+
+  address: String!
+  blockchain: String! # e.g., 'Ethereum', 'Bitcoin'
+  assets: [CryptoAssetHolding!]!
+}
+
+type CryptoAssetHolding {
+  asset: CryptoAsset!
+  amount: Float!
+  value: MonetaryAmount!
+}
+
+"""
+Represents a monetary value in a specific currency.
+"""
+type MonetaryAmount {
+  amount: Float!
+  currency: String! # ISO 4217 currency code
+}
+
+"""
+A single financial transaction.
+"""
+type Transaction implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  description: String!
+  amount: MonetaryAmount!
+  date: DateTime!
+  status: TransactionStatus!
+  category: String
+  fromAccount: Account!
+  toAccount: Account!
+  """AI-generated insights about this transaction."""
+  insights: [AIInsight!]!
+  """Fraud detection analysis for this transaction."""
+  fraudAnalysis: FraudAnalysis
+}
+
+enum TransactionStatus {
+  PENDING
+  POSTED
+  FAILED
+  REVERSED
+}
+
+"""
+Represents a portfolio of investments.
+"""
+type Portfolio implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  owner: AccountOwner!
+  totalValue: MonetaryAmount!
+  performance: PortfolioPerformance!
+  holdings(first: Int = 100, after: String): HoldingConnection!
+  riskProfile: RiskProfile!
+  """AI-driven strategic advice for this portfolio."""
+  strategicAdvisorReport: AIAdvisorReport
+}
+
+type PortfolioPerformance {
+  change24h: Float!
+  change7d: Float!
+  change1m: Float!
+  changeYTD: Float!
+  annualizedReturn: Float!
+}
+
+"""
+Represents a holding of a financial instrument within a portfolio.
+"""
+type Holding {
+  instrument: FinancialInstrument!
+  quantity: Float!
+  marketValue: MonetaryAmount!
+  costBasis: MonetaryAmount!
+  unrealizedGainLoss: MonetaryAmount!
+}
+
+"""
+An interface for all tradable financial instruments.
+"""
+interface FinancialInstrument {
+  id: ID!
+  symbol: String!
+  name: String!
+  currentPrice: MonetaryAmount!
+  assetClass: String!
+}
+
+"""
+Represents a publicly traded stock.
+"""
+type Stock implements FinancialInstrument {
+  id: ID!
+  symbol: String!
+  name: String!
+  currentPrice: MonetaryAmount!
+  assetClass: String!
+  exchange: String!
+  marketCap: BigInt!
+  peRatio: Float
+}
+
+"""
+Represents a cryptocurrency.
+"""
+type CryptoAsset implements FinancialInstrument {
+  id: ID!
+  symbol: String!
+  name: String!
+  currentPrice: MonetaryAmount!
+  assetClass: String!
+  circulatingSupply: BigInt!
+  projectWebsite: String
+}
+
+"""
+Represents a user-defined financial goal.
+"""
+type FinancialGoal {
+  id: ID!
+  name: String!
+  targetAmount: MonetaryAmount!
+  currentAmount: MonetaryAmount!
+  targetDate: DateTime
+  progress: Float!
+  """AI-generated projection for achieving this goal."""
+  projection: AIFinancialProjection
+}
+
+"""
+Represents a budget for a specific category.
+"""
+type Budget {
+  id: ID!
+  name: String!
+  category: String!
+  limit: MonetaryAmount!
+  spent: MonetaryAmount!
+  period: String! # e.g., 'Monthly'
+  remaining: MonetaryAmount!
+  alertThreshold: Float
+}
+
+# -------------------------------------------------------------------------
+# Digital Assets & Blockchain Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents a Non-Fungible Token (NFT).
+"""
+type NFT implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  tokenId: String!
+  contractAddress: String!
+  blockchain: String!
+  name: String
+  description: String
+  imageUrl: String!
+  metadata: JSONObject
+  owner: User!
+  collection: NftCollection
+}
+
+"""
+A collection of related NFTs.
+"""
+type NftCollection {
+  id: ID!
+  name: String!
+  symbol: String
+  description: String
+  itemCount: Int!
+}
+
+"""
+A vault for storing and managing NFTs.
+"""
+type NftVault implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  owner: User!
+  name: String!
+  nfts(first: Int = 100, after: String): NFTConnection!
+}
+
+"""
+A smart contract deployed on a blockchain.
+"""
+type SmartContract implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  address: String!
+  blockchain: String!
+  abi: JSONObject
+  sourceCode: String
+  isVerified: Boolean!
+  transactions(first: Int = 50, after: String): TransactionConnection!
+  """AI-powered security audit of the contract code."""
+  securityAudit: AISecurityAudit
+}
+
+"""
+A Decentralized Autonomous Organization (DAO).
+"""
+type DAO implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  governanceToken: CryptoAsset!
+  treasury: Portfolio!
+  proposals(first: Int = 25, after: String): DAOProposalConnection!
+}
+
+"""
+A proposal submitted to a DAO for voting.
+"""
+type DAOProposal {
+  id: ID!
+  title: String!
+  description: String!
+  proposer: User!
+  status: ProposalStatus!
+  votesFor: BigInt!
+  votesAgainst: BigInt!
+  endDate: DateTime!
+}
+
+enum ProposalStatus {
+  PENDING
+  ACTIVE
+  PASSED
+  FAILED
+  EXECUTED
+}
+
+# -------------------------------------------------------------------------
+# AI and Machine Learning Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents an AI or Machine Learning model within the system.
+"""
+type AIModel implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  version: String!
+  description: String
+  status: AIModelStatus!
+  type: AIModelType!
+  performanceMetrics: JSONObject
+  deploymentHistory: [AIModelDeployment!]!
+  """Explainability report for the model's decisions."""
+  explainabilityReport: AIEthicsReport
+}
+
+enum AIModelStatus {
+  TRAINING
+  DEPLOYED
+  ARCHIVED
+  ERROR
+}
+
+enum AIModelType {
+  PREDICTIVE_ANALYTICS
+  NATURAL_LANGUAGE_PROCESSING
+  COMPUTER_VISION
+  GENERATIVE_ADVERSARIAL_NETWORK
+  REINFORCEMENT_LEARNING
+  QUANTUM_MACHINE_LEARNING
+}
+
+"""
+An instance of a deployed AI model.
+"""
+type AIModelDeployment {
+  id: ID!
+  deploymentDate: DateTime!
+  endpoint: String!
+  isActive: Boolean!
+}
+
+"""
+An autonomous AI agent performing tasks within Synapse OS.
+"""
+type AIAgent implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  purpose: String!
+  owner: User!
+  coreModel: AIModel!
+  status: AgentStatus!
+  currentTask: AITask
+  taskHistory(first: Int = 50, after: String): AITaskConnection!
+}
+
+enum AgentStatus {
+  IDLE
+  ACTIVE
+  SUSPENDED
+  TERMINATED
+}
+
+"""
+A task assigned to an AI Agent.
+"""
+type AITask {
+  id: ID!
+  description: String!
+  status: TaskStatus!
+  createdAt: DateTime!
+  completedAt: DateTime
+  result: JSONObject
+}
+
+"""
+An insight generated by an AI model or agent.
+"""
+type AIInsight implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  narrative: String!
+  severity: PriorityLevel!
+  sourceModel: AIModel!
+  relatedEntities: [Node!]!
+  suggestedActions: [AISuggestedAction!]!
+}
+
+"""
+A suggested action based on an AI insight.
+"""
+type AISuggestedAction {
+  id: ID!
+  description: String!
+  actionType: String! # e.g., 'EXECUTE_TRADE', 'REVIEW_TRANSACTION'
+  parameters: JSONObject
+}
+
+"""
+An AI-generated report on ethics, bias, and explainability.
+"""
+type AIEthicsReport {
+  id: ID!
+  generatedAt: DateTime!
+  biasAnalysis: JSONObject
+  fairnessMetrics: JSONObject
+  explainabilitySummary: String!
+}
+
+"""
+An AI-powered security audit report.
+"""
+type AISecurityAudit {
+  id: ID!
+  scannedAt: DateTime!
+  vulnerabilitiesFound: Int!
+  report: JSONObject
+  recommendations: [String!]!
+}
+
+"""
+A Key Performance Indicator (KPI) tracked by the system.
+"""
+type Kpi implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  description: String!
+  value: Float!
+  target: Float
+  trend: KpiTrend!
+  lastUpdated: DateTime!
+  relatedInsights(first: Int = 10, after: String): AIInsightConnection!
+  historicalData(timeframe: Timeframe!): [KpiDataPoint!]!
+}
+
+enum KpiTrend {
+  UP
+  DOWN
+  STABLE
+}
+
+enum Timeframe {
+  DAY
+  WEEK
+  MONTH
+  YEAR
+  ALL
+}
+
+type KpiDataPoint {
+  timestamp: DateTime!
+  value: Float!
+}
+
+# -------------------------------------------------------------------------
+# Quantum & Multiverse Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents a quantum computation circuit.
+"""
+type QuantumCircuit implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  qasmCode: String!
+  qubitCount: Int!
+  depth: Int!
+  executions(first: Int = 20, after: String): QuantumExecutionConnection!
+}
+
+"""
+Represents an execution of a quantum circuit on a QPU.
+"""
+type QuantumExecution {
+  id: ID!
+  executedAt: DateTime!
+  backend: String! # Name of the quantum computer
+  shots: Int!
+  result: QuantumExecutionResult!
+  status: TaskStatus!
+}
+
+type QuantumExecutionResult {
+  counts: JSONObject!
+  statevector: QuantumStateVector
+}
+
+"""
+Represents a multiverse financial simulation.
+"""
+type MultiverseSimulation implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  basePortfolio: Portfolio!
+  scenarios: [SimulationScenario!]!
+  results: [SimulationResult!]
+  status: TaskStatus!
+}
+
+"""
+A specific what-if scenario within a simulation.
+"""
+type SimulationScenario {
+  id: ID!
+  name: String!
+  description: String!
+  parameters: JSONObject # e.g., { "marketCrash": -0.3, "interestRateHike": 0.05 }
+}
+
+"""
+The result of a simulation for a given scenario.
+"""
+type SimulationResult {
+  scenario: SimulationScenario!
+  projectedValue: MonetaryAmount!
+  probability: Float!
+  confidenceInterval: [MonetaryAmount!]
+}
+
+# -------------------------------------------------------------------------
+# Governance, Risk & Compliance (GRC) Domain
+# -------------------------------------------------------------------------
+
+"""
+A log of a significant action taken within the system.
+"""
+type AuditLog implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  actor: User!
+  action: String!
+  targetEntity: Node
+  details: JSONObject
+}
+
+"""
+Represents a role with a set of permissions.
+"""
+type Role implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  permissions: [Permission!]!
+}
+
+"""
+A specific permission that can be granted.
+"""
+type Permission {
+  id: ID!
+  action: String! # e.g., 'read:transaction', 'execute:trade'
+  resource: String!
+}
+
+"""
+A case related to regulatory compliance.
+"""
+type ComplianceCase implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  caseType: String! # e.g., 'AML', 'KYC'
+  status: String!
+  assignee: User
+  relatedUser: User
+  relatedCompany: Company
+  documents: [LegalDocument!]!
+}
+
+"""
+A legal document stored in the system.
+"""
+type LegalDocument implements Node @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  documentType: String!
+  url: String!
+  summary: String
+}
+
+# -------------------------------------------------------------------------
+# Knowledge & Content Domain
+# -------------------------------------------------------------------------
+
+"""
+A general interface for content items like articles and reports.
+"""
+interface Content {
+  id: ID!
+  title: String!
+  author: User!
+  publishedAt: DateTime
+  content: String!
+}
+
+"""
+An article, such as a blog post or LinkedIn article.
+"""
+type Article implements Node & Content @key(fields: "id") {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  author: User!
+  publishedAt: DateTime
+  content: String!
+  tags: [String!]
+  seoMetadata: SeoMetadata
+}
+
+type SeoMetadata {
+  metaTitle: String
+  metaDescription: String
+  keywords: [String!]
+}
+
+# -------------------------------------------------------------------------
+# System & Infrastructure Domain
+# -------------------------------------------------------------------------
+
+"""
+Represents a system-wide notification.
+"""
+type Notification {
+  id: ID!
+  createdAt: DateTime!
+  message: String!
+  level: PriorityLevel!
+  isRead: Boolean!
+  relatedEntity: Node
+}
+
+"""
+Analysis of a transaction for potential fraud.
+"""
+type FraudAnalysis {
+  id: ID!
+  riskScore: Float! # Between 0 and 1
+  isFlagged: Boolean!
+  rulesTriggered: [String!]
+  model: AIModel!
+}
+
+"""
+An economic node in the global graph, representing an entity's connections.
+"""
+type EconomicGraphNode {
+  id: ID!
+  centrality: Float!
+  connectedness: Float!
+  counterparties(first: Int = 20, after: String): CompanyConnection!
+  supplyChainLinks: [SupplyChainLink!]
+}
+
+type SupplyChainLink {
+  partner: Company!
+  relationshipType: String! # 'SUPPLIER' or 'CUSTOMER'
+  volume: MonetaryAmount
+}
+
+"""
+The overall risk profile of a portfolio or user.
+"""
+type RiskProfile {
+  score: Int! # 0-100
+  level: String! # e.g., 'Conservative', 'Aggressive'
+  analysis: String!
+}
+
+"""
+AI-generated financial projection.
+"""
+type AIFinancialProjection {
+  timeHorizon: String! # e.g., '5 years'
+  projectedValue: MonetaryAmount!
+  optimisticScenario: MonetaryAmount!
+  pessimisticScenario: MonetaryAmount!
+  assumptions: [String!]
+}
+
+"""
+An AI-generated advisory report.
+"""
+type AIAdvisorReport {
+  id: ID!
+  generatedAt: DateTime!
+  summary: String!
+  recommendations: [AISuggestedAction!]!
+}
+
+# -------------------------------------------------------------------------
+# Connection Types (for Pagination)
+# -------------------------------------------------------------------------
+
+type AccountConnection {
+  edges: [AccountEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AccountEdge {
+  cursor: String!
+  node: Account
+}
+
+type PortfolioConnection {
+  edges: [PortfolioEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PortfolioEdge {
+  cursor: String!
+  node: Portfolio
+}
+
+type NftVaultConnection {
+  edges: [NftVaultEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type NftVaultEdge {
+  cursor: String!
+  node: NftVault
+}
+
+type FinancialGoalConnection {
+  edges: [FinancialGoalEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type FinancialGoalEdge {
+  cursor: String!
+  node: FinancialGoal
+}
+
+type BudgetConnection {
+  edges: [BudgetEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type BudgetEdge {
+  cursor: String!
+  node: Budget
+}
+
+type AIAgentConnection {
+  edges: [AIAgentEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AIAgentEdge {
+  cursor: String!
+  node: AIAgent
+}
+
+type NotificationConnection {
+  edges: [NotificationEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type NotificationEdge {
+  cursor: String!
+  node: Notification
+}
+
+type AuditLogConnection {
+  edges: [AuditLogEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AuditLogEdge {
+  cursor: String!
+  node: AuditLog
+}
+
+type CompanyAffiliationConnection {
+  edges: [CompanyAffiliationEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type CompanyAffiliationEdge {
+  cursor: String!
+  node: CompanyAffiliation
+}
+
+type InvoiceConnection {
+  edges: [InvoiceEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type InvoiceEdge {
+  cursor: String!
+  node: Invoice
+}
+
+type ComplianceCaseConnection {
+  edges: [ComplianceCaseEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type ComplianceCaseEdge {
+  cursor: String!
+  node: ComplianceCase
+}
+
+type KpiConnection {
+  edges: [KpiEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type KpiEdge {
+  cursor: String!
+  node: Kpi
+}
+
+type TransactionConnection {
+  edges: [TransactionEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type TransactionEdge {
+  cursor: String!
+  node: Transaction
+}
+
+type HoldingConnection {
+  edges: [HoldingEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type HoldingEdge {
+  cursor: String!
+  node: Holding
+}
+
+type NFTConnection {
+  edges: [NFTEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type NFTEdge {
+  cursor: String!
+  node: NFT
+}
+
+type DAOProposalConnection {
+  edges: [DAOProposalEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type DAOProposalEdge {
+  cursor: String!
+  node: DAOProposal
+}
+
+type AITaskConnection {
+  edges: [AITaskEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AITaskEdge {
+  cursor: String!
+  node: AITask
+}
+
+type AIInsightConnection {
+  edges: [AIInsightEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AIInsightEdge {
+  cursor: String!
+  node: AIInsight
+}
+
+type QuantumExecutionConnection {
+  edges: [QuantumExecutionEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type QuantumExecutionEdge {
+  cursor: String!
+  node: QuantumExecution
+}
+
+type PaymentOrderConnection {
+  edges: [PaymentOrderEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PaymentOrderEdge {
+  cursor: String!
+  node: PaymentOrder
+}
+
+type CompanyConnection {
+  edges: [CompanyEdge!]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type CompanyEdge {
+  cursor: String!
+  node: Company
+}
+
+# -------------------------------------------------------------------------
+# Root Query Type
+# -------------------------------------------------------------------------
+
+type Query {
+  """Fetches any object in the graph by its global ID."""
+  node(id: ID!): Node
+
+  """Fetches the currently authenticated user."""
+  me: User
+
+  """Fetches a user by their ID."""
+  user(id: ID!): User
+
+  """Fetches a company by its ID."""
+  company(id: ID!): Company
+
+  """Fetches an account by its ID."""
+  account(id: ID!): Account
+
+  """Fetches a transaction by its ID."""
+  transaction(id: ID!): Transaction
+
+  """Fetches a KPI by its ID."""
+  kpi(id: ID!): Kpi
+
+  """
+  Performs a universal search across the knowledge graph.
+  Example: search(query: "market trends", types: [ARTICLE, AI_INSIGHT])
+  """
+  search(query: String!, types: [EntityType!], first: Int = 20, after: String): SearchResultConnection!
+
+  """
+  Runs a multiverse financial simulation with given parameters.
+  This is an asynchronous query; use the returned ID to poll for results.
+  """
+  runFinancialSimulation(input: RunSimulationInput!): MultiverseSimulation!
+
+  """
+  Queries the quantum oracle with a specific problem.
+  This is a highly conceptual and resource-intensive operation.
+  """
+  queryQuantumOracle(problemDefinition: JSONObject!): QuantumExecution!
+
+  """
+  Executes a raw Cypher query against the underlying graph database.
+  (Requires special permissions).
+  """
+  executeCypher(query: Cypher!): JSONObject
+}
+
+type SearchResultConnection {
+  edges: [SearchResultEdge!]
+  pageInfo: PageInfo!
+}
+
+type SearchResultEdge {
+  cursor: String!
+  node: Node
+}
+
+# -------------------------------------------------------------------------
+# Root Mutation Type
+# -------------------------------------------------------------------------
+
+type Mutation {
+  """Creates a new user account."""
+  createUser(input: CreateUserInput!): User!
+
+  """Updates the profile of the currently authenticated user."""
+  updateMyProfile(input: UpdateUserProfileInput!): User!
+
+  """Initiates a financial transaction between two accounts."""
+  createTransaction(input: CreateTransactionInput!): Transaction!
+
+  """Deploys a new AI agent with a specified configuration."""
+  deployAIAgent(input: DeployAIAgentInput!): AIAgent!
+
+  """Provides feedback on an AI-generated insight to improve future models."""
+  provideInsightFeedback(input: InsightFeedbackInput!): AIInsight!
+
+  """Submits a proposal to a DAO."""
+  submitDAOProposal(input: SubmitDAOProposalInput!): DAOProposal!
+
+  """Casts a vote on an active DAO proposal."""
+  voteOnDAOProposal(proposalId: ID!, support: Boolean!): DAOProposal!
+
+  """Executes a quantum circuit on a registered quantum backend."""
+  executeQuantumCircuit(circuitId: ID!, shots: Int = 1024): QuantumExecution!
+}
+
+# -------------------------------------------------------------------------
+# Mutation Input Types
+# -------------------------------------------------------------------------
+
+input CreateUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  initialPasswordOrBiometricId: String!
+}
+
+input UpdateUserProfileInput {
+  firstName: String
+  lastName: String
+  avatarUrl: String
+  bio: String
+  location: LocationInput
+}
+
+input LocationInput {
+  addressLine1: String
+  city: String
+  stateOrProvince: String
+  postalCode: String
+  country: String
+}
+
+input CreateTransactionInput {
+  fromAccountId: ID!
+  toAccountId: ID!
+  amount: Float!
+  currency: String!
+  description: String
+}
+
+input DeployAIAgentInput {
+  name: String!
+  purpose: String!
+  coreModelId: ID!
+  initialParameters: JSONObject
+}
+
+input InsightFeedbackInput {
+  insightId: ID!
+  isHelpful: Boolean!
+  correction: String
+  rating: Int # 1-5
+}
+
+input SubmitDAOProposalInput {
+  daoId: ID!
+  title: String!
+  description: String!
+  actions: [JSONObject!]! # Encoded contract calls
+}
+
+input RunSimulationInput {
+  name: String!
+  portfolioId: ID!
+  scenarioIds: [ID!]!
+  timeHorizonYears: Int!
+}
+
+# -------------------------------------------------------------------------
+# Root Subscription Type
+# -------------------------------------------------------------------------
+
+type Subscription {
+  """Subscribes to new AI-generated insights for a specific user."""
+  newInsight(userId: ID!): AIInsight!
+
+  """Subscribes to updates for a specific financial account."""
+  accountUpdated(accountId: ID!): Account!
+
+  """Subscribes to real-time updates for a specific KPI."""
+  kpiUpdated(kpiId: ID!): Kpi!
+
+  """Subscribes to high-priority security alerts for a user or company."""
+  securityAlert(scopeId: ID!): SecurityAlert!
+
+  """Subscribes to the status updates of a running multiverse simulation."""
+  simulationStatusChanged(simulationId: ID!): MultiverseSimulation!
+}
+
+"""
+A real-time security alert.
+"""
+type SecurityAlert {
+  id: ID!
+  timestamp: DateTime!
+  level: PriorityLevel!
+  title: String!
+  description: String!
+  suggestedAction: String
+  relatedEntity: Node
+}

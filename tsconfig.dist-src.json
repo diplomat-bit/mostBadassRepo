@@ -1,0 +1,48 @@
+// REPOSITORY SOURCE: diplomat-bit/garbage-typescript | PATH: diplomat-bit-garbage-typescript-95791a2/tsconfig.dist-src.json
+================================================================================
+
+{
+  // this config is included in the published src directory to prevent TS errors
+  // from appearing when users go to source, and VSCode opens the source .ts file
+  // via declaration maps
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["DOM", "DOM.Iterable", "ES2018"],
+    "moduleResolution": "node"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/tsconfig.dist-src.json
+================================================================================
+
+{
+  // this config is included in the published src directory to prevent TS errors
+  // from appearing when users go to source, and VSCode opens the source .ts file
+  // via declaration maps
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["DOM"],
+    "moduleResolution": "node"
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/tsconfig.dist-src.json
+================================================================================
+
+{
+  // this config is included in the published src directory to prevent TS errors
+  // from appearing when users go to source, and VSCode opens the source .ts file
+  // via declaration maps
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["DOM", "DOM.Iterable", "ES2018"],
+    "moduleResolution": "node"
+  }
+}

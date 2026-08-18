@@ -1,0 +1,57 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/balance_check_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountFeatureEligibility_BalanceCheck_Digital_Domain_OpenAPI",
+    "description": "This API is used to check whether sufficient fund is available to do a transaction.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts/{accountId}/funds/sufficiencyCheck"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_Account Eligibility and Enrollment_Account Feature Eligibility"
+        ],
+        "summary": "This API is used to know if there is specific amount of funds is available in the account",
+        "operationId": "SufficiencyOfFunds"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/balance_check_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountFeatureEligibility_BalanceCheck_Digital_Domain_OpenAPI",
+    "description": "This API is used to check whether sufficient fund is available to do a transaction.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/v1/accounts/{accountId}/funds/sufficiencyCheck"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Accounts_Account Eligibility and Enrollment_Account Feature Eligibility"
+        ],
+        "summary": "This API is used to know if there is specific amount of funds is available in the account",
+        "operationId": "SufficiencyOfFunds"
+      }
+    }
+  }
+}

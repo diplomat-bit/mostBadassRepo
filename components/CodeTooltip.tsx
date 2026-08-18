@@ -1,0 +1,614 @@
+// REPOSITORY SOURCE: diplomat-bit/aibanking.dev-jocall3-new | PATH: diplomat-bit-aibanking.dev-jocall3-new-84d7a30/components/CodeTooltip.tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/CodeTooltip.tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/CodeTooltip (1).tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/almost | ORIGINAL PATH: diplomat-bit-almost-93a5466/components/CodeTooltip (2).tsx
+================================================================================
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/CodeTooltip.tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/CodeTooltip (1).tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/CodeTooltip (2).tsx
+================================================================================
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/Fuckyou | ORIGINAL PATH: diplomat-bit-Fuckyou-70f83c5/components/CodeTooltip_1.tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jamesburvelocallaghaniiiand | ORIGINAL PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/components/CodeTooltip.tsx
+================================================================================
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/CodeTooltip.tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/CodeTooltip (1).tsx
+================================================================================
+
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/magic | ORIGINAL PATH: diplomat-bit-magic-a3f5ff1/components/CodeTooltip (2).tsx
+================================================================================
+
+import React, { useState } from 'react';
+
+// Embedded mock schema data
+const schemaData = {
+  definitions: {
+    "ExternalPurpose1Code": {
+      "description": "*`CASH` - Cash management.\n*`SECU` - Securities.",
+      "enum": ["CASH", "SECU"]
+    }
+  }
+};
+
+interface CodeTooltipProps {
+  codeType: string;
+  codeValue: string;
+  children: React.ReactNode;
+}
+
+const CodeTooltip: React.FC<CodeTooltipProps> = ({ codeType, codeValue, children }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Simplified logic for this fix
+  const definition = schemaData.definitions[codeType as keyof typeof schemaData.definitions]?.description;
+
+  return (
+    <span
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{ position: 'relative', cursor: 'help', textDecoration: 'underline dotted' }}
+    >
+      {children}
+      {isHovering && definition && (
+        <span style={{
+            position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+            backgroundColor: 'black', color: 'white', padding: '5px', borderRadius: '4px',
+            width: '200px', fontSize: '12px', zIndex: 1000
+        }}>
+            {definition}
+        </span>
+      )}
+    </span>
+  );
+};
+
+export default CodeTooltip;

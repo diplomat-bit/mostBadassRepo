@@ -1,0 +1,86 @@
+// REPOSITORY SOURCE: diplomat-bit/tts-ai-book-reader-it-can-read-entire-books | PATH: diplomat-bit-tts-ai-book-reader-it-can-read-entire-books-128ebf1/openapi.yaml.txt
+================================================================================
+
+
+openapi: 3.0.0
+info:
+  title: VoxGemini Reader API
+  description: Backend service for handling massive Text-to-Speech books and Stripe subscriptions.
+  version: 1.0.0
+servers:
+  - url: https://api.voxgemini.com/v1
+paths:
+  /reader/job:
+    post:
+      summary: Create a long-form reading job
+      description: Submits a massive text (up to 200 pages) for chunked processing.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: The full content of the book.
+                voice:
+                  type: string
+                  enum: [Puck, Charon, Kore, Fenrir, Zephyr]
+      responses:
+        '202':
+          description: Job accepted and chunking started.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobId:
+                    type: string
+                  totalChunks:
+                    type: integer
+
+  /reader/chunk/{jobId}/{chunkIndex}:
+    get:
+      summary: Get audio for a specific chunk
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: chunkIndex
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Binary audio data (PCM 24kHz).
+          content:
+            audio/pcm:
+              schema:
+                type: string
+                format: binary
+
+  /billing/checkout:
+    post:
+      summary: Create a Stripe Checkout Session
+      responses:
+        '200':
+          description: Stripe session URL.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+
+  /billing/webhook:
+    post:
+      summary: Stripe Webhook Receiver
+      description: Handles checkout.session.completed to unlock Pro features.
+      responses:
+        '200':
+          description: Webhook processed.

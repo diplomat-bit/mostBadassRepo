@@ -1,0 +1,8 @@
+// REPOSITORY SOURCE: diplomat-bit/garbage-typescript | PATH: diplomat-bit-garbage-typescript-95791a2/pnpm-workspace.yaml
+================================================================================
+
+onlyBuiltDependencies:
+  - '@swc/core'
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - garbage

@@ -1,0 +1,17 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/data/illuminati_db/relational/organizations.tbl
+================================================================================
+
+[
+  {
+    "id": "org_001",
+    "name": "Global Sovereign Council",
+    "tier": "SUPREME",
+    "region": "GLOBAL"
+  },
+  {
+    "id": "org_002",
+    "name": "Vanguard Syndicate",
+    "tier": "EXECUTIVE",
+    "region": "APAC"
+  }
+]

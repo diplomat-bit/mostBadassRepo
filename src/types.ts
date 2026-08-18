@@ -1,0 +1,181 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingmtls | PATH: diplomat-bit-aibankingmtls-6a06a68/src/types.ts
+================================================================================
+
+export interface UserProfile {
+  uid: string;
+  displayName: string | null;
+  email: string | null;
+  photoURL: string | null;
+  createdAt: string;
+}
+
+export interface Account {
+  id: string;
+  userId: string;
+  type: 'checking' | 'savings';
+  balance: number;
+  currency: string;
+  accountNumber: string;
+}
+
+export interface Transaction {
+  id: string;
+  accountId: string;
+  userId: string;
+  amount: number;
+  category: string;
+  description: string;
+  date: string;
+  merchant?: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  userId: string;
+  role: 'user' | 'model';
+  content: string;
+  timestamp: string;
+}
+
+export interface Investment {
+  id: string;
+  userId: string;
+  symbol: string;
+  name: string;
+  quantity: number;
+  costBasis: number;
+  currentPrice: number;
+  type: 'stock' | 'crypto' | 'etf' | 'bond';
+}
+
+export interface Card {
+  id: string;
+  userId: string;
+  type: 'debit' | 'credit';
+  brand: string;
+  last4: string;
+  expiryDate: string;
+  status: 'active' | 'blocked' | 'expired';
+  limit?: number;
+  spent?: number;
+}
+
+export interface UserConnection {
+  id?: string;
+  userId: string;
+  service: 'stripe' | 'modern_treasury' | 'aibanking' | 'citi';
+  accessToken: string;
+  refreshToken?: string;
+  expiresAt?: number;
+  connectedAt: string;
+  externalAccountId?: string;
+}
+
+export interface Ledger {
+  id: string;
+  name: string;
+  description: string;
+  currency: string;
+}
+
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'appkit-button': any;
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/aibankingnew | ORIGINAL PATH: diplomat-bit-aibankingnew-a0c4868/src/types.ts
+================================================================================
+
+export interface Transaction {
+  id: string;
+  date: string;
+  amount: number;
+  category: string;
+  description: string;
+  type: 'income' | 'expense';
+  status: 'completed' | 'pending';
+}
+
+export interface Account {
+  id: string;
+  name: string;
+  balance: number;
+  type: 'checking' | 'savings' | 'investment';
+  accountNumber: string;
+}
+
+export interface ApiDefinition {
+  id: string;
+  name: string;
+  version: string;
+  status: 'active' | 'inactive';
+  endpoints: number;
+  lastSync: string;
+  isForged?: boolean;
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/types.ts
+================================================================================
+
+export interface Transaction {
+  id: string;
+  date: string;
+  amount: number;
+  category: string;
+  description: string;
+  type: 'income' | 'expense';
+  status: 'completed' | 'pending';
+}
+
+export interface Account {
+  id: string;
+  name: string;
+  balance: number;
+  type: 'checking' | 'savings' | 'investment';
+  accountNumber: string;
+}
+
+export interface ApiDefinition {
+  id: string;
+  name: string;
+  version: string;
+  status: 'active' | 'inactive';
+  endpoints: number;
+  lastSync: string;
+  isForged?: boolean;
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/partnerportal-microsoft | ORIGINAL PATH: diplomat-bit-partnerportal-microsoft-81d9840/src/types.ts
+================================================================================
+
+export interface TransactionEntry {
+  id: string;
+  date: string;
+  description: string;
+  category: string;
+  amount: number;
+  currency: string;
+  status: 'Completed' | 'Pending' | 'Failed' | 'Scheduled';
+  account: string;
+  merchant: string;
+  reference: string;
+}
+
+export interface NavItem {
+  id: string;
+  label: string;
+  icon?: string;
+  children?: NavItem[];
+}

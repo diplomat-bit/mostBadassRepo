@@ -1,0 +1,65 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/.github/workflows/publish-pypi.yml
+================================================================================
+
+# This workflow is triggered when a GitHub release is created.
+# It can also be run manually to re-publish to PyPI in case it failed for some reason.
+# You can run this workflow by navigating to https://www.github.com/diplomat-bit/aibank/actions/workflows/publish-pypi.yml
+name: Publish PyPI
+on:
+  workflow_dispatch:
+
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: '0.9.13'
+
+      - name: Publish to PyPI
+        run: |
+          bash ./bin/publish-pypi
+        env:
+          PYPI_TOKEN: ${{ secrets.JOCALL3_PYPI_TOKEN || secrets.PYPI_TOKEN }}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/.github/workflows/publish-pypi.yml
+================================================================================
+
+# This workflow is triggered when a GitHub release is created.
+# It can also be run manually to re-publish to PyPI in case it failed for some reason.
+# You can run this workflow by navigating to https://www.github.com/diplomat-bit/jocall3-python/actions/workflows/publish-pypi.yml
+name: Publish PyPI
+on:
+  workflow_dispatch:
+
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: '0.9.13'
+
+      - name: Publish to PyPI
+        run: |
+          bash ./bin/publish-pypi
+        env:
+          PYPI_TOKEN: ${{ secrets.JOCALL3_PYPI_TOKEN || secrets.PYPI_TOKEN }}

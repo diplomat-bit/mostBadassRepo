@@ -1,0 +1,128 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/docs/architecture/synapse_os_overview.mmd
+================================================================================
+
+```mermaid
+graph LR
+    subgraph SynapseOS
+        A[User Interface] --> B{API Gateway}
+        C[AI Agents] --> B
+        D[Data Layer] --> B
+        E[Security Layer] --> B
+    end
+
+    subgraph User Interface
+        A --> F[Web/Mobile Apps]
+        A --> G[Voice Control]
+    end
+
+    subgraph API Gateway
+        B --> H[Authentication & Authorization]
+        B --> I[Rate Limiting]
+        B --> J[Request Routing]
+    end
+
+    subgraph AI Agents
+        C --> K[Gemini/ChatGPT Integration]
+        C --> L[Custom AI Modules]
+        C --> M[Model Training & Management]
+    end
+
+    subgraph Data Layer
+        D --> N[Database (PostgreSQL, MongoDB)]
+        D --> O[Data Lake (S3, Azure Blob Storage)]
+        D --> P[Real-time Data Streams (Kafka, Kinesis)]
+    end
+
+    subgraph Security Layer
+        E --> Q[Identity & Access Management]
+        E --> R[Threat Detection & Prevention]
+        E --> S[Data Encryption & Compliance]
+    end
+
+    subgraph Web/Mobile Apps
+        F --> T[React Frontend]
+        F --> U[Native Mobile Apps (iOS/Android)]
+    end
+
+    subgraph Voice Control
+        G --> V[Speech-to-Text]
+        G --> W[Natural Language Processing (NLP)]
+        G --> X[Text-to-Speech]
+    end
+
+    subgraph Authentication & Authorization
+        H --> Y[OAuth 2.0]
+        H --> Z[Multi-Factor Authentication (MFA)]
+    end
+
+    subgraph Request Routing
+        J --> AA[Service Discovery]
+        J --> AB[Load Balancing]
+    end
+
+    subgraph Gemini/ChatGPT Integration
+        K --> AC[Prompt Engineering Engine]
+        K --> AD[Response Parsing & Formatting]
+    end
+
+    subgraph Custom AI Modules
+        L --> AE[Financial Modeling]
+        L --> AF[Risk Assessment]
+        L --> AG[Fraud Detection]
+    end
+
+    subgraph Database
+        N --> AH[Data Storage]
+        N --> AI[Indexing & Search]
+    end
+
+    subgraph Data Lake
+        O --> AJ[Data Ingestion]
+        O --> AK[Data Transformation]
+    end
+
+    subgraph Real-time Data Streams
+        P --> AL[Event Processing]
+        P --> AM[Stream Analytics]
+    end
+
+    subgraph Identity & Access Management
+        Q --> AN[User Authentication]
+        Q --> AO[Role-Based Access Control (RBAC)]
+    end
+
+    subgraph Threat Detection & Prevention
+        R --> AP[Intrusion Detection System (IDS)]
+        R --> AQ[Web Application Firewall (WAF)]
+    end
+
+    subgraph Data Encryption & Compliance
+        S --> AR[Data Encryption at Rest & in Transit]
+        S --> AS[Compliance Standards (e.g., GDPR, CCPA)]
+    end
+
+    subgraph Prompt Engineering Engine
+        AC --> AT[Prompt Library]
+        AC --> AU[Contextual Data Integration]
+    end
+
+    style SynapseOS fill:#f9f,stroke:#333,stroke-width:2px
+    style User Interface fill:#ccf,stroke:#333,stroke-width:2px
+    style API Gateway fill:#ccf,stroke:#333,stroke-width:2px
+    style AI Agents fill:#ccf,stroke:#333,stroke-width:2px
+    style Data Layer fill:#ccf,stroke:#333,stroke-width:2px
+    style Security Layer fill:#ccf,stroke:#333,stroke-width:2px
+    style Web/Mobile Apps fill:#99f,stroke:#333,stroke-width:1px
+    style Voice Control fill:#99f,stroke:#333,stroke-width:1px
+    style Authentication..Authorization fill:#99f,stroke:#333,stroke-width:1px
+    style Request Routing fill:#99f,stroke:#333,stroke-width:1px
+    style Gemini/ChatGPT...Response Parsing & Formatting fill:#99f,stroke:#333,stroke-width:1px
+    style Custom AI Modules fill:#99f,stroke:#333,stroke-width:1px
+    style Database fill:#99f,stroke:#333,stroke-width:1px
+    style Data Lake fill:#99f,stroke:#333,stroke-width:1px
+    style Real-time Data Streams fill:#99f,stroke:#333,stroke-width:1px
+    style Identity...RBAC fill:#99f,stroke:#333,stroke-width:1px
+    style Threat Detection..WAF fill:#99f,stroke:#333,stroke-width:1px
+    style Data Encryption...Compliance fill:#99f,stroke:#333,stroke-width:1px
+    style Prompt..Integration fill:#99f,stroke:#333,stroke-width:1px
+```

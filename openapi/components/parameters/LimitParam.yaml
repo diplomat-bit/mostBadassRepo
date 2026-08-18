@@ -1,0 +1,14 @@
+// REPOSITORY SOURCE: diplomat-bit/jamesburvelocallaghaniiiand | PATH: diplomat-bit-jamesburvelocallaghaniiiand-9414e97/openapi/components/parameters/LimitParam.yaml
+================================================================================
+
+name: limit
+in: query
+description: The maximum number of items to return in a single page of results. Used for pagination.
+required: false
+schema:
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 100
+  default: 20
+example: 50

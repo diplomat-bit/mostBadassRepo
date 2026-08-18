@@ -1,0 +1,817 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/api/multiverse-financial-projection.yaml
+================================================================================
+
+```yaml
+openapi: 3.0.3
+info:
+  title: "Demo Bank API: Quantum Multiverse Financial Projection - Gemini Edition"
+  description: |
+    Step into the **Quantum Multiverse**, where financial foresight transcends linear time. This API unleashes the unparalleled
+    power of advanced probabilistic modeling, powered by the **Google Gemini AI**, to simulate divergent economic realities,
+    explore countless 'what-if' scenarios, and identify optimal strategic pathways across branching timelines.
+    
+    Far beyond traditional forecasting, the Multiverse Financial Projection API allows users and institutional clients to:
+    
+    *   **Initiate & Manage Multiverse Simulations:** Define a baseline reality and project thousands of parallel futures.
+    *   **Inject Dynamic Events:** Introduce market shifts, policy changes, black swan events, or personal financial decisions into any timeline.
+    *   **Explore Reality Branches:** Navigate through diverging economic outcomes, understand causal links, and identify inflection points.
+    *   **Optimize Strategic Timelines:** Leverage AI-driven insights to discover the most robust or highest-return strategies, regardless of future uncertainty.
+    *   **Detect Temporal Anomalies:** Identify inconsistencies or paradoxes across realities, revealing hidden risks or opportunities.
+    *   **Integrate Quantum Nexus Insights:** Receive cross-reality intelligence, guiding real-world decision-making with unprecedented clarity.
+    
+    This API is a strategic imperative for navigating an unpredictable world, providing an analytical edge that traditional finance can only dream of.
+    It's an extension of the Quantum Core, designed for visionary leaders, hyper-sophisticated investors, and any entity seeking to engineer their financial destiny across the vast expanse of possible futures. Authenticated access requires both Demo Bank's robust OAuth2 framework and a dedicated Gemini AI API key, ensuring secure and high-performance interaction with our bleeding-edge computational finance engine.
+    
+    System prompt: see `prompts/idgafai_full.txt`
+servers:
+  - url: "/"
+tags:
+  - name: "Multiverse Simulations Core"
+    description: "Endpoints for initiating, managing, and overseeing high-level multiverse financial projection simulations."
+  - name: "Reality Branching & Exploration"
+    description: "Navigation and interaction with individual financial realities (timelines) within a broader multiverse simulation."
+  - name: "Scenario & Event Definition"
+    description: "Defining and injecting specific economic, market, or personal events into simulated realities."
+  - name: "Strategic Optimization & Intervention"
+    description: "Tools for evaluating and optimizing financial strategies across multiple realities and proposing AI-driven interventions."
+  - name: "Cross-Reality Analytics & Insights (Quantum Nexus)"
+    description: "Advanced AI-driven analysis across divergent realities to extract overarching trends, risks, and opportunities."
+  - name: "Temporal Governance & Paradox Detection"
+    description: "Ensuring consistency and identifying logical inconsistencies (paradoxes) within and across simulated timelines."
+  - name: "Macro-Economic Multiverse Drivers"
+    description: "Managing and simulating global macro-economic factors that influence financial realities."
+  - name: "Personal Financial Trajectory Multiverse"
+    description: "Personalized simulation and optimization of individual financial pathways across probable futures."
+  - name: "Gemini Integration Management"
+    description: "Endpoints specific to the configuration and monitoring of Google Gemini AI integration for multiverse computations."
+paths:
+  /gemini-multiverse/simulations:
+    get:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "List All Active Multiverse Simulations"
+      description: |
+        Retrieves a paginated list of all multiverse financial simulations currently active or recently completed
+        for the authenticated user or organization. Each entry provides a high-level overview, including
+        status, creation date, and the primary objective, allowing for quick oversight of ongoing predictive analytics.
+        Leverages Gemini AI's tracking capabilities for simulation state management.
+      operationId: "listMultiverseSimulations"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: status
+          in: query
+          description: "Filter simulations by their current processing status."
+          schema:
+            type: string
+            enum: [QUEUED, PROCESSING, PAUSED, COMPLETED, ERROR, CANCELLED]
+            default: PROCESSING
+        - name: objective
+          in: query
+          description: "Filter simulations by their primary financial objective."
+          schema:
+            type: string
+            enum: [MAXIMIZE_GROWTH, MINIMIZE_RISK, OPTIMIZE_LIQUIDITY, ACHIEVE_GOAL]
+      responses:
+        "200":
+          description: "A paginated list of multiverse simulations."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  limit: {type: integer, example: 50}
+                  offset: {type: integer, example: 0}
+                  total: {type: integer, example: 125}
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/MultiverseSimulation"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+    post:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Initiate a New Quantum Multiverse Financial Simulation"
+      description: |
+        Triggers the creation of a new, complex multiverse financial simulation. The request payload defines the
+        initial baseline reality, the core financial objective, the simulation horizon, and the probabilistic
+        parameters that will cause realities to branch. Gemini AI orchestrates the parallel computation
+        of thousands of divergent timelines, exploring the full spectrum of potential financial futures
+        based on initial conditions and stochastic events. This is the cornerstone operation for deep predictive analysis.
+      operationId: "initiateMultiverseSimulation"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      requestBody:
+        required: true
+        description: "Configuration for the new multiverse simulation, including baseline, objective, and branching parameters."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MultiverseSimulationCreationRequest"
+      responses:
+        "201":
+          description: "Multiverse simulation initiated successfully. Returns the ID and initial status."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseSimulation"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "429":
+          $ref: "#/components/responses/TooManyRequestsError"
+        "503":
+          description: "Gemini AI computational resources are temporarily unavailable for new simulations."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /gemini-multiverse/simulations/{simulationId}:
+    get:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Retrieve Detailed Status and Configuration of a Multiverse Simulation"
+      description: |
+        Fetches the complete current state, configuration parameters, and high-level progress indicators
+        for a specific multiverse simulation identified by its unique ID. This includes information on
+        active realities, resource utilization by Gemini, and any high-level AI-generated summaries
+        of initial findings or emergent trends.
+      operationId: "getMultiverseSimulationDetails"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "200":
+          description: "Detailed information about the specified multiverse simulation."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseSimulationDetailed"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    put:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Update Configuration Parameters for an Active Multiverse Simulation"
+      description: |
+        Allows for the dynamic modification of an active multiverse simulation's parameters, such as
+        adjusting probabilistic thresholds, extending the simulation horizon, or modifying the AI's
+        resource allocation strategy. This enables real-time steering of complex simulations based
+        on early insights or changing analytical requirements. Note that major structural changes may
+        trigger a partial recalculation by Gemini.
+      operationId: "updateMultiverseSimulation"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      requestBody:
+        required: true
+        description: "Updated configuration parameters for the multiverse simulation."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MultiverseSimulationUpdateRequest"
+      responses:
+        "200":
+          description: "Multiverse simulation configuration updated successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseSimulationDetailed"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+    delete:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Terminate and Delete a Multiverse Financial Simulation"
+      description: |
+        Irreversibly terminates an active or completed multiverse simulation and purges all associated
+        data, including all branching realities, scenarios, and analytical results generated by Gemini.
+        This action frees up computational resources and should be used with caution, as data cannot be recovered.
+      operationId: "deleteMultiverseSimulation"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "204":
+          description: "Multiverse simulation successfully terminated and deleted."
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/pause:
+    post:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Pause an Active Multiverse Simulation"
+      description: |
+        Temporarily suspends all ongoing computations and branching for a specified multiverse simulation.
+        This allows for reviewing intermediate results, adjusting parameters, or conserving Gemini AI
+        processing credits. The simulation can be resumed at any time from its paused state.
+      operationId: "pauseMultiverseSimulation"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "200":
+          description: "Multiverse simulation successfully paused."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseSimulationStatus"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Simulation is not in a state that can be paused (e.g., already paused or completed)."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /gemini-multiverse/simulations/{simulationId}/resume:
+    post:
+      tags:
+        - "Multiverse Simulations Core"
+        - "Gemini Integration Management"
+      summary: "Resume a Paused Multiverse Simulation"
+      description: |
+        Restarts computations for a previously paused multiverse simulation, allowing Gemini AI to
+        continue generating and analyzing branching realities from where it left off.
+      operationId: "resumeMultiverseSimulation"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "200":
+          description: "Multiverse simulation successfully resumed."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseSimulationStatus"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Simulation is not in a state that can be resumed (e.g., already active or completed)."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /gemini-multiverse/simulations/{simulationId}/realities:
+    get:
+      tags:
+        - "Reality Branching & Exploration"
+        - "Multiverse Simulations Core"
+      summary: "List All Branching Realities within a Simulation"
+      description: |
+        Retrieves a high-level overview of all the distinct financial realities (timelines) that have
+        branched off from the baseline within a specific multiverse simulation. This provides a map
+        of the explored probabilistic futures, each represented by a unique `realityId`.
+      operationId: "listSimulationRealities"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - name: probabilityMin
+          in: query
+          description: "Filter realities by a minimum calculated probability of occurrence (0-1)."
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            maximum: 1
+            default: 0
+        - name: probabilityMax
+          in: query
+          description: "Filter realities by a maximum calculated probability of occurrence (0-1)."
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            maximum: 1
+            default: 1
+        - name: status
+          in: query
+          description: "Filter by reality status (e.g., ACTIVE, TERMINATED, OPTIMIZED)."
+          schema:
+            type: string
+            enum: [ACTIVE, TERMINATED, OPTIMIZED, STABLE, DIVERGENT]
+            default: ACTIVE
+      responses:
+        "200":
+          description: "A paginated list of branching financial realities."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  limit: {type: integer, example: 50}
+                  offset: {type: integer, example: 0}
+                  total: {type: integer, example: 500}
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/MultiverseReality"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/realities/{realityId}:
+    get:
+      tags:
+        - "Reality Branching & Exploration"
+        - "Multiverse Simulations Core"
+      summary: "Get Detailed Snapshot of a Specific Multiverse Reality"
+      description: |
+        Retrieves a comprehensive snapshot of a single, specific financial reality at its current temporal node
+        within a given simulation. This includes its financial state, sequence of past events, AI-predicted
+        future trajectory, and the calculated probability of this reality manifesting. It provides granular
+        data for in-depth analysis of a particular timeline.
+      operationId: "getMultiverseRealitySnapshot"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/RealityId"
+        - name: temporalNodeId
+          in: query
+          description: "Optional. Retrieve the state of the reality at a specific historical temporal node."
+          schema:
+            type: string
+            example: "node_2025-06-30"
+      responses:
+        "200":
+          description: "Detailed state of the specified multiverse reality."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseRealityState"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    put:
+      tags:
+        - "Reality Branching & Exploration"
+        - "Strategic Optimization & Intervention"
+      summary: "Modify Future Trajectory of a Multiverse Reality (Intervention)"
+      description: |
+        Allows for the 'intervention' into a specific simulated financial reality, modifying its future trajectory
+        by injecting a new, user-defined event or adjusting existing parameters from a designated temporal node.
+        This is crucial for strategic planning, enabling users to test the impact of their hypothetical
+        decisions on a particular timeline. Gemini AI then recalculates the reality's path forward.
+      operationId: "interveneInMultiverseReality"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/RealityId"
+      requestBody:
+        required: true
+        description: "Details of the intervention, including the temporal node and the new event/parameters."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RealityInterventionRequest"
+      responses:
+        "200":
+          description: "Multiverse reality successfully re-simulated with the new intervention."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultiverseRealityState"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          description: "Intervention conflict or reality is immutable."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags:
+        - "Reality Branching & Exploration"
+        - "Temporal Governance & Paradox Detection"
+      summary: "Terminate a Divergent Multiverse Reality"
+      description: |
+        Removes a specific, identified financial reality from an ongoing multiverse simulation. This can be
+        useful for pruning improbable or irrelevant timelines, optimizing computational resources, or
+        streamlining analysis focus. AI will ensure no critical causal links are disrupted unless explicitly
+        overridden.
+      operationId: "terminateMultiverseReality"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/RealityId"
+      responses:
+        "204":
+          description: "Multiverse reality successfully terminated."
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/realities/{realityId}/temporal-nodes:
+    get:
+      tags:
+        - "Reality Branching & Exploration"
+        - "Temporal Governance & Paradox Detection"
+      summary: "List Key Temporal Nodes within a Reality"
+      description: |
+        Retrieves a chronological list of significant 'temporal nodes' (checkpoints or major event occurrences)
+        within a specific simulated reality. These nodes represent moments of high change, branching potential,
+        or user-defined interest, enabling efficient navigation and analysis of the reality's history.
+      operationId: "listRealityTemporalNodes"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/RealityId"
+        - name: eventType
+          in: query
+          description: "Filter temporal nodes by the type of event that occurred."
+          schema:
+            type: string
+            enum: [MARKET_SHOCK, POLICY_CHANGE, PERSONAL_MILESTONE, BLACK_SWAN]
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+      responses:
+        "200":
+          description: "A list of key temporal nodes for the reality."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TemporalNode"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/scenarios:
+    get:
+      tags:
+        - "Scenario & Event Definition"
+        - "Multiverse Simulations Core"
+      summary: "List All Defined Scenarios for a Simulation"
+      description: |
+        Retrieves a list of all pre-defined or AI-generated scenarios associated with a multiverse simulation.
+        These scenarios outline initial conditions, event sequences, and probabilistic branches that
+        guide the simulation's exploration of futures.
+      operationId: "listSimulationScenarios"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: "A paginated list of defined scenarios."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  limit: {type: integer, example: 50}
+                  offset: {type: integer, example: 0}
+                  total: {type: integer, example: 20}
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SimulationScenario"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    post:
+      tags:
+        - "Scenario & Event Definition"
+        - "Multiverse Simulations Core"
+      summary: "Define a New Probabilistic Scenario for a Simulation"
+      description: |
+        Adds a new, potentially complex scenario definition to an existing multiverse simulation. This
+        scenario can dictate a sequence of events, specific market conditions, or introduce new probabilistic
+        branching points for Gemini AI to explore, expanding the diversity of simulated realities.
+      operationId: "createSimulationScenario"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      requestBody:
+        required: true
+        description: "The definition of the new probabilistic scenario."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulationScenarioCreationRequest"
+      responses:
+        "201":
+          description: "New scenario successfully added to the simulation."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationScenario"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+
+  /gemini-multiverse/simulations/{simulationId}/scenarios/{scenarioId}:
+    get:
+      tags:
+        - "Scenario & Event Definition"
+        - "Multiverse Simulations Core"
+      summary: "Retrieve Details of a Specific Scenario"
+      description: "Retrieves the full configuration and event definitions for a single scenario within a multiverse simulation."
+      operationId: "getSimulationScenarioDetails"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/ScenarioId"
+      responses:
+        "200":
+          description: "Detailed information about the specified scenario."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationScenario"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    put:
+      tags:
+        - "Scenario & Event Definition"
+        - "Multiverse Simulations Core"
+      summary: "Update an Existing Simulation Scenario"
+      description: |
+        Modifies the definition of an existing scenario. Updating a scenario can trigger re-simulation
+        of affected realities by Gemini AI to incorporate the changes.
+      operationId: "updateSimulationScenario"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/ScenarioId"
+      requestBody:
+        required: true
+        description: "The updated scenario definition."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulationScenarioUpdateRequest"
+      responses:
+        "200":
+          description: "Scenario updated successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationScenario"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+    delete:
+      tags:
+        - "Scenario & Event Definition"
+        - "Multiverse Simulations Core"
+      summary: "Remove a Scenario from a Simulation"
+      description: |
+        Deletes a specific scenario, potentially removing all realities that were exclusively generated
+        by this scenario. This action is irreversible and affects the branching structure of the multiverse.
+      operationId: "deleteSimulationScenario"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/ScenarioId"
+      responses:
+        "204":
+          description: "Scenario deleted successfully."
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/optimal-pathways:
+    get:
+      tags:
+        - "Strategic Optimization & Intervention"
+        - "Cross-Reality Analytics & Insights (Quantum Nexus)"
+      summary: "Discover Optimal Strategic Pathways Across Realities"
+      description: |
+        Triggers an AI-driven analysis across all simulated realities within a multiverse simulation to
+        identify 'optimal strategic pathways.' These pathways represent sequences of interventions
+        (e.g., investment decisions, policy changes) that consistently lead to the best outcomes
+        based on the simulation's objective, even under varying probabilistic futures. Gemini's
+        cross-reality intelligence pinpoints the most robust and adaptive strategies.
+      operationId: "getOptimalStrategicPathways"
+      security:
+        - oAuth2Auth: [read:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - name: optimizationGoal
+          in: query
+          description: "The primary objective for pathway optimization."
+          schema:
+            type: string
+            enum: [MAXIMIZE_NET_WORTH, MINIMIZE_LIQUIDITY_RISK, OPTIMIZE_ROI, ACHIEVE_SPECIFIC_GOAL]
+            default: MAXIMIZE_NET_WORTH
+        - name: confidenceThreshold
+          in: query
+          description: "Minimum confidence score (0-1) for pathways to be considered optimal."
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            maximum: 1
+            default: 0.75
+      responses:
+        "200":
+          description: "A list of AI-identified optimal strategic pathways."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OptimalPathway"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "503":
+          description: "AI optimization engine temporarily unavailable."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /gemini-multiverse/simulations/{simulationId}/intervention-strategies:
+    post:
+      tags:
+        - "Strategic Optimization & Intervention"
+      summary: "Propose a New AI-Driven Intervention Strategy"
+      description: |
+        Submits a proposal for an AI-generated intervention strategy to be evaluated across a multiverse
+        simulation. The strategy specifies actions (e.g., invest $X, divest Y, change policy Z) and
+        the conditions under which they should be applied. Gemini AI then simulates the impact of this
+        strategy across all realities to assess its efficacy and robustness.
+      operationId: "proposeInterventionStrategy"
+      security:
+        - oAuth2Auth: [write:gemini_multiverse]
+        - geminiApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      requestBody:
+        required: true
+        description: "The proposed AI-driven intervention strategy."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InterventionStrategyProposal"
+      responses:
+        "202":
+          description: "Intervention strategy proposed and evaluation initiated. Returns the strategy ID."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  strategyId:
+                    type: string
+                    example: "strat_opt_growth_001"
+                  status:
+                    type: string
+                    enum: [EVALUATING, ACCEPTED, REJECTED]
+                    example: "EVALUATING"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+
+  /gemini-multiverse/simulations/{simulationId}/intervention-strategies/{strategyId}/evaluation:
+    get:
+      tags:
+        - "Strategic Optimization & Intervention"
+        - "Cross-Reality Analytics & Insights (Quantum Nexus)"
+      summary: "Retrieve AI Evaluation Results for an Intervention Strategy"
+      description: |
+        Fetches the detailed results of how a proposed intervention strategy performed across the
+        multiverse simulation. This includes its average impact on the objective, its robustness
+        across various realities, and any potential unintended consequences identified by Gemini AI.
+      operationId: "getInterventionStrategyEvaluation"
+      security:
+        - oAuth2Auth: [read:gemini_

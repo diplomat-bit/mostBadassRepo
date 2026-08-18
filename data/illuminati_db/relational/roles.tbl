@@ -1,0 +1,17 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/data/illuminati_db/relational/roles.tbl
+================================================================================
+
+[
+  {
+    "id": "role_001",
+    "name": "Grand Architect",
+    "clearance": "OMEGA",
+    "permissions": ["ALL"]
+  },
+  {
+    "id": "role_002",
+    "name": "Director of Logistics",
+    "clearance": "ALPHA",
+    "permissions": ["LOGISTICS_READ", "LOGISTICS_WRITE"]
+  }
+]

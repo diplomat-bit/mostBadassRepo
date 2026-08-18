@@ -1,0 +1,75 @@
+// REPOSITORY SOURCE: diplomat-bit/aibankingnew | PATH: diplomat-bit-aibankingnew-a0c4868/src/data/transaction_details_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountTransactions_FinancialDetails_Digital_Domain_OpenAPI",
+    "description": "This MS will provide account summary and transaction list for a member/customer.",
+    "version": "1.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/accounttransactions/findtls/v1"
+    }
+  ],
+  "paths": {
+    "/accountsummary": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Transactions"
+        ],
+        "summary": "This API provides the basic details and financial summary of all the accounts belonging to a member/customer",
+        "operationId": "RetrieveAccountSummary"
+      }
+    },
+    "/transactiondetails/{accountId}": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Transactions"
+        ],
+        "summary": "This API gives the list of all the transactions for an account.",
+        "operationId": "RetrieveTransactionDetails"
+      }
+    }
+  }
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/gameover | ORIGINAL PATH: diplomat-bit-gameover-da1da3c/src/data/transaction_details_api_spec.json
+================================================================================
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Accounts_AccountTransactions_FinancialDetails_Digital_Domain_OpenAPI",
+    "description": "This MS will provide account summary and transaction list for a member/customer.",
+    "version": "1.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1/openapi/accounttransactions/findtls/v1"
+    }
+  ],
+  "paths": {
+    "/accountsummary": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Transactions"
+        ],
+        "summary": "This API provides the basic details and financial summary of all the accounts belonging to a member/customer",
+        "operationId": "RetrieveAccountSummary"
+      }
+    },
+    "/transactiondetails/{accountId}": {
+      "get": {
+        "tags": [
+          "Accounts_Account Financials_Account Transactions"
+        ],
+        "summary": "This API gives the list of all the transactions for an account.",
+        "operationId": "RetrieveTransactionDetails"
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/.github/workflows/release-doctor.yml
+================================================================================
+
+name: Release Doctor
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release_doctor:
+    name: release doctor
+    runs-on: ubuntu-latest
+    if: github.repository == 'diplomat-bit/aibank' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check release environment
+        run: |
+          bash ./bin/check-release-environment
+        env:
+          PYPI_TOKEN: ${{ secrets.JOCALL3_PYPI_TOKEN || secrets.PYPI_TOKEN }}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/.github/workflows/release-doctor.yml
+================================================================================
+
+name: Release Doctor
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release_doctor:
+    name: release doctor
+    runs-on: ubuntu-latest
+    if: github.repository == 'diplomat-bit/garbage-typescript' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check release environment
+        run: |
+          bash ./bin/check-release-environment
+        env:
+          NPM_TOKEN: ${{ secrets.GARBAGE_NPM_TOKEN || secrets.NPM_TOKEN }}
+
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/.github/workflows/release-doctor.yml
+================================================================================
+
+name: Release Doctor
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release_doctor:
+    name: release doctor
+    runs-on: ubuntu-latest
+    if: github.repository == 'diplomat-bit/jocall3-python' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check release environment
+        run: |
+          bash ./bin/check-release-environment
+        env:
+          PYPI_TOKEN: ${{ secrets.JOCALL3_PYPI_TOKEN || secrets.PYPI_TOKEN }}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/.github/workflows/release-doctor.yml
+================================================================================
+
+name: Release Doctor
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release_doctor:
+    name: release doctor
+    runs-on: ubuntu-latest
+    if: github.repository == 'diplomat-bit/jocall3-typescript' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check release environment
+        run: |
+          bash ./bin/check-release-environment
+        env:
+          NPM_TOKEN: ${{ secrets.JOCALL3_NPM_TOKEN || secrets.NPM_TOKEN }}
+

@@ -1,0 +1,101 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running ruff"
+uv run ruff format
+uv run ruff check --fix .
+# run formatting again to fix any inconsistencies when imports are stripped
+uv run ruff format
+
+echo "==> Formatting docs"
+uv run python scripts/utils/ruffen-docs.py README.md api.md
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint --fix"
+./node_modules/.bin/eslint --fix .
+
+echo "==> Running prettier --write"
+# format things eslint didn't
+./node_modules/.bin/prettier --write --cache --cache-strategy metadata . '!**/dist' '!**/*.ts' '!**/*.mts' '!**/*.cts' '!**/*.js' '!**/*.mjs' '!**/*.cjs'
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-go | ORIGINAL PATH: diplomat-bit-jocall3-go-7054919/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running gofmt -s -w"
+gofmt -s -w .
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-node | ORIGINAL PATH: diplomat-bit-jocall3-node-fae6abf/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint --fix"
+ESLINT_USE_FLAT_CONFIG="false" ./node_modules/.bin/eslint --fix --ext ts,js .
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running ruff"
+uv run ruff format
+uv run ruff check --fix .
+# run formatting again to fix any inconsistencies when imports are stripped
+uv run ruff format
+
+echo "==> Formatting docs"
+uv run python scripts/utils/ruffen-docs.py README.md api.md
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/scripts/format
+================================================================================
+
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running eslint --fix"
+./node_modules/.bin/eslint --fix .
+
+echo "==> Running prettier --write"
+# format things eslint didn't
+./node_modules/.bin/prettier --write --cache --cache-strategy metadata . '!**/dist' '!**/*.ts' '!**/*.mts' '!**/*.cts' '!**/*.js' '!**/*.mjs' '!**/*.cjs'

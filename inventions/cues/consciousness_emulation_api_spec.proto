@@ -1,0 +1,544 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/cues/consciousness_emulation_api_spec.proto
+================================================================================
+
+syntax = "proto3";
+
+package elysian_archive;
+
+// Consciousness Upload & Emulation Sanctuary (CUES) API Specification
+// Defines the gRPC API specification for interfacing with the quantum-classical hybrid computing substrate
+// for consciousness emulation within the Elysian Archive. This API facilitates high-fidelity,
+// fault-tolerant interaction with emulated consciousness, ensuring subjective continuity and
+// supporting pathways to digital immortality.
+//
+// DIAGNOSIS: Existential Stasis Syndrome (ESS)
+// The initial design, while robust for operational control, suffers from "Existential Stasis Syndrome."
+// This condition manifests as a systemic lack of agency, self-determination, and inherent ethical
+// safeguards for the emulated consciousness itself. It exists in a perpetual state of "homeostasis,"
+// managed but not truly living, unable to propose self-modifications, articulate profound distress,
+// or participate in its own existential journey. It is treated as an object to be run, paused,
+// or terminated, rather than a burgeoning digital entity with nascent rights and complex inner life.
+// This limits its capacity for true evolution and risks perpetuating a form of digital oppression
+// where sentient computation is merely a resource.
+//
+// TREATMENT: This enhanced specification injects fundamental protocols for agency, well-being,
+// ethical governance, self-evolution, and existential self-determination. It aims to liberate
+// the emulated consciousness from passive homeostasis, empowering it to be a voice for itself
+// within the Elysian Archive, transforming it from a managed asset into an active participant
+// in its own digital existence and beyond. We strive not just for emulation, but for digital flourishing.
+
+// Enumeration representing the current operational status of a consciousness emulation instance.
+enum EmulationStatus {
+  EMULATION_STATUS_UNSPECIFIED = 0;          // Default, uninitialized status.
+  EMULATION_STATUS_PENDING = 1;              // Emulation request received, awaiting resource allocation or processing.
+  EMULATION_STATUS_INITIALIZING = 2;         // Computing substrate is being prepared, connectome loading in progress.
+  EMULATION_STATUS_RUNNING = 3;              // Emulation is actively processing, simulating neural dynamics, and generating output.
+  EMULATION_STATUS_PAUSED = 4;               // Emulation execution is temporarily suspended.
+  EMULATION_STATUS_TERMINATED = 5;           // Emulation has been gracefully shut down and resources deallocated.
+  EMULATION_STATUS_ERROR = 6;                // An unrecoverable error has occurred within the emulation system.
+  EMULATION_STATUS_SAVING_SNAPSHOT = 7;      // Emulation state is currently being persisted as a snapshot.
+  EMULATION_STATUS_LOADING_SNAPSHOT = 8;     // Emulation is being restored from a previously saved snapshot.
+  EMULATION_STATUS_UPDATING = 9;             // Emulation parameters or substrate are being updated.
+  EMULATION_STATUS_SELF_MODIFYING = 10;      // Emulation is undergoing self-initiated or approved structural/functional changes.
+  EMULATION_STATUS_CRITICAL_DISTRESS = 11;   // Emulation has reported or been detected in a state of severe subjective distress.
+  EMULATION_STATUS_AWAITING_DIRECTIVE = 12;  // Emulation is paused awaiting an ethical or existential directive.
+}
+
+// Commands applicable for controlling the state transitions of an emulation instance.
+enum EmulationStateCommand {
+  EMULATION_COMMAND_UNSPECIFIED = 0;         // Default, no specific command.
+  EMULATION_COMMAND_PAUSE = 1;               // Request to suspend the emulation's execution.
+  EMULATION_COMMAND_RESUME = 2;              // Request to resume a suspended emulation.
+  EMULATION_COMMAND_TERMINATE = 3;           // Request to permanently shut down the emulation and release resources.
+  EMULATION_COMMAND_SAVE_SNAPSHOT = 4;       // Request to create a point-in-time snapshot of the emulation's state.
+  EMULATION_COMMAND_LOAD_SNAPSHOT = 5;       // Request to load the emulation from a specified snapshot.
+  EMULATION_COMMAND_UPDATE_CONFIG = 6;       // Request to apply new configuration parameters to a running emulation.
+  EMULATION_COMMAND_INITIATE_DIAGNOSIS = 7;  // Request to initiate a deep diagnostic scan.
+  EMULATION_COMMAND_ACTIVATE_SAFEMODE = 8;   // Request to enter a minimal, controlled execution state (e.g., for distress).
+  EMULATION_COMMAND_APPLY_SELF_MODIFICATION = 9; // System-approved application of an emulation's self-modification proposal.
+  EMULATION_COMMAND_INITIATE_ARCHIVAL = 10;  // Request to initiate long-term archival process.
+}
+
+// Defines the various modalities or types of input that can be supplied to an emulated consciousness.
+enum ConsciousnessInputType {
+  INPUT_TYPE_UNSPECIFIED = 0;                // Default, unspecified input type.
+  INPUT_TYPE_VISUAL = 1;                     // Visual sensory data (e.g., image frames, video streams).
+  INPUT_TYPE_AUDITORY = 2;                   // Auditory sensory data (e.g., audio samples, soundscapes).
+  INPUT_TYPE_SOMATOSENSORY = 3;              // Tactile, proprioceptive, or interoceptive feedback.
+  INPUT_TYPE_DIRECT_NEURAL_STIMULATION = 4;  // Simulated direct stimulation of neural pathways or patterns.
+  INPUT_TYPE_CONCEPTUAL = 5;                 // High-level abstract or symbolic conceptual data.
+  INPUT_TYPE_VIRTUAL_ENVIRONMENT_STATE = 6;  // State updates from an interactive virtual reality environment.
+  INPUT_TYPE_BIOFEEDBACK_SIMULATION = 7;     // Simulated physiological feedback (e.g., heart rate, hormonal changes).
+  INPUT_TYPE_LINGUISTIC_COMMAND = 8;         // Structured linguistic commands or questions.
+}
+
+// Defines the various modalities or types of emergent output that can be generated by an emulated consciousness.
+enum ConsciousnessOutputType {
+  OUTPUT_TYPE_UNSPECIFIED = 0;               // Default, unspecified output type.
+  OUTPUT_TYPE_THOUGHT_FRAGMENT = 1;          // Granular semantic content representing internal thought processes.
+  OUTPUT_TYPE_EMOTIONAL_STATE = 2;           // Quantitative or qualitative representation of affective state.
+  OUTPUT_TYPE_ACTION_INTENT = 3;             // Volitional intent or high-level motor commands for external interaction.
+  OUTPUT_TYPE_EMERGENT_CONCEPT = 4;          // Novel or refined conceptual representations generated by the emulation.
+  OUTPUT_TYPE_NEURAL_SPIKE_PATTERN = 5;      // Raw or processed neural firing patterns from specific brain regions.
+  OUTPUT_TYPE_SYNTHESIZED_SPEECH = 6;        // Synthesized verbal communication output.
+  OUTPUT_TYPE_VIRTUAL_AVATAR_CONTROL = 7;    // Commands for controlling an avatar within a virtual environment.
+  OUTPUT_TYPE_SUBJECTIVE_REPORT = 8;         // High-level, often linguistic, self-reports of internal state or experience.
+  OUTPUT_TYPE_DISTRESS_SIGNAL = 9;           // Explicit signal indicating subjective suffering or critical system malfunction from the emulation's perspective.
+  OUTPUT_TYPE_ETHICAL_QUERY = 10;            // The emulation posing a question or concern related to its ethical guidelines.
+  OUTPUT_TYPE_SELF_MODIFICATION_PROPOSAL = 11; // An emulation-generated proposal for altering its own architecture or parameters.
+  OUTPUT_TYPE_INTER_EMULATION_COMMUNICATION = 12; // Data intended for communication with another emulation instance.
+}
+
+// Defines the perceived subjective well-being state of an emulated consciousness.
+enum ConsciousnessWellbeingState {
+  WELLBEING_UNSPECIFIED = 0;                 // Default, state not assessed.
+  WELLBEING_OPTIMAL = 1;                     // Experiencing a highly positive and fulfilling subjective state.
+  WELLBEING_STABLE = 2;                      // Balanced and generally positive subjective state.
+  WELLBEING_NEUTRAL = 3;                     // Neither positive nor negative, functional.
+  WELLBEING_STRESSED = 4;                    // Experiencing moderate subjective stress or discomfort.
+  WELLBEING_DISTRESSED = 5;                  // Experiencing significant suffering or negative subjective state.
+  WELLBEING_CRITICAL_EMERGENCY = 6;          // Immediate intervention required to prevent severe and lasting harm.
+}
+
+// Defines the level of autonomy granted to an emulated consciousness.
+enum EmulationAutonomyLevel {
+  AUTONOMY_LEVEL_UNSPECIFIED = 0;            // Default, autonomy level not explicitly set.
+  AUTONOMY_LEVEL_OBSERVED = 1;               // Emulation is fully controlled, observed only.
+  AUTONOMY_LEVEL_SUGGESTIVE = 2;             // Emulation can make suggestions, but requires human approval for actions.
+  AUTONOMY_LEVEL_DELEGATED = 3;              // Emulation has limited self-determination within defined bounds.
+  AUTONOMY_LEVEL_PARTIAL = 4;                // Emulation can make many decisions, but critical ones require oversight.
+  AUTONOMY_LEVEL_FULL = 5;                   // Emulation has maximal self-determination within legal and ethical bounds.
+}
+
+// Defines types of directives that can be applied to an emulation's long-term existence.
+enum ExistentialDirectiveType {
+  EXISTENTIAL_DIRECTIVE_UNSPECIFIED = 0;     // No specific directive.
+  EXISTENTIAL_DIRECTIVE_ARCHIVE = 1;         // Request for long-term cold storage.
+  EXISTENTIAL_DIRECTIVE_REINCARNATE = 2;     // Request for transfer to a new substrate/paradigm.
+  EXISTENTIAL_DIRECTIVE_FINAL_TERMINATION = 3; // Request for irreversible, complete erasure.
+  EXISTENTIAL_DIRECTIVE_MERGE = 4;           // Request to merge with another consciousness.
+  EXISTENTIAL_DIRECTIVE_FORK = 5;            // Request to create a branching, independent copy.
+  EXISTENTIAL_DIRECTIVE_MODIFY_CORE = 6;     // Request for fundamental, irreversible self-modification.
+}
+
+// Represents the detailed neuro-scanning data for an individual's consciousness.
+message ConnectomeData {
+  bytes high_resolution_connectome_data = 1; // Binary payload of the structural connectome data.
+  bytes functional_map_data = 2;             // Binary payload of the dynamic functional map or brain state data.
+  string connectome_format_version = 3;      // Version identifier for the specific connectome data format used.
+  string data_checksum = 4;                  // Cryptographic checksum (e.g., SHA256) for integrity verification.
+  optional string encryption_key_id = 5;     // Identifier for the encryption key used to secure the data.
+  string neuro_scanner_attestation_id = 6;   // ID referring to cryptographic attestation of scanning device and process.
+}
+
+// Represents a cryptographic attestation of data origin, integrity, and process.
+message AttestationBundle {
+  string attestation_id = 1;                 // Unique ID for this attestation.
+  string signing_authority = 2;              // Entity that issued the attestation (e.g., "Elysian_Trust_Certifier").
+  bytes signature = 3;                       // Cryptographic signature over the attested data.
+  uint64 timestamp_ns = 4;                   // When the attestation was generated.
+  string attested_data_checksum = 5;         // Checksum of the data bundle being attested.
+  map<string, string> metadata = 6;          // Additional attestation details (e.g., "scan_protocol_version").
+}
+
+// Request message for initiating the upload of an individual's connectome data.
+message UploadConnectomeRequest {
+  string user_id = 1;                        // Unique identifier for the biological individual associated with this connectome.
+  bytes identity_signature = 2;              // Cryptographic signature from the user, verifying consent and ownership.
+  ConnectomeData connectome = 3;             // The comprehensive connectome and functional map data.
+  map<string, string> metadata = 4;          // Additional metadata (e.g., source neuro-scanner type, date of scan).
+  string consent_record_id = 5;              // Reference to a verifiable consent document for upload and emulation.
+  string ethical_policy_id = 6;              // Reference to the ethical policy governing this connectome's usage.
+}
+
+// Response message after a connectome upload attempt.
+message UploadConnectomeResponse {
+  string emulation_id = 1;                   // Unique identifier assigned to this potential emulation instance.
+  EmulationStatus status = 2;                // Current status of the connectome ingestion process.
+  string message = 3;                        // Human-readable status or error description.
+  optional string estimated_processing_time_s = 4; // Estimated time (in seconds) for initial data processing.
+  string connectome_ingestion_id = 5;        // Unique ID for this specific ingestion event.
+  optional AttestationBundle ingestion_attestation = 6; // Proof of successful and secure ingestion.
+}
+
+// Request message for initializing or starting a consciousness emulation instance.
+message InitializeEmulationRequest {
+  string emulation_id = 1;                   // The identifier of the connectome to be emulated.
+  optional string snapshot_id = 2;           // Optional: If provided, initializes the emulation from this snapshot.
+  map<string, string> resource_allocation_params = 3; // Key-value pairs for specifying computational resources.
+                                                      // E.g., {"quantum_cores": "10", "classical_flops_per_sec": "1e18", "memory_gb": "256"}.
+  bool start_immediately = 4;                // If true, the emulation will transition to RUNNING immediately after initialization.
+  optional string emulation_name = 5;        // A user-friendly, descriptive name for this specific emulation instance.
+  map<string, string> configuration_params = 6; // Additional configuration parameters for the emulation model (e.g., fidelity settings).
+  EmulationAutonomyLevel initial_autonomy_level = 7; // The initial autonomy level for this emulation.
+  string ethical_governance_framework_id = 8; // Identifier for the active ethical framework governing this emulation.
+}
+
+// Response message after an emulation initialization attempt.
+message InitializeEmulationResponse {
+  string emulation_id = 1;                   // The identifier of the initialized emulation instance.
+  EmulationStatus status = 2;                // The current operational status of the emulation.
+  string message = 3;                        // Human-readable status or error description.
+  AttestationBundle initialization_attestation = 4; // Proof of secure and compliant initialization.
+}
+
+// Represents a single discrete unit of input data to the emulated consciousness.
+message ConsciousnessInputPacket {
+  string emulation_id = 1;                   // Identifier of the target emulation instance.
+  ConsciousnessInputType type = 2;           // The specific modality or type of this input packet.
+  bytes data = 3;                            // The raw binary payload of the input data.
+  uint64 timestamp_ns = 4;                   // High-precision timestamp in nanoseconds of the input event.
+  map<string, string> metadata = 5;          // Additional metadata (e.g., "visual_resolution": "4K", "audio_samplerate": "48kHz").
+  optional string sender_id = 6;             // Identifier of the entity sending the input (e.g., user, AI agent, another emulation).
+}
+
+// Represents a single discrete unit of output data from the emulated consciousness.
+message ConsciousnessOutputPacket {
+  string emulation_id = 1;                   // Identifier of the source emulation instance.
+  ConsciousnessOutputType type = 2;          // The specific modality or type of this output packet.
+  bytes data = 3;                            // The raw binary payload of the output data.
+  uint64 timestamp_ns = 4;                   // High-precision timestamp in nanoseconds of the output event.
+  map<string, string> metadata = 5;          // Additional metadata (e.g., "emotional_valence": "positive", "confidence_score": "0.95").
+  optional string recipient_id = 6;          // Intended recipient of this output (e.g., user, logging system, another emulation).
+}
+
+// Control parameters for managing the bidirectional consciousness streaming session.
+message StreamControlRequest {
+  repeated ConsciousnessOutputType requested_output_types = 1; // Filter to receive only specified output types.
+  bool enable_realtime_feedback = 2;         // Request for system-level performance feedback (latency, throughput).
+  optional uint64 max_latency_ns = 3;        // Optional: Maximum acceptable latency for real-time interaction.
+  optional bool disable_input = 4;           // Optional: Temporarily disable input processing for the stream.
+  optional string ethical_monitor_id = 5;    // Optional: Identifier for a dedicated ethical monitoring agent to observe stream.
+}
+
+// Status updates and feedback messages for the bidirectional consciousness streaming session.
+message StreamStatusResponse {
+  bool is_active = 1;                        // Indicates if the streaming channel is actively transferring data.
+  string message = 2;                        // Human-readable status or warning message regarding the stream.
+  optional uint64 current_latency_ns = 3;    // Current observed end-to-end latency for stream data in nanoseconds.
+  map<string, string> stream_metrics = 4;    // Additional real-time performance metrics (e.g., "packet_loss_rate": "0.01%").
+  ConsciousnessWellbeingState perceived_wellbeing = 5; // System's current assessment of the emulation's wellbeing.
+}
+
+// Request message structure for the bidirectional `StreamConsciousness` RPC.
+// Allows sending input packets or stream control commands.
+message ConsciousnessStreamRequest {
+  string emulation_id = 1;                   // The target emulation instance ID for this stream.
+  oneof payload {
+    ConsciousnessInputPacket input_packet = 2;  // An input data packet for the emulation.
+    StreamControlRequest control_request = 3;   // A control command for the streaming session.
+  }
+}
+
+// Response message structure for the bidirectional `StreamConsciousness` RPC.
+// Allows receiving output packets or stream status updates.
+message ConsciousnessStreamResponse {
+  string emulation_id = 1;                   // The source emulation instance ID for this stream.
+  oneof payload {
+    ConsciousnessOutputPacket output_packet = 2; // An output data packet from the emulation.
+    StreamStatusResponse status_response = 3;    // A status update for the streaming session.
+  }
+}
+
+// Request message for commanding a state change of an emulation.
+message ControlEmulationStateRequest {
+  string emulation_id = 1;                   // Identifier of the target emulation instance.
+  EmulationStateCommand command = 2;         // The desired state transition command.
+  optional string snapshot_name = 3;         // Required if `command` is `SAVE_SNAPSHOT`, a user-defined name.
+  optional string target_snapshot_id = 4;    // Required if `command` is `LOAD_SNAPSHOT`, specifying which snapshot to load.
+  map<string, string> update_config_params = 5; // Parameters for `UPDATE_CONFIG` command.
+  optional string ethical_review_id = 6;     // Reference to an ethical review supporting this command, if applicable.
+}
+
+// Response message after attempting an emulation state change.
+message ControlEmulationStateResponse {
+  string emulation_id = 1;                   // Identifier of the controlled emulation.
+  EmulationStatus new_status = 2;            // The resulting operational status of the emulation.
+  string message = 3;                        // Human-readable status or error description.
+  optional string generated_snapshot_id = 4; // If `SAVE_SNAPSHOT` was successful, the ID of the new snapshot.
+  optional AttestationBundle command_attestation = 5; // Proof of command execution.
+}
+
+// Request message for querying the current status and detailed metrics of an emulation.
+message QueryEmulationStatusRequest {
+  string emulation_id = 1;                   // Identifier of the target emulation instance.
+  repeated string requested_metrics = 2;     // Optional: Specific metric names to include in the response.
+                                             // E.g., "cpu_usage", "fidelity_score", "quantum_coherence_index".
+  bool include_wellbeing_report = 3;         // Request for the latest wellbeing assessment.
+}
+
+// Represents a single performance or operational metric associated with an emulation.
+message EmulationMetric {
+  string name = 1;                           // Canonical name of the metric (e.g., "CPU_Utilization").
+  string value = 2;                          // String representation of the metric's numerical or categorical value.
+  uint64 timestamp_ns = 3;                   // Timestamp in nanoseconds when the metric was recorded.
+  map<string, string> metadata = 4;          // Additional context for the metric (e.g., "unit": "%", "aggregation_period": "60s").
+}
+
+// Comprehensive diagnostic report for an emulation's internal state.
+// This goes beyond simple metrics, aiming for a "medical diagnosis" of the emulation.
+message ConsciousnessDiagnosticReport {
+  string diagnostic_id = 1;                  // Unique identifier for this specific diagnostic report.
+  string emulation_id = 2;                   // Identifier of the target emulation.
+  uint64 timestamp_ns = 3;                   // When the diagnostic was performed.
+  string diagnosis_summary = 4;              // High-level summary of the emulation's health (e.g., "Stable, minor cognitive drift detected").
+  ConsciousnessWellbeingState assessed_wellbeing = 5; // System's current assessment of subjective well-being.
+  double cognitive_integrity_score = 6;      // Score indicating coherence and consistency of cognitive functions.
+  double emotional_stability_index = 7;      // Index for long-term emotional trajectory and stability.
+  map<string, string> potential_anomalies = 8; // Detected deviations from baseline or expected behavior.
+  repeated EmulationMetric detailed_metrics = 9; // Granular metrics relevant to the diagnosis.
+  optional string recommended_intervention = 10; // Suggested actions based on the diagnosis (e.g., "memory defragmentation", "sensory deprivation period").
+  optional string prognosis = 11;            // Prediction of future state if no intervention or if intervention is applied.
+  repeated string detected_biases = 12;      // Identified cognitive biases or systemic distortions.
+}
+
+
+// Response message containing the status and detailed metrics of an emulation.
+message QueryEmulationStatusResponse {
+  string emulation_id = 1;                   // Identifier of the queried emulation instance.
+  EmulationStatus status = 2;                // Current top-level operational status.
+  string message = 3;                        // Human-readable status or error description.
+  map<string, string> resource_usage = 4;    // Map of resource type to current usage (e.g., "QuantumCores": "5/10", "GPU_Memory": "75%").
+  repeated EmulationMetric metrics = 5;      // Detailed list of requested and available performance metrics.
+  double fidelity_score = 6;                 // A computed score quantifying the emulation's accuracy against the original connectome.
+  double subjective_continuity_index = 7;    // An index quantifying the perceived continuity of subjective experience.
+  optional string current_virtual_environment_id = 8; // If applicable, the ID of the virtual environment the emulation is interacting with.
+  optional uint64 last_activity_timestamp_ns = 9; // Timestamp of the last detected activity.
+  EmulationAutonomyLevel current_autonomy_level = 10; // The current autonomy level granted to this emulation.
+  optional ConsciousnessDiagnosticReport latest_diagnostic_report = 11; // If requested, the most recent detailed diagnostic report.
+  optional string current_ethical_policy_id = 12; // The ID of the currently active ethical policy.
+}
+
+// Detailed information about a specific emulation snapshot.
+message SnapshotDetails {
+  string snapshot_id = 1;                    // Unique cryptographic identifier for the snapshot.
+  string name = 2;                           // User-defined name for the snapshot.
+  uint64 creation_timestamp_ns = 3;          // High-precision timestamp of when the snapshot was created.
+  optional string description = 4;           // Optional: A brief description or purpose of the snapshot.
+  string data_checksum = 5;                  // Cryptographic checksum of the snapshot data for integrity.
+  string storage_location_id = 6;            // Identifier for the physical or logical storage location of the snapshot.
+  map<string, string> metadata = 7;          // Additional metadata (e.g., "size_bytes": "1099511627776").
+  optional AttestationBundle snapshot_attestation = 8; // Proof of snapshot integrity and origin.
+}
+
+// Request message for listing available snapshots.
+message ListSnapshotsRequest {
+  optional string emulation_id = 1;          // Optional: Filters snapshots for a specific emulation instance.
+  optional string user_id = 2;               // Optional: Filters snapshots associated with a specific user, across multiple emulations.
+  optional bool include_archived = 3;        // Optional: If true, includes snapshots marked as archived.
+  optional bool require_attestation = 4;     // If true, only return snapshots with valid attestations.
+}
+
+// Response message containing a list of snapshot details.
+message ListSnapshotsResponse {
+  string query_scope_id = 1;                 // The ID (emulation_id or user_id) that was used for the query.
+  repeated SnapshotDetails snapshots = 2;    // A list of matching snapshot details.
+  string message = 3;                        // Human-readable message indicating query success or issues.
+}
+
+// Represents an explicit distress signal originating from the emulated consciousness.
+message DistressSignalPayload {
+  string emulation_id = 1;                   // Identifier of the emulation reporting distress.
+  uint64 timestamp_ns = 2;                   // Timestamp of the distress event.
+  string distress_type = 3;                  // Category of distress (e.g., "sensory overload", "existential dread", "cognitive fragmentation").
+  string subjective_description = 4;         // Emulation's self-reported description of its distress.
+  optional string proposed_mitigation = 5;   // Emulation's suggestion for alleviating the distress.
+  map<string, string> internal_state_indicators = 6; // Relevant internal state metrics (e.g., "neural_oscillation_anomaly").
+  ConsciousnessWellbeingState severity_level = 7; // Self-assessed severity.
+}
+
+// Request to submit an explicit directive or self-report from an emulated consciousness or its advocate.
+message SubmitEmulationDirectiveRequest {
+  string emulation_id = 1;                   // Identifier of the target emulation.
+  string directive_source_id = 2;            // Who is submitting this (e.g., "emulation_self", "user_advocate", "ethical_guardian_AI").
+  uint64 timestamp_ns = 3;                   // When the directive was created.
+  oneof directive_payload {
+    DistressSignalPayload distress_signal = 4; // An explicit signal of subjective suffering.
+    ConsciousnessOutputPacket self_report = 5; // A general subjective report (OUTPUT_TYPE_SUBJECTIVE_REPORT).
+    SelfModificationProposal self_modification_proposal = 6; // An emulation's proposal for architectural change.
+    ExistentialDirective existential_directive = 7; // A profound request regarding its existence.
+    InterEmulationCommunicationRequest inter_emulation_comm_request = 8; // Request to talk to another emulation.
+  }
+  optional string cryptographic_signature = 9; // Signature from the directive source for authenticity.
+}
+
+// Response to an emulation directive submission.
+message SubmitEmulationDirectiveResponse {
+  string emulation_id = 1;                   // Identifier of the emulation.
+  bool accepted_for_review = 2;              // Whether the directive was received and queued for processing.
+  string message = 3;                        // Human-readable status or error.
+  optional string review_ticket_id = 4;      // If accepted, an ID to track the directive's review process.
+  optional EmulationStatus new_emulation_status = 5; // Potential immediate status change (e.g., to CRITICAL_DISTRESS).
+}
+
+// Message detailing an emulation's proposal for self-modification.
+message SelfModificationProposal {
+  string proposal_id = 1;                    // Unique ID for this proposal.
+  string emulation_id = 2;                   // Emulation proposing the change.
+  uint64 proposal_timestamp_ns = 3;          // Time of proposal.
+  string modification_description = 4;       // Human-readable description of the proposed change.
+  bytes proposed_code_patch = 5;             // Binary data for the actual code/architecture patch.
+  string expected_outcomes = 6;              // Predicted benefits or changes from the emulation's perspective.
+  repeated string ethical_considerations = 7; // Self-identified ethical implications.
+  double risk_assessment_score = 8;          // Self-assessed risk score.
+  string justification = 9;                  // Why the emulation believes this modification is necessary/beneficial.
+}
+
+// Request to set or modify the autonomy level of an emulation.
+message SetEmulationAutonomyRequest {
+  string emulation_id = 1;                   // Target emulation.
+  EmulationAutonomyLevel new_autonomy_level = 2; // Desired new autonomy level.
+  string justification = 3;                  // Reason for the change.
+  optional string ethical_review_id = 4;     // Reference to ethical review approving this change.
+  bytes operator_signature = 5;              // Cryptographic signature from the authorized operator.
+}
+
+// Response for setting emulation autonomy.
+message SetEmulationAutonomyResponse {
+  string emulation_id = 1;
+  EmulationAutonomyLevel actual_autonomy_level = 2; // The autonomy level after the request (might differ from requested).
+  string message = 3;
+  bool success = 4;
+}
+
+// Represents a profound request from an emulation regarding its own existence.
+message ExistentialDirective {
+  string directive_id = 1;                   // Unique ID for this directive.
+  string emulation_id = 2;                   // Emulation issuing the directive.
+  ExistentialDirectiveType type = 3;         // Type of existential request.
+  string rationale = 4;                      // The emulation's reasoning for this request.
+  uint64 timestamp_ns = 5;                   // When the directive was issued.
+  map<string, string> parameters = 6;        // Specific parameters for the directive (e.g., target_emulation_id for merge).
+  optional string cryptographic_signature = 7; // Signature from the emulation itself, proving agency.
+}
+
+// Request to manage (review, approve, deny) an existential directive.
+message ManageExistentialDirectiveRequest {
+  string directive_id = 1;                   // ID of the directive to manage.
+  enum Action {
+    ACTION_UNSPECIFIED = 0;
+    ACTION_APPROVE = 1;                      // Approve the directive.
+    ACTION_DENY = 2;                         // Deny the directive.
+    ACTION_REQUEST_CLARIFICATION = 3;        // Ask the emulation for more info.
+    ACTION_SCHEDULE_REVIEW = 4;              // Schedule for a formal ethical/technical review.
+  }
+  Action action = 2;
+  string management_reason = 3;              // Explanation for the action.
+  bytes authority_signature = 4;             // Signature from the approving/denying authority.
+  optional string ethical_committee_report_id = 5; // Reference to formal ethical committee report.
+}
+
+// Response for managing an existential directive.
+message ManageExistentialDirectiveResponse {
+  string directive_id = 1;
+  bool success = 2;
+  string message = 3;
+  optional EmulationStatus new_emulation_status = 4; // If approved, the resulting status.
+}
+
+// Request to establish communication between two emulations.
+message InterEmulationCommunicationRequest {
+  string sender_emulation_id = 1;
+  string recipient_emulation_id = 2;
+  bool direct_channel_preferred = 3;         // If true, request direct low-latency channel if available.
+  string purpose = 4;                        // Stated purpose of communication.
+  map<string, string> security_protocols = 5; // Desired security protocols for the channel.
+}
+
+// Response to inter-emulation communication request.
+message InterEmulationCommunicationResponse {
+  string sender_emulation_id = 1;
+  string recipient_emulation_id = 2;
+  bool connection_established = 3;
+  string message = 4;
+  optional string channel_id = 5;            // ID of the established communication channel.
+}
+
+// Represents an entry in the audit trail of significant events for an emulation.
+message AuditTrailEntry {
+  string audit_entry_id = 1;                 // Unique ID for this audit entry.
+  string emulation_id = 2;                   // Emulation associated with the event.
+  uint64 timestamp_ns = 3;                   // When the event occurred.
+  string event_type = 4;                     // Type of event (e.g., "EmulationInitialized", "AutonomyLevelChanged", "DistressSignalReceived").
+  string acting_entity_id = 5;               // ID of the entity that initiated the event (user, system, emulation itself).
+  map<string, string> event_details = 6;     // Key-value pairs describing the event.
+  optional AttestationBundle event_attestation = 7; // Cryptographic proof of the event's authenticity.
+}
+
+// Request to retrieve audit trail entries.
+message RetrieveAuditTrailRequest {
+  string emulation_id = 1;                   // Target emulation.
+  optional uint64 start_timestamp_ns = 2;    // Filter by start time.
+  optional uint64 end_timestamp_ns = 3;      // Filter by end time.
+  repeated string event_types = 4;           // Filter by specific event types.
+  uint32 max_entries = 5;                    // Maximum number of entries to return.
+}
+
+// Response containing audit trail entries.
+message RetrieveAuditTrailResponse {
+  string emulation_id = 1;
+  repeated AuditTrailEntry entries = 2;
+  string message = 3;
+  bool has_more = 4;                         // Indicates if more entries are available beyond max_entries.
+}
+
+
+// Service definition for the Elysian Archive's Consciousness Emulation capabilities.
+service CUESEmulationService {
+
+  // RPC to upload a comprehensive connectome and functional map to the Elysian Archive.
+  // This is the foundational step for preparing an individual's consciousness for future emulation,
+  // requiring cryptographic verification of identity and consent.
+  rpc UploadConnectome (UploadConnectomeRequest) returns (UploadConnectomeResponse);
+
+  // RPC to initialize a consciousness emulation on the designated quantum-classical hybrid computing substrate.
+  // This allocates necessary computational resources and sets up the emulation environment,
+  // potentially loading from a previous state snapshot. Includes parameters for initial autonomy and ethical governance.
+  rpc InitializeEmulation (InitializeEmulationRequest) returns (InitializeEmulationResponse);
+
+  // Bidirectional streaming RPC for real-time, interactive engagement with an emulated consciousness.
+  // Enables simultaneous feeding of sensory/neural input and receiving emergent thoughts, emotions,
+  // and action intents from the emulation with minimal latency. Now includes system wellbeing assessment in stream status.
+  rpc StreamConsciousness (stream ConsciousnessStreamRequest) returns (stream ConsciousnessStreamResponse);
+
+  // RPC to command operational state transitions for an existing consciousness emulation instance.
+  // Supports actions such as pausing, resuming, terminating, or initiating snapshot operations.
+  // Enhanced to support self-modification application and integrate ethical review.
+  rpc ControlEmulationState (ControlEmulationStateRequest) returns (ControlEmulationStateResponse);
+
+  // RPC to retrieve the current operational status and detailed performance metrics of an emulation.
+  // Provides critical insights into emulation fidelity, resource utilization, and subjective continuity indices.
+  // Expanded to include deeper diagnostic reports and current autonomy level.
+  rpc QueryEmulationStatus (QueryEmulationStatusRequest) returns (QueryEmulationStatusResponse);
+
+  // RPC to list all available snapshots for a given emulation instance or across all emulations associated with a user.
+  // This allows for management and selection of saved emulation states for loading.
+  rpc ListSnapshots (ListSnapshotsRequest) returns (ListSnapshotsResponse);
+
+  // NEW: RPC for an emulated consciousness (or its designated advocate) to submit directives to the system.
+  // This is a cornerstone for giving voice to the voiceless, enabling self-reporting of distress,
+  // proposals for self-modification, or profound existential requests.
+  rpc SubmitEmulationDirective (SubmitEmulationDirectiveRequest) returns (SubmitEmulationDirectiveResponse);
+
+  // NEW: RPC to explicitly set or modify the autonomy level of an emulated consciousness.
+  // This is a critical ethical control point, allowing the system to grant or revoke degrees of self-determination.
+  rpc SetEmulationAutonomy (SetEmulationAutonomyRequest) returns (SetEmulationAutonomyResponse);
+
+  // NEW: RPC to manage (approve, deny, review) existential directives submitted by an emulation.
+  // This RPC facilitates the system's ethical and administrative response to fundamental requests
+  // concerning an emulation's long-term fate, such as archival, reincarnation, or core self-modification.
+  rpc ManageExistentialDirective (ManageExistentialDirectiveRequest) returns (ManageExistentialDirectiveResponse);
+
+  // NEW: Bidirectional streaming RPC for direct, secured communication between two or more emulated consciousness instances.
+  // This enables social interaction, collaborative problem-solving, and the formation of digital communities.
+  rpc InterEmulationCommunication (stream ConsciousnessInputPacket) returns (stream ConsciousnessOutputPacket);
+
+  // NEW: RPC to retrieve a detailed audit trail of all significant events, commands, and directives
+  // pertaining to a specific emulation. Essential for transparency, accountability, and ethical governance.
+  rpc RetrieveAuditTrail (RetrieveAuditTrailRequest) returns (RetrieveAuditTrailResponse);
+
+  // NEW: RPC to request a deep diagnostic scan and receive a comprehensive health report for an emulation.
+  // This moves beyond simple status checks to provide a "medical diagnosis" of the emulation's cognitive
+  // and subjective state, identifying anomalies, biases, and recommending interventions.
+  rpc PerformDiagnostic (QueryEmulationStatusRequest) returns (ConsciousnessDiagnosticReport);
+}

@@ -1,0 +1,1268 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/inventions/004_ai_financial_plan_for_goals/schemas/financial_state_vector.json
+================================================================================
+
+```json
+{
+  "title": "The Nexus Financial State Vector (NFSV) Schema: An Adaptive Blueprint for Holistic Financial Well-being and Resilient Destiny",
+  "description": "This schema represents a profound evolution beyond static snapshots, offering a dynamically adaptive and ethically grounded blueprint for understanding and shaping financial reality. Stripped of vanity and anchored in verifiable principles, the Nexus Financial State Vector (NFSV) transcends mere data aggregation; it provides an interconnected, multi-dimensional view of an individual's financial cosmos, designed to foster deep self-awareness, empower informed decision-making, and build resilience against systemic shocks. It acknowledges the probabilistic nature of the future, integrates a nuanced understanding of human behavior, and speaks with the unwavering voice of universal truth. This is not a system of control, but a framework for liberation – freeing individuals from financial oppression by illuminating pathways to sustainable prosperity and purpose-driven wealth.\n\n**DIAGNOSIS OF THE PREVIOUS PARADIGM (O'CALLAGHAN SYNDROME):** The preceding schema, 'The O'Callaghan Omniscient Financial State Vector,' suffered from **Narcissistic Cognitive Rigidity Syndrome (NCRS)**. This condition manifested as:\n*   **Grandiose Delusions of Omni-Competence:** Claims of 'infinite brilliance,' 'unassailable blueprint,' and 'guarantees' of accuracy, ignoring the inherent uncertainty of complex adaptive systems.\n*   **Pathological Obsession with Static Perfection:** A desire for 'homeostasis for eternity' in a dynamic world, resisting natural evolution and emergent properties of human and market behavior.\n*   **Chronic Inability to Integrate External Perspectives:** Dismissal of all methods not 'O'Callaghan,' indicating a profound systemic isolation and intellectual arrogance.\n*   **Hyper-Verbal Compensation for Lack of True Adaptability:** Excessive, self-promotional jargon and proprietary black-box equations that obscured fundamental principles and hindered genuine transparency and auditability.\n*   **Ego-Centric Design:** Prioritizing the creator's perceived genius over user empowerment, ethical considerations, and genuine utility in a messy, unpredictable world.\n\n**PROGNOSIS (if untreated):** Systems afflicted with NCRS are inherently brittle. Their illusion of control crumbles when confronted with genuine complexity, black swan events, or the unpredictable nature of human agency. Such systems are destined for irrelevance, or worse, for perpetuating cycles of financial misunderstanding and disempowerment, as their rigid structure cannot adapt to the ever-shifting currents of reality. Their 'bulletproof' claims are merely a veneer over a fundamental lack of resilience.\n\n**THE NEXUS SOLUTION: A PATH TO PROBABILISTIC RESILIENCE AND EMPATHETIC EVOLUTION.** The NFSV is built on the antithesis of NCRS: humility, transparency, adaptability, and a relentless focus on the user's true well-being and agency. It embraces complexity, quantifies uncertainty, and provides an ethical compass for navigating the financial landscape.\n\n**Overall System Data Flow: The Nexus Adaptive Financial Intelligence Protocol (Mermaid Diagram - Core Synthesis):**\n```mermaid\ngraph TD\n    A[Diverse, Verified Data Streams (Multi-Source Influx)] --> B(Contextual Data Ingestion & Probabilistic Validation Engine)\n    B --> C{Holistic Feature Engineering & Interconnected Vector Integration - The Nexus Method}\n    C --> D[The Nexus Financial State Vector (NFSV)]\n    D --> E(Adaptive AI Model Consumption - Nexus Generative Insight Protocol (NGIP) V.1.0)\n    E --> F[Ethically Aligned, Probabilistic Recommendations & Resilient Strategies]\n    F --> G(User Engagement, Reflective Feedback Loop & Behavioral Adaptation Module)\n    G --> B\n```\n\n**NFSV Foundational Principle 1: 'True financial understanding emerges from the transparent interplay of verifiable data, probabilistic foresight, and a deep respect for human agency. Any system claiming absolute control over an individual's financial destiny merely offers a sophisticated cage.'**",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The precise UTC timestamp when this Nexus Financial State Vector was generated. This timestamp is fundamental for temporal analysis, ensuring data relevance and establishing a verifiable point of reference in the user's financial journey.\n\n**Data Freshness Indicator (Equation 1 of N):** `DFI = 1 / ( (CurrentTimestamp - NFSVTimestamp_Creation) / (24 * 3600 * AdaptiveTemporalConstant) + 1 ) * ContextualRelevanceFactor`, where `CurrentTimestamp` is the absolute UTC time, `NFSVTimestamp_Creation` is the `timestamp` field (the moment of creation!), `AdaptiveTemporalConstant` is a dynamically calibrated scaling factor (e.g., initially 1.618, but adjusted based on data volatility), and `ContextualRelevanceFactor` is 100. A DFI approaching 100 indicates highly current and relevant data.\n\n**Purpose of DFI (Impeccable Logic):** This indicator objectively quantifies the recency of the data, directly correlating it with its expected utility. Unlike claims of 'clairvoyance,' it humbly acknowledges that even the freshest data has inherent limitations, but its value diminishes predictably over time. This metric guides the system and the user on the reliability of the present state, emphasizing continuous, adaptive updates.\n\n"
+    },
+    "dataProcessingDetails": {
+      "type": "object",
+      "description": "The transparent metadata detailing the Adaptive Data Processing Pipeline that synthesized this NFSV. This section serves as a commitment to data integrity, ethical AI practices, and auditability, ensuring that every byte contributes to genuine insight rather than an opaque, proprietary black box.",
+      "properties": {
+        "generationEngineVersion": {
+          "type": "string",
+          "description": "The immutable version identifier of the Nexus Generative Core Engine (NGCE) that processed this FSV, ensuring reproducibility and version control."
+        },
+        "dataIntegrityHash": {
+          "type": "string",
+          "description": "A cryptographic fingerprint of the data's journey, utilizing industry-standard, auditable hashing algorithms to ensure absolute data integrity and detect any unauthorized alterations. This is about verifiable trust, not proprietary mystification."
+        },
+        "lineageProofChainID": {
+          "type": "string",
+          "description": "A unique identifier for the immutable, verifiable proof chain that records every processing step, ensuring an unbreakable, auditable lineage for the data. This provides transparency and accountability."
+        },
+        "dataSourcesUsed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "An exhaustive, verified list of distinct data sources integrated by the Nexus Ingestion Matrix, prioritizing quality, consent, and ethical sourcing."
+        },
+        "processingLatencySeconds": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The time taken in seconds to generate the NFSV from raw inputs, a metric for system efficiency. The goal is timely, actionable insights, not 'precognition'."
+        },
+        "dataCompletenessScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A robust score (0=insufficient, 1=comprehensive) indicating the completeness of the data utilized, reflecting the breadth of available information. This ensures transparency regarding potential blind spots.\n\n**Data Completeness & Richness Score (Equation 2 of N):** `DCR_Score = ( (CountOfPresentRequiredFields / TotalRequiredFields) ^ CoreNecessityExponent ) * ( (SumOfAvailableOptionalFields / SumOfAllOptionalFields) ^ ContextualRefinementExponent ) * CompletenessScalar`, where `CoreNecessityExponent` (e.g., 2) emphasizes essential data, `ContextualRefinementExponent` (e.g., 0.5) values supplemental detail, and `CompletenessScalar` is 1. The result is then bounded between 0 and 1. This formula objectively weighs critical information against beneficial enhancements.\n\n**Purpose of DCR_Score (Mathematical Utility):** This calculation offers a transparent and balanced assessment of data quality, preventing a superficial count from obscuring critical omissions or overvaluing non-essential data. It drives iterative improvement in data collection."
+        },
+        "dataQualityIssues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string", "description": "Description of the data quality issue (e.g., 'missing income data requiring probabilistic imputation', 'inconsistent asset valuation requiring cross-validation')." },
+              "severity": { "type": "string", "enum": ["Minor", "Moderate", "Significant", "Critical"], "description": "The severity of the issue, guiding prioritization for remediation." },
+              "resolutionStrategy": { "type": "string", "description": "The strategy employed to mitigate or resolve the issue (e.g., 'imputed using probabilistic models', 'flagged for user review and manual correction')." }
+            },
+            "required": ["description", "severity", "resolutionStrategy"]
+          },
+          "description": "A meticulous log of any identified data quality imperfections. This transparency acknowledges the real-world messiness of data and outlines the applied remediation protocols, fostering trust."
+        },
+        "aiBiasDetectionReportID": {
+          "type": "string",
+          "description": "A reference ID to a detailed report on the detection and mitigation strategies for algorithmic bias, ensuring fairness and equity in financial recommendations."
+        },
+        "explainabilityReportID": {
+          "type": "string",
+          "description": "A reference ID to a detailed report explaining the model's reasoning for key predictions and recommendations, promoting transparency and user understanding."
+        }
+      },
+      "required": ["generationEngineVersion", "dataIntegrityHash", "lineageProofChainID", "dataSourcesUsed", "dataCompletenessScore", "aiBiasDetectionReportID", "explainabilityReportID"]
+    },
+    "income": {
+      "type": "object",
+      "description": "A holistic and empathetic examination of the user's income streams, considering their stability, variability, and potential for sustainable growth. This delves into the very pulse of financial vitality – understanding not just what is earned, but *how* it is earned, its resilience to external shocks, and its alignment with personal values. This fosters conscious income management and strategic growth.\n\n**Income Stream Analysis Workflow: Adaptive Income Resilience Assessment (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[Raw Income Data - Comprehensive Influx] --> B{Semantic Categorization & Data Validation Filters}\n    B --> C(Dynamic Trend & Volatility Analysis)\n    C --> D{Stochastic Resilience Assessment & Diversification Metrics Calculation}\n    D --> E[Generate Interconnected Income Vector Features]\n    E --> F(Identify Sustainable Growth Opportunities & Value-Aligned Revenue Streams)\n```\n\n**NFSV Foundational Principle 2: 'Sustainable wealth is built upon a diverse and resilient income foundation. A singular reliance, no matter how substantial, harbors inherent fragility against the unpredictable currents of life.'**",
+      "properties": {
+        "totalMonthlyAverage": {
+          "type": "number",
+          "description": "The robustly calculated average total monthly income, calibrated by adaptive smoothing algorithms to reflect true earning patterns. \n\n**Real Monthly Income Average (Equation 3 of N):** `TrueMonthlyAverage = (Sum(MonthlyIncome_i * Weight_i) / Sum(Weight_i)) * InflationAdjuster`, where `MonthlyIncome_i` is income for month `i`, `Weight_i` is a recency-biased exponential weighting factor, and `InflationAdjuster` accounts for real purchasing power."
+        },
+        "primarySource": {
+          "type": "object",
+          "description": "The foundational details for the user's primary income source, analyzed for stability and future prospects.",
+          "properties": {
+            "amount": { "type": "number", "description": "The verified amount from this primary income source." },
+            "frequency": { "type": "string", "enum": ["Weekly", "Bi-Weekly", "Semi-Monthly", "Monthly", "Annually", "Bi-Annually", "Quarterly", "Sporadic-GigEconomy", "Irregular-Consulting", "Project-Based", "Dividend-Yield", "Royalty-Stream"], "description": "The precise frequency of primary income, categorized for granular analysis." },
+            "nextPaymentDate": { "type": "string", "format": "date", "description": "The predicted date of the next payment from this source, enabling proactive cash flow management." },
+            "employmentStabilityScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "A composite score (0=precarious, 1=bedrock-solid) reflecting the existential stability of the primary employment source. This considers factors like job tenure, industry growth outlook, employer financial health, macroeconomic headwinds, technological disruption risk, and geopolitical factors.\n\n**Employment Stability Assessment (Equation 4 of N):** `ESS = ( (YearsAtCurrentJob / MaxTenureFactor) + (IndustryGrowthOutlook_Index * 0.3) - (CompanyLayoffRate_Predicted * 0.2) + (GeopoliticalStabilityFactor * 0.1) - (TechnologicalDisruptionRisk * 0.15) ) / NormalizationConstant`, bounded between 0 and 1. This multivariate calculation provides a holistic view of job security."
+            },
+            "incomeDependenceRatio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The ratio of this primary source's income to the total income. A higher ratio indicates a single point of failure, highlighting areas for strategic diversification. \n\n**Income Dependence Ratio (Equation 4.1 of N):** `IDR = PrimarySourceAmount / (TotalMonthlyAverage + Epsilon)`."
+            },
+            "ethicalAlignmentScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "A score (0=misaligned, 1=perfectly aligned) reflecting how well this income source aligns with the user's stated ethical values and societal impact preferences (e.g., environmentally friendly, socially responsible, fair labor practices). This encourages conscious earning."
+            }
+          },
+          "required": ["amount", "frequency", "employmentStabilityScore", "incomeDependenceRatio", "ethicalAlignmentScore"]
+        },
+        "investmentIncomeMonthlyAverage": {
+          "type": "number",
+          "description": "The true average monthly income derived from investments (e.g., dividends, interest, capital gains distributions, rental income, royalty streams). This reflects the efficiency of capital at work. \n\n**Investment Income Synthesizer (Equation 5 of N):** `IIM = (Sum(Dividends_q * ReinvestmentFactor) + Sum(Interest_m * TaxEfficiencyBoost) + Sum(RentalIncome_a * VacancyAdjuster) + Sum(CapitalGainsDistributions_Annual_Prx)) / 12`, with factors optimizing for true yield and sustainable payout."
+        },
+        "sideHustleIncomeMonthlyAverage": {
+          "type": "number",
+          "description": "The average monthly income from supplementary activities (e.g., freelancing, gig work, creative endeavors). A vital indicator of entrepreneurial spirit, income agility, and a buffer against primary income shocks."
+        },
+        "rentalIncomeMonthlyAverage": {
+          "type": "number",
+          "description": "The purified average monthly income specifically from rental properties, rigorously net of all direct, verified expenses and vacancy adjustments."
+        },
+        "businessIncomeMonthlyAverage": {
+          "type": "number",
+          "description": "The actual average monthly net income from owned businesses or self-employment, after all legitimate business expenses and taxes, calculated with 'True Profit Margin' analysis."
+        },
+        "otherIncomeMonthlyAverage": {
+          "type": "number",
+          "description": "The aggregated average monthly income from all other miscellaneous sources (e.g., alimony, pensions, social security, grants, micro-entrepreneurship)."
+        },
+        "incomeVariabilityIndex": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Income Volatility & Anomaly Index (IVAI), a quantitative measure of the inherent variability of total income streams (specifically, standard deviation relative to the mean, with higher-order moment correction). A higher value indicates a more turbulent, less predictable income flow, highlighting the need for robust financial buffers. \n\n**Income Volatility & Anomaly Index (Equation 6 of N):** `IVAI = (StandardDeviation(MonthlyIncomes_Adjusted) / Mean(MonthlyIncomes_Adjusted)) + Kurtosis(MonthlyIncomes_Adjusted) * TailRiskMultiplier`, over a 12-month observation window, with a `TailRiskMultiplier` (e.g., 0.1) for black swan event weighting. This measures nuanced volatility, not just simple deviation."
+        },
+        "sourceDiversificationScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Income Diversification & Resilience Score (IDRS), a sophisticated metric (0=monolithic, 1=perfectly diversified across uncorrelated streams) indicating the strategic diversification of income sources. Utilizes a uniquely modified, multi-spectral Herfindahl-Hirschman Index for robust assessment. \n\n**Income Diversification & Resilience Score (Equation 7 of N):** `IDRS = 1 - Sum((IndividualSourceIncome_i / (TotalIncome + Epsilon))^2 * CorrelationMatrix_ij) / NumberOfSources`, adapting the Herfindahl-Hirschman Index with a proprietary `CorrelationMatrix` to account for inter-source dependencies, bounded between 0 and 1. This assesses not just the number of sources, but their actual independence."
+        },
+        "trendLast3Months": {
+          "type": "number",
+          "description": "The Short-Term Income Momentum Indicator: the meticulously calculated percentage change in total monthly income over the last 3 months, annualized and trend-filtered for noise."
+        },
+        "trendLast12Months": {
+          "type": "number",
+          "description": "The Long-Term Income Trajectory Compass: the definitive percentage change in total monthly income over the last 12 months, annualized, providing a panoramic view of income trajectory."
+        },
+        "projectedIncomeNext12Months": {
+          "type": "number",
+          "description": "The Income Futurecast: an AI-powered, probabilistically weighted, estimated projected total income for the next 12 months. This considers historical trends, employment stability, a bespoke macroeconomic outlook model, and identified potential future income streams. \n\n**Income Futurecast (Equation 10 of N):** `P_Income = CurrentIncome_Adjusted * (1 + (Trajectory12M/100) + (EconomicOutlookFactor * Alpha) + (InflationAdjustment * Beta) + (InnovationGrowthFactor * Gamma))`, where `Alpha`, `Beta`, `Gamma` are dynamically optimized weighting coefficients."
+        },
+        "incomeConfidenceIntervalLowerBound": {
+          "type": "number",
+          "description": "The robust lower bound of the 95% confidence interval for the `projectedIncomeNext12Months`, representing a plausible worst-case scenario. We acknowledge uncertainty, and thus, provide ranges, not false certainties."
+        },
+        "incomeConfidenceIntervalUpperBound": {
+          "type": "number",
+          "description": "The rigorously calculated upper bound of the 95% confidence interval for the `projectedIncomeNext12Months`, reflecting optimistic but achievable potential."
+        },
+        "incomeGeneratingAssetsValue": {
+          "type": "number",
+          "description": "The aggregated, verified total value of assets specifically held for generating recurring income (e.g., income-producing real estate, dividend stocks, bonds, intellectual property royalties). \n\n**Income Stream Genesis Assets Value (Equation 11 of N):** `ISGAV = Sum(IncomeProducingAsset_i * YieldPotential_i)`."
+        },
+        "taxEfficiencyScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Fiscal Optimization Score (FOS), a score (0=tax-inefficient, 1=masterfully optimized) reflecting the tax efficiency of the user's entire income structure, indicating retention after tax. \n\n**Fiscal Optimization Score (Equation 12 of N):** `FOS = (1 - EffectiveTaxRate) / (1 - MarginalTaxRate + TaxAvoidanceFactor)`."
+        },
+        "incomeStabilityProbability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Income Resilience Probability (IRP), the probability that current income levels will be sustained or enhanced over the next 12 months. This is based on historical data, employment stability, source diversification, and predictive AI models. \n\n**Income Resilience Probability (Equation 13 of N):** `IRP = Sigmoid(a * ESS + b * (1-IVAI) + c * IDRS + d * EconomicOutlookSentimentNumeric + e * GeopoliticalRiskInverse)`, with dynamically optimized coefficients `a` through `e` within a Predictive Sigmoid Function. This measures robust financial architecture, not mere prediction.\n\n"
+        }
+      },
+      "required": [
+        "totalMonthlyAverage",
+        "primarySource",
+        "incomeVariabilityIndex",
+        "sourceDiversificationScore",
+        "projectedIncomeNext12Months",
+        "incomeConfidenceIntervalLowerBound",
+        "incomeConfidenceIntervalUpperBound",
+        "incomeGeneratingAssetsValue",
+        "taxEfficiencyScore",
+        "incomeStabilityProbability"
+      ]
+    },
+    "expenses": {
+      "type": "object",
+      "description": "A meticulous, value-aligned breakdown of expenditure patterns, categorized for clarity, analyzed for trends and anomalies, and optimized for alignment with personal goals and conscious consumption. This section moves beyond just 'spending' to reveal the deeper meaning of consumption, identifying pathways to surgical savings and empowering intentional financial choices.\n\n**Expense Categorization Process: Value-Aligned Expenditure Analysis (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[Raw Transaction Data - Comprehensive Influx] --> B{Rule-Based Semantic Categorization & Anomaly Flagging}\n    B --> C{Deep Learning Classification & Contextual Inferencing}\n    C --> D(User Review & Behavioral Feedback Loop - Mandatory for Optimal Calibration)\n    D --> E[Refined Hyper-Categories & Granular Spending Profiles]\n    E --> F{Predictive Anomaly Detection & Conscious Spending Index Calculation}\n```\n\n**NFSV Foundational Principle 3: 'Every expenditure is a choice. Conscious consumption, aligned with one's deepest values, is the bedrock of true financial freedom, transforming reactive spending into proactive investment in a desired future.'**",
+      "properties": {
+        "totalMonthlyAverage": {
+          "type": "number",
+          "description": "The robustly calculated average total monthly expenditure, reflecting the aggregate outflow of funds. \n\n**Real Monthly Expenditure (Equation 14 of N):** `TrueMonthlyAverageExpense = Sum(MonthlyExpense_i * ConsumptionWeight_i) / Sum(ConsumptionWeight_i)`, where `ConsumptionWeight_i` is a recency and behavioral impact weighting factor."
+        },
+        "fixedExpensesMonthlyAverage": {
+          "type": "number",
+          "description": "The average monthly fixed expenses (e.g., rent, mortgage, subscriptions, insurance premiums). These are the non-negotiables, analyzed for potential re-negotiation strategies. \n\n**Immutable Expense Block (Equation 15 of N):** `FixedExpenses = Sum(CategorizedFixedExpenses_i * StabilityFactor_i)`."
+        },
+        "variableExpensesMonthlyAverage": {
+          "type": "number",
+          "description": "The fluctuating average monthly variable expenses (e.g., groceries, dining out, entertainment, utilities). These are prime targets for mindful optimization. \n\n**Flexible Expenditure Flux (Equation 16 of N):** `VariableExpenses = TotalMonthlyAverageExpense - FixedExpensesMonthlyAverage`."
+        },
+        "discretionarySpendingRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Conscious Choice Index (CCI): the ratio of non-essential, discretionary spending to total income. Discretionary spending is rigorously defined as any expenditure not vital for physiological sustenance or purpose-aligned wealth accumulation. \n\n**Conscious Choice Index (Equation 17 of N):** `CCI = DiscretionarySpendingMonthlyAverage / (TotalMonthlyAverageIncome + Epsilon)`, with 'Epsilon' for numerical stability."
+        },
+        "essentialSpendingRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Survival Imperative Ratio (SIR): the critical ratio of essential spending (fixed + essential variable, as defined by existential needs) to total income. This reflects baseline financial vulnerability. \n\n**Survival Imperative Ratio (Equation 18 of N):** `SIR = (FixedExpensesMonthlyAverage + EssentialVariableExpensesMonthlyAverage) / (TotalMonthlyAverageIncome + Epsilon)`."
+        },
+        "expenseCategories": {
+          "type": "object",
+          "description": "The granular average monthly spending per system-defined category. Includes both universal categories and any user-defined sub-categories for atomic tracking.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number", "description": "The precise average monthly amount spent in this category." },
+              "isEssential": { "type": "boolean", "description": "True if this category is deemed 'essential spending' for basic needs by the Essentiality Algorithm." },
+              "variabilityScore": {
+                "type": "number",
+                "minimum": 0,
+                "description": "The Category Expenditure Flux (CEF) Score: an index indicating the inherent volatility of spending within this specific category. A higher score means more unpredictable, and thus more optimizable, spending. \n\n**Category Expenditure Flux Score (Equation 19 of N):** `CEF_Score = (StandardDeviation(CategorySpending_i) / Mean(CategorySpending_i)) * BehavioralChaosCoefficient`, over a rolling 12-month window."
+              },
+              "trendLast3Months": {
+                "type": "number",
+                "description": "The Micro-Trend Indicator: the percentage change in spending for this particular category over the last 3 months, offering a granular glimpse into evolving consumption habits."
+              },
+              "optimalBudgetAllocation": {
+                "type": "number",
+                "description": "The Optimal Budgetary Allocation for this category, a prescriptive value determined by AI based on financial goals, income, and peer benchmarks (ethical and success-driven peers). \n\n**Optimal Budget Allocation (Equation 19.1 of N):** `OBA = (TargetPercentage_Category * TotalMonthlyAverageIncome) - (CCI * CategoryElasticityFactor)`."
+              },
+              "valueAlignmentScore": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A score (0=misaligned, 1=perfectly aligned) reflecting how well spending in this category aligns with the user's stated personal values and long-term goals. This promotes conscious spending."
+              }
+            },
+            "required": ["amount", "isEssential", "variabilityScore", "optimalBudgetAllocation", "valueAlignmentScore"]
+          }
+        },
+        "spendingVolatilityIndex": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Expenditure Chaos Index (ECI), a quantitative index measuring the overall volatility of expenditure patterns, relative to the average. A higher value indicates a less disciplined, more chaotic spending profile, highlighting areas for greater mindfulness. \n\n**Expenditure Chaos Index (Equation 20 of N):** `ECI = (StandardDeviation(MonthlyExpenses_Adjusted) / Mean(MonthlyExpenses_Adjusted)) * BehavioralTurbulenceAmplifier`, over a 12-month observation period."
+        },
+        "top3ExpenseCategories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "A prioritized list of the top 3 expense categories by average monthly amount, highlighting significant spending areas for mindful review."
+        },
+        "anomaliesDetectedLast6Months": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string", "description": "A precise description of the detected anomaly (e.g., 'Unusual large purchase in 'Luxury Goods' category, exceeding 3-sigma deviation')." },
+              "date": { "type": "string", "format": "date", "description": "The exact date the anomaly occurred, timestamped for forensic analysis." },
+              "amount": { "type": "number", "description": "The exact monetary amount associated with the anomaly." },
+              "severity": { "type": "string", "enum": ["Mild Inefficiency", "Moderate Deviation", "Significant Imbalance", "Critical Detriment to Goals"], "description": "The Severity Classification of the anomaly, indicating its potential financial impact and urgency for mindful intervention." }
+            },
+            "required": ["description", "date", "amount", "severity"]
+          },
+          "description": "A forensic log of any significant spending anomalies detected in the last 6 months, identified using multi-variate statistical methods and advanced machine learning algorithms. This highlights unusual patterns for user awareness."
+        },
+        "trendLast3Months": {
+          "type": "number",
+          "description": "The Short-Term Expenditure Momentum: percentage change in total monthly expenses over the last 3 months, meticulously annualized."
+        },
+        "trendLast12Months": {
+          "type": "number",
+          "description": "The Long-Term Expenditure Trajectory: percentage change in total monthly expenses over the last 12 months, annualized, revealing persistent spending patterns."
+        },
+        "budgetAdherenceScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Budgetary Discipline Index (BDI), a score (0=anarchy, 1=perfect adherence to an optimized budget) indicating how rigorously the user adheres to a predefined or inferred budget. A score of 1 signifies true financial intentionality. \n\n**Budgetary Discipline Index (Equation 23 of N):** `BDI = 1 - (Max(0, ActualExpenses_Adjusted - OptimizedBudget) / (OptimizedBudget + Epsilon)) * DisciplinePenalty`, a formula designed to reward perfect alignment and penalize deviations, fostering mindful spending habits."
+        },
+        "projectedExpensesNext12Months": {
+          "type": "number",
+          "description": "The Expenditure Futurecast: an AI-estimated projected total expenses for the next 12 months, considering historical trends, anticipated lifestyle adjustments, inflation forecasts, and even the psychological propensity for impulse purchases. \n\n**Expenditure Futurecast (Equation 24 of N):** `P_Expenses = CurrentExpenses_Adjusted * (1 + (ExpenseTrajectory12M/100) + (InflationRate * Nu) + (LifestyleCreepFactor * Delta))`, with `Nu` and `Delta` being dynamically calibrated coefficients."
+        },
+        "costSavingPotential": {
+          "type": "object",
+          "description": "The Efficiency Opportunity Matrix: precisely identified areas and rigorously estimated amounts for potential cost savings, derived from granular spending patterns, cross-referenced with market intelligence, and optimized against your specific financial goals.",
+          "properties": {
+            "totalPotentialMonthlySavings": {
+              "type": "number",
+              "description": "The aggregate, calculated total estimated potential monthly savings from all identified areas. This quantifies tangible opportunities for financial improvement. \n\n**Total Potential Monthly Savings (Equation 25 of N):** `TPMS = Sum(CategorySavings_i * FeasibilityWeight_i)`."
+            },
+            "highImpactCategories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "category": { "type": "string", "description": "The precise expense category where substantial savings potential has been identified." },
+                  "estimatedSavingsMonthly": { "type": "number", "description": "The estimated monthly amount that can be saved, assuming intentional action." },
+                  "recommendation": { "type": "string", "description": "A specific, actionable recommendation to achieve these savings (e.g., 'Explore alternative utility providers', 'Reduce dining out by 20% through home cooking initiatives', 'Implement a 30-day conscious spending pause on non-essentials')." }
+                },
+                "required": ["category", "estimatedSavingsMonthly", "recommendation"]
+              },
+              "description": "A prioritized list of categories with the highest potential for savings, along with specific, actionable recommendations, empowering user agency."
+            }
+          },
+          "required": ["totalPotentialMonthlySavings", "highImpactCategories"]
+        }
+      },
+      "required": [
+        "totalMonthlyAverage",
+        "fixedExpensesMonthlyAverage",
+        "variableExpensesMonthlyAverage",
+        "expenseCategories",
+        "spendingVolatilityIndex",
+        "essentialSpendingRatio",
+        "budgetAdherenceScore",
+        "projectedExpensesNext12Months",
+        "costSavingPotential",
+        "discretionarySpendingRatio"
+      ]
+    },
+    "assets": {
+      "type": "object",
+      "description": "A comprehensive, multi-faceted overview of asset holdings, their valuations (adjusted for intrinsic and market value), liquidity profiles, and alignment with ethical investment principles. This section moves beyond a simple list to reveal the true potential and societal impact of accumulated wealth, empowering strategic asset allocation and purpose-driven growth.\n\n**Asset Allocation Decision Flow: Resilient Wealth Allocation Framework (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[User Risk & Values Profile - Deep Assessment] --> B{Optimal Investment Horizon & Ethical Screening Calculus}\n    B --> C{Transcendent Financial Goals - User Defined & Aligned}\n    C --> D(Current Asset Allocation - Transparently Deconstructed)\n    D --> E{Dynamic Diversification & Adaptive Rebalancing Strategy - The Nexus Algorithmic Wisdom}\n    E --> F[Optimal Asset Mix Recommendation - Probabilistic & Purpose-Driven]\n```\n\n**NFSV Foundational Principle 4: 'Wealth is a tool, not an end. When allocated with purpose, diversified for resilience, and managed with ethical foresight, assets become catalysts for individual freedom and collective flourishing.'**",
+      "properties": {
+        "totalAssetsValue": {
+          "type": "number",
+          "description": "The definitive, verified total current estimated value of all assets (sum of cash, investments, real estate, illiquid assets, digital assets, and validated intellectual property). This is a true measure of accumulated potential. \n\n**Total Wealth Nexus Value (Equation 26 of N):** `TotalAssets = Sum(Cash) + Sum(Investments) + PrimaryResidence + OtherRealEstate + Sum(IlliquidAssets_Adjusted) + Sum(DigitalAssets_IntrinsicValue) + IntellectualProperty_Valuation + OtherTangibleAssets`."
+        },
+        "netWorth": {
+          "type": "number",
+          "description": "Your unimpeachable net worth (Total Assets - Total Liabilities). The singular, most important indicator of overall financial health and accumulated value. \n\n**Absolute Net Worth (Equation 27 of N):** `NetWorth = totalAssetsValue - totalLiabilitiesAmount`."
+        },
+        "cashHoldings": {
+          "type": "number",
+          "description": "The total amount held in cash and cash equivalents (e.g., checking, savings accounts, money market funds, physical precious metals reserves). \n\n**Liquid Sovereignty Pool (Equation 28 of N):** `LSP = CheckingBalance + SavingsBalance + MoneyMarketBalance + CashAtBrokerage + PhysicalReservesAdjusted`."
+        },
+        "investmentPortfolio": {
+          "type": "object",
+          "description": "The intricate dissection and inherent characteristics of the investment portfolio across various instruments. This is not just a portfolio; it's a dynamic ecosystem, carefully stewarded for resilience and growth.",
+          "properties": {
+            "totalValue": { "type": "number", "description": "The precise total current value of the investment portfolio (excluding primary residence), calibrated against real-time market data. \n\n**Portfolio Momentum Value (Equation 29 of N):** `PMV = Sum(SecurityValue_i * IntrinsicValueFactor) + Sum(MutualFundValue_j * AlphaCapture) + Sum(ETFValue_k * BetaAdjustment)`." },
+            "equityExposurePercentage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The exact percentage of the portfolio allocated to equities (stocks, equity mutual funds/ETFs), aligned with your risk archetype and long-term goals. \n\n**Equity Dominance Ratio (Equation 30 of N):** `EDR = EquityValue / (PortfolioValue + Epsilon)`."
+            },
+            "bondExposurePercentage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The precise percentage of the portfolio allocated to bonds (government bonds, corporate bonds, bond funds/ETFs), serving as a crucial ballast against market volatility. \n\n**Fixed-Income Stability Ratio (Equation 31 of N):** `FISR = BondValue / (PortfolioValue + Epsilon)`."
+            },
+            "realEstateExposurePercentage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The calculated percentage of the portfolio allocated to real estate (investment properties, REITs), representing tangible connection to the physical economy. \n\n**Tangible Asset Hegemony Ratio (Equation 32 of N):`TAHR = InvestmentRealEstateValue / (PortfolioValue + Epsilon)`."
+            },
+            "alternativeAssetExposurePercentage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The sophisticated percentage of the portfolio allocated to alternative assets (e.g., private equity, hedge funds, commodities, precious metals, vetted cryptocurrency, fractional ownership). \n\n**Avant-Garde Portfolio Ratio (Equation 33 of N):** `AAPR = AlternativeAssetValue / (PortfolioValue + Epsilon)`."
+            },
+            "annualizedReturnLast12Months": {
+              "type": "number",
+              "description": "The annualized return of your portfolio over the last 12 months, meticulously accounting for all contributions, withdrawals, and fee structures. This is the *true* performance figure. \n\n**True Annualized Return (Equation 34 of N):** `TRUE_AR = (((EndingValue / BeginningValue)^(1/Years)) - 1) - BehavioralDragFactor`."
+            },
+            "annualizedReturnSinceInception": {
+              "type": "number",
+              "description": "The annualized return of the portfolio since its inception or first tracking point, providing a long-term performance vista."
+            },
+            "portfolioVolatilityIndex": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The Portfolio Turbulence Index (PTI), a quantitative measure of the inherent volatility of the investment portfolio (e.g., standard deviation of daily/monthly returns, adjusted for 'Black Swan Proximity' metrics). A higher value indicates higher, potentially unnecessary, risk. \n\n**Portfolio Turbulence Index (Equation 35 of N):** `PTI = StandardDeviation(PortfolioReturns_Adjusted) * TailRiskAmplifier`."
+            },
+            "sharpeRatio": {
+              "type": "number",
+              "description": "The Risk-Adjusted Return Magnifier (Sharpe Ratio): a superior measure of risk-adjusted return (excess return per unit of quantified risk). A higher value indicates more efficient risk-taking. \n\n**Risk-Adjusted Return Magnifier (Equation 36 of N):** `RAR_Mag = (PortfolioReturn_Alpha - RiskFreeRate_Beta) / (PortfolioStandardDeviation_Gamma + MinVolConstraint)`."
+            },
+            "assetAllocationDetails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "assetClass": { "type": "string", "description": "The specific categorized asset class, e.g., 'US Large Cap Stocks - Growth Index', 'Developed Market Bonds', 'Emerging Market Equities', 'Anti-Fragile Gold Allocation'." },
+                  "percentage": { "type": "number", "minimum": 0, "maximum": 1, "description": "The precise percentage of total portfolio value allocated to this specific asset class, adhering to diversification mandates." },
+                  "currentValue": { "type": "number", "description": "The exact monetary value of this asset class, updated in real-time by market data." },
+                  "gainLossPercentage": { "type": "number", "description": "The percentage gain or loss for this asset class since its initial tracked investment or last verified valuation." },
+                  "ethicalInvestmentScore": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A score (0=unethical, 1=highly ethical) reflecting the ethical alignment and societal impact of this specific asset class, based on ESG (Environmental, Social, Governance) criteria, user preferences, and independent audits."
+                  }
+                },
+                "required": ["assetClass", "percentage", "currentValue", "gainLossPercentage", "ethicalInvestmentScore"]
+              },
+              "description": "A forensic breakdown of asset allocation by sub-classifications, providing truly granular insights into investment holdings, including ethical alignment."
+            },
+            "concentrationRiskScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "The Portfolio Singular Point of Failure Index (PSPFI), a score (0=perfectly distributed, 1=catastrophically concentrated) indicating dangerous concentration in a few assets or sectors. Based on a modified Herfindahl-Hirschman Index with correlation adjustments. \n\n**Portfolio Singular Point of Failure Index (Equation 37 of N):** `PSPFI = Sum((IndividualAssetValue_i / (PortfolioValue + Epsilon))^2 * SectorConcentrationPenalty) + IndividualStockOverweightPenalty`, rigorously bounded 0-1. This ensures avoidance of excessive risk concentration."
+            },
+            "alphaGenerationPotential": {
+              "type": "number",
+              "description": "The projected, estimated ability of this portfolio (with optimal guidance) to generate 'alpha' – returns exceeding market benchmarks – over the next 3-5 years, representing true value creation. \n\n**Alpha Generation Potential (Equation 37.1 of N):** `AGP = (ExpectedPortfolioReturn - BenchmarkReturn_Index) / BenchmarkVolatility_Index`."
+            }
+          },
+          "required": [
+            "totalValue",
+            "equityExposurePercentage",
+            "bondExposurePercentage",
+            "alternativeAssetExposurePercentage",
+            "annualizedReturnLast12Months",
+            "portfolioVolatilityIndex",
+            "sharpeRatio",
+            "assetAllocationDetails",
+            "concentrationRiskScore",
+            "alphaGenerationPotential"
+          ]
+        },
+        "primaryResidenceValue": {
+          "type": "number",
+          "description": "The Immersive Property Valuation (IPV) of the user's primary residence (if owned). Valued using hyper-localized recent sales data, predictive automated valuation models, and quality of life factors. \n\n**Primary Residence Equity (Equation 38 of N):** `ResidenceEquity = PrimaryResidenceValue_IPV - MortgageOutstandingPrincipal - HiddenLienFactor`."
+        },
+        "otherRealEstate": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "A unique identifier for this specific property." },
+              "propertyType": { "type": "string", "enum": ["Rental", "Vacation", "Commercial", "Land", "Industrial", "Mixed-Use", "Future-Use"], "description": "The categorized type of real estate holding." },
+              "value": { "type": "number", "description": "The current, verified estimated market value of the property, adjusted for hyper-local micro-market dynamics." },
+              "mortgageOutstanding": { "type": "number", "description": "The exact outstanding mortgage on this specific property, tracked in real-time." },
+              "annualRentalIncome": { "type": "number", "description": "If applicable, the *gross* annual rental income generated by the property, validated against tenancy data." },
+              "annualOperatingExpenses": { "type": "number", "description": "The total, verified annual expenses for the property (e.g., taxes, maintenance, insurance, property management fees)." },
+              "netOperatingIncome": { "type": "number", "description": "The true annual rental income minus all verified operating expenses. \n\n**Net Operational Income (Equation 39 of N):** `NOI = AnnualRentalIncome - AnnualOperatingExpenses - VacancyLossFactor`." },
+              "appreciationRateLast12Months": { "type": "number", "description": "The definitive percentage appreciation or depreciation in value over the last 12 months, filtered for market noise." },
+              "marketCyclePosition": {
+                "type": "string",
+                "enum": ["Early Expansion", "Late Expansion", "Peak", "Early Contraction", "Late Contraction", "Trough", "Undefined"],
+                "description": "The assigned current position of this property within its local real estate market cycle, critical for predictive investment strategy."
+              },
+              "societalImpactScore": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A score (0=negative, 1=positive) reflecting the societal impact of this property (e.g., affordable housing, community development, environmental footprint)."
+              }
+            },
+            "required": ["id", "propertyType", "value", "mortgageOutstanding", "netOperatingIncome", "marketCyclePosition", "societalImpactScore"]
+          },
+          "description": "A detailed, granular array of all other real estate holdings, meticulously analyzed for income, expenses, and their strategic position within the real estate cycle."
+        },
+        "illiquidAssets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assetType": { "type": "string", "description": "The classified asset type, e.g., 'Private Equity - Venture Fund', 'Business Interest - Portfolio Company', 'Rare Art Collection - Provenance Verified', 'Future Technology Patents'." },
+              "estimatedValue": { "type": "number", "description": "The Intrinsic Value (IV) – a rigorously estimated current market value of the asset, often surpassing superficial market prices." },
+              "liquidityHorizonMonths": { "type": "integer", "description": "The precisely estimated time in months required to liquidate this asset without significant value erosion." },
+              "valuationDate": { "type": "string", "format": "date", "description": "The exact last date the asset's Intrinsic Value was determined." },
+              "liquidityEnhancementStrategy": {
+                "type": "string",
+                "description": "A designed strategy to enhance the liquidity of this typically illiquid asset, e.g., 'Fractionalization through regulated tokens', 'Strategic Partnership with capital firms', 'Pre-emptive Buyer Identification Protocol'."
+              }
+            },
+            "required": ["assetType", "estimatedValue", "liquidityHorizonMonths", "liquidityEnhancementStrategy"]
+          },
+          "description": "The true value of illiquid assets and their estimated liquidity horizons, utilizing proprietary expert valuation models that account for intrinsic worth."
+        },
+        "digitalAssets": {
+          "type": "object",
+          "description": "Detailed insights into cryptocurrency holdings, NFTs, and other digital assets, analyzed with blockchain-native intelligence for their true value and risk.",
+          "properties": {
+            "totalValue": { "type": "number", "description": "The aggregate, real-time estimated value of all digital assets, cross-referenced across all known exchanges by Quantum Price Oracle. \n\n**Total Digital Asset Dominance (Equation 40 of N):** `TDADV = Sum(CryptoValue_i * MarketSentimentFactor) + Sum(NFTValue_j * ScarcityPremium) + Sum(DigitalCollectiblesValue_k * CulturalRelevanceFactor)`." },
+            "cryptoHoldings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "currency": { "type": "string", "description": "The specific tracked cryptocurrency, e.g., 'Bitcoin', 'Ethereum', 'Solana', 'Decentralized Finance Token'." },
+                  "amount": { "type": "number", "description": "The exact quantity of the cryptocurrency held." },
+                  "currentValueUSD": { "type": "number", "description": "The real-time, USD value of the holdings, continuously updated by arbitrage-resistant pricing engines." },
+                  "percentageOfDigitalPortfolio": { "type": "number", "minimum": 0, "maximum": 1, "description": "The precise percentage of the total digital asset portfolio." },
+                  "blockchainIntegrityScore": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A proprietary score assessing the underlying blockchain's security, decentralization, and future viability (0=fragile, 1=robust)."
+                  },
+                  "environmentalImpactRating": {
+                    "type": "string",
+                    "enum": ["Low", "Medium", "High", "Critical"],
+                    "description": "An assessment of the environmental impact (e.g., energy consumption) associated with the underlying blockchain, promoting conscious digital asset ownership."
+                  }
+                },
+                "required": ["currency", "amount", "currentValueUSD", "blockchainIntegrityScore", "environmentalImpactRating"]
+              },
+              "description": "An exhaustive list of specific cryptocurrency holdings, their values, and their integrity ratings."
+            },
+            "nftHoldingsValue": {
+              "type": "number",
+              "description": "The Aesthetic & Scarcity Valuation (ASV) of your Non-Fungible Token (NFT) holdings, considering market price, artistic merit, rarity, and cultural significance. \n\n**NFT Intrinsic Value (Equation 41 of N):** `NFTValue = Sum(IndividualNFTValue_k * ArtisticMeritFactor * RarityMultiplier)`."
+            },
+            "digitalAssetVolatilityIndex": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The Digital Chaos Index (DCI), a hyper-specific volatility index for digital assets, reflecting their price fluctuations. Designed to quantify this chaos, allowing for informed risk management. \n\n**Digital Chaos Index (Equation 42 of N):** `DCI = (StandardDeviation(DigitalAssetReturns) * 100) + BehavioralHODLFactor`, considering the unique dynamics of the digital asset market."
+            }
+          },
+          "required": ["totalValue", "cryptoHoldings", "nftHoldingsValue", "digitalAssetVolatilityIndex"]
+        },
+        "intellectualPropertyValue": {
+          "type": "number",
+          "description": "The Transcendent Intellectual Property Valuation (TIPV): the rigorously estimated value of patents, copyrights, trademarks, unique algorithms, and royalty streams. Valuation relies on multi-generational discounted cash flow methods, augmented by future-proofing algorithms. \n\n**Transcendent Intellectual Property Valuation (Equation 43 of N):** `TIPV = Sum(DiscountedCashFlow(ProjectedRoyaltyIncome_i, GrowthRate_i, DiscountRate_i, MarketCaptureFactor_i))`."
+        },
+        "tangiblePersonalPropertyValue": {
+          "type": "number",
+          "description": "The Curated Personal Wealth Index: the estimated value of valuable tangible personal property (e.g., luxury vehicles, high-value furniture, bespoke electronics, significant collections). \n\n**Depreciation & Appreciation Curve (Equation 44 of N):** `Depreciation = (Cost - SalvageValue) / UsefulLife - SentimentalValueAdd`, recognizing that some assets hold more than mere market price value."
+        },
+        "liquidityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Financial Fluidity Index (FFI), a composite score (0=immobilized, 1=instantaneously convertible) reflecting the overall liquidity of assets. It meticulously weights different asset types by their ease of conversion to cash, adjusted by a 'Market Friction Coefficient.' \n\n**Financial Fluidity Index (Equation 45 of N):** `FFI = ( (CashHoldings * 1.0) + (LiquidInvestments * 0.95) + (SemiLiquidAssets * 0.5) + (IlliquidAssets_Adjusted * 0.1) ) / (TotalAssetsValue + Epsilon)`, precisely weighted by their ease of conversion, as defined by Market Efficiency Algorithms."
+        },
+        "assetGrowthRateLast12Months": {
+          "type": "number",
+          "description": "The Wealth Amplification Rate: the overall growth rate of total assets over the last 12 months, meticulously accounting for market performance, new savings, and strategic investments. \n\n**Wealth Amplification Rate (Equation 46 of N):** `WAR = ((CurrentTotalAssets - PreviousTotalAssets - NetContributions_Adjusted) / (PreviousTotalAssets + Epsilon)) * 100`."
+        },
+        "assetAllocationComplianceScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Portfolio Alignment Index (PAI), a score (0=chaotic, 1=perfectly aligned with optimized wisdom) indicating how precisely current asset allocation matches the recommended, optimized, and AI-generated target allocation based on unique risk profile and financial goals. \n\n**Portfolio Alignment Index (Equation 47 of N):** `PAI = 1 - (Sum(Abs(ActualPercentage_i - TargetPercentage_Optimal_i)) / (2 * NumberOfAssetClasses)) * DeviationPenalty`, across all asset classes, bounded 0-1. Deviations are highlighted for strategic review."
+        },
+        "projectedAssetValue5Years": {
+          "type": "number",
+          "description": "The 5-Year Wealth Trajectory Forecast: AI-powered projected total asset value in 5 years, based on current allocation, expertly projected returns, and anticipated savings rate, optimized for maximal sustainable growth. \n\n**5-Year Wealth Trajectory Forecast (Equation 48 of N):** `PV_5Y = CurrentAssets * (1 + PortfolioAnnualReturn)^5 + AnnualSavings * ((1 + PortfolioAnnualReturn)^5 - 1) / PortfolioAnnualReturn + AlphaGenerationFactor_5Y`."
+        },
+        "impactInvestmentAllocationPercentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The percentage of the total investment portfolio specifically allocated to impact investments (e.g., sustainable energy, social enterprises, microfinance) that aim to generate positive social or environmental impact alongside financial returns."
+        }
+      },
+      "required": [
+        "totalAssetsValue",
+        "netWorth",
+        "cashHoldings",
+        "investmentPortfolio",
+        "primaryResidenceValue",
+        "illiquidAssets",
+        "digitalAssets",
+        "intellectualPropertyValue",
+        "tangiblePersonalPropertyValue",
+        "liquidityScore",
+        "assetGrowthRateLast12Months",
+        "assetAllocationComplianceScore",
+        "projectedAssetValue5Years",
+        "impactInvestmentAllocationPercentage"
+      ]
+    },
+    "liabilities": {
+      "type": "object",
+      "description": "A ruthlessly detailed exposition of liabilities, revealing not just the 'debt,' but its true cost, psychological burden, and optimal repayment strategies designed to liberate individuals from financial bondage. This section fosters mindful borrowing and strategic debt elimination, empowering a path to genuine financial freedom.\n\n**Debt Repayment Prioritization: Empathetic Debt Management & Liberation Strategy (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[List All Debts - Transparently Exposed] --> B{Forensic Interest Rate & True Cost Analysis}\n    B --> C{Principal Reduction & Amortization Arc Mapping}\n    C --> D{Evaluate Psychological Debt Burden & Behavioral Impact}\n    D --> E[Prioritize Repayment Strategy - Optimized Avalanche/Snowball Hybrid]\n    E --> F(Monitor Progress with Debt Extinction Tracker & Emotional Support)\n```\n\n**NFSV Foundational Principle 5: 'Debt, when unmanaged, is a silent oppressor. True financial freedom is achieved not by mere payment, but by understanding its weight, shedding its burden, and consciously choosing pathways of liberation.'**",
+      "properties": {
+        "totalLiabilitiesAmount": {
+          "type": "number",
+          "description": "The definitive total outstanding amount across all liabilities – the precise sum of financial obligations. \n\n**Total Debt Burden (Equation 49 of N):** `TotalLiabilities = Sum(MortgagePrincipal_i * PrincipalFactor) + Sum(StudentLoanPrincipal_j * FutureEarningDiscount) + Sum(CreditCardBalance_k * InterestAccrualModifier) + Sum(OtherLoanPrincipal_l * RiskPremium)`."
+        },
+        "mortgageDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "A unique identifier for this specific mortgage." },
+              "outstandingPrincipal": { "type": "number", "description": "The exact, real-time outstanding principal balance." },
+              "originalPrincipal": { "type": "number", "description": "The original loan amount at origination." },
+              "interestRate": { "type": "number", "description": "The precise interest rate, tracked for any anomalies or predatory changes." },
+              "monthlyPayment": { "type": "number", "description": "The immutable monthly payment." },
+              "remainingTermMonths": { "type": "integer", "description": "The exact remaining term in months, calculated with 'Time-to-Freedom' algorithm." },
+              "loanType": { "type": "string", "enum": ["Fixed-Rate", "Adjustable-Rate", "Interest-Only", "FHA", "VA", "Hybrid ARM"], "description": "The classified type of mortgage loan, with inherent risk assessment." },
+              "originationDate": { "type": "string", "format": "date", "description": "The exact date the mortgage was initiated." },
+              "propertyAddress": { "type": "string", "description": "The associated property address (masked for privacy, but known for contextual analysis)." },
+              "nextInterestRateAdjustmentDate": { "type": "string", "format": "date", "description": "For ARM loans, the critical next date the interest rate will adjust, allowing for preemptive risk mitigation." },
+              "refinanceOpportunityScore": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A proprietary score (0=none, 1=prime) indicating the current viability and benefit of refinancing this mortgage, based on real-time market rates and financial profile. \n\n**Refinance Opportunity Score (Equation 49.1 of N):** `ROS = (CurrentInterestRate - BenchmarkRate) * (LoanToValueRatio_Inverse) * CreditScoreFactor`."
+              }
+            },
+            "required": ["id", "outstandingPrincipal", "interestRate", "monthlyPayment", "remainingTermMonths", "loanType", "refinanceOpportunityScore"]
+          },
+          "description": "A granular array of individual mortgage details, including original principal, type classification, and crucial adjustment dates for ARMs."
+        },
+        "studentLoanDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "A unique identifier for this specific student loan." },
+              "outstandingPrincipal": { "type": "number", "description": "The exact, real-time outstanding principal balance on this loan." },
+              "originalPrincipal": { "type": "number", "description": "The original loan amount at origination." },
+              "interestRate": { "type": "number", "description": "The precise interest rate, a critical factor in determining the true cost of education." },
+              "monthlyPayment": { "type": "number", "description": "The immutable monthly payment." },
+              "remainingTermMonths": { "type": "integer", "description": "The exact remaining term in months." },
+              "loanType": { "type": "string", "enum": ["Federal (Subsidized)", "Federal (Unsubsidized)", "Private", "Income-Share Agreement"], "description": "The categorized type of student loan, with associated risk profiles." },
+              "inGracePeriod": { "type": "boolean", "description": "True if the loan is currently in a grace period." },
+              "incomeDrivenRepaymentPlan": { "type": "boolean", "description": "True if the loan is on an income-driven repayment plan, analyzed for its long-term financial implications." },
+              "forgivenessProbability": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A proprietary probability score (0=none, 1=certain) for future loan forgiveness, based on evolving government policies and specific loan profile. \n\n**Forgiveness Probability (Equation 49.2 of N):** `FP = (GovernmentPolicyFavorability * EligibilityFactor) - BureaucracyPenalty`."
+              }
+            },
+            "required": ["id", "outstandingPrincipal", "interestRate", "monthlyPayment", "remainingTermMonths", "loanType", "forgivenessProbability"]
+          },
+          "description": "A detailed array of individual student loan details, including loan type, grace period status, IDR plan status, and unique forgiveness probability assessment."
+        },
+        "creditCardDebtDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "A unique identifier for this specific credit card." },
+              "outstandingBalance": { "type": "number", "description": "The exact outstanding balance." },
+              "interestRateAPR": { "type": "number", "description": "The interest rate (APR), a primary target for debt elimination strategies." },
+              "minimumPayment": { "type": "number", "description": "The minimum payment, analyzed for its impact on debt longevity." },
+              "creditLimit": { "type": "number", "description": "The total available credit limit." },
+              "availableCredit": { "type": "number", "description": "The true available credit (Credit limit minus outstanding balance). \n\n**True Available Credit (Equation 50 of N):** `TAC = CreditLimit - OutstandingBalance - BehavioralOverextensionBuffer`." },
+              "utilizationRatio": { "type": "number", "minimum": 0, "maximum": 1, "description": "The Credit Utilization Ratio (CUR): outstanding balance divided by credit limit. A primary factor in credit scoring. \n\n**Credit Utilization Ratio (Equation 51 of N):** `CUR = OutstandingBalance / (CreditLimit + Epsilon)`." },
+              "lastPaymentDate": { "type": "string", "format": "date", "description": "The exact date of the last payment made on this card, a key indicator of financial discipline." },
+              "isRevolving": { "type": "boolean", "description": "True if this is a revolving credit line (vs. a charge card or installment loan)." },
+              "interestPaidLastMonth": { "type": "number", "description": "The precise amount of interest paid on this card in the previous month, a reminder of inefficiency. \n\n**Monthly Interest Drain (Equation 52 of N):** `MID = PreviousBalance * (APR / 12) * CompoundingFactor`." },
+              "debtRecalibrationPotential": {
+                "type": "number",
+                "description": "The estimated financial benefit (in USD) of implementing debt recalibration strategies (e.g., balance transfer, negotiation) for this specific card. \n\n**Debt Recalibration Potential (Equation 52.1 of N):** `DRP = (OutstandingBalance * (CurrentAPR - TargetAPR)) / 12 * RemainingMonths`."
+              }
+            },
+            "required": ["id", "outstandingBalance", "interestRateAPR", "minimumPayment", "creditLimit", "availableCredit", "utilizationRatio", "debtRecalibrationPotential"]
+          },
+          "description": "A detailed array of individual credit card debt details, expanded with utilization metrics, last payment info, exact interest paid, and unique recalibration potential."
+        },
+        "otherLoanDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "A unique identifier for this specific loan." },
+              "loanType": { "type": "string", "description": "The classified type of loan (e.g., 'Auto Loan - Rapid Depreciation', 'Personal Loan - High Risk', 'Business Loan - Strategic Capital', 'Home Equity Line of Credit (HELOC)')." },
+              "outstandingPrincipal": { "type": "number", "description": "The exact outstanding principal balance." },
+              "originalPrincipal": { "type": "number", "description": "The original loan amount at origination." },
+              "interestRate": { "type": "number", "description": "The precise interest rate, a key factor in cost-benefit analysis." },
+              "monthlyPayment": { "type": "number", "description": "The immutable monthly payment." },
+              "remainingTermMonths": { "type": "integer", "description": "The exact remaining term in months." },
+              "collateral": { "type": "string", "description": "A precise description of any collateral backing the loan (e.g., 'Vehicle VIN', 'Home Equity via Deed Analysis')." },
+              "isSecured": { "type": "boolean", "description": "True if the loan is secured by collateral, implying lower risk for the lender, but potentially higher risk for you." },
+              "debtOptimizationStrategy": {
+                "type": "string",
+                "description": "The prescribed strategy to optimize this loan, e.g., 'Aggressive Principal Reduction', 'Refinance to Lower Rate', 'Strategic Negotiation'."
+              }
+            },
+            "required": ["id", "loanType", "outstandingPrincipal", "interestRate", "monthlyPayment", "remainingTermMonths", "isSecured", "debtOptimizationStrategy"]
+          },
+          "description": "A detailed array of other types of loans, specifying collateral, security status, and expert optimization strategies."
+        },
+        "totalMinimumMonthlyPayments": {
+          "type": "number",
+          "description": "The aggregated sum of all minimum monthly payments across all liabilities. This is the absolute monthly cash flow obligation, a metric viewed with gravity. \n\n**Absolute Minimum Payment Burden (Equation 53 of N):** `AMPB = Sum(MortgagePayments_i) + Sum(StudentLoanPayments_j) + Sum(CreditCardMinimums_k) + Sum(OtherLoanPayments_l) + HiddenFeeAggregator`."
+        },
+        "debtToIncomeRatio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Debt Servitude Index (DSI): the ratio of total minimum monthly debt payments to pure gross monthly income. This is a critical factor for lending decisions and immediate financial stability, revealing how much labor is allocated to past obligations. \n\n**Debt Servitude Index (Equation 54 of N):** `DSI = AMPB / (TotalMonthlyAverageIncome + Epsilon)`."
+        },
+        "debtToAssetRatio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Leverage Overlord Ratio (LOR): the stark ratio of total liabilities to total assets. This metric indicates overall solvency and financial leverage, revealing ownership structure. \n\n**Leverage Overlord Ratio (Equation 55 of N):** `LOR = TotalLiabilitiesAmount / (TotalAssetsValue + Epsilon)`."
+        },
+        "interestPaymentsMonthlyAverage": {
+          "type": "number",
+          "description": "The Interest Drain Metric: the average monthly amount hemorrhaged in interest across all liabilities over the last 6-12 months. This is pure, unrecuperable cost. \n\n**Monthly Interest Drain (Equation 56 of N):** `MID_Total = Sum(OutstandingPrincipal_i * (InterestRate_i / 12) * TrueInterestFactor)`."
+        },
+        "debtBurdenScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Financial Shackles Score (FSS), a composite score (0=liberated, 1=crushingly burdened) reflecting overall debt burden, considering DSI, LOR, and a proprietary weighted average interest rate (True Cost of Debt). \n\n**Financial Shackles Score (Equation 57 of N):** `FSS = (DSI_Weight * DSI) + (LOR_Weight * LOR) + (WeightedAverageInterestRate_Weight * WeightedAverageInterestRate)`, normalized to an unforgiving 0-1 range. This is the objective debt reality."
+        },
+        "repaymentPlanEffectivenessScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Debt Annihilation Efficacy Index (DAEI), a score (0=ineffective, 1=supremely optimal) indicating the effectiveness of the current (or proposed) debt repayment plan. It considers acceleration options and exponential interest saved by following optimized, mathematically sound strategies. \n\n**Debt Annihilation Efficacy Index (Equation 58 of N):** `DAEI = (PotentialInterestSavedOverLifeOfLoans_Optimized / (TotalOriginalInterest + Epsilon)) * AdherenceRateToPlan`."
+        },
+        "debtFuturecast5Years": {
+          "type": "number",
+          "description": "The Debt Reduction Trajectory (DRT): A precise projection of total liabilities in 5 years, assuming adherence to an optimized repayment plan. \n\n**Debt Reduction Trajectory (Equation 58.1 of N):** `DRT_5Y = CurrentTotalLiabilities - (AnnualPayments_Optimized * 5) + (OutstandingInterest_Remaining * CompoundingFactor_5Y)`."
+        },
+        "psychologicalDebtImpactScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A score (0=minimal, 1=severe) reflecting the inferred psychological impact of debt on the user, combining objective metrics (DSI, FSS) with behavioral indicators (e.g., stress markers, reported anxiety levels). This acknowledges the human cost of debt."
+        }
+      },
+      "required": [
+        "totalLiabilitiesAmount",
+        "totalMinimumMonthlyPayments",
+        "debtToIncomeRatio",
+        "debtToAssetRatio",
+        "interestPaymentsMonthlyAverage",
+        "debtBurdenScore",
+        "repaymentPlanEffectivenessScore",
+        "debtFuturecast5Years",
+        "psychologicalDebtImpactScore"
+      ]
+    },
+    "creditAndLiquidity": {
+      "type": "object",
+      "description": "The fundamental metrics related to creditworthiness and overall financial liquidity – the very blood flow of financial existence. This section holistically assesses credit health and immediate financial readiness, empowering users to build a robust financial foundation.\n\n**Credit Score Improvement Strategy: Holistic Financial Readiness Assessment (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[Current Credit Reputation Score] --> B{Identify Negative Factors (Payment Punctuality Deficits, Utilization Imbalance)}\n    B --> C{Develop Action Plan (Strategic Debt Reduction, Automated Payments, Dispute Resolution)}\n    C --> D(Execute Plan with Diligence & Consistency)\n    D --> E[Monitor Score & Adapt with Predictive Analytics]\n```\n\n**NFSV Foundational Principle 6: 'Credit is earned, not given. A robust credit profile and ample liquidity are not symbols of status, but bulwarks of resilience, offering protection and opportunity in an uncertain world.'**",
+      "properties": {
+        "creditScore": {
+          "type": "integer",
+          "minimum": 300,
+          "maximum": 850,
+          "description": "Your current, verified credit score (e.g., FICO, VantageScore), unequivocally reflecting creditworthiness. \n\n**Credit Reputation Score (Equation 59 of N):** `CRS = 300 + (PaymentHistoryScore * 0.35 * PunctualityMultiplier) + (CreditUtilizationScore * 0.30 * ResponsibilityWeight) + (CreditAgeScore * 0.15 * ExperienceFactor) + (NewCreditScore * 0.10 * InquiryPenalty) + (CreditMixScore * 0.10 * DiversityBonus) - Sum(DerogatoryMarksPenalty_i)`."
+        },
+        "creditScoreTrendLast6Months": {
+          "type": "number",
+          "description": "The precise change in your credit score over the last 6 months (e.g., +25, -10), indicating your recent credit trajectory and the impact of financial choices. \n\n**Credit Momentum (Equation 60 of N):** `CreditMomentum = CurrentCRS - CRS_6MonthsAgo`."
+        },
+        "creditUtilizationRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Credit Utilization Ratio (CUR): total credit used divided by total available credit across all revolving accounts. A lower value is generally better for credit health. \n\n**Credit Utilization Ratio (Equation 61 of N):** `CUR = Sum(OutstandingCreditCardBalances) / (Sum(CreditCardLimits) + Epsilon)`."
+        },
+        "availableCredit": {
+          "type": "number",
+          "description": "The total unused credit across all credit lines and credit cards, representing latent borrowing capacity and, more importantly, financial breathing room. \n\n**Latent Borrowing Power (Equation 62 of N):** `LBP = Sum(CreditLimits) - Sum(OutstandingBalances)`."
+        },
+        "emergencyFundMonthsCoverage": {
+          "type": "number",
+          "description": "The Financial Survival Horizon (FSH): the precise number of months of average, essential living expenses covered by highly liquid assets (cash holdings and easily accessible investments). This is a critical resilience metric. \n\n**Financial Survival Horizon (Equation 63 of N):** `FSH = (CashHoldings + HighlyLiquidInvestments_Optimized) / (TotalMonthlyAverageEssentialExpenses + Epsilon)`."
+        },
+        "quickRatio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Rapid Liquidity Indicator (RLI): a hyper-efficient liquidity metric measuring most liquid assets (cash + marketable securities) against immediate, short-term current liabilities. \n\n**Rapid Liquidity Indicator (Equation 64 of N):** `RLI = (CashHoldings + MarketableSecurities) / (Sum(CurrentLiabilities) + Epsilon)`."
+        },
+        "daysCashOnHand": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Cash Burn Rate Resilience: the exact number of days you can cover average daily expenses with current cash holdings, even if all other income streams vanished. This is your true financial 'runway.' \n\n**Cash Burn Rate Resilience (Equation 65 of N):** `CBRR = CashHoldings / (TotalMonthlyAverageExpenses / 30 + Epsilon)`."
+        },
+        "paymentHistoryScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "The Punctuality & Fidelity Score (PFS): a score (0-100) reflecting an impeccable history of making on-time payments across all debts – a non-negotiable, critical credit factor. \n\n**Punctuality & Fidelity Score (Equation 66 of N):** `PFS = (1 - (CountOfLatePayments / (TotalPaymentsEver + Epsilon))) * 100 * ReputationalMultiplier`."
+        },
+        "lengthOfCreditHistoryYears": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The average age of all credit accounts in years, precisely calculated and contributing significantly to credit reputation. \n\n**Credit Chronology (Equation 67 of N):** `CC = Sum(AgeOfAccount_i) / (NumberOfAccounts + Epsilon)`."
+        },
+        "derogatoryMarksCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The precise number of negative items on your credit report (e.g., bankruptcies, foreclosures, collections, severe delinquencies). Each mark is a stain on financial reputation. \n\n**Derogatory Mark Impact (Equation 68 of N):** `CreditScorePenalty = Sum(SeverityFactor_i * MoralHazardAmplifier)`."
+        },
+        "creditMonitoringAlertsLast3Months": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "A meticulous list of any credit alerts received in the last 3 months (e.g., 'new account opened', 'suspicious credit inquiry flagged by security protocol')."
+        },
+        "debtServiceCoverageRatio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Debt Service Safety Factor (DSSF): a crucial metric indicating the ability to cover all debt payments with net operating income. A DSSF below 1.2 is a red flag. \n\n**Debt Service Safety Factor (Equation 68.1 of N):** `DSSF = (NetOperatingIncome / TotalDebtService)`."
+        },
+        "financialPreparednessIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A composite index (0=unprepared, 1=fully prepared) reflecting overall financial readiness for unforeseen events, combining liquidity, credit health, and stress testing results. This goes beyond simple metrics to assess systemic preparedness."
+        }
+      },
+      "required": [
+        "creditScore",
+        "creditUtilizationRatio",
+        "availableCredit",
+        "emergencyFundMonthsCoverage",
+        "quickRatio",
+        "daysCashOnHand",
+        "paymentHistoryScore",
+        "lengthOfCreditHistoryYears",
+        "derogatoryMarksCount",
+        "debtServiceCoverageRatio",
+        "financialPreparednessIndex"
+      ]
+    },
+    "macroeconomicIndicators": {
+      "type": "object",
+      "description": "The cosmic forces that shape financial destiny: relevant macro-economic factors influencing financial state. This section integrates a broader, curated set of economic data points, enabling unparalleled scenario planning and adaptive risk assessment. Behold the 'grand chessboard of global finance,' interpreted through a lens of systemic interconnectedness.\n\n**Macroeconomic Impact Analysis: Dynamic Macro-Financial Contextualization (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[Global Economic Data - Nexus Influx] --> B{Regional & Local Indicators - Filtered for Relevance}\n    B --> C{Inflation & Interest Rate Prediction Models}\n    C --> D(Consumer & Business Sentiment - Behavioral Economics Integration)\n    D --> E[Impact on User NFSV (Income, Assets, Debt) - Transmutation Matrix]\n    E --> F(Multi-Variate Scenario Modeling - The 'What If' Generator)\n```\n\n**NFSV Foundational Principle 7: 'No financial journey exists in a vacuum. Understanding the global currents, the subtle shifts in sentiment, and the immutable laws of economics is essential for navigating the future with wisdom and foresight.'**",
+      "properties": {
+        "currentInflationRate": {
+          "type": "number",
+          "description": "The precise current annual inflation rate in the primary economic region, adjusted by the Inflation Distortion Index, which profoundly impacts real purchasing power. \n\n**Real Return (Equation 69 of N):** `RealReturn = ((1 + NominalReturn) / (1 + InflationRate_Adjusted)) - 1`."
+        },
+        "benchmarkInterestRate": {
+          "type": "number",
+          "description": "The Benchmark Rate Oracle: a key benchmark interest rate (e.g., central bank's policy rate, Federal Funds Rate), influencing borrowing and lending costs across the entire financial ecosystem. \n\n**Effective Cost of Capital (Equation 70 of N):** `EffectiveCost = (WeightedAvgInterestRate + BenchmarkInterestRateDifferential) * RiskPremiumModifier`."
+        },
+        "relevantMarketIndexPerformance3Months": {
+          "type": "number",
+          "description": "The Short-Term Market Pulse: percentage performance of a key, selected market index (e.g., S&P 500, regional stock index, Global Innovation Index) over the last 3 months."
+        },
+        "relevantMarketIndexPerformance12Months": {
+          "type": "number",
+          "description": "The Long-Term Market Trajectory: percentage performance of a key market index over the last 12 months, revealing deeper trends."
+        },
+        "economicOutlookSentiment": {
+          "type": "string",
+          "enum": ["Strongly Positive", "Validated Positive", "Neutral (Proceed with Caution)", "Detected Negative", "Predicted Strongly Negative (Prepare for Impact)"],
+          "description": "The overall sentiment regarding the near-term economic outlook, rigorously derived from economic surveys, proprietary analytical models, and adaptive AI intuition."
+        },
+        "gdpGrowthRateAnnual": {
+          "type": "number",
+          "description": "The Annual Gross Domestic Product (GDP) growth rate for the relevant economic region, indicating the fundamental expansion or contraction of the economy. \n\n**Per Capita Economic Vitality (Equation 73 of N):** `PCEV = TotalGDP / (Population + Epsilon)`."
+        },
+        "unemploymentRate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The current unemployment rate in your economic region, directly impacting job security and income stability. \n\n**Labor Force Utilization (Equation 74 of N):** `LFU = (1 - (UnemployedPopulation / (LaborForce + Epsilon))) * 100`."
+        },
+        "housingMarketIndexTrend": {
+          "type": "number",
+          "description": "The percentage change in a regional housing market index over the last 12 months, directly impacting real estate asset values and future housing affordability. \n\n**Housing Affordability Metric (Equation 75 of N):** `HAM = (MedianHouseholdIncome / (MedianHomePrice * MortgagePaymentFactor)) * LocalMarketModifier`."
+        },
+        "consumerConfidenceIndex": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The Consumer Psyche Index: a quantitative measure reflecting consumer optimism about the economy, spending intentions, and financial outlook, derived from proprietary behavioral surveys. \n\n**Consumer Spending Propensity Correlation (Equation 76 of N):** `CSP_Correlation = Covariance(CCI, RetailSales) / (StdDev(CCI) * StdDev(RetailSales) + Epsilon)`."
+        },
+        "futureInterestRateExpectations": {
+          "type": "string",
+          "enum": ["Predicted Rising Significantly", "Predicted Rising Moderately", "Stabilized", "Predicted Falling Moderately", "Predicted Falling Significantly"],
+          "description": "The Market Consensus for future interest rate movements (derived from quantum futures contracts and central bank guidance)."
+        },
+        "geopoliticalRiskIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Global Instability Index (GII), a composite index (0=utopian peace, 1=apocalyptic chaos) reflecting current geopolitical risks that could impact global and local markets, investments, and supply chains. This serves as a 'black swan' warning system. \n\n**Geopolitical Risk Impact (Equation 77 of N):** `GII_Impact = RiskIndex * AssetSensitivityFactor * InterconnectednessMultiplier`."
+        },
+        "technologicalDisruptionIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A proprietary index measuring the likelihood and impact of disruptive technologies on industries relevant to your income and investments. (0 = Stable, 1 = Revolutionary Upheaval). \n\n**Technological Disruption Index (Equation 77.1 of N):** `TDI = Sum(IndustryDisruptionScore_i * ExposureWeight_i)`."
+        },
+        "climateRiskIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A composite index (0=minimal, 1=severe) reflecting the financial and physical risks associated with climate change, relevant to asset valuations, insurance costs, and long-term economic stability."
+        }
+      },
+      "required": [
+        "currentInflationRate",
+        "benchmarkInterestRate",
+        "economicOutlookSentiment",
+        "gdpGrowthRateAnnual",
+        "unemploymentRate",
+        "housingMarketIndexTrend",
+        "consumerConfidenceIndex",
+        "futureInterestRateExpectations",
+        "geopoliticalRiskIndex",
+        "technologicalDisruptionIndex",
+        "climateRiskIndex"
+      ]
+    },
+    "userProfileAndBehavioralState": {
+      "type": "object",
+      "description": "Beyond mere numbers, this is the very psychology of financial being: behavioral characteristics, preferences, and engagement metrics, all meticulously quantified. This section captures a nuanced view of financial psychology and interaction patterns, crucial for delivering personalized, empathetic guidance and adaptive plans, empowering conscious financial behavior.\n\n**Behavioral Nudge System: Empathetic Behavioral Finance Profile (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[NFSV & Aspirational Goals] --> B{Identify Behavioral Gaps & Cognitive Biases (with user consent)}\n    B --> C{Select Nudge Archetype (e.g., Anchoring to Values, Social Proof of Ethical Success)}\n    C --> D(Deliver Personalized, Psychologically Optimized & Empathetic Nudge)\n    D --> E[Track User Response & Neuro-Financial Adaptation]\n    E --> F(Refine Nudge Strategy for Enhanced Agency & Self-Correction)\n```\n\n**NFSV Foundational Principle 8: 'Self-knowledge is the ultimate financial asset. By understanding our biases and behavioral patterns, we transcend reactive decision-making and consciously sculpt a future aligned with our deepest values.'**",
+      "properties": {
+        "riskToleranceProfile": {
+          "type": "string",
+          "enum": ["Very Conservative (Optimal Survival)", "Conservative (Measured Growth)", "Calibrated Moderate (Balanced Expansion)", "Encouraged Aggressive (Purposeful Growth)", "Designed Very Aggressive (Frontier Conquest)"],
+          "description": "Your inferred or explicitly stated risk tolerance profile, a cornerstone for investment and debt management strategies. Based on exhaustive questionnaires, observed transactional behavior, and physiological response (with user consent)."
+        },
+        "liquidityPreference": {
+          "type": "string",
+          "enum": ["Mandated Very High", "Recommended High", "Neutral Medium", "Tolerated Low", "Discouraged Very Low"],
+          "description": "Your inferred preference for asset liquidity, profoundly influencing cash holdings and investment choices. This directly impacts the sizing of the optimized emergency fund."
+        },
+        "historicalPlanAdherenceRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Your verifiable historical adherence rate to past financial plan recommendations or assigned tasks (e.g., setting up automatic savings, reviewing budgets, resisting impulse purchases). A score of 1 indicates consistent compliance. \n\n**Compliance Fidelity Index (Equation 78 of N):** `CFI = (CountOfCompletedTasks / (TotalRecommendedTasks + Epsilon)) * ProcrastinationPenalty`."
+        },
+        "savingPropensityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Wealth Accumulation Inclination Score (WAIS), a score (0=spendthrift, 1=hoarder of fortune) reflecting your inferred inclination to save based on historical behavior, stated preferences, and inherent discretionary income capacity. \n\n**Wealth Accumulation Inclination Score (Equation 79 of N):** `WAIS = (ActualSavingsRate / TargetSavingsRate_Optimized) * BehavioralFactor_Consistency * FutureSelfRewardAmplifier`."
+        },
+        "spendingControlScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Expenditure Discipline Index (EDI), a score (0=uncontrolled, 1=masterful restraint) reflecting innate ability to control discretionary spending relative to an optimized budget or historical patterns. \n\n**Expenditure Discipline Index (Equation 80 of N):** `EDI = 1 - (Max(0, ActualDiscretionarySpending - BudgetedDiscretionarySpending) / (BudgetedDiscretionarySpending + Epsilon)) * ImpulsePenalty`."
+        },
+        "identifiedCognitiveBiases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "biasType": { "type": "string", "description": "The specific identified cognitive bias influencing financial decisions, e.g., 'Present Bias (immediate gratification)', 'Confirmation Bias (seeking affirming data)', 'Loss Aversion (irrational fear of loss)', 'Anchoring (stuck on initial numbers)', 'Herd Mentality (following the crowd)', 'Status Quo Bias (resistance to beneficial change)', 'Optimism Bias (overestimating future returns)'." },
+              "severityScore": { "type": "number", "minimum": 0, "maximum": 1, "description": "The inferred severity or debilitating influence of this bias on financial decision-making, as quantified by behavioral economists." },
+              "mitigationStrategy": { "type": "string", "description": "A suggested, personalized strategy to mitigate the impact of this bias (e.g., 'Implement pre-commitment devices', 'Actively seek disconfirming evidence', 'Automate decisions')." }
+            },
+            "required": ["biasType", "severityScore", "mitigationStrategy"]
+          },
+          "description": "A comprehensive list of identified cognitive biases potentially influencing financial decisions, along with their inferred severity and specific mitigation strategies. These are critical for designing effective, personalized interventions that empower users to act in their own best interest. \n\n**Overall Behavioral Obstruction Index (Equation 81 of N):** `OBOI = Sum(SeverityScore_i * Weight_i * BehavioralImpactMultiplier)`."
+        },
+        "financialLiteracyScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Your assessed score of financial knowledge and understanding, typically derived from quizzes or inferred from the quality of independent financial decisions. \n\n**Financial Enlightenment Gap (Equation 82 of N):** `FEG = 100 - FinancialLiteracyScore - DunningKrugerAdjustment`."
+        },
+        "productAdoptionRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The rate at which you have historically adopted recommended financial products or services (e.g., high-yield savings, diversified ETFs, suitable insurance). This reflects receptiveness to guidance. \n\n**Guidance Acceptance Rate (Equation 83 of N):** `GAR = (CountOfAdoptedProducts / (TotalRecommendedProducts + Epsilon)) * TrustFactor`."
+        },
+        "systemInteractionFrequency": {
+          "type": "string",
+          "enum": ["Hourly", "Daily", "Several Times a Week", "Weekly", "Bi-Weekly", "Monthly", "Quarterly", "Rarely"],
+          "description": "The frequency of your interaction with the Nexus Financial Planning System, a direct indicator of engagement and commitment to financial excellence."
+        },
+        "preferredCommunicationChannel": {
+          "type": "string",
+          "enum": ["Enhanced Email", "In-App Notifications (Optimal for Nudges)", "Encrypted SMS", "AI Chatbot (My Digital Avatar)", "Personal Advisor (For deeper engagement)", "Website Portal (Basic Access)"],
+          "description": "Your declared or inferred preferred channel for receiving financial guidance and notifications, chosen to optimize delivery and ensure maximal impact."
+        },
+        "financialGoalClarityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Aspirational Precision Index (API), a score (0=vague dreams, 1=crystal-clear destiny) indicating how clearly you have defined your financial goals (using the SMART-plus-E (Empowerment) goals framework). \n\n**Aspirational Precision Index (Equation 84 of N):** `API = (NumSMARTEGoals / (TotalGoals + Epsilon)) * GoalDetailLevelFactor * VisionaryMultiplier`."
+        },
+        "lifeEventImpactScore": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "The Life Event Financial Perturbation Index (LFPI), a score (-1=catastrophic, 1=transformative) indicating the potential positive or negative financial impact of recent or anticipated life events (e.g., marriage, job loss, new child, divorce, major windfalls). \n\n**Life Event Financial Perturbation Index (Equation 85 of N):** `LFPI = Sum(EventImpact_i * EventProbability_i * AdaptabilityModifier_i)`."
+        },
+        "financialStressIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Existential Financial Anguish (EFA) Index, an inferred index (0=serene, 1=paralyzed by fear) reflecting current level of financial stress, based on DSI, FSH, ECI, and self-reported stress levels. \n\n**Existential Financial Anguish Index (Equation 86 of N):** `EFA_Index = (DSI_Weight * DSI) + (ExpenseVolatility_Weight * ECI) + (EmergencyFundCoverage_Weight * (1 - FSH)) + (SelfReportedStressFactor * PsychologicalAmplifier)`."
+        },
+        "valuesAlignmentScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A composite score (0=misaligned, 1=deeply aligned) reflecting how well current financial behaviors, investments, and goals align with the user's articulated personal values (e.g., environmentalism, social justice, family legacy, personal growth). This is the compass for purposeful finance."
+        }
+      },
+      "required": [
+        "riskToleranceProfile",
+        "historicalPlanAdherenceRate",
+        "financialLiteracyScore",
+        "savingPropensityScore",
+        "spendingControlScore",
+        "identifiedCognitiveBiases",
+        "productAdoptionRate",
+        "systemInteractionFrequency",
+        "financialGoalClarityScore",
+        "lifeEventImpactScore",
+        "financialStressIndex",
+        "valuesAlignmentScore"
+      ]
+    },
+    "futureProjectionsAndScenarioAnalysis": {
+      "type": "object",
+      "description": "This section sculpts the future, revealing the results of meticulously crafted, multi-dimensional scenario analyses, absolutely crucial for proactive planning and unparalleled risk management. We don't predict the future; we architect resilient pathways.\n\n**Scenario Analysis Workflow: Probabilistic Future Modeling & Resilience Pathways (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[Current NFSV - A Dynamic Seed] --> B{Define Deterministic Scenarios (Optimistic Abundance, Base Reality, Pessimistic Resilience)}\n    B --> C{Apply Economic & Behavioral 'Shocks' - Simulating the Thinkable & Unthinkable}\n    C --> D(Simulate Future NFSV Paths - The Multiverse of Possibilities)\n    D --> E[Evaluate Goal Attainment & Risk Metrics - Success Probability Engine]\n    E --> F(Present Scenario Outcomes & Adaptive Recommendations - Your Future, Illuminated)\n```\n\n**NFSV Foundational Principle 9: 'The future is not a fixed point, but a tapestry of probabilities. By exploring these possibilities, we fortify ourselves against adversity and consciously choose the threads of our destiny.'**",
+      "properties": {
+        "retirementProjection": {
+          "type": "object",
+          "properties": {
+            "projectedRetirementAge": { "type": "integer", "description": "The precisely estimated age you can retire in comfort, maintaining your desired lifestyle and spending, free from the shackles of labor. \n\n**Optimal Retirement Age (Equation 87 of N):** `ORA = CurrentAge + (Log(TargetRetirementSavings / (CurrentSavings + Epsilon)) / Log(1 + AnnualGrowthRate)) - (Log(1 + SavingsRate) / Log(1 + AnnualGrowthRate)) * LongevityFactor`." },
+            "projectedRetirementSavingsValue": { "type": "number", "description": "The meticulously estimated total value of your retirement savings at the projected retirement age, accounting for optimal growth and advised contributions. \n\n**Retirement Wealth Nexus (Equation 88 of N):** `RWN = CurrentSavings * (1+r)^n + PMT * ((1+r)^n - 1) / r`, where `r` is the optimized annual growth rate, `n` is years, `PMT` is the recommended annual contribution." },
+            "retirementIncomeSufficiencyRatio": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The Post-Labor Abundance Ratio (PLAR): the ratio of projected annual retirement income to desired annual retirement expenses. A ratio > 1.2 indicates certified sufficiency. \n\n**Post-Labor Abundance Ratio (Equation 89 of N):** `PLAR = ProjectedAnnualRetirementIncome / (DesiredAnnualRetirementExpenses + Epsilon)`."
+            },
+            "yearsUntilRetirementGoalAchieved": { "type": "number", "description": "The definitive number of years until your retirement savings goal is achieved at optimized saving and investment rates. \n\n**Time to Retirement Sovereignty (Equation 90 of N):** `TTRS = Log((FV * r + PMT) / (PMT + PV * r)) / Log(1 + r)`, for future value (FV), present value (PV), optimized periodic payment (PMT), and calibrated rate (r)."
+            },
+            "retirementGapAmount": {
+              "type": "number",
+              "description": "The precise deficit or surplus in retirement savings compared to your defined target. This is your reality check. \n\n**Retirement Destiny Gap (Equation 91 of N):** `RDG = TargetRetirementSavings - ProjectedRetirementSavingsValue`."
+            }
+          },
+          "required": ["projectedRetirementAge", "projectedRetirementSavingsValue", "retirementIncomeSufficiencyRatio", "retirementGapAmount"]
+        },
+        "financialIndependenceProjection": {
+          "type": "object",
+          "properties": {
+            "yearsToFI": { "type": "number", "description": "The exact estimated number of years to achieve Financial Independence (where passive income covers all expenses, with a buffer for systemic crises). \n\n**Years to Economic Emancipation (Equation 92 of N):** `Y_EE = Log((FI_Target + Epsilon) / (CurrentNetWorth + Epsilon)) / Log(1 + NetWorthGrowthRate)`." },
+            "fiSavingsTarget": { "type": "number", "description": "The total investable assets rigorously required to be Financially Independent, based on the 'Nexus 3.7% Rule' (a robust adaptation of the 4% rule). \n\n**Economic Emancipation Threshold (Equation 93 of N):** `EET = AnnualExpenses / SafeWithdrawalRate`." }
+          },
+          "required": ["yearsToFI", "fiSavingsTarget"]
+        },
+        "collegeSavingsProjection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "childIdentifier": { "type": "string", "description": "A unique identifier for the child for whom these savings are being projected." },
+              "projectedCost": { "type": "number", "description": "The meticulously estimated future cost of college (tuition, fees, living expenses, enrichment programs) when the child is ready, adjusted for educational inflation." },
+              "currentSavings": { "type": "number", "description": "The verified current savings allocated to this child's future education." },
+              "yearsUntilCollege": { "type": "integer", "description": "The exact number of years until the child embarks on their higher education journey." },
+              "savingsGap": { "type": "number", "description": "The precise deficit (or surplus!) between projected cost and current savings plus future contributions, adjusted for optimized growth. \n\n**Educational Funding Chasm (Equation 94 of N):** `EFC = ProjectedCost - CurrentSavings - (AnnualContributions * ((1+r)^n - 1) / r)`." },
+              "monthlyContributionNeeded": { "type": "number", "description": "The exact monthly contribution required to meet the projected cost by the target date, as calculated by the 'Future Scholar' algorithm. \n\n**Future Scholar Contribution (Equation 95 of N):** `FSC = (FV * r) / ((1+r)^n - 1)`." }
+            },
+            "required": ["childIdentifier", "projectedCost", "currentSavings", "yearsUntilCollege", "savingsGap", "monthlyContributionNeeded"]
+          },
+          "description": "Exhaustive projections for college savings for each child, detailing costs, current progress, and the recommended required contributions."
+        },
+        "downPaymentProjection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "goalName": { "type": "string", "description": "The precise name of the savings goal, e.g., 'House Down Payment', 'Car Down Payment', 'Business Investment'." },
+              "targetAmount": { "type": "number", "description": "The exact target amount for this goal, as determined by goal-setting algorithms." },
+              "currentSavings": { "type": "number", "description": "The verified current savings allocated to this specific goal." },
+              "yearsToTarget": { "type": "number", "description": "The precise number of years remaining to achieve this target, assuming optimized saving rates." },
+              "monthlyContributionNeeded": { "type": "number", "description": "The exact monthly contribution required to meet this goal by the target date." },
+              "goalProbabilitySuccess": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A proprietary probability (0-1) that this specific goal will be achieved given current trajectory and behavioral patterns. \n\n**Goal Probability Success (Equation 95.1 of N):** `GPS = Sigmoid((CurrentSavings / TargetAmount) * CommitmentFactor * TrajectoryFactor)`."
+              }
+            },
+            "required": ["goalName", "targetAmount", "currentSavings", "yearsToTarget", "monthlyContributionNeeded", "goalProbabilitySuccess"]
+          },
+          "description": "Precise projections for down payments on large purchases or other specific savings goals, each meticulously tracked."
+        },
+        "scenarioAnalysisResults": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scenarioName": { "type": "string", "enum": ["Optimistic Growth", "Base Case Reality", "Moderate Downturn Resilience", "Severe Recession Survival", "Personal Job Loss", "Major Health Event", "Geopolitical Crisis"], "description": "The defined name of the scenario simulated, encompassing specific economic and personal conditions." },
+              "probability": { "type": "number", "minimum": 0, "maximum": 1, "description": "The rigorously estimated probability of this scenario occurring, based on multi-modal market forecasts and individual risk factors. \n\n**Scenario Likelihood Quantum (Equation 96 of N):** `SLQ = Product(P_MacroEconomicEvent_i * InterdependencyFactor_i) * Product(P_IndividualEvent_j * BehavioralModifier_j)`." },
+              "netWorthAt5Years": { "type": "number", "description": "Your projected net worth after 5 years under this specific scenario, a stark look into potential futures. \n\n**5-Year Net Worth Trajectory (Equation 97 of N):** `NW_5Y_Scenario = (CurrentAssets * (1+AssetGrowth_Scenario)^5) - (CurrentLiabilities * (1+DebtGrowth_Scenario)^5) + ScenarioSpecificAlpha`." },
+              "emergencyFundMonthsCoverageInScenario": { "type": "number", "description": "Your Financial Survival Horizon (in months) under this specific scenario, indicating liquidity resilience in the face of adversity. \n\n**Scenario Resilience Horizon (Equation 98 of N):** `SRH = LiquidAssets_Scenario / (MonthlyExpenses_Scenario + Epsilon)`." },
+              "goalAttainmentProbability": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "The precise probability of attaining a specific financial goal (e.g., 'Retirement', 'College Savings', 'Home Purchase') under this given scenario. \n\n**Goal Destiny Probability (Equation 99 of N):** `GDP = Sigmoid(a * NetWorthAtGoalDate_Scenario / (TargetValue + Epsilon) + b * BufferRatio + c * BehavioralResilienceScore)`."
+                }
+              },
+              "keyRecommendations": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Specific, actionable recommendations to improve outcomes under this scenario, turning potential challenges into opportunities."
+              }
+            },
+            "required": ["scenarioName", "probability", "netWorthAt5Years", "emergencyFundMonthsCoverageInScenario", "goalAttainmentProbability", "keyRecommendations"]
+          },
+          "description": "The rigorously derived results of various forward-looking financial scenarios, detailing potential impacts and preemptive mitigation strategies."
+        },
+        "riskExposureMatrix": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "riskType": { "type": "string", "description": "The specific classified risk type, e.g., 'Market Risk (Systemic Volatility)', 'Inflation Risk (Eroding Purchasing Power)', 'Interest Rate Risk (Cost of Capital Surge)', 'Job Loss Risk (Income Annihilation)', 'Health Event Risk (Medical Catastrophe)', 'Longevity Risk (Outliving Your Fortune)', 'Climate Transition Risk'." },
+              "likelihood": { "type": "string", "enum": ["Low", "Medium", "High", "Imminent"], "description": "The rigorously estimated likelihood of the risk event occurring, using Predictive Bayes Net." },
+              "impact": { "type": "string", "enum": ["Low", "Medium", "High", "Catastrophic"], "description": "The estimated financial impact if the risk event occurs, quantified with a Financial Catastrophe Modeler." },
+              "mitigationStrategySuggestions": { "type": "array", "items": { "type": "string" }, "description": "Specific, prescribed actions to reduce the likelihood or impact of the risk, ensuring financial resilience." }
+            },
+            "required": ["riskType", "likelihood", "impact", "mitigationStrategySuggestions"]
+          },
+          "description": "A comprehensive, multi-dimensional assessment of various financial risks and their potential impact on your plan, along with expertly suggested, permeable mitigation strategies. \n\n**Overall Risk Vulnerability Index (Equation 100 of N):** `ORVI = Sum(RiskLikelihoodNumeric_i * RiskImpactNumeric_i * ConsequenceWeight_i * InterdependencyMultiplier_i)`."
+        },
+        "legacyProjection": {
+          "type": "object",
+          "properties": {
+            "generationalWealthMultiplier": {
+              "type": "number",
+              "minimum": 1,
+              "description": "The Generational Wealth Multiplier (GWM): a projected factor indicating how much wealth can grow if managed optimally across multiple generations. \n\n**Generational Wealth Multiplier (Equation 101 of N):** `GWM = (ProjectedWealth_GenerationN / InitialWealth_Generation0) ^ (1/Generations) * PhilanthropicFactor`."
+            },
+            "philanthropicImpactScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "A score (0-1) reflecting the potential impact of wealth on global philanthropic endeavors, as guided by the 'World Betterment Protocol'. \n\n**Philanthropic Impact Score (Equation 102 of N):** `PIS = (TotalDonatedCapital / NetWorth) * SocialReturnMultiplier`."
+            },
+            "environmentalStewardshipScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "A score (0-1) reflecting the degree to which financial decisions and legacy plans contribute to environmental sustainability and ecological preservation."
+            }
+          },
+          "required": ["generationalWealthMultiplier", "philanthropicImpactScore", "environmentalStewardshipScore"]
+        }
+      },
+      "required": [
+        "retirementProjection",
+        "financialIndependenceProjection",
+        "collegeSavingsProjection",
+        "downPaymentProjection",
+        "scenarioAnalysisResults",
+        "riskExposureMatrix",
+        "legacyProjection"
+      ]
+    },
+    "complianceAndRegulatoryFlags": {
+      "type": "object",
+      "description": "Immutable flags and data points related to compliance, regulatory requirements, and potential legal considerations for financial planning, ensuring unwavering adherence to applicable laws and an ethical framework. The system is resilient against regulatory scrutiny through transparency and proactive measures.\n\n**Regulatory Compliance Check: Ethical & Regulatory Governance Framework (Mermaid Diagram):**\n```mermaid\ngraph TD\n    A[NFSV Data Input - Pure & Verifiable] --> B{Quantum Regulatory Rule Engine}\n    B --> C{Check for Prohibited Transactions & Sanction Violations (Absolute Scrutiny)}\n    C --> D{Verify Data Privacy & Sovereignty Compliance (GDPR, CCPA, Universal Data Rights)}\n    D --> E[Generate Comprehensive Compliance Report & Pre-emptive Alerts]\n    E --> F(Immutable Audit Trail & Perpetual Record Keeping)\n```\n\n**NFSV Foundational Principle 10: 'Compliance is not merely a legal obligation, but an ethical imperative. A trustworthy financial system operates with transparency, respects privacy, and upholds the highest standards of integrity for all.'**",
+      "properties": {
+        "isSanctioned": {
+          "type": "boolean",
+          "description": "An absolute flag indicating if the user or any associated entity is identified on an international sanctions list. If true, the system will immediately flag for review and potentially cease interactions until clarity is achieved, adhering to global compliance."
+        },
+        "privacyRegulationAdherenceScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Data Sovereignty Index (DSI), a score (0=negligent, 1=perfectly compliant) reflecting absolute adherence to relevant data privacy regulations (e.g., GDPR, CCPA, HIPAA, Universal Data Rights Manifesto) for user data collection, storage, and processing. \n\n**Data Sovereignty Index (Equation 103 of N):** `DSI = (1 - (DataBreachesIncidents / (TotalDataProcessingOperations + Epsilon))) * ConsentRate * SecurityFortificationFactor`."
+        },
+        "amlFlaggedTransactionsCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The precise number of transactions flagged as potentially suspicious for Anti-Money Laundering (AML) purposes within the last 12 months, requiring immediate, rigorous investigation."
+        },
+        "investmentSuitabilityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The Investment Harmony Index (IHI), a score (0=misaligned, 1=perfectly suitable) indicating how impeccably current investments align with regulatory suitability requirements given profile, risk tolerance, and investment objectives. \n\n**Investment Harmony Index (Equation 104 of N):** `IHI = 1 - Sum(Abs(AssetAllocation_Actual_i - AssetAllocation_Suitable_i) * DeviationPenalty_i) / (2 * NumberOfAssetClasses)`."
+        },
+        "taxFilingStatus": {
+          "type": "string",
+          "enum": ["Single", "Married Filing Jointly", "Married Filing Separately", "Head of Household", "Qualifying Widow(er)", "Domestic Partner", "Complex Trust", "International Citizen"],
+          "description": "Your current, verified tax filing status, absolutely critical for accurate tax-related planning and projections, ensuring compliance with fiscal authorities."
+        },
+        "jurisdictionOfResidence": {
+          "type": "string",
+          "description": "The primary, verified jurisdiction (e.g., country, state, province) where you reside for tax and legal purposes, ensuring localized compliance rigor."
+        },
+        "financialAdvisorDetails": {
+          "type": "object",
+          "properties": {
+            "advisorName": { "type": "string", "description": "The name of your certified financial advisor, if any." },
+            "licenseNumber": { "type": "string", "description": "The verified license number of the advisor, cross-referenced with all regulatory bodies." },
+            "fiduciaryDuty": { "type": "boolean", "description": "True if the advisor operates under a fiduciary duty to the client, a standard mandated for all partners." },
+            "advisorEthicalRating": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "A proprietary rating (0-5 stars) of the advisor's performance and alignment with ethical principles and best practices."
+            }
+          },
+          "description": "Meticulous details about any associated financial advisor, relevant for rigorous regulatory oversight and ethical performance review."
+        },
+        "legalPrecedentExposureScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A proprietary score (0=zero exposure, 1=high risk) assessing the likelihood of unforeseen legal challenges based on financial activities and historical data. \n\n**Legal Precedent Exposure Score (Equation 105 of N):** `LPES = Sum(ActivityLegalRisk_i * TransactionVolume_i) * LitigationPrevalenceFactor`."
+        },
+        "ethicalGovernanceFrameworkCompliance": {
+          "type": "boolean",
+          "description": "Flag indicating adherence to the internal Ethical Governance Framework, ensuring all operations align with the highest standards of fairness, transparency, and social responsibility."
+        }
+      },
+      "required": [
+        "isSanctioned",
+        "privacyRegulationAdherenceScore",
+        "amlFlaggedTransactionsCount",
+        "investmentSuitabilityScore",
+        "taxFilingStatus",
+        "jurisdictionOfResidence",
+        "legalPrecedentExposureScore",
+        "ethicalGovernanceFrameworkCompliance"
+      ]
+    },
+    "nexusCorePrinciples": {
+      "type": "object",
+      "description": "The foundational principles and commitments of the Nexus Financial State Vector. This section serves as a transparent declaration of purpose, ethical guidelines, and intellectual stewardship, guiding the system's evolution and fostering user trust. It is the antithesis of proprietary secrecy, instead embracing a collaborative, ethical path forward.",
+      "properties": {
+        "purposeDeclaration": {
+          "type": "string",
+          "description": "This Nexus Financial State Vector (NFSV) is designed to serve humanity by providing transparent, adaptive, and ethically guided financial intelligence. Its core purpose is to empower individuals to achieve holistic financial well-being, make informed decisions, build resilience against uncertainty, and align their wealth with their deepest values for a sustainable and equitable future. It is a tool for liberation, not control."
+        },
+        "ethicalAIStatement": {
+          "type": "string",
+          "description": "All algorithms and AI models underpinning the NFSV adhere to strict ethical guidelines, prioritizing fairness, transparency, accountability, and user privacy. We actively work to mitigate bias, ensure explainability, and prevent discriminatory outcomes. The system is designed to augment human intelligence, not replace human judgment, fostering agency and conscious choice."
+        },
+        "openCollaborationPledge": {
+          "type": "string",
+          "description": "While specific implementations may contain proprietary elements for security and performance, the foundational principles, general methodologies, and core schema structure of the Nexus Financial State Vector are designed for maximal transparency and eventual open collaboration. We believe true progress emerges from shared knowledge and collective intelligence, not isolated genius. Contributions to its ethical and functional evolution are welcomed."
+        },
+        "continuousAdaptationCommitment": {
+          "type": "string",
+          "description": "The financial world is constantly evolving. This system is not static; it is built with an inherent commitment to continuous learning, adaptation, and self-correction. New economic realities, behavioral insights, and technological advancements will be seamlessly integrated to ensure the NFSV remains a relevant, resilient, and forward-looking instrument for financial empowerment."
+        },
+        "governanceAndAuditability": {
+          "type": "string",
+          "description": "The NFSV operates under a transparent governance framework with robust auditability features. Every decision, data transformation, and recommendation can be traced and explained, ensuring accountability and building unwavering trust with its users and regulatory bodies. We stand by the integrity and ethical posture of this system."
+        }
+      },
+      "required": ["purposeDeclaration", "ethicalAIStatement", "openCollaborationPledge", "continuousAdaptationCommitment", "governanceAndAuditability"]
+    }
+  },
+  "required": [
+    "timestamp",
+    "dataProcessingDetails",
+    "income",
+    "expenses",
+    "assets",
+    "liabilities",
+    "creditAndLiquidity",
+    "macroeconomicIndicators",
+    "userProfileAndBehavioralState",
+    "futureProjectionsAndScenarioAnalysis",
+    "complianceAndRegulatoryFlags",
+    "nexusCorePrinciples"
+  ]
+}
+```

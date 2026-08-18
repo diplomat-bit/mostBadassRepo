@@ -1,0 +1,39 @@
+// REPOSITORY SOURCE: diplomat-bit/aibank | PATH: diplomat-bit-aibank-3a68d63/.release-please-manifest.json
+================================================================================
+
+{
+  ".": "0.13.0"
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/garbage-typescript | ORIGINAL PATH: diplomat-bit-garbage-typescript-95791a2/.release-please-manifest.json
+================================================================================
+
+{
+  ".": "0.0.2"
+}
+
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-go | ORIGINAL PATH: diplomat-bit-jocall3-go-7054919/.release-please-manifest.json
+================================================================================
+
+{
+  ".": "0.1.0"
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-python | ORIGINAL PATH: diplomat-bit-jocall3-python-03825e0/.release-please-manifest.json
+================================================================================
+
+{
+  ".": "0.1.0"
+}
+
+================================================================================
+// APPENDED FROM REPO: diplomat-bit/jocall3-typescript | ORIGINAL PATH: diplomat-bit-jocall3-typescript-b730718/.release-please-manifest.json
+================================================================================
+
+{
+  ".": "0.2.0"
+}

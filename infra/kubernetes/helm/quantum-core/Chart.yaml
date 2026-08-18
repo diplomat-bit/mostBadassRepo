@@ -1,0 +1,119 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/infra/kubernetes/helm/quantum-core/Chart.yaml
+================================================================================
+
+apiVersion: v2
+name: quantum-core
+description: A Helm chart for deploying the Quantum Core platform, a highly extensible and integrated microservices-based API ecosystem.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: "1.0.0"
+
+keywords:
+  - quantum
+  - api-gateway
+  - microservices
+  - platform
+  - extensible
+  - integration
+  - auth
+  - payments
+  - cloud
+  - saas
+  - plaid
+  - auth0
+  - aws
+  - gcp
+
+home: https://github.com/quantum-leap/quantum-core
+sources:
+  - https://github.com/quantum-leap/quantum-core
+  - https://github.com/quantum-leap/api-gateway
+  - https://github.com/quantum-leap/user-service
+  - https://github.com/quantum-leap/auth-service
+  - https://github.com/quantum-leap/integration-hub
+
+maintainers:
+  - name: Quantum Leap Engineering
+    email: engineering@quantumleap.io
+    url: https://quantumleap.io
+
+icon: https://quantumleap.io/assets/logo.svg
+
+# This section lists the sub-charts (dependencies) that this umbrella chart will deploy.
+# Each microservice or core component of the Quantum platform should be its own chart.
+# This allows for independent versioning and deployment of each component.
+# The sub-charts can be located in the 'charts/' directory or a remote repository.
+dependencies:
+  # Core Infrastructure Dependencies (from trusted public repositories)
+  - name: postgresql
+    version: "12.1.6"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled
+    alias: core-db
+  - name: redis
+    version: "16.8.6"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: redis.enabled
+    alias: cache
+  - name: rabbitmq
+    version: "10.1.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: rabbitmq.enabled
+    alias: message-queue
+
+  # Quantum Core Microservices (as local sub-charts)
+  # These are expected to be located in the 'charts/' directory of this Helm chart.
+  - name: api-gateway
+    version: "0.1.0"
+    repository: "file://charts/api-gateway"
+    condition: api-gateway.enabled
+  - name: user-service
+    version: "0.1.0"
+    repository: "file://charts/user-service"
+    condition: user-service.enabled
+  - name: auth-service
+    version: "0.1.0"
+    repository: "file://charts/auth-service"
+    condition: auth-service.enabled
+  - name: payment-service
+    version: "0.1.0"
+    repository: "file://charts/payment-service"
+    condition: payment-service.enabled
+  - name: notification-service
+    version: "0.1.0"
+    repository: "file://charts/notification-service"
+    condition: notification-service.enabled
+  - name: integration-hub
+    version: "0.1.0"
+    repository: "file://charts/integration-hub"
+    description: "Service for managing and routing third-party integrations (Plaid, Stripe, Auth0, AWS, GCP, etc.)"
+    condition: integration-hub.enabled
+  - name: workflow-engine
+    version: "0.1.0"
+    repository: "file://charts/workflow-engine"
+    description: "Service for orchestrating complex, multi-step business processes across services."
+    condition: workflow-engine.enabled
+  - name: analytics-service
+    version: "0.1.0"
+    repository: "file://charts/analytics-service"
+    description: "Service for collecting, processing, and exposing platform analytics and metrics."
+    condition: analytics-service.enabled
+
+annotations:
+  artifacthub.io/prerelease: "true"
+  artifacthub.io/project: "Quantum Core"
+  artifacthub.io/license: "Apache-2.0"
+  artifacthub.io/recommendations: |
+    - chart: ingress-nginx
+      version: "4.0.0"
+    - chart: cert-manager
+      version: "1.8.0"
+    - chart: prometheus-community/kube-prometheus-stack
+      version: "35.0.0"

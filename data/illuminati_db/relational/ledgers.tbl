@@ -1,0 +1,19 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/data/illuminati_db/relational/ledgers.tbl
+================================================================================
+
+[
+  {
+    "id": "ldg_001",
+    "name": "Global Sovereign Master Ledger",
+    "currency": "USD",
+    "status": "BALANCED",
+    "total_balance": 1450000000000
+  },
+  {
+    "id": "ldg_002",
+    "name": "Quantum Reserve Subsidiary Ledger",
+    "currency": "EUR",
+    "status": "BALANCED",
+    "total_balance": 890000000000
+  }
+]

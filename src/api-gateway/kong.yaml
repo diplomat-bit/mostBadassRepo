@@ -1,0 +1,381 @@
+// REPOSITORY SOURCE: diplomat-bit/Citibank_Demo_Business_Inc_Demonstration- | PATH: diplomat-bit-Citibank_Demo_Business_Inc_Demonstration--ab2501d/src/api-gateway/kong.yaml
+================================================================================
+
+_format_version: "3.0"
+_info:
+  select_tags:
+    - "production"
+    - "core-platform"
+
+# ------------------------------------------------------------------------------
+# Secret Management: Using environment variables as a vault.
+# In a real production environment, consider using HashiCorp Vault (`hcv`).
+# Example: export PLAID_API_KEY="your_plaid_key"
+# ------------------------------------------------------------------------------
+vaults:
+  - prefix: env
+    config:
+      prefix: KONG_VAULT_
+
+# ------------------------------------------------------------------------------
+# Upstreams & Targets: Defines load balancing pools for our microservices.
+# This allows for health checks, circuit breaking, and scaling.
+# ------------------------------------------------------------------------------
+upstreams:
+  - name: users-service.upstream
+    healthchecks:
+      active:
+        http_path: /health
+        healthy:
+          interval: 5
+          successes: 2
+        unhealthy:
+          interval: 5
+          http_failures: 3
+      passive:
+        healthy:
+          successes: 2
+        unhealthy:
+          http_failures: 5
+    targets:
+      - target: users-service-v1:8080
+        weight: 100
+      - target: users-service-v2:8080
+        weight: 50 # Canary release
+  - name: products-service.upstream
+    targets:
+      - target: products-service:8080
+  - name: orders-service.upstream
+    targets:
+      - target: orders-service:8080
+  - name: payments-service.upstream
+    targets:
+      - target: payments-service:8080
+  - name: analytics-service.upstream
+    targets:
+      - target: analytics-service:8080
+  - name: plaid-integration.upstream
+    targets:
+      - target: plaid-integration-service:8080 # Our internal service that abstracts Plaid
+  - name: stripe-integration.upstream
+    targets:
+      - target: stripe-integration-service:8080 # Our internal service that abstracts Stripe
+
+# ------------------------------------------------------------------------------
+# Services: Logical representation of our backend APIs/microservices.
+# ------------------------------------------------------------------------------
+services:
+  - name: users-service
+    host: users-service.upstream
+    port: 8080
+    protocol: http
+    retries: 3
+    connect_timeout: 5000
+    write_timeout: 10000
+    read_timeout: 10000
+  - name: products-service
+    host: products-service.upstream
+    port: 8080
+    protocol: http
+  - name: orders-service
+    host: orders-service.upstream
+    port: 8080
+    protocol: http
+  - name: payments-service
+    host: payments-service.upstream
+    port: 8080
+    protocol: http
+  - name: analytics-service
+    host: analytics-service.upstream
+    port: 8080
+    protocol: http
+  - name: plaid-integration-service
+    host: plaid-integration.upstream
+    port: 8080
+    protocol: http
+  - name: stripe-integration-service
+    host: stripe-integration.upstream
+    port: 8080
+    protocol: http
+  # Serverless Services (no host, as plugin defines destination)
+  - name: aws-lambda-invoices
+    url: http://localhost # Dummy URL, plugin overrides
+  - name: gcp-function-reports
+    url: http://localhost # Dummy URL, plugin overrides
+
+# ------------------------------------------------------------------------------
+# Routes: How requests from clients are mapped to Services.
+# ------------------------------------------------------------------------------
+routes:
+  # User Service Routes
+  - name: users-api
+    service: users-service
+    paths:
+      - /v1/users
+      - /v1/auth
+    strip_path: true
+    tags: ["user-facing", "auth"]
+  # Products Service Routes
+  - name: products-api-public
+    service: products-service
+    paths:
+      - /v1/products
+    methods: [GET]
+    strip_path: true
+    tags: ["public", "cacheable"]
+  - name: products-api-internal
+    service: products-service
+    paths:
+      - /v1/products
+    methods: [POST, PUT, DELETE]
+    strip_path: true
+    tags: ["internal-only"]
+  # Orders Service Routes
+  - name: orders-api
+    service: orders-service
+    paths:
+      - /v1/orders
+    strip_path: true
+    tags: ["user-facing", "transactional"]
+  # Payments Service Routes
+  - name: payments-api
+    service: payments-service
+    paths:
+      - /v1/payments
+    strip_path: true
+    tags: ["user-facing", "sensitive", "transactional"]
+  # Analytics Service Route (M2M)
+  - name: analytics-api
+    service: analytics-service
+    paths:
+      - /v1/analytics
+    strip_path: true
+    tags: ["internal-only", "m2m"]
+  # 3rd Party Integration Routes
+  - name: plaid-api
+    service: plaid-integration-service
+    paths:
+      - /v1/integrations/plaid
+    strip_path: true
+    tags: ["integration", "plaid"]
+  - name: stripe-api
+    service: stripe-integration-service
+    paths:
+      - /v1/integrations/stripe
+    strip_path: true
+    tags: ["integration", "stripe"]
+  # Serverless Routes
+  - name: aws-lambda-invoices-route
+    service: aws-lambda-invoices
+    paths:
+      - /v1/serverless/invoices
+    strip_path: true
+    tags: ["serverless", "aws"]
+  - name: gcp-function-reports-route
+    service: gcp-function-reports
+    paths:
+      - /v1/serverless/reports
+    strip_path: true
+    tags: ["serverless", "gcp"]
+
+# ------------------------------------------------------------------------------
+# Consumers & Credentials: Represents users/apps consuming the API.
+# ------------------------------------------------------------------------------
+consumers:
+  - username: internal-service-account
+    tags: ["internal", "m2m"]
+  - username: premium-partner
+    custom_id: partner-acme-corp
+    tags: ["partner", "premium"]
+  - username: mobile-app-user
+    tags: ["mobile", "end-user"]
+
+# Credentials for consumers
+keyauth_credentials:
+  - consumer: premium-partner
+    key: "{vault://env/PARTNER_ACME_API_KEY}" # Stored in env var KONG_VAULT_PARTNER_ACME_API_KEY
+
+jwt_secrets:
+  - consumer: internal-service-account
+    key: internal-m2m-issuer
+    secret: "{vault://env/INTERNAL_M2M_JWT_SECRET}"
+    algorithm: HS256
+
+# ------------------------------------------------------------------------------
+# Global Plugins: Applied to all services and routes.
+# ------------------------------------------------------------------------------
+plugins:
+  - name: correlation-id
+    config:
+      header_name: X-Request-ID
+      generator: uuid#v4
+      echo_downstream: true
+  - name: prometheus
+    config:
+      per_consumer: true
+  - name: opentelemetry
+    config:
+      endpoint: http://jaeger-collector:4318/v1/traces
+      header_type: w3c
+  - name: http-log
+    config:
+      http_endpoint: http://logstash:5044
+      method: POST
+      content_type: application/json
+  - name: cors
+    config:
+      origins:
+        - "${CORS_ORIGIN_DOMAIN_1}" # e.g., https://app.yourcompany.com
+        - "${CORS_ORIGIN_DOMAIN_2}" # e.g., http://localhost:3000
+      methods:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+      headers:
+        - Authorization
+        - Content-Type
+      exposed_headers:
+        - X-RateLimit-Limit
+        - X-RateLimit-Remaining
+      credentials: true
+      max_age: 3600
+
+# ------------------------------------------------------------------------------
+# Service/Route Specific Plugins
+# ------------------------------------------------------------------------------
+
+# --- Authentication & Authorization ---
+  - name: oidc
+    route: users-api # Apply to user-facing routes
+    config:
+      client_id: "${AUTH0_CLIENT_ID}"
+      client_secret: "{vault://env/AUTH0_CLIENT_SECRET}"
+      issuer: "https://{AUTH0_DOMAIN}/"
+      discovery: "https://{AUTH0_DOMAIN}/.well-known/openid-configuration"
+      scope: "openid profile email"
+      auth_methods:
+        - authorization_code
+        - bearer
+      session:
+        cookie_name: "app_session"
+        secret: "{vault://env/SESSION_SECRET}"
+        cookie_samesite: "Lax"
+        cookie_secure: true
+  - name: jwt
+    route: analytics-api # M2M route
+    config:
+      claims_to_verify:
+        - exp
+  - name: key-auth
+    service: products-service # Example: partners can access products
+    config:
+      key_names:
+        - apikey
+      run_on_preflight: false
+  - name: acl
+    service: analytics-service # Protect analytics service
+    config:
+      allow:
+        - "internal-systems" # Only consumers in this group can access
+
+# --- Traffic Control ---
+  - name: rate-limiting
+    service: users-service
+    config:
+      minute: 100
+      hour: 2000
+      policy: local
+      per_consumer: true
+  - name: rate-limiting # Stricter limits for sensitive endpoints
+    service: payments-service
+    config:
+      minute: 20
+      hour: 200
+      policy: redis
+      redis_host: "${REDIS_HOST}"
+      redis_port: 6379
+      per_consumer: true
+  - name: rate-limiting # Higher limits for premium partners
+    consumer: premium-partner
+    config:
+      minute: 1000
+      hour: 20000
+      policy: redis
+      redis_host: "${REDIS_HOST}"
+      redis_port: 6379
+  - name: request-size-limiting
+    config:
+      allowed_payload_size: 128 # in MB
+  - name: proxy-cache
+    route: products-api-public
+    config:
+      content_type:
+        - "application/json; charset=utf-8"
+      cache_ttl: 300 # 5 minutes
+      strategy: memory
+      vary_headers: ["Authorization"]
+
+# --- Security ---
+  - name: bot-detection
+    service: users-service
+    config:
+      allow:
+        - "Googlebot"
+        - "Bingbot"
+  - name: ip-restriction
+    route: analytics-api # Only allow access from internal network
+    config:
+      allow:
+        - "10.0.0.0/8"
+        - "172.16.0.0/12"
+        - "192.168.0.0/16"
+
+# --- Transformations & Integrations ---
+  - name: request-transformer
+    route: plaid-api
+    config:
+      add:
+        headers:
+          - "PLAID-CLIENT-ID:${PLAID_CLIENT_ID}"
+          - "PLAID-SECRET:{vault://env/PLAID_API_SECRET}"
+  - name: response-transformer
+    route: users-api
+    config:
+      remove:
+        json:
+          - internal_user_id
+          - ssn_last_4 # Example of removing sensitive data before it leaves
+  - name: aws-lambda
+    route: aws-lambda-invoices-route
+    config:
+      aws_key: "${AWS_ACCESS_KEY_ID}"
+      aws_secret: "{vault://env/AWS_SECRET_ACCESS_KEY}"
+      aws_region: "us-east-1"
+      function_name: "GenerateInvoiceFunction"
+      invocation_type: "RequestResponse"
+  - name: gcp-functions
+    route: gcp-function-reports-route
+    config:
+      function_name: "GenerateQuarterlyReport"
+      project_id: "${GCP_PROJECT_ID}"
+      region: "us-central1"
+      service_account_key: "{vault://env/GCP_SA_KEY_JSON}"
+
+# ------------------------------------------------------------------------------
+# Custom Entities (e.g., for ACL plugin)
+# ------------------------------------------------------------------------------
+acls:
+  - consumer: internal-service-account
+    group: internal-systems
+
+# ------------------------------------------------------------------------------
+# SSL Certificates for custom domains
+# ------------------------------------------------------------------------------
+certificates:
+  - cert: "{vault://env/SSL_CERT_PUBLIC_KEY}"
+    key: "{vault://env/SSL_CERT_PRIVATE_KEY}"
+    snis:
+      - "api.yourcompany.com"
+      - "integrations.yourcompany.com"

@@ -1,0 +1,12 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/data/illuminati_db/relational/sessions.tbl
+================================================================================
+
+[
+  {
+    "id": "ses_001",
+    "user_id": "usr_001",
+    "ip_address": "10.0.0.15",
+    "status": "ACTIVE",
+    "expires_at": "2026-08-17T00:00:00Z"
+  }
+]

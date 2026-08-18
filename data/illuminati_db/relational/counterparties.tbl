@@ -1,0 +1,19 @@
+// REPOSITORY SOURCE: diplomat-bit/Fuckyou | PATH: diplomat-bit-Fuckyou-70f83c5/data/illuminati_db/relational/counterparties.tbl
+================================================================================
+
+[
+  {
+    "id": "cp_001",
+    "name": "Apex Sovereign Holdings",
+    "type": "INSTITUTIONAL",
+    "country": "CH",
+    "status": "APPROVED"
+  },
+  {
+    "id": "cp_002",
+    "name": "Helios Meridian Syndicate",
+    "type": "SYNDICATE",
+    "country": "SG",
+    "status": "APPROVED"
+  }
+]

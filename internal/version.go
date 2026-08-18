@@ -1,0 +1,8 @@
+// REPOSITORY SOURCE: diplomat-bit/jocall3-go | PATH: diplomat-bit-jocall3-go-7054919/internal/version.go
+================================================================================
+
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+package internal
+
+const PackageVersion = "0.1.0" // x-release-please-version
